@@ -1,11 +1,9 @@
 ---
-author: Pete
 comments: true
 date: 2013-09-13 22:29:36+00:00
 layout: post
 slug: create-an-openfoam-simulation-progress-bar-with-pyqt
 title: Create an OpenFOAM simulation progress bar with PyQt
-wordpress_id: 560
 categories:
 - OpenFOAM
 - Python
@@ -13,9 +11,13 @@ categories:
 
 The code below shows how to use PyQt to create a status bar that shows the progress of an OpenFOAM simulation. Note that the arguments to `re.findall` may need to be tweaked depending on the specific case setup, and that the code assumes the simulation will be run in parallel, but it should be easy enough to tailor this sample to any case.
 
-[![Qt Progress Bar](http://petebachant.me/wp-content/uploads/2013/09/Qt_progressbar.png)](http://petebachant.me/wp-content/uploads/2013/09/Qt_progressbar.png)
+<center>
 
-~~~ python
+![Qt progress bar](/images/qt-progressbar.png)
+
+</center>
+
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
@@ -45,7 +47,6 @@ def getParams():
     endTime = endTime[0]
     writeInterval = writeInterval[0]
     return endTime, writeInterval
-
 
 
 class Progress(QtCore.QThread):
@@ -110,5 +111,4 @@ if __name__ == '__main__':
     pbarwin = AddProgresWin()
     pbarwin.show()
     app.exec_()
-
-~~~
+```
