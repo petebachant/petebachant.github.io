@@ -1,6 +1,6 @@
 ---
 author: Pete
-comments: true
+comments: false
 date: 2013-06-07 00:01:51+00:00
 layout: page
 slug: projects

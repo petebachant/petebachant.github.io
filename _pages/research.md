@@ -1,6 +1,4 @@
 ---
-author: Pete
-comments: true
 date: 2013-09-13 22:51:44+00:00
 layout: page
 slug: research
