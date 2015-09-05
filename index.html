@@ -14,11 +14,14 @@ layout: default
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
+
+        {{ post.content }}
+
       </li>
     {% endfor %}
   </ul>
 
-  <p class="text"><a href="/posts/">More...</a></p>
+  <p class="text" align="left"><a href="/posts/"><b>More posts &raquo;</b></a></p>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
