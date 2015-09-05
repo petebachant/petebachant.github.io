@@ -1,37 +1,37 @@
 ---
-author: Pete
 comments: true
 date: 2014-03-12 00:19:51+00:00
 layout: post
 slug: yz-traversing-carriage
 title: YZ traversing carriage
-wordpress_id: 618
 categories:
 - Projects
 ---
 
-[caption id="attachment_794" align="alignright" width="300"][![Traversing carriage assembly installed as part of the UNH-CORE turbine test bed.](http://petebachant.me/wp-content/uploads/2014/03/IMG_5068_smaller-300x199.png)](http://petebachant.me/wp-content/uploads/2014/03/IMG_5068_smaller.png) Traversing carriage assembly installed as part of the UNH CORE turbine test bed.[/caption]
+{% include figure.html src="/images/yz-traverse-photo.png" caption="Traversing carriage assembly installed as part of the UNH CORE turbine test bed." width="60%" %}
 
 In order to perform turbine wake measurements in UNH's tow tank, I designed and built a 2-axis positioning system for our Nortek Vectrino acoustic Doppler velocimeter. Some specifications are shown in the table below:
-[table th="0" width=45%]
-Cross-stream (y-axis) travel, 3.0 m,
-Vertical (z-axis) travel, 1.2 m,
-Max drag force (estimated), 25 N at 2 m/s,
-[/table]
 
+<center>
+
+| Parameter | Value |
+|:----------|:------|
+| Cross-stream (y-axis) travel | 3.0 m |
+| Vertical (z-axis) travel | 1.2 m |
+| Max drag force (estimated) | 25 N at 2 m/s |
+
+</center>
 
 
 ## Components
 
-
-
-[caption id="attachment_783" align="alignright" width="300"][![SolidWorks rendering of the YZ traverse assembly.](http://petebachant.me/wp-content/uploads/2014/03/YZ-traverse-rendering-300x240.jpg)](http://petebachant.me/wp-content/uploads/2014/03/YZ-traverse-rendering.jpg) SolidWorks rendering of the YZ traverse assembly.[/caption]
-
-The frame is constructed mostly from 80/20 15 series t-slot framing and hardware, with some custom brackets to mount to 1.25" pillow block linear bearings. 
+The frame is constructed mostly from 80/20 15 series t-slot framing and hardware, with some custom brackets to mount to 1.25" pillow block linear bearings.
 
 Attached to the frame are two Velmex BiSlide linear stages, with the y-axis driven by a stepper/belt and the z-axis driven by a stepper/ball screw. An additional igus DryLin polymer linear bearing, along with a second carriage on the z-stage BiSlide provide additional moment loading capacity.
 
-The Vectrino probe is clamped in a cantilevered bar attached to a NACA 0020 strut. The foil is attached to an 80/20 extrusion, which mounts to the z-axis linear stage via two custom adapter blocks. Note that the adapter blocks' odd  odd trapezoidal shape is due to the fact they're made from recycled material. 
+{% include figure.html src="/images/yz-traverse-rendering.jpg" caption="SolidWorks rendering of the YZ traverse assembly." width="60%" %}
+
+The Vectrino probe is clamped in a cantilevered bar attached to a NACA 0020 strut. The foil is attached to an 80/20 extrusion, which mounts to the z-axis linear stage via two custom adapter blocks. Note that the adapter blocks' odd  odd trapezoidal shape is due to the fact they're made from recycled material.
 
 Two igus Energy Chain cable carriers span the horizontal and vertical axes to keep the Vectrino and motor cables from tangling during operation.
 
@@ -47,4 +47,4 @@ The stepper motors are driven by an ACS UDMlc drive controlled by an ACS NTM Eth
 ## CAD file download
 
 
-A full assembly of this design, minus some minor hardware, is available for download in (SolidWorks 2012 format) [here](https://drive.google.com/file/d/0BwMVIAlxIxfZQk5FWW5FR3NIaWs/edit?usp=sharing). Contact me if you would like something similar designed and/or built. 
+A full assembly of this design, minus some minor hardware, is available for download in (SolidWorks 2012 format) [here](https://drive.google.com/file/d/0BwMVIAlxIxfZQk5FWW5FR3NIaWs/edit?usp=sharing). Contact me if you would like something similar designed and/or built.
