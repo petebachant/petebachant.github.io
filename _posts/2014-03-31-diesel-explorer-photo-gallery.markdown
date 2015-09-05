@@ -4,13 +4,8 @@ date: 2014-03-31 00:18:16+00:00
 layout: post
 slug: diesel-explorer-photo-gallery
 title: 'Diesel Explorer: Photo gallery'
-categories:
-- Diesel Explorer
-- Engineering
-- Projects
-tags:
-- Cummins
-- turbo diesel
+tags: ["Cummins", "turbo diesel"]
+permalink: /projects/diesel-explorer/photo-gallery.html
 ---
 
 Here's an album of a bunch of photos taken during the project:
