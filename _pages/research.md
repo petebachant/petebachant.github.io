@@ -13,16 +13,17 @@ numerical modeling.
 
 ## Video
 
+<center>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/THZvV4R1vow" frameborder="0" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pyw-38ypWcI" frameborder="0" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AyLSyuCpT_E" frameborder="0" allowfullscreen></iframe>
 
-
-
 See more on [YouTube...](http://youtube.com/bachantp)
 
+</center>
 
 ## Publications
 
