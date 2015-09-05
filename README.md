@@ -1,2 +1,7 @@
 # petebachant.github.io
-My personal website. 
+
+My personal website.
+
+## Notes
+
+* Using `redcarpet` for highlighting in fenced code blocks.
