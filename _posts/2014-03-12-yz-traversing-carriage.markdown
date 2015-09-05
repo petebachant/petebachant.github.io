@@ -4,8 +4,7 @@ date: 2014-03-12 00:19:51+00:00
 layout: post
 slug: yz-traversing-carriage
 title: YZ traversing carriage
-categories:
-- Projects
+permalink: /projects/yz-traversing-carriage/
 ---
 
 {% include figure.html src="/images/yz-traverse-photo.png" caption="Traversing carriage assembly installed as part of the UNH CORE turbine test bed." width="60%" %}
