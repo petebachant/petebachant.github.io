@@ -4,7 +4,6 @@ date: 2014-08-15 23:40:05+00:00
 layout: post
 slug: preparing-solidworks-cad-models-for-openfoams-snappyhexmesh
 title: Preparing SolidWorks CAD models for OpenFOAM's snappyHexMesh
-wordpress_id: 756
 categories:
 - Design
 - Engineering
