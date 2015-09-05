@@ -2,9 +2,8 @@
 comments: true
 date: 2013-09-13 22:29:36+00:00
 layout: post
-slug: create-an-openfoam-simulation-progress-bar-with-pyqt
 title: Create an OpenFOAM simulation progress bar with PyQt
-categories:
+tags:
 - OpenFOAM
 - Python
 ---

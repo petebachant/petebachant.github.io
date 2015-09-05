@@ -10,10 +10,10 @@ permalink: /projects/
 
 ## Mechanical design, engineering, fabrication
 
-[**Diesel Explorer**](diesel-explorer) -- Cummins B3.3 turbo
+[**Diesel Explorer**](/projects/diesel-explorer) -- Cummins B3.3 turbo
 diesel engine transplanted into a 1995 Ford Explorer to obtain 30+ MPG.
 
-[**YZ Traversing Carriage**](yz-traversing-carriage)
+[**YZ Traversing Carriage**](/yz-traversing-carriage)
  -- 2-axis linear motion system for automated instrument positioning.
 
 [**1:6 Scale DOE RM2**](https://github.com/UNH-CORE/RM2-tow-tank) -- Open

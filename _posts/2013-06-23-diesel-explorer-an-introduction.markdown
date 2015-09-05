@@ -5,7 +5,6 @@ layout: post
 slug: diesel-explorer-introduction
 title: 'Diesel Explorer: Introduction'
 categories: [projects, diesel-explorer]
-permalink: "/projects/diesel-explorer/introduction/"
 ---
 
 I first became interested in diesel engines after learning about the diesel

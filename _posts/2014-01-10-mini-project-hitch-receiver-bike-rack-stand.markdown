@@ -2,12 +2,11 @@
 comments: true
 date: 2014-01-10 05:38:23+00:00
 layout: post
-slug: mini-project-hitch-receiver-bike-rack-stand
 title: 'Mini-project: Hitch receiver bike rack stand'
-categories:
-- Design
-- Engineering
-- Projects
+tags:
+- design
+- engineering
+- projects
 ---
 
 Living in a studio apartment, storage space can be hard to come by. To have a place to store both my bike and hitch receiver bike rack, I designed and built a rolling stand that holds the rack upright, also serving as a nice work stand.

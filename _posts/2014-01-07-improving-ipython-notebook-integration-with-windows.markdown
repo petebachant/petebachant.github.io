@@ -2,9 +2,8 @@
 comments: true
 date: 2014-01-07 20:58:04+00:00
 layout: post
-slug: improving-ipython-notebook-integration-with-windows
 title: Improving IPython Notebook integration with Windows
-categories:
+tags:
 - Python
 ---
 

@@ -4,9 +4,6 @@ date: 2013-08-24 23:57:47+00:00
 layout: post
 slug: automatic-email-openfoam
 title: Automatically receive an email when an OpenFOAM simulation is complete
-categories:
-- OpenFOAM
-- Python
 tags:
 - Automation
 - CFD

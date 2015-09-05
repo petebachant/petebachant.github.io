@@ -4,9 +4,8 @@ date: 2013-07-23 22:17:54+00:00
 layout: post
 slug: diesel-explorer-choosing-a-chassis
 title: 'Diesel Explorer: Choosing a chassis'
-categories: "diesel-explorer"
+categories: ["projects", "diesel-explorer"]
 tags: "diesel explorer, Cummins"
-permalink: "/projects/diesel-explorer/choosing-a-chassis/"
 ---
 
 Having settled in on the Cummins B3.3 for an engine, the next step was to choose

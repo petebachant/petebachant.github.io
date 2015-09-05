@@ -2,7 +2,6 @@
 comments: true
 date: 2010-09-08 02:00:40+00:00
 layout: post
-slug: evolving-playlists
 title: Evolving iPod playlists
 ---
 

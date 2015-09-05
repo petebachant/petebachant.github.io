@@ -2,7 +2,6 @@
 comments: true
 date: 2012-08-20 00:39:23+00:00
 layout: post
-slug: the-fuel-efficiency-of-bicycling
 title: The fuel efficiency of bicycling
 tags: energy
 ---

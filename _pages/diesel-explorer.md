@@ -25,12 +25,11 @@ work in progress, so please be patient as I get things put together.
 
 ## Contents
 
-[**1. Introduction**](/projects/diesel-explorer/introduction)
+[**1. Introduction**](/diesel-explorer-an-introduction)
 
-[**2. Photo gallery**](/projects/diesel-explorer/photo-gallery)
+[**2. Photo gallery**](/diesel-explorer-photo-gallery)
 
-[**3. Choosing a
-chassis**](/projects/diesel-explorer/choosing-a-chassis)
+[**3. Choosing a chassis**](/diesel-explorer-choosing-a-chassis)
 
 
 ## Acknowledgements

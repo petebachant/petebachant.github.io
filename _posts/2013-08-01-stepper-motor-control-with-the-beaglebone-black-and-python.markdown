@@ -5,7 +5,6 @@ layout: post
 slug: stepper-motor-control-with-the-beaglebone-black-and-python
 title: Stepper motor control with the BeagleBone Black and Python
 tags: ["BeagleBone", "Python", "automation"]
-permalink: /stepper-motor-control-with-the-beaglebone-black-and-python/
 ---
 
 The BeagleBone Black (BBB) is a $45 credit-card-sized computer that runs
