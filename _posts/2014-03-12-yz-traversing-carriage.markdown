@@ -7,19 +7,23 @@ title: YZ traversing carriage
 permalink: /projects/yz-traversing-carriage/
 ---
 
-{% include figure.html src="/images/yz-traverse-photo.png" caption="Traversing carriage assembly installed as part of the UNH CORE turbine test bed." width="60%" %}
+{% include figure.html src="/images/yz-traverse-photo.png" caption="Traversing carriage assembly installed as part of the UNH CORE turbine test bed." width="80%" %}
 
 In order to perform turbine wake measurements in UNH's tow tank, I designed and built a 2-axis positioning system for our Nortek Vectrino acoustic Doppler velocimeter. Some specifications are shown in the table below:
 
+---
+
 <center>
 
-| Parameter | Value |
+|  |  |
 |:----------|:------|
 | Cross-stream (y-axis) travel | 3.0 m |
 | Vertical (z-axis) travel | 1.2 m |
 | Max drag force (estimated) | 25 N at 2 m/s |
 
 </center>
+
+---
 
 
 ## Components
@@ -28,7 +32,7 @@ The frame is constructed mostly from 80/20 15 series t-slot framing and hardware
 
 Attached to the frame are two Velmex BiSlide linear stages, with the y-axis driven by a stepper/belt and the z-axis driven by a stepper/ball screw. An additional igus DryLin polymer linear bearing, along with a second carriage on the z-stage BiSlide provide additional moment loading capacity.
 
-{% include figure.html src="/images/yz-traverse-rendering.jpg" caption="SolidWorks rendering of the YZ traverse assembly." width="60%" %}
+{% include figure.html src="/images/yz-traverse-rendering.jpg" caption="SolidWorks rendering of the YZ traverse assembly." width="80%" %}
 
 The Vectrino probe is clamped in a cantilevered bar attached to a NACA 0020 strut. The foil is attached to an 80/20 extrusion, which mounts to the z-axis linear stage via two custom adapter blocks. Note that the adapter blocks' odd  odd trapezoidal shape is due to the fact they're made from recycled material.
 
