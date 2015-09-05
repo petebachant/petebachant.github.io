@@ -9,9 +9,8 @@ title: Projects
 
 ## Mechanical design, engineering, fabrication
 
-[**Diesel Explorer**](/projects/diesel-explorer) -- Cummins B3.3 turbo diesel
-engine transplanted into a 1995 Ford Explorer to obtain 30+ MPG.
-
+[**Diesel Explorer**](/projects/diesel-explorer.html) -- Cummins B3.3 turbo
+diesel engine transplanted into a 1995 Ford Explorer to obtain 30+ MPG.
 
 [**YZ Traversing Carriage**](http://petebachant.me/yz-traversing-carriage/)
  -- 2-axis linear motion system for automated instrument positioning.
