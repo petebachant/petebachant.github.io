@@ -1,33 +1,32 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "From WordPress to Jekyll"
 date:   2015-09-01 22:04:55
-categories: jekyll update
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve --watch`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+After reading many articles and comments extolling the virtues of static HTML
+and being a very happy GitHub user for a while now, I decided to migrate my
+personal website from WordPress to Jekyll with GitHub Pages for hosting.
 
-Jekyll also offers powerful support for code snippets:
+I tried to use Jekyll's importer with my old database credentials but for some
+reason that wouldn't work. I ended up using the export tool built into WordPress
+to generate an XML version of the site. This was then converted into Jekyll
+posts and pages using [exitwp](https://github.com/thomasf/exitwp). Exitwp did a
+reasonable job, though the amount of tweaking I had to do would have been
+prohibitive for anything above ~20 posts. I manually downloaded and replaced all
+images, had to reformat all tables (they were generated with a WordPress
+plugin), and had to change some LaTeX syntax, but got it done in a few hours.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+I've only made a couple visual tweaks to the default Jekyll theme so far and I'm
+actually quite pleased with it.
 
-``` ruby
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-```
+## Markdown renderer
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+Kramdown would not allow for syntax highlighting in fenced code blocks, e.g.,
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+    ```python
+    print("hello world")
+    ```
+
+so I switched over to Redcarpet (as simple as editing the `markdown` entry in
+`_config.yml`), and all is well.
