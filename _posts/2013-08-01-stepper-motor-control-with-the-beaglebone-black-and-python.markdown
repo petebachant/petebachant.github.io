@@ -2,7 +2,6 @@
 comments: true
 date: 2013-08-01 01:42:55+00:00
 layout: post
-slug: stepper-motor-control-with-the-beaglebone-black-and-python
 title: Stepper motor control with the BeagleBone Black and Python
 tags: ["BeagleBone", "Python", "automation"]
 ---
