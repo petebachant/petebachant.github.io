@@ -29,9 +29,7 @@ Make sure the SolidWorks model is located where you want it to be in the simulat
 
 ## 3. Export to STL
 
-{% include figure.html
-src="http://petebachant.me/wp-content/uploads/2014/08/solidworks_to_openfoam_stl-300x264.png"
-caption="SolidWorks STL export options." %}
+{% include figure.html src="http://petebachant.me/wp-content/uploads/2014/08/solidworks_to_openfoam_stl-300x264.png" caption="SolidWorks STL export options." width="70%" %}
 
 Once the model is ready, select "File->Save As..." and pick "\*.STL" under "Save as type:". Next, click the options button. Make sure the option to not move the model into positive space is checked, that the units are correct (OpenFOAM works in meters), and that you are saving as an ASCII, not binary, STL. Note the capital letters SolidWorks uses in the file extension by default, and that Unix file systems are case-sensitive.
 
