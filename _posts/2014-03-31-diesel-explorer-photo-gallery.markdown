@@ -5,7 +5,7 @@ layout: post
 slug: diesel-explorer-photo-gallery
 title: 'Diesel Explorer: Photo gallery'
 tags: ["Cummins", "turbo diesel"]
-permalink: /projects/diesel-explorer/photo-gallery.html
+permalink: /projects/diesel-explorer/photo-gallery/
 ---
 
 Here's an album of a bunch of photos taken during the project:

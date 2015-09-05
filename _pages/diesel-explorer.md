@@ -5,7 +5,7 @@ layout: page
 slug: diesel-explorer
 title: Diesel Explorer
 exclude_from_navigation: true
-permalink: "/projects/diesel-explorer.html"
+permalink: "/projects/diesel-explorer/"
 ---
 
 <a href="/images/diesel-explorer-engine-bay.jpg">
@@ -25,12 +25,12 @@ work in progress, so please be patient as I get things put together.
 
 ## Contents
 
-[**1. Introduction**](/projects/diesel-explorer/introduction.html)
+[**1. Introduction**](/projects/diesel-explorer/introduction)
 
-[**2. Photo gallery**](/projects/diesel-explorer/photo-gallery.html)
+[**2. Photo gallery**](/projects/diesel-explorer/photo-gallery)
 
 [**3. Choosing a
-chassis**](/projects/diesel-explorer/choosing-a-chassis.html)
+chassis**](/projects/diesel-explorer/choosing-a-chassis)
 
 
 ## Acknowledgements

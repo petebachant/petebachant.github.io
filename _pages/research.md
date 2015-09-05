@@ -5,28 +5,21 @@ date: 2013-09-13 22:51:44+00:00
 layout: page
 slug: research
 title: Research
-wordpress_id: 575
+permalink: /research/
 ---
 
-My research is focused on cross-flow marine hydrokinetic (MHK) and wind turbines—mostly experimental up until now but I am starting to get into numerical modeling.
-
+My research is focused on cross-flow marine hydrokinetic (MHK) and wind
+turbines---mostly experimental up until now but I am starting to get into
+numerical modeling.
 
 
 ## Video
 
 
-
-
-
 See more on [YouTube...](http://youtube.com/bachantp)
 
 
-
-
-
 ## Publications
-
-
 
 Bachant, P. and Wosnik, M. (2015) [Characterising the near-wake of a cross-flow turbine](https://drive.google.com/file/d/0BwMVIAlxIxfZZDh5blI0Yjd2WXM/view?usp=sharing). _Journal of Turbulence_.
 

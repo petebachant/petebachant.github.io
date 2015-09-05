@@ -5,6 +5,7 @@ date: 2013-06-07 00:01:51+00:00
 layout: page
 slug: projects
 title: Projects
+permalink: /projects/
 ---
 
 ## Mechanical design, engineering, fabrication
