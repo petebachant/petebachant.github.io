@@ -10,3 +10,4 @@ permalink: /contact/
 * [Email](mailto:petebachant@gmail.com)
 * [LinkedIn](http://linkedin.com/in/petebachant)
 * [GitHub](http://github.com/petebachant)
+* [YouTube](http://youtube.com/bachantp)
