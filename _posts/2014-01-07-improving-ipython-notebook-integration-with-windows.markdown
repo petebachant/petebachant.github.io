@@ -7,7 +7,7 @@ tags:
 - Python
 ---
 
-<img class="float-right" src="/images/ipython-windows-context-menu.png">
+<img class="float-right no-border" src="/images/ipython-windows-context-menu.png">
 
 
 By default, the awesomely useful and fun [IPython Notebook](http://ipython.org/notebook.html) does not integrate with Windows so seamlessly. A console and then the notebook server must be opened in the proper directory in order to open a new or existing notebook. These extra steps make the IPython Notebook slightly less ideal for quickly jotting down ideas—one of its greatest uses!
