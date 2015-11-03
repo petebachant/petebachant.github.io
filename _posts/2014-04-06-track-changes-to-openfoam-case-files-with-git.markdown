@@ -51,7 +51,7 @@ The first important step is to create a `.gitignore` file in the top level case 
     !0.org
     constant/extendedFeatureEdgeMesh
     *.eMesh
-    constant/polyMesh
+    constant/polyMesh/*
     !constant/polyMesh/blockMeshDict
     constant/cellToRegion
     *.OpenFOAM
