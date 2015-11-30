@@ -30,6 +30,6 @@ RAS
 
 Some `fvOptions` are now derived from a new `cellSetOption` class, which apparently expects the `selectionMode` and `cellSet` entries to be inside the option coefficients, rather than in the top level subdictionary. The `fvOptions` file's default location has also been moved from `system` to `constant`, though cases will still run with the `fvOptions` in `system`.
 
-Lastly, the divergence scheme keyword for the effective viscous stress has been renamed. To fix this, simply change `div((nuEff*dev(T(grad(U)))))` to `div((nuEff*dev2(T(grad(U)))))`.
+Lastly, the divergence scheme keyword for the effective viscous stress has been renamed. To fix this, simply change `div((nuEff*dev(T(grad(U)))))` to `div((nuEff*dev2(T(grad(U)))))` in `system/fvSchemes.divSchemes`.
 
 There are surely more changes to be made, but these are the ones I found absolutely necessary to get cases running again. Please leave a comment if you encounter any additional snags migrating your own.
