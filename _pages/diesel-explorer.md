@@ -31,6 +31,8 @@ work in progress, so please be patient as I get things put together.
 
 [**3. Choosing a chassis**](/diesel-explorer-choosing-a-chassis)
 
+[**4. Exhaust header design and fabrication**](/diesel-explorer-exhaust-header-design-and-fabrication)
+
 
 ## Acknowledgements
 
