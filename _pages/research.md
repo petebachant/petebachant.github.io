@@ -25,7 +25,10 @@ See more on [YouTube...](http://youtube.com/bachantp)
 
 </center>
 
+
 ## Publications
+
+Bachant, P. and Wosnik, M. (2015) [Effects of Reynolds Number on the Energy Conversion and Near-Wake Dynamics of a High Solidity Vertical-Axis Cross-Flow Turbine](http://doi.org/10.3390/en9020073). _Energies_.
 
 Bachant, P. and Wosnik, M. (2015) [Characterising the near-wake of a cross-flow turbine](https://drive.google.com/file/d/0BwMVIAlxIxfZZDh5blI0Yjd2WXM/view?usp=sharing). _Journal of Turbulence_.
 
