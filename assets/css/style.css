@@ -112,7 +112,7 @@ mark {
 }
 
 p,pre {
-	margin:1.5em 0
+	margin: 0.5em 0
 }
 
 small {
@@ -451,7 +451,7 @@ th:last-child {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	border-radius:3px;
-	padding:20px;
+	padding:10px;
 	background:#343642;
 	color:#C1C2C3
 }
@@ -886,8 +886,8 @@ dd {
 }
 
 .post .highlight {
-	clear:both;
-	margin-bottom:2rem
+	clear: both;
+	margin-bottom: 2rem
 }
 
 .post .dropcap {
