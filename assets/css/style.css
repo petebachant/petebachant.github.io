@@ -179,6 +179,16 @@ code,kbd,pre,samp {
 	font-size:1em
 }
 
+.content code, .content tt {
+    padding: 0.1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 95%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
+}
+
 form {
 	margin:0
 }
