@@ -2,20 +2,33 @@
 title: petebachant.me
 include: ["_pages"]
 email: petebachant@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  My personal website.
+description: My personal website
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://petebachant.me" # the base hostname & protocol for your site
 twitter_username: petebachant
 github_username:  petebachant
 permalink: /:title/
 
-# Build settings
-markdown: redcarpet
-
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables",
-               "with_toc_data", "smart"]
+markdown: kramdown
+highlighter: rouge
 
 gems:
   - jekyll-redirect-from
+  - jekyll-paginate
+
+paginate: 5
+
+navigation:
+ - title: Home
+   url: /index.html
+ - title: About
+   url: /about
+ - title: Contact
+   url: /contact
+
+social:
+   github: petebachant
+   twitter: petebachant
+   email: petebachant@gmail.com
+
+# google_analytics: "UA-58263416-1"
