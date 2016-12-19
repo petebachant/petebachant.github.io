@@ -21,10 +21,10 @@ paginate: 5
 navigation:
  - title: Home
    url: /index.html
- - title: About
-   url: /about
- - title: Contact
-   url: /contact
+ - title: Projects
+   url: /projects
+ - title: Wiki
+   url: https://github.com/petebachant/petebachant.github.io/wiki
 
 social:
    github: petebachant
