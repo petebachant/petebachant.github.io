@@ -21,12 +21,12 @@ dataset for model validation created with a newly built DOE Reference Model 2
 cross-flow turbine and the UNH-CORE turbine test bed.
 
 [**UNH Tow
-Tank**](https://marine.unh.edu/oelab/wiki/doku.php?id=tow_tank:changes:2012:doe_upgrades) --
+Tank**](https://github.com/UNH-OE/wave-tow-tank/wiki/2012-DOE-grant-upgrades) --
 Redesign and rebuild of the tank's linear motion, control, and data acquisition
 systems.
 
 [**UNH-CORE Turbine Test
-Bed**](https://marine.unh.edu/oelab/wiki/doku.php?id=tow_tank:technical_info:turbine_test_bed) --
+Bed**](https://github.com/unh-core/turbine-test-bed/wiki) --
 Structure and instrumentation for turbine testing in the UNH tow tank.
 
 
@@ -55,7 +55,3 @@ controlling the UNH Tow/Wave Tank's wavemaker system.
 
 [**BBpystepper**](https://github.com/petebachant/BBpystepper) -- A Python module
 for controlling stepper motors with the BeagleBone Black.
-
-[**UNH OE Lab Wiki**](http://marine.unh.edu/oelab/wiki) -- A wiki for the OE lab
-at UNH created using DokuWiki, built mainly for documentation of the upgraded
-tow tank systems.
