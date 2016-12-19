@@ -6,9 +6,9 @@ title: Research
 permalink: /research/
 ---
 
-My research is focused on cross-flow marine hydrokinetic (MHK) and wind
-turbines---mostly experimental up until now but I am starting to get into
-numerical modeling.
+I am currently working in the automotive industry, but my doctoral research was
+focused on cross-flow (or vertical-axis) marine hydrokinetic (MHK) and wind
+turbines.
 
 
 ## Video
