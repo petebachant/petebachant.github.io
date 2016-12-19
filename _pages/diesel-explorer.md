@@ -25,7 +25,7 @@ work in progress, so please be patient as I get things put together.
 
 ## Contents
 
-[**1. Introduction**](/diesel-explorer-an-introduction)
+[**1. Introduction**](/diesel-explorer-introduction)
 
 [**2. Photo gallery**](/diesel-explorer-photo-gallery)
 
