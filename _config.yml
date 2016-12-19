@@ -16,13 +16,15 @@ gems:
   - jekyll-redirect-from
   - jekyll-paginate
 
-paginate: 5
+paginate: 2
 
 navigation:
  - title: Home
    url: /index.html
  - title: Projects
    url: /projects
+ - title: Posts
+   url: /posts
  - title: Wiki
    url: https://github.com/petebachant/petebachant.github.io/wiki
 
