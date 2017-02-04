@@ -34,11 +34,11 @@ $$
 The first factor on the right hand side of the equation is the cost of fuel.
 Though I drive a diesel car, most people drive gasoline cars so I used the
 average price per gallon of gasoline in the US over the last 6 months:
-approximately \$3.66 [[1]].
+approximately \$3.66 [1].
 
 The next factor to find was how many calories per mile it takes to bike.
 Everydayhealth.com calculated that 50 calories per mile should be close for my
-weight and 13--15 mph average speeds [[2]]. Using this number, it turned out
+weight and 13--15 mph average speeds [2]. Using this number, it turned out
 that my joke-estimate of 100 MPCB was way high. I only get a measly 7 MPCB (from
 a 350 calorie junior cheeseburger)!
 
@@ -72,7 +72,7 @@ to directly compare biking and driving through the equivalent MPG metric.
 
 The chart below shows the calculated MPG equivalent values for various foods,
 and the horizontal dashed red line represents the 33.8 MPG average fuel
-efficiency for passenger cars in the US for the year 2011 [[3]]. Unsurprisingly,
+efficiency for passenger cars in the US for the year 2011 [3]. Unsurprisingly,
 the foods with the highest MPGe were mostly complex carbohydrates, with the
 exceptions pure cane sugar and eggs---eggs being the only low carb food to beat
 the car's efficiency. Note the difference between regular eggs and the cage free
@@ -111,13 +111,10 @@ meals that will.
 
 ## References
 
-[[1]] Bloomberg, "Daily National Average Gasoline Prices Regular Unleaded".
-[1]: http://www.bloomberg.com/quote/3AGSREG:IND/chart
+[1] Bloomberg, "Daily National Average Gasoline Prices Regular Unleaded". <http://www.bloomberg.com/quote/3AGSREG:IND/chart>
 
-[[2]] everydayhealth.com, "Calories Burned Biking".
-[2]: http://www.everydayhealth.com/Calories-Burned-Biking.htm
+[2] everydayhealth.com, "Calories Burned Biking". <http://www.everydayhealth.com/Calories-Burned-Biking.htm>
 
-[[3]] US Bureau of Transportation Statistics, "Average Fuel Efficiency of U.S. Light Duty Vehicles".
-[3]: http://www.bts.gov/publications/national_transportation_statistics/html/table_04_23.html
+[3] US Bureau of Transportation Statistics, "Average Fuel Efficiency of U.S. Light Duty Vehicles". <http://www.bts.gov/publications/national_transportation_statistics/html/table_04_23.html>
 
 [4] Moran, Shapiro, 2004. _Fundamentals of Engineering Thermodynamics_. Jon Wiley and Sons, Hoboken.

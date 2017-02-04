@@ -65,7 +65,6 @@ here.
 **Winner: Explorer**
 
 
-
 ## Fuel economy
 
 The most important metric—and the main goal of the project—was to achieve high
@@ -79,19 +78,12 @@ for fuel consumption were calculated. This driving scheme included
 1. Accelerating 0--40 mph in 10 seconds
 2. Cruising at 40 mph for 5 miles
 
----
-
-<center>
-
 |           | Explorer | Wrangler |
 |-----------|----------|----------|
-| Mass (kg) | 1806 [[1]] | 1331 [[2]] |
-| Drag coefficient | 0.43 [[3]] |0.55 [[3]] |
-| Frontal area (\\(\text{m}^2 \\)) |  2.3 | 2.3 |
+| Mass (kg) | 1806 [1] | 1331 [2] |
+| Drag coefficient | 0.43 [3] |0.55 [3] |
+| Frontal area ($\text{m}^2 $) |  2.3 | 2.3 |
 
-</center>
-
----
 
 ### Calculating fuel consumption during cruising
 
@@ -105,9 +97,9 @@ $$
 F_D = \frac{1}{2}\rho A_f C_D V^2,
 $$
 
-where \\( \rho \\) is the density of air, \\( A_f \\) is the vehicle's frontal
-area (approximately equal for both Explorer and Wrangler), \\( C_D \\) is the
-vehicle's drag coefficient, and \\( V \\) is the cruising speed. Since speed is
+where $ \rho $ is the density of air, $ A_f $ is the vehicle's frontal
+area (approximately equal for both Explorer and Wrangler), $ C_D $ is the
+vehicle's drag coefficient, and $ V $ is the cruising speed. Since speed is
 constant, the integration simplifies to multiplication, giving (in Nm)
 
 $$
@@ -144,19 +136,11 @@ The table below summarizes the results for both vehicles. As you can see, these
 estimates show the Explorer consuming 16% less energy than the Wrangler, making
 it a better choice with regards to fuel economy.
 
----
-
-<center>
-
 |   | Explorer | Wrangler |
 |---|----------|----------|
-| Energy consumed during cruising (Nm) | \\( 1.53 \times 10^6 \\) | \\( 1.95 \times 10^6 \\) |
-| Energy consumed during acceleration (Nm) | \\( 2.98 \times 10^5 \\) | \\( 2.24 \times 10^5 \\) |
-| Total energy consumed (Nm) | \\( 1.83 \times 10^6 \\) | \\( 2.17 \times 10^6 \\) |
-
-</center>
-
----
+| Energy consumed during cruising (Nm) | $ 1.53 \times 10^6 $ | $ 1.95 \times 10^6 $ |
+| Energy consumed during acceleration (Nm) | $ 2.98 \times 10^5 $ | $ 2.24 \times 10^5 $ |
+| Total energy consumed (Nm) | $ 1.83 \times 10^6 $ | $ 2.17 \times 10^6 $ |
 
 **Winner: Explorer**
 
@@ -171,14 +155,8 @@ choice.
 
 ## References
 
-[[1]] http://www.edmunds.com/ford/explorer/1995/features-specs.html
+[1] <http://www.edmunds.com/ford/explorer/1995/features-specs.html>
 
-[[2]] http://www.edmunds.com/jeep/wrangler/1995/features-specs.html
+[2] <http://www.edmunds.com/jeep/wrangler/1995/features-specs.html>
 
-[[3]] http://ecomodder.com/wiki/index.php/Vehicle_Coefficient_of_Drag_List
-
-[1]: http://www.edmunds.com/ford/explorer/1995/features-specs.html
-
-[2]: http://www.edmunds.com/jeep/wrangler/1995/features-specs.html
-
-[3]: http://ecomodder.com/wiki/index.php/Vehicle_Coefficient_of_Drag_List
+[3] <http://ecomodder.com/wiki/index.php/Vehicle_Coefficient_of_Drag_List>
