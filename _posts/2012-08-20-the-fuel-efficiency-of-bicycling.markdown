@@ -18,23 +18,23 @@ come up with an estimate for how the fuel efficiency of biking compared with
 that of driving a car; to see how much money I could save by riding. In essence
 I wanted to come up with some sort of MPG equivalent for biking.
 
-The equivalent miles per gallon (MPGe) formula I came up with is simply the
+The equivalent miles per gallon $\mathrm{MPG}_e$ formula is simply the
 number of miles I could bike with a dollar’s worth of food multiplied by the
 price of a gallon of automotive fuel. In other words, if you sold a gallon of
 gas and bought some food, how far would the energy in that food allow you bike?
 In symbolic form:
 
 $$
-\mathrm{MPG}_e = \left( \frac{\$}{\mathrm{gallon}} \right)\_{\mathrm{fuel}}  
+\mathrm{MPG}_e = \left( \frac{\$}{\mathrm{gallon}} \right)_{\mathrm{fuel}}  
 \left( \frac{\mathrm{cal}}{\mathrm{mile}}
-\right)\_{\mathrm{bike}}^{-1}  \left( \frac{\$}{\mathrm{cal}}
-\right)\_{\mathrm{food}}^{-1} .
+\right)_{\mathrm{bike}}^{-1}  \left( \frac{\$}{\mathrm{cal}}
+\right)_{\mathrm{food}}^{-1} .
 $$
 
 The first factor on the right hand side of the equation is the cost of fuel.
 Though I drive a diesel car, most people drive gasoline cars so I used the
 average price per gallon of gasoline in the US over the last 6 months:
-approximately $3.66 [[1]].
+approximately \$3.66 [[1]].
 
 The next factor to find was how many calories per mile it takes to bike.
 Everydayhealth.com calculated that 50 calories per mile should be close for my
@@ -46,10 +46,10 @@ To calculate dollars per calorie for various foods, I used grocery store
 receipts and nutrition facts labels. The cost of extra energy input for
 preparation of foods that required boiling water was estimated using a 100%
 efficient electric stove operating at the average price for electricity I’d been
-paying for the past 11 months, $0.18/kWh, which includes all service charges,
+paying for the past 11 months, \$0.18/kWh, which includes all service charges,
 etc. Assuming a constant specific heat and neglecting energy lost to the room, a
 cup of water takes about 76.13 kJ to boil starting from 23° C at 1 atmosphere
-[4], and therefore costs about $0.0038 per cup to boil. Instructions on the
+[4], and therefore costs about 4 cents per cup to boil. Instructions on the
 packaging were used to determine how much water was necessary for each food.
 Surprisingly, this added cost is relatively low. For example, for spaghetti, the
 most fuel efficient food I found, cooking heat was only 6% of the total cost of
@@ -57,7 +57,7 @@ the food. For rice, the second most efficient food, cooking heat contributed
 0.9% to the total food cost.
 
 It should be noted that the equivalent MPG calculation ignores maintenance,
-which seemed a fair assumption since I’m also ignoring all non-energy
+which seemed a fair assumption since I'm also ignoring all non-energy
 nutritional content in food. It also lumps in a bunch of other factors like
 government subsidies, thermal and metabolic efficiencies, cost of refining,
 packaging, transport, etc. Initial investment for the purchase of the car or
@@ -81,11 +81,11 @@ CFO eggs drives their equivalent MPG way down.
 
 Meats all worked out to be fairly inefficient, as expected, since creating meat
 requires at least another energy conversion process after photosynthesis.
-However, apples didn’t fair very well either, only hitting about 12 MPGe.
+However, apples didn’t fair very well either, only hitting about 12 $\mathrm{MPG}_e$.
 Carrots were almost as bad as chicken, though it could be argued that meat and
 vegetables are more used for maintenance than energy.
 
-Another interesting result was the huge drop in MPGe when tomato sauce was added
+Another interesting result was the huge drop in $\mathrm{MPG}_e$ when tomato sauce was added
 to spaghetti; a 79% drop, putting it below the car's efficiency.
 
 {% include figure.html src="/images/mpge-foods.png" caption="Comparing MPG equivalent for various foods. Dashed red line is the 2011 US national average fuel efficiency for passenger cars [3]." width="90%" %}
