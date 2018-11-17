@@ -111,10 +111,10 @@ meals that will.
 
 ## References
 
-[1] Bloomberg, "Daily National Average Gasoline Prices Regular Unleaded". <http://www.bloomberg.com/quote/3AGSREG:IND/chart>
+[1] Bloomberg, "Daily National Average Gasoline Prices Regular Unleaded". <https://www.bloomberg.com/quote/3AGSREG:IND/chart>
 
-[2] everydayhealth.com, "Calories Burned Biking". <http://www.everydayhealth.com/Calories-Burned-Biking.htm>
+[2] everydayhealth.com, "Calories Burned Biking". <https://www.everydayhealth.com/Calories-Burned-Biking.htm>
 
-[3] US Bureau of Transportation Statistics, "Average Fuel Efficiency of U.S. Light Duty Vehicles". <http://www.bts.gov/publications/national_transportation_statistics/html/table_04_23.html>
+[3] US Bureau of Transportation Statistics, "Average Fuel Efficiency of U.S. Light Duty Vehicles". <https://www.bts.gov/publications/national_transportation_statistics/html/table_04_23.html>
 
 [4] Moran, Shapiro, 2004. _Fundamentals of Engineering Thermodynamics_. Jon Wiley and Sons, Hoboken.

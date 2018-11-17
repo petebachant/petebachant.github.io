@@ -19,7 +19,7 @@ Cutting down and welding the intake was easy enough, but the exhaust was a bit
 trickier. It wasn't possible to simply flip the OEM exhaust manifold over, so a
 custom exhaust header was in order.
 
-{% include figure.html src="http://i.imgur.com/aFMmu2n.jpg" caption="Intake height reduced." width="90%" %}
+{% include figure.html src="https://i.imgur.com/aFMmu2n.jpg" caption="Intake height reduced." width="90%" %}
 
 Rather than use ad hoc methods as in previous exhaust projects, I wanted to
 design this from scratch, using 3-D CAD, and fabricate to the design—a process
@@ -35,7 +35,7 @@ straight sections, tubes were run into each other and eventually two tubes met
 at the turbine flange. Swept cuts were then made to cope all the pieces in the
 assembly.
 
-{% include figure.html src="http://i.imgur.com/QXloARj.jpg" caption="SolidWorks CAD assembly." width="90%" %}
+{% include figure.html src="https://i.imgur.com/QXloARj.jpg" caption="SolidWorks CAD assembly." width="90%" %}
 
 Next, since the fabrication was to be done by hand with a cutoff wheel, patterns
 for coping needed to be made. SolidWorks sheet metal tools were used to unwrap
@@ -44,13 +44,13 @@ the tubes for marking. This was not quite at easy as it sounds, as the original
 parts were not sheet metal, and could not be easily converted, so they had to be
 re-modeled as such.
 
-{% include figure.html src="http://i.imgur.com/F7SEGlN.jpg" caption="Coping template for the header's longest straight tube." width="90%" %}
+{% include figure.html src="https://i.imgur.com/F7SEGlN.jpg" caption="Coping template for the header's longest straight tube." width="90%" %}
 
 After jigging the flanges up properly, creating the round-rectangle transitions,
 and coping the tubing by hand, the header was TIG welded. Finally, the pyrometer
 fitting was installed and the header was ready to run, allowing for optimal hood
 and firewall clearance in the Explorer.
 
-{% include figure.html src="http://i.imgur.com/I3VsQvS.jpg" caption="Header all welded up." width="90%" %}
+{% include figure.html src="https://i.imgur.com/I3VsQvS.jpg" caption="Header all welded up." width="90%" %}
 
-{% include figure.html src="http://i.imgur.com/480D3Ft.jpg" caption="Header installed." width="90%" %}
+{% include figure.html src="https://i.imgur.com/480D3Ft.jpg" caption="Header installed." width="90%" %}

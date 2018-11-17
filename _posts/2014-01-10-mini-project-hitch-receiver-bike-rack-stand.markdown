@@ -13,7 +13,7 @@ Living in a studio apartment, storage space can be hard to come by. To have a pl
 
 {% include figure.html src="/images/bike-rack-stand.jpg" caption="Completed stand with bike." width="60%" %}
 
-The frame is made from [80/20](http://8020.net) t-slot extrusions and hardware, which are available at Amazon.com. On top is a 2 inch Reese hitch receiver, and below is a set of swivel casters, two of which are locking. One nice feature of this design is that it only requires cutting and tapping—no welding, drilling, or more complicated machining necessary before it's ready for assembly.
+The frame is made from [80/20](https://8020.net) t-slot extrusions and hardware, which are available at Amazon.com. On top is a 2 inch Reese hitch receiver, and below is a set of swivel casters, two of which are locking. One nice feature of this design is that it only requires cutting and tapping—no welding, drilling, or more complicated machining necessary before it's ready for assembly.
 
 {% include figure.html src="/images/bike-rack-stand-drawing.png" caption="Bike rack stand design." width="60%" %}
 

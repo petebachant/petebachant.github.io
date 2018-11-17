@@ -17,7 +17,7 @@ a vehicle to put it in. I had some rough requirements in mind:
 
 Since the original inspiration for the project was a [Cummins B3.3 in a Jeep
 Wrangler
-(YJ)](http://www.dieseltruckresource.com/dev/b3-3t-jeep-yj-t112807.html), that
+(YJ)](https://www.dieseltruckresource.com/dev/b3-3t-jeep-yj-t112807.html), that
 was an obvious candidate, but I also had an affinity for and experience with
 Ford body styles and interiors. The decision came down to two potential chassis:
 Wrangler vs. Explorer. Both satisfied the basic requirement above, but there
@@ -155,8 +155,8 @@ choice.
 
 ## References
 
-[1] <http://www.edmunds.com/ford/explorer/1995/features-specs.html>
+[1] <https://www.edmunds.com/ford/explorer/1995/features-specs.html>
 
-[2] <http://www.edmunds.com/jeep/wrangler/1995/features-specs.html>
+[2] <https://www.edmunds.com/jeep/wrangler/1995/features-specs.html>
 
-[3] <http://ecomodder.com/wiki/index.php/Vehicle_Coefficient_of_Drag_List>
+[3] <https://ecomodder.com/wiki/index.php/Vehicle_Coefficient_of_Drag_List>

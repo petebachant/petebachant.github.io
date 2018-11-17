@@ -21,22 +21,22 @@ turbines.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AyLSyuCpT_E" frameborder="0" allowfullscreen></iframe>
 
-See more on [YouTube...](http://youtube.com/bachantp)
+See more on [YouTube...](https://youtube.com/bachantp)
 
 </center>
 
 
 ## Publications
 
-Bachant, P. and Wosnik, M. (2015) [Effects of Reynolds Number on the Energy Conversion and Near-Wake Dynamics of a High Solidity Vertical-Axis Cross-Flow Turbine](http://doi.org/10.3390/en9020073). _Energies_.
+Bachant, P. and Wosnik, M. (2015) [Effects of Reynolds Number on the Energy Conversion and Near-Wake Dynamics of a High Solidity Vertical-Axis Cross-Flow Turbine](https://doi.org/10.3390/en9020073). _Energies_.
 
 Bachant, P. and Wosnik, M. (2015) [Characterising the near-wake of a cross-flow turbine](https://drive.google.com/file/d/0BwMVIAlxIxfZZDh5blI0Yjd2WXM/view?usp=sharing). _Journal of Turbulence_.
 
-Bachant, P. and Wosnik, M. (2015) [Performance measurements of cylindrical- and spherical-helical cross-flow marine hydrokinetic turbines, with estimates of exergy efficiency.](http://www.sciencedirect.com/science/article/pii/S0960148114004479) _Renewable Energy_.
+Bachant, P. and Wosnik, M. (2015) [Performance measurements of cylindrical- and spherical-helical cross-flow marine hydrokinetic turbines, with estimates of exergy efficiency.](https://www.sciencedirect.com/science/article/pii/S0960148114004479) _Renewable Energy_.
 
-Bachant, P. and Wosnik, M. [Reynolds Number Dependence of Cross-Flow Turbine Performance and Near-Wake Characteristics](http://www.globalmarinerenewable.com/images/pdf/METS_PAPERS_VII/89-Bachant.pdf). In Proceedings of the 2nd Marine Energy Technology Symposium, Seattle, WA, April 2014.
+Bachant, P. and Wosnik, M. [Reynolds Number Dependence of Cross-Flow Turbine Performance and Near-Wake Characteristics](https://www.globalmarinerenewable.com/images/pdf/METS_PAPERS_VII/89-Bachant.pdf). In Proceedings of the 2nd Marine Energy Technology Symposium, Seattle, WA, April 2014.
 
-Neary, V.S., Fontaine, A.A., Bachant, P., Wosnik, M., Michelen, C., Meyer, R.J., Gunawan, B., Straka, W.A. [US Department of Energy (DOE) National Lab Activities in Marine Hydrokinetics:  Scaled Model Testing of DOE Reference Turbines](http://energy.sandia.gov/wp/wp-content/gallery/uploads/SAND2013-7241.pdf). In Proceedings of European Wave and Tidal Energy Conference EWTEC 2013, Aalborg, Denmark, 2-5 September 2013
+Neary, V.S., Fontaine, A.A., Bachant, P., Wosnik, M., Michelen, C., Meyer, R.J., Gunawan, B., Straka, W.A. [US Department of Energy (DOE) National Lab Activities in Marine Hydrokinetics:  Scaled Model Testing of DOE Reference Turbines](https://energy.sandia.gov/wp/wp-content/gallery/uploads/SAND2013-7241.pdf). In Proceedings of European Wave and Tidal Energy Conference EWTEC 2013, Aalborg, Denmark, 2-5 September 2013
 
 Bachant, P. & Wosnik, M. [Performance and near-wake measurements for a vertical axis turbine at moderate Reynolds number](https://docs.google.com/file/d/0BwMVIAlxIxfZTmVENlJSZGt4azg/edit?usp=sharing) In Proceedings of the ASME 2013 Fluids Engineering Summer Meeting, 2013
 

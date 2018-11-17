@@ -28,7 +28,7 @@ snow and mildly muddy roads/trails.
 
 Being a Cummins enthusiast, I used to visit the forums at
 dieseltruckresource.com, where I stumbled upon an inspiring
-[thread](http://www.dieseltruckresource.com/dev/b3-3t-jeep-yj-t112807.html) by
+[thread](https://www.dieseltruckresource.com/dev/b3-3t-jeep-yj-t112807.html) by
 forum member TDIwyse. He had acquired a 3.3 L Cummins turbo diesel engine and
 put it in a Jeep YJ. The swap alone looked really clean and done quite well, but
 the part I was most interested in was the mileage. He claimed he was getting

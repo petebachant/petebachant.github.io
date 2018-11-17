@@ -9,7 +9,7 @@ tags:
 - engineering
 ---
 
-Having used SolidWorks for a while, and likely entering the job market again in $ O(1) $ years, I was curious as to which CAD software would be wisest to learn next, with respect to job opportunities and salaries. Looking to compile data from the current job market, I wrote [Indeedy](https://github.com/petebachant/Indeedy), a Python module for automatically searching [Indeed.com](http://indeed.com). With this new tool I searched for "mechanical engineer" plus the names of various CAD systems, then plotted the number of results and average salary for each on the bar graph shown below.
+Having used SolidWorks for a while, and likely entering the job market again in $ O(1) $ years, I was curious as to which CAD software would be wisest to learn next, with respect to job opportunities and salaries. Looking to compile data from the current job market, I wrote [Indeedy](https://github.com/petebachant/Indeedy), a Python module for automatically searching [Indeed.com](https://indeed.com). With this new tool I searched for "mechanical engineer" plus the names of various CAD systems, then plotted the number of results and average salary for each on the bar graph shown below.
 
 {% include figure.html src="/images/cad_jobs.png" caption="Search results for 'mechanical engineer' plus various CAD systems on Indeed.com." width="90%" %}
 

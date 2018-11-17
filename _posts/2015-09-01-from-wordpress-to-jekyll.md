@@ -10,10 +10,10 @@ while now, I decided to migrate my personal website from WordPress to Jekyll and
 use GitHub Pages for hosting.
 
 After an unsuccessful attempt to use
-[`jekyll-import`](http://import.jekyllrb.com/docs/wordpress/) with my old
+[`jekyll-import`](https://import.jekyllrb.com/docs/wordpress/) with my old
 database credentials, I used the export tool built into WordPress to generate an
 XML version of the site and ran that through
-[`jekyll-import`](http://import.jekyllrb.com/docs/wordpressdotcom/), but didn't
+[`jekyll-import`](https://import.jekyllrb.com/docs/wordpressdotcom/), but didn't
 like that posts didn't translate to Markdown. I finally ended up using
 [Exitwp](https://github.com/thomasf/exitwp), which generated Markdown with YAML
 front matter. Exitwp did a reasonable job, though the amount of tweaking I had

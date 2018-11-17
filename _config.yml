@@ -4,7 +4,7 @@ include: ["_pages"]
 email: petebachant@gmail.com
 description: My personal website
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://petebachant.me" # the base hostname & protocol for your site
+url: "https://petebachant.me" # the base hostname & protocol for your site
 twitter_username: petebachant
 github_username:  petebachant
 permalink: /:title/

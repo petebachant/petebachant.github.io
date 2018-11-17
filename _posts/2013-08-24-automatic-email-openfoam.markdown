@@ -14,7 +14,7 @@ tags:
 OpenFOAM runs can take a long time. Wouldn't it be nice to know when a
 simulation is done without having to keep checking the terminal? As it turns
 out, this is very easy to set up with Python (I got most of the code I used from
-[here](http://alextrle.blogspot.com/2011/05/how-to-send-sms-message-with-python.html),
+[here](https://alextrle.blogspot.com/2011/05/how-to-send-sms-message-with-python.html),
 which details how to send an SMS). Simply create a script called `send_email.py`
 in the OpenFOAM case directory that looks like this:
 

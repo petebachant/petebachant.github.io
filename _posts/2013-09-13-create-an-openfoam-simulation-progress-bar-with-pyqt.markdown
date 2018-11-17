@@ -21,7 +21,7 @@ The code below shows how to use PyQt to create a status bar that shows the progr
 # -*- coding: utf-8 -*-
 """
 This program creates a progress bar for an OpenFOAM simulation
-Based on http://acaciaecho.wordpress.com/2011/01/11/pyqtprogressbar/
+Based on https://acaciaecho.wordpress.com/2011/01/11/pyqtprogressbar/
 
 Put this file in your case folder and run from a terminal
 """

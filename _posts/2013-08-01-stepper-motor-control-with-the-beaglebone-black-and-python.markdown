@@ -9,7 +9,7 @@ tags: ["BeagleBone", "Python", "automation"]
 The BeagleBone Black (BBB) is a $45 credit-card-sized computer that runs
 embedded Linux. I recently purchased a BBB along with an [$8 4-phase stepper
 motor and
-driver](http://www.amazon.com/gp/product/B0089JV2OM/ref=oh_details_o00_s00_i03?ie=UTF8&psc=1)
+driver](https://www.amazon.com/gp/product/B0089JV2OM/ref=oh_details_o00_s00_i03?ie=UTF8&psc=1)
 to start playing around with slightly "closer-to-the-metal" motion control.
 
 My first objective with the BBB was to simply get the stepper to move, and for

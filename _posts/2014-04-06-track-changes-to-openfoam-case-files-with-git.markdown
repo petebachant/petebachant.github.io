@@ -8,7 +8,7 @@ tags:
 - OpenFOAM
 ---
 
-OpenFOAM cases are setup through a hierarchy of text files. [Git](http://git-scm.com) is made to track changes in code, which is text. This makes Git a perfect candidate for tracking changes in simulation settings and parameters. In this post I will not really give a full picture of Git's operation and capabilities, but detail how I use Git with OpenFOAM cases.
+OpenFOAM cases are setup through a hierarchy of text files. [Git](https://git-scm.com) is made to track changes in code, which is text. This makes Git a perfect candidate for tracking changes in simulation settings and parameters. In this post I will not really give a full picture of Git's operation and capabilities, but detail how I use Git with OpenFOAM cases.
 
 
 
@@ -29,7 +29,7 @@ Git has the ability to create branches, that is, versions of files that one may 
 ## Sharing, collaboration, and storage
 
 
-Git has become the most popular way to share and collaborate on code, through the website [GitHub](http://github.com). Using GitHub, another user may "fork" a set of case files, make some changes, and submit a "pull request" back to the main repository. This can be much more convenient than simply sharing zipped up folders of entire cases, as changes are more visible and reversible. Putting case files in a remote repository (private repositories can be hosted for free on [BitBucket](http://bitbucket.org)) is also a nice way to keep things backed up.
+Git has become the most popular way to share and collaborate on code, through the website [GitHub](https://github.com). Using GitHub, another user may "fork" a set of case files, make some changes, and submit a "pull request" back to the main repository. This can be much more convenient than simply sharing zipped up folders of entire cases, as changes are more visible and reversible. Putting case files in a remote repository (private repositories can be hosted for free on [BitBucket](https://bitbucket.org)) is also a nice way to keep things backed up.
 
 
 

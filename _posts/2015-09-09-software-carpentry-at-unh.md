@@ -9,7 +9,7 @@ tags: []
 
 <a href="/images/unh-swc-wordcloud.png"> <img class="float-right" width="300px" src="/images/unh-swc-wordcloud.png"></a>
 
-This summer we held a [Software Carpentry](http://software-carpentry.org) (SWC)
+This summer we held a [Software Carpentry](https://software-carpentry.org) (SWC)
 scientific computing workshop at the UNH School of Marine Science and Ocean
 Engineering (SMSOE). The goal of the workshop---and of Software Carpentry in
 general---was to improve the efficiency of researchers by exposing them to
@@ -41,7 +41,7 @@ take a long time to do manually.
 
 Byron took over for the first day's afternoon session, diving into Python by
 introducing the amazingly useful [IPython
-Notebook](http://ipython.org/notebook). The lesson started from the absolute
+Notebook](https://ipython.org/notebook). The lesson started from the absolute
 basics, to accommodate the learners' large range of experience, though even the
 MATLAB experts were engaged by the foreign (in my opinion, nicer!) syntax. The
 crowd went wild then they realized it was possible to create a document with
@@ -53,7 +53,7 @@ two day block that worked for everyone, especially when they're from a few
 different organizations. It was also freshman move-in day, so these people were
 extra brave to be on campus!
 
-Ivan kicked off day 2 by introducing learners to [Git](http://git-scm.com), the
+Ivan kicked off day 2 by introducing learners to [Git](https://git-scm.com), the
 most popular tool for tracking versions and collaborating on text
 files---especially code. Git can be somewhat hard to grasp conceptually, so Ivan
 explained the various processes with some diagrams on the chalkboard. I knew
@@ -68,7 +68,7 @@ being a little crunched for time, most learners were able to fork a repository
 on GitHub (probably the most common mode of software collaboration these days),
 clone this to their local machine, then write some Python to download and
 visualize data from NOAA's [National Buoy Data
-System](http://www.ndbc.noaa.gov/), some of which is collected by researchers
+System](https://www.ndbc.noaa.gov/), some of which is collected by researchers
 affiliated with the SMSOE!
 
 To visualize how things went, and show some more Python programming examples, I

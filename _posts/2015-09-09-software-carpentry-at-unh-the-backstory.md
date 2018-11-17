@@ -7,7 +7,7 @@ category:
 tags: []
 ---
 
-I first heard of [Software Carpentry](http://software-carpentry.org) in a
+I first heard of [Software Carpentry](https://software-carpentry.org) in a
 YouTube video of its founder Greg Wilson's talk at the SciPy 2014 conference:
 
 <center>

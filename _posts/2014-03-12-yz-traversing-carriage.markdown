@@ -42,7 +42,7 @@ Two igus Energy Chain cable carriers span the horizontal and vertical axes to ke
 ## Actuation and control
 
 
-The stepper motors are driven by an ACS UDMlc drive controlled by an ACS NTM EtherCAT master controller, which provides synchronized operation with the tow and turbine axes through ACS' SPiiPlus interface. In addition to the ability to write motion control programs with their ACSPL+ language, COM, and C library, the [ACSpy](http://github.com/petebachant/ACSpy) Python wrapper for the C library allows incorporating motion commands into Python programs, e.g., [TurbineDAQ](http://github.com/petebachant/TurbineDAQ).
+The stepper motors are driven by an ACS UDMlc drive controlled by an ACS NTM EtherCAT master controller, which provides synchronized operation with the tow and turbine axes through ACS' SPiiPlus interface. In addition to the ability to write motion control programs with their ACSPL+ language, COM, and C library, the [ACSpy](https://github.com/petebachant/ACSpy) Python wrapper for the C library allows incorporating motion commands into Python programs, e.g., [TurbineDAQ](https://github.com/petebachant/TurbineDAQ).
 
 
 

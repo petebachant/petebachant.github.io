@@ -7,7 +7,7 @@ category:
 tags: []
 ---
 
-[OpenFOAM](http://openfoam.org) recently released version 3.0.0 of their
+[OpenFOAM](https://openfoam.org) recently released version 3.0.0 of their
 open-source CFD toolbox. With an incremented major version number some
 non-backwards-compatible changes are expected. This post describes the ones I've
 run into thus far, and how I've addressed them
