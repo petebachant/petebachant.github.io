@@ -33,6 +33,8 @@ work in progress, so please be patient as I get things put together.
 
 [**4. Exhaust header design and fabrication**](/diesel-explorer-exhaust-header-design-and-fabrication)
 
+[**5. Sold**](/diesel-explorer-sold)
+
 
 ## Acknowledgements
 
