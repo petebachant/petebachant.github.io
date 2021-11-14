@@ -12,15 +12,14 @@ In order to perform turbine wake measurements in UNH's tow tank, I designed and 
 
 ---
 
-<center>
 
+{:refdef: style="text-align: center;"}
 |  |  |
 |:----------|:------|
 | Cross-stream (y-axis) travel | 3.0 m |
 | Vertical (z-axis) travel | 1.2 m |
 | Max drag force (estimated) | 25 N at 2 m/s |
-
-</center>
+{:refdef}
 
 ---
 
