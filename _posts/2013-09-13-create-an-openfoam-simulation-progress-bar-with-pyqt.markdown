@@ -10,11 +10,10 @@ tags:
 
 The code below shows how to use PyQt to create a status bar that shows the progress of an OpenFOAM simulation. Note that the arguments to `re.findall` may need to be tweaked depending on the specific case setup, and that the code assumes the simulation will be run in parallel, but it should be easy enough to tailor this sample to any case.
 
-<center>
 
+{:refdef: style="text-align: center;"}
 ![Qt progress bar](/images/qt-progressbar.png)
-
-</center>
+{:refdef}
 
 ```python
 #!/usr/bin/env python
