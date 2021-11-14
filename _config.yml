@@ -25,6 +25,8 @@ navigation:
    url: /projects
  - title: Posts
    url: /posts
+ - title: Research
+   url: /research
  - title: Wiki
    url: https://github.com/petebachant/petebachant.github.io/wiki
 
