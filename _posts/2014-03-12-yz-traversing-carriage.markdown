@@ -12,7 +12,6 @@ In order to perform turbine wake measurements in UNH's tow tank, I designed and 
 
 ---
 
-
 {:refdef: style="text-align: center;"}
 |  |  |
 |:----------|:------|
