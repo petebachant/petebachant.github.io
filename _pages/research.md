@@ -16,9 +16,9 @@ permalink: /research/
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AyLSyuCpT_E" frameborder="0" allowfullscreen></iframe>
 
-See more on [YouTube...](https://youtube.com/bachantp)
-
 </center>
+
+See more on [YouTube...](https://youtube.com/bachantp)
 
 
 ## Publications
