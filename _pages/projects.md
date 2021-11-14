@@ -8,29 +8,9 @@ title: Projects
 permalink: /projects/
 ---
 
-## Mechanical design, engineering, fabrication
-
-[**Diesel Explorer**](/projects/diesel-explorer) -- Cummins B3.3 turbo
-diesel engine transplanted into a 1995 Ford Explorer to obtain 30+ MPG.
-
-[**YZ Traversing Carriage**](/yz-traversing-carriage)
- -- 2-axis linear motion system for automated instrument positioning.
-
-[**1:6 Scale DOE RM2**](https://github.com/UNH-CORE/RM2-tow-tank) -- Open
-dataset for model validation created with a newly built DOE Reference Model 2
-cross-flow turbine and the UNH-CORE turbine test bed.
-
-[**UNH Tow
-Tank**](https://github.com/UNH-OE/wave-tow-tank/wiki/2012-DOE-grant-upgrades) --
-Redesign and rebuild of the tank's linear motion, control, and data acquisition
-systems.
-
-[**UNH-CORE Turbine Test
-Bed**](https://github.com/unh-core/turbine-test-bed/wiki) --
-Structure and instrumentation for turbine testing in the UNH tow tank.
-
-
 ## Software/web
+
+See more on [GitHub...](https://github.com/petebachant)
 
 [**turbinesFoam**](https://github.com/turbinesFoam/turbinesFoam) --  An OpenFOAM
 extension library for actuator line CFD simulations.
@@ -55,3 +35,25 @@ controlling the UNH Tow/Wave Tank's wavemaker system.
 
 [**BBpystepper**](https://github.com/petebachant/BBpystepper) -- A Python module
 for controlling stepper motors with the BeagleBone Black.
+
+
+## Mechanical design, engineering, fabrication
+
+[**Diesel Explorer**](/projects/diesel-explorer) -- Cummins B3.3 turbo
+diesel engine transplanted into a 1995 Ford Explorer to obtain 30+ MPG.
+
+[**YZ Traversing Carriage**](/yz-traversing-carriage)
+ -- 2-axis linear motion system for automated instrument positioning.
+
+[**1:6 Scale DOE RM2**](https://github.com/UNH-CORE/RM2-tow-tank) -- Open
+dataset for model validation created with a newly built DOE Reference Model 2
+cross-flow turbine and the UNH-CORE turbine test bed.
+
+[**UNH Tow
+Tank**](https://github.com/UNH-OE/wave-tow-tank/wiki/2012-DOE-grant-upgrades) --
+Redesign and rebuild of the tank's linear motion, control, and data acquisition
+systems.
+
+[**UNH-CORE Turbine Test
+Bed**](https://github.com/unh-core/turbine-test-bed/wiki) --
+Structure and instrumentation for turbine testing in the UNH tow tank.
