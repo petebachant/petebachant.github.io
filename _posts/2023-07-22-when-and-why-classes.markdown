@@ -66,3 +66,21 @@ were doing:
 
 What followed was an existential rabbit hole with the need to answer the
 question: Should OOP ever be used, and if so, when and why?
+Along the way, the concept of complexity arose,
+namely that it should be
+[avoided like the plague](https://github.com/papers-we-love/papers-we-love/blob/main/design/out-of-the-tar-pit.pdf).
+
+This really resonated with me.
+I had always felt the need to write software as simply as possible for my
+dumb future self out of laziness.
+I had sometimes felt a little guilty about this.
+I'd see someone else's apparently complex code and feel
+like I wasn't good enough to write complex things.
+I mean, sure, I was probably working on easy problems, which
+deserve simple solutions,
+but if you follow the principles in Moseley and Marks' paper above,
+the goals for your software, business, project, dare I say life,
+should also be as simply as
+possible, i.e., retaining only "essential complexity."
+
+So, what is the purpose of a class?
