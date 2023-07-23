@@ -84,3 +84,115 @@ should also be as simply as
 possible, i.e., retaining only "essential complexity."
 
 So, what is the purpose of a class?
+Maybe I should start with what isn't the purpose of a class.
+In his video above Brian Will states this very well: classes should not be
+"doers". This is a pattern I've seen a bit in software written by people like
+me ("real life", e.g., civil, mechanical, chemical engineers who turned to
+software without formal software engineering training).
+Typically it involves creating a doer object, calling one method on it,
+and throwing it away. For example:
+
+```python
+problem = NavierStokes()
+solver = EquationSolver(tol=5)
+solution = solver.solve(problem)
+```
+
+The code above fictitiously solves the Navier--Stokes equations,
+forcing the user to instantiate two different objects along the way,
+and probably throw them out or ignore them,
+keeping what they really care about: the `solution`.
+In Python, this could have simply been written as:
+
+```python
+solution = solve(problem="navier-stokes", tol=5)
+```
+
+Side note: We could have had the user pass in an instance of a `Problem`
+class, but I typically like function arguments to be primitive types, so would
+point the literal `"navier-stokes"` to that class, if it were written that
+way, but it could also point to a function.
+Doing it this way also means we don't force the user to import or know anything
+about `NavierStokes`, because why should they.
+
+Now this leaves us with the question what is the type of `solution`.
+If we follow the principle of simplicity, we could simply make it a `dict`
+or a NumPy array,
+but a `solution` probably represents something that could deserve to be a class,
+since it represents important long-lived state that is likely
+irrelevant to much of the rest of the application.
+We could have something like:
+
+```python
+class Solution:
+    def __init__(self, data):
+        self.data = data
+    def visualize(self):
+        ...
+    def write(self):
+        ...
+    def load(self):
+        ...
+```
+
+In this example we are now tying some actions to `Solution` by using OOP.
+This might be easier than something like:
+
+```python
+from visualization import visualize
+
+visualize(solution)
+```
+
+So, a class should not be a doer, but a class _can be_
+a container for long-lived state
+that is irrelevant to the rest of the application.
+That last rule is an important one, which we may actually be breaking.
+If this Python module or package we're working on is truly
+dedicated to solving and visualizing solutions, using the module itself as
+the main object could be just as easy to understand:
+
+```python
+import mysolverpackage as ms
+
+solution = ms.solve(...)
+ms.visualize_solution(solution)
+ms.write_solution(solution)
+```
+
+In this case, `solution` could still be a fairly primitive type, i.e.,
+a `dict`, `array`, or even Pandas `DataFrame`, with a structure or schema
+that is understood by the rest of the application.
+One benefit to doing things this way is that reading and writing can be
+simple with built-in serialization libraries, e.g., `json`
+(`json.dumps(Solution())` would fail without some additional code).
+
+Another way to think about a class is as a custom, more exotic (complex!),
+data type.
+I'd argue that at the very least one shouldn't create a class for the
+first iteration of a software project or feature.
+If our project evolves to have many different _types_ of solutions,
+equations, or solver algorithms,
+then maybe a OOP makes sense,
+but overall, hiding them as much as possible is also a preference of mine.
+Have external code point to these using primitive types rather than forcing
+them to know anything about class names, how to instantiate them, etc.
+
+Another reason to avoid using classes in Python is that they essentially
+become a dumping ground for limitless mutable state through the `self` keyword.
+Moseley and Marks note that a primary source of complexity in software is
+state, and mutable state is more complex than immutable.
+If we're using a `Solution` class in our program, there is nothing preventing
+anything that's using that class from mutating an instance at any time.
+
+```python
+s = Solution()
+s.data = 5
+s.other_data = 6
+```
+
+We could protect `data` by making it a... protected... attribute
+(with a preceding underscore) and defining access to is through the
+`property` decorator, but there is nothing preventing us from adding
+`other_data` at any point, and even `_data` could be mutated at will.
+So, is this custom data type giving us essential complexity? Probably not.
