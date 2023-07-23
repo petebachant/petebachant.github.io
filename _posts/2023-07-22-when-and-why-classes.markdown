@@ -5,7 +5,7 @@ title: When and why to use classes (in Python anyway)
 ---
 
 I can almost remember when I first learned about object-oriented programming
-and classes in Python.
+(OOP) and classes in Python.
 It was probably when I first wanted to build a desktop GUI app with PyQt,
 where everything is a class, and I just followed the examples I saw
 elsewhere, using `self` as needed without really knowing what it meant.
@@ -14,13 +14,13 @@ was responsible for automating my experimental setup,
 which towed a vertical-axis turbine down a tow tank while collecting
 loads, torque, and wake flow data.
 
-For my
+For processing data from my
 [first experiment](https://github.com/UNH-CORE/RVAT-baseline),
 I wrote purely procedural code, since I was weening
 myself off of MATLAB at the time, which at that point didn't have any
 OOP capabilities, as far as I know.
 But for the [next](https://github.com/UNH-CORE/RVAT-Re-dep),
-I had this idea that I should be writing in OOP,
+I had this idea that I should be writing in the OOP style,
 because, I dunno, it was an option?
 
 Anyway, I am going to do something that usually induces plenty of cringe
@@ -196,3 +196,45 @@ We could protect `data` by making it a... protected... attribute
 `property` decorator, but there is nothing preventing us from adding
 `other_data` at any point, and even `_data` could be mutated at will.
 So, is this custom data type giving us essential complexity? Probably not.
+
+A good way to avoid mutating custom data types in Python is to use
+the `dataclass` decorator.
+
+TODO: Avoid inheritance.
+
+## Hearing out the other side
+
+I have heard that OOP is absolutely crucial in large enterprise applications
+to avoid duplicated or strongly couples code, which can enable development
+teams to be decoupled from each other.
+Setting aside the question of whether or not "large" applications should even
+exist (are they essential complexity?),
+are classes really the only way to achieve code reuse and decoupling?
+Firstly, using inheritance to avoid duplications is already problematic.
+Modules of pure functions can do the same thing,
+achieving polymorphism and consistent interfaces.
+Pydantic can help with type checking arguments to these pure functions.
+If you know a problem that is truly easier to deduplicate/decouple with
+classes instead of pure functions, please let me know.
+
+## Summary and conclusions
+
+To wrap things up, I would first say to avoid writing classes as much as
+possible in Python.
+The first version of your app should probably not define any classes.
+
+If after things are working and you notice that there is a bunch of duplicated
+long-lived state, then refactoring to use a class can make sense.
+However, this class should be named after and represent state (data),
+not actions.
+Do not write doer classes.
+
+Avoid initializing and mutating classes all over your application.
+Write a function to instantiate.
+
+Valid use cases are:
+
+- Defining schemas that are thin wrappers over primitive types.
+- Encapsulating long-lived state that would be inefficient to recreate like
+  database connections.
+-
