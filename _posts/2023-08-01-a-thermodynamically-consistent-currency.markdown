@@ -8,7 +8,9 @@ categories:
 - Economics
 ---
 
-Money represents entitlement to energy.
+Money represents entitlement to mass and energy,
+though most of the mass is not valuable without a bunch of
+energy put into it.
 
 Energy is the capacity to do work,
 and by extension, the capacity to create human wellbeing.
