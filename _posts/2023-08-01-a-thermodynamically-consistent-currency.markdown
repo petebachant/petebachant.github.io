@@ -32,6 +32,8 @@ heat will be added to it later.
 
 What is an interest rate?
 
+What is inflation in this analogy?
+
 What if we could better track transactions that destroy exergy,
 ones that despite money changing hands,
 actually reduces the value.
