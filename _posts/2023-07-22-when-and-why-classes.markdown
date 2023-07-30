@@ -237,4 +237,23 @@ Valid use cases are:
 - Defining schemas that are thin wrappers over primitive types.
 - Encapsulating long-lived state that would be inefficient to recreate like
   database connections.
--
+- Encapsulating long-lived state that is irrelevant in other parts of the
+  application.
+  For example, a trained machine learning model.
+  The weights, or tree, or regression coefficients, etc.,
+  are probably only necessary to make predictions,
+  so they can be hidden inside of a class.
+
+You probably won't use classes to do true OOP (message passing).
+If you do, you'll probably run into confusion about what state should be
+encapsulated by what class,
+and end up coupling them to share state anyway.
+
+If you're using classes in a way where they are short-lived,
+you probably should not be,
+because you're probably just using classes to write procedures.
+
+If you're using classes in Python to reuse code via inheritance you
+probably should not be.
+
+ORM?
