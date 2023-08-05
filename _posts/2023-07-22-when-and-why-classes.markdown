@@ -171,7 +171,8 @@ Using OOP for important application data has this strange irrationality or
 backwardness.
 Should the application be manipulating the data or should the data be
 manipulating itself?
-The latter feels wrong.
+The latter feels wrong, and this is described well by
+[this article](https://andreidascalu.medium.com/i-dont-like-object-oriented-programming-anymore-d38fa9ed3a77).
 To go back to our first example, should a data collection run from our
 experiment process itself, or is the application processing the data from
 that run.
