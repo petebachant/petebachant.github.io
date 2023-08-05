@@ -229,6 +229,15 @@ classes instead of pure functions, please let me know.
 
 ## Summary and conclusions
 
+Any application will have objects that it deals with in order to model
+its relationships to the real world.
+The main question is whether or not you want the objects to be in charge
+of managing themselves or if the application should be responsible for
+managing the objects.
+In my opinion, the application should manage the data, not the other way
+around, so OOP should not be used for the main application logic.
+However, classes can be useful in some cases.
+
 To wrap things up, I would first say to avoid writing classes as much as
 possible in Python.
 The first version of your app should probably not define any classes.
