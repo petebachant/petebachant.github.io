@@ -167,6 +167,15 @@ One benefit to doing things this way is that reading and writing can be
 simple with built-in serialization libraries, e.g., `json`
 (`json.dumps(Solution())` would fail without some additional code).
 
+Using OOP for important application data has this strange irrationality or
+backwardness.
+Should the application be manipulating the data or should the data be
+manipulating itself?
+The latter feels wrong.
+To go back to our first example, should a data collection run from our
+experiment process itself, or is the application processing the data from
+that run.
+
 Another way to think about a class is as a custom, more exotic (complex!),
 data type.
 I'd argue that at the very least one shouldn't create a class for the
@@ -243,6 +252,8 @@ Valid use cases are:
   The weights, or tree, or regression coefficients, etc.,
   are probably only necessary to make predictions,
   so they can be hidden inside of a class.
+  A DataFrame, which has columns and values that don't make sense
+  outside the context of the dataset itself.
 
 You probably won't use classes to do true OOP (message passing).
 If you do, you'll probably run into confusion about what state should be
