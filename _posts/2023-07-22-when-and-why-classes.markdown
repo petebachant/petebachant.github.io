@@ -277,4 +277,7 @@ because you're probably just using classes to write procedures.
 If you're using classes in Python to reuse code via inheritance you
 probably should not be.
 
+Classes should have as few methods as possible. The app should be manipulating
+the data, rather than telling the data to mutate itself.
+
 ORM?
