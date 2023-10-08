@@ -4,11 +4,16 @@ layout: post
 title: When and why to use classes (in Python anyway)
 ---
 
+TL;DR: Classes are for _long-lived_ application state
+that can be truly considered irrelevant to other scopes in
+the application.
+Classes are for data first, actions second.
+
 I can almost remember when I first learned about object-oriented programming
 (OOP) and classes in Python.
 It was probably when I first wanted to build a desktop GUI app with PyQt,
 where everything is a class, and I just followed the examples I saw
-elsewhere, using `self` as needed without really knowing what it meant.
+elrewhere, using `self` as needed without really knowing what it meant.
 This [desktop GUI app](https://github.com/petebachant/TurbineDAQ)
 was responsible for automating my experimental setup,
 which towed a vertical-axis turbine down a tow tank while collecting
@@ -281,3 +286,13 @@ Classes should have as few methods as possible. The app should be manipulating
 the data, rather than telling the data to mutate itself.
 
 ORM?
+
+Let's look at a trival example to show how classes can lead to 
+unnecessary complexity.
+
+Imagine our program is supposed to calculate the area of various shapes.
+We could use classes.
+But we see classes are only actually useful if the shapes data
+is long-lived.
+
+TODO: Add some bad examples.
