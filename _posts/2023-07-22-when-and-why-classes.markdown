@@ -4,10 +4,11 @@ layout: post
 title: When and why to use classes (in Python anyway)
 ---
 
-TL;DR: Classes are for _long-lived_ application state
-that can be truly considered irrelevant to other scopes in
-the application.
+TL;DR: Classes are for encapsulating _long-lived_ application state.
 Classes are for data first, actions second.
+If you're using classes and they end up being short-lived and/or
+are named with an -er or -or suffix,
+you should probably not be using classes there.
 
 I can almost remember when I first learned about object-oriented programming
 (OOP) and classes in Python.
@@ -21,12 +22,12 @@ loads, torque, and wake flow data.
 
 For processing data from my
 [first experiment](https://github.com/UNH-CORE/RVAT-baseline),
-I wrote purely procedural code, since I was weening
+I wrote procedural code, since I was weening
 myself off of MATLAB at the time, which at that point didn't have any
 OOP capabilities, as far as I know.
 But for the [next](https://github.com/UNH-CORE/RVAT-Re-dep),
 I had this idea that I should be writing in the OOP style,
-because, I dunno, it was an option?
+because, I dunno, it was an option, and smart people did it?
 
 Anyway, I am going to do something that usually induces plenty of cringe
 and look at some old code, analyzing these two projects to see if
@@ -48,7 +49,67 @@ if __name__ == "__main__":
 
 So, we imported the local processing module `pyrvatbl.processing`, and called
 two functions out of it, processing the performance data, then the wake data.
+This processing generates some CSV files of the reduced data for visualization.
+After it's been run once, all a user will need to do is run the `plot.py`
+script---nicely decoupling the two concerns.
 
+For the next experiment,
+I created a few classes:
+- `Run` to represent a data collection run
+- `PerfCurve` to represent the processed data for a performance curve
+- `WakeProfile` and `WakeMap` to represent the processed wake flow data in
+  one and two dimensions, respectively
+
+The interface to processing and plotting data was still primarily the CLI,
+so that was good,
+but all of this could have probably been easier to understand as a collection
+of functions,
+with the important non-primitive objects being Pandas DataFrames.
+
+I am going to take an example of an interface that forces users to
+instantiate a bunch of classes,
+which I find to be very user unfriendly.
+This is from the Foxes wake modeling library,
+which looks like a very useful and valuable piece of software.
+I certainly am not implying it is bad software,
+just that the interface is a little too complex.
+
+```python
+import foxes
+
+states = foxes.input.states.Timeseries("timeseries_3000.csv.gz", ["WS", "WD","TI","RHO"])
+
+mbook = foxes.ModelBook()
+
+farm = foxes.WindFarm()
+foxes.input.farm_layout.add_from_file(farm, "test_farm_67.csv", turbine_models=["NREL5MW"])
+
+algo = foxes.algorithms.Downwind(mbook, farm, states, ["Jensen_linear_k007"])
+farm_results = algo.calc_farm()
+
+print(farm_results)
+```
+
+This example shows us creating lots of instances of classes,
+tying them together in strange ways,
+and only really calling one method that produces anything of interest
+(`calc_farm`).
+
+We create `mbook` without any input and pass it into another instantiation
+of a class.
+
+This could have simply been written as
+
+```python
+import foxes
+
+farm_results = foxes.simulate_farm(
+    states_fpath="timeseries_3000.csv.gz",
+    layout_fpath="test_farm_67.csv",
+    turbine_models=["NREL5MW"],
+    algo="Jensen_linear_k007",
+)
+```
 
 TODO: More, LoC, examples of usage, etc.
 
@@ -56,13 +117,17 @@ TODO: More, LoC, examples of usage, etc.
 Fast-forward a decade or so, and now I'm at [WindESCo](https://windesco.com),
 writing software that
 processes much bigger sets of turbine data in many different ways.
-My typical fallback is to write procedural code and pure functions, because
-I personally find that the easiest to understand,
-but we started playing around with writing our data processing algorithms as
+My typical fallback is to write procedural code and pure functions,
+because I personally find that the easiest to understand,
+but we started playing around with writing our data processing pipelines as
 classes using inheritance.
 It seemed to work okay, and enabled us to define a generic procedure,
 filling in the details by overriding methods or configuring parameters via
 class attributes.
+We could also bundle together visualization and processing together into
+the classes,
+potentially creating cohesion,
+and maybe reducing repetition.
 
 However, I then stumbled upon this video, and it made me question what we
 were doing:
@@ -119,6 +184,8 @@ point the literal `"navier-stokes"` to that class, if it were written that
 way, but it could also point to a function.
 Doing it this way also means we don't force the user to import or know anything
 about `NavierStokes`, because why should they.
+This also makes it easy to expose these function via REST API,
+since all the parameters are already JSON-serializable.
 
 Now this leaves us with the question what is the type of `solution`.
 If we follow the principle of simplicity, we could simply make it a `dict`
@@ -296,3 +363,8 @@ But we see classes are only actually useful if the shapes data
 is long-lived.
 
 TODO: Add some bad examples.
+
+
+## Other resources
+
+- [Stop writing classes](https://www.youtube.com/watch?v=o9pEzgHorH0)
