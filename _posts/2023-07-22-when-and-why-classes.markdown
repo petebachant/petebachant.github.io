@@ -5,74 +5,82 @@ title: When and why to use classes (in Python anyway)
 ---
 
 TL;DR: Classes are for encapsulating _long-lived_ application state.
-Classes are for data first, actions second.
-If you're using classes and they end up being short-lived and/or
-are named with an -er or -or suffix,
-you should probably not be using classes there.
 
-I can almost remember when I first learned about object-oriented programming
-(OOP) and classes in Python.
-It was probably when I first wanted to build a desktop GUI app with PyQt,
-where everything is a class, and I just followed the examples I saw
-elsewhere, using `self` as needed without really knowing what it meant.
-This [desktop GUI app](https://github.com/petebachant/TurbineDAQ)
-was responsible for automating my experimental setup,
-which towed a vertical-axis turbine down a tow tank while collecting
-loads, torque, and wake flow data.
+Okay, so what does that mean?
+State is data, like something you might keep in memory or a database,
+and encapsulation means you put a wall around that state
+and only let it be accessed through an interface
+(methods and properties).
+But what does long-lived mean?
+This is hard to quantify,
+but if your class instances are created and discarded after calling
+one or two methods on them, they probably aren't long-lived.
 
-For processing data from my
-[first experiment](https://github.com/UNH-CORE/RVAT-baseline),
-I wrote procedural code, since I was weening
-myself off of MATLAB at the time, which at that point didn't have any
-OOP capabilities, as far as I know.
-But for the [next](https://github.com/UNH-CORE/RVAT-Re-dep),
-I had this idea that I should be writing in the OOP style,
-because, I dunno, it was an option, and smart people did it?
+But let's back up a second.
+Why can class usage be problematic?
+Firstly, let me admit that I don't like object-oriented programming.
+I find it to be backwards, i.e., it has objects to encapsulate
+state and have those objects mutate themselves.
+It seems much more intuitive that the application should be the one in
+charge, not the data.
+That being said, nearly all applications will involve objects---I just don't
+think it's all that helpful to have the objects manage themselves.
 
-Anyway, I am going to do something that usually induces plenty of cringe
-and look at some old code, analyzing these two projects to see if
-using classes was truly a good idea in the later one.
-Essentially, the purpose of both of these projects was to reduce the data
-to some aggregates and create some plots from them.
-At the top of each lived a `process.py` and a `plot.py` script, which were
-intended to be the main command line interface to do the work.
+I have personally seen lots of class abuse.
+I have even fallen prey to the "shiny new thing" pitfall when I first
+learned about classes and assumed that's how all my code should be written.
+So, this article is meant to help you avoid that trap.
 
-In the older project, `process.py` simply looked like:
+Two videos helped snap me out of my class illusions:
+1. TODO
+2. TODO
 
-```python
-import pyrvatbl.processing as pr
+## Concrete examples of worthwhile encapsulation of long-lived state
 
-if __name__ == "__main__":
-    pr.batchperf()
-    pr.batchwake()
-```
+1. GUI applications. The components of a UI are essentially long-lived.
+   They can be hidden, change color, store user input.
+   I think these objects are quite intuitive to interact with like
+   `button1.hide()` rather than `hide_button("button1")`.
+2. Background threads that collect data, or maybe threads in general that
+   constantly create new state. These seem very useful to encapsulate.
+3. Machine learning models. Training a model creates state in order to make
+   predictions. `model.predict(data)` seems pretty intuitive,
+   though I'm not so sure about `model.train(data)`,
+   since we're having the instance mutate itself,
+   and an untrained model isn't very useful.
 
-So, we imported the local processing module `pyrvatbl.processing`, and called
-two functions out of it, processing the performance data, then the wake data.
-This processing generates some CSV files of the reduced data for visualization.
-After it's been run once, all a user will need to do is run the `plot.py`
-script---nicely decoupling the two concerns.
+## When not to use classes
 
-For the next experiment,
-I created a few classes:
-- `Run` to represent a data collection run
-- `PerfCurve` to represent the processed data for a performance curve
-- `WakeProfile` and `WakeMap` to represent the processed wake flow data in
-  one and two dimensions, respectively
+1. To reduce duplicate code via inheritance. It is not commonly accepted that
+   inheritance is problematic.
+   I will make an exception if the inheritance happens in the
+   same module, however.
+2. To write procedures. If you are instantiating a class, calling one method,
 
-The interface to processing and plotting data was still primarily the CLI,
-so that was good,
-but all of this could have probably been easier to understand as a collection
-of functions,
-with the important non-primitive objects being Pandas DataFrames.
+## Bonus application: Type hinting and validation
 
-I am going to take an example of an interface that forces users to
-instantiate a bunch of classes,
-which I find to be very user unfriendly.
-This is from the Foxes wake modeling library,
-which looks like a very useful and valuable piece of software.
-I certainly am not implying it is bad software,
-just that the interface is a little too complex.
+Pydantic.
+This isn't long-lived state per se,
+but Pydantic models are quite helpful to define data types
+to be used throughout the application,
+and these happen to be defined as classes.
+I would avoid attaching too many methods to them, however,
+following the principle of letting the application
+handle the data instead of the data handling itself.
+
+## Lastly, a word about complexity
+
+Maybe the most important reason to avoid using classes is that
+we want to minimize complexity,
+and complexity comes from additional state in our application that is
+not essential to the problem we're solving.
+Since classes encapsulate state,
+it logically follows that if you write lots of them,
+you're potentially creating a lot of state in your application.
+Python is especially bad for this because the `self` keyword gives one
+a limitless dumping ground for state.
+
+## Old stuff below
 
 ```python
 import foxes
@@ -112,7 +120,6 @@ farm_results = foxes.simulate_farm(
 ```
 
 TODO: More, LoC, examples of usage, etc.
-
 
 Fast-forward a decade or so, and now I'm at [WindESCo](https://windesco.com),
 writing software that
