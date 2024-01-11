@@ -45,7 +45,7 @@ Two videos helped snap me out of my class illusions:
    constantly create new state. These seem very useful to encapsulate.
 3. Machine learning models. Training a model creates state in order to make
    predictions. `model.predict(data)` seems pretty intuitive,
-   though I'm not so sure about `model.train(data)`,
+   though I'm not so sure about `model.fit(data)`,
    since we're having the instance mutate itself,
    and an untrained model isn't very useful.
 
@@ -54,8 +54,14 @@ Two videos helped snap me out of my class illusions:
 1. To reduce duplicate code via inheritance. It is not commonly accepted that
    inheritance is problematic.
    I will make an exception if the inheritance happens in the
-   same module, however.
+   same module, however,
+   but I am also biased towards pure functions as a better way to avoid
+   duplication.
+   On the other hard, duplicate code isn't the end of the world if it's
+   easy to understand.
 2. To write procedures. If you are instantiating a class, calling one method,
+   and only care about the result,
+   you probably shouldn't use a class.
 
 ## Bonus application: Type hinting and validation
 
@@ -74,11 +80,12 @@ Maybe the most important reason to avoid using classes is that
 we want to minimize complexity,
 and complexity comes from additional state in our application that is
 not essential to the problem we're solving.
+Complexity gets even worse when the state it mutable.
 Since classes encapsulate state,
 it logically follows that if you write lots of them,
 you're potentially creating a lot of state in your application.
 Python is especially bad for this because the `self` keyword gives one
-a limitless dumping ground for state.
+a limitless dumping ground for mutable state.
 
 ## Old stuff below
 
