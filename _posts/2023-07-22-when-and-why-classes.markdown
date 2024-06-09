@@ -20,7 +20,7 @@ However, both of these are actually bad from the standpoint of having
 simple, readable, maintainable code.
 
 Firstly, inheritance is bad. I won't explain here, but there's
-plenty written on the topic.
+plenty of material on this topic out there.
 There are better ways to reduce duplicate code,
 and duplicate code is preferable to code that requires jumping
 from class-to-class, or worse, file-to-file, to understand.
@@ -114,7 +114,7 @@ class Simulator:
         self.force = []
 
     def simulate(self):
-        for _ in range(5):
+        for _ in range(self.n_iterations):
             self.iteration += 1
             self.force.append(self.iteration)
         self.result = Result(force=self.force)
@@ -162,10 +162,10 @@ This would produce:
 ```
 Result 1 max force: 5
 Result 1 force: [1, 2, 3, 4, 5]
-Result 2 max force: 10
-Result 2 force: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-Result 1 max force: 10
-Result 1 force: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Result 2 max force: 15
+Result 2 force: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+Result 1 max force: 15
+Result 1 force: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 ```
 
 Two bad things happened here:
