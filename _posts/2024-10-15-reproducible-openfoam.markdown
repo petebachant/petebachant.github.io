@@ -204,7 +204,7 @@ calkit new figure \
     --title "Mean velocity profiles" \
     --path figures/mean-velocity-profiles.png \
     --create-stage plot-mean-velocity-profiles \
-    --cmd "./run-docker.sh python scripts/plot-mean-velocity-profiles.py" \
+    --cmd "calkit run-env python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
     --dep data/jhtdb-profiles.h5 \
     --dep cases/... \ TODO
