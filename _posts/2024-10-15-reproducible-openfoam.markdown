@@ -158,27 +158,6 @@ So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`.
 
 TODO: On the GUI
 
-## Creating a Conda environment for our Python scripts
-
-We're going to plot some of the data with various Python packages,
-so we need to ensure we have an environment in which to run those.
-
-```sh
-calkit new conda-env \
-    --name blsim-python \
-    --create-stage create-conda-env \
-    --env-name blsim \
-    --add-package python=3.12 \
-    --add-package pandas \
-    --add-package jupyter \
-    --add-package notebook \
-    --add-package matplotlib \
-    --add-pip-package plotly
-```
-
-This will also create a DVC stage to ensure we create our Conda environment
-if necessary when running the pipeline.
-
 ## Creating a figure to visualize our results
 
 We want to compare the OpenFOAM results to the DNS data,
