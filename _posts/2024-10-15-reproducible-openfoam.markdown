@@ -117,8 +117,10 @@ calkit new docker-env \
     --name openfoam-2406-foampy \
     --create-stage build-docker \
     --path Dockerfile \
-    --base microfluidica/openfoam:2406 \
-    --add-layers mambaforge foampy \
+    --from microfluidica/openfoam:2406 \
+    --add-layer mambaforge \
+    --add-layer foampy \
+    --description "OpenFOAM v2406 with foamPy." \
     --wdir /sim
 ```
 
@@ -162,6 +164,12 @@ environments:
       - mambaforge
       - foampy
     wdir: /sim  # TODO: Necessary?
+```
+
+Let's check that we can run something in the environment.
+
+```sh
+calkit run-env blockMesh -help
 ```
 
 ## Adding the simulation runs to the pipeline
