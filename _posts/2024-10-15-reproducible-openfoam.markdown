@@ -276,12 +276,13 @@ In this case, we will add the stage manually to the `dvc.yaml` file:
 stages:
   ensure-paraview-installed:
     cmd: >
-      calkit manual-step
+      calkit check-call
       --message "Confirm ParaView is installed"
-      --post-cmd "paraview --version > paraview-version.txt"
+      --cmd "paraview --version > paraview-version.txt"
     outs:
       - paraview-version.txt:
           cache: false
+    always_changed: true
 ...
 ```
 
