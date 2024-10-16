@@ -249,7 +249,8 @@ mesh changes.
 calkit new figure \
     --path figures/mesh-snapshot.png \
     --title "Mesh snapshot" \
-    --create-stage save-mesh-snapshot \
+    --stage save-mesh-snapshot \
+    --create-stage \
     --manual-step "Save mesh image to figures/mesh-snapshot.png" \
     --cmd "paraview sim/cases/k-epsilon-ny-40/case.foam" \
     --dep sim/cases/k-epsilon-ny-40/constant/polyMesh
@@ -262,6 +263,37 @@ Note ParaView will need to be installed for this to run properly.
 
 TODO: These dependencies should be listed in our repo somehow.
 They could actually be manual steps.
+
+But wait, what if we don't have ParaView installed?
+We can add another manual step for installing ParaView.
+Now, technically, we should point to a specific version,
+or maybe even run it as a Docker container,
+but we're aiming for reasonable reproducibility,
+not necessarily perfection.
+In this case, we will add the stage manually to the `dvc.yaml` file:
+
+```yaml
+stages:
+  ensure-paraview-installed:
+    cmd: >
+      calkit manual-step
+      --message "Confirm ParaView is installed"
+      --post-cmd "paraview --version > paraview-version.txt"
+    outs:
+      - paraview-version.txt:
+          cache: false
+...
+```
+
+Basically what this allows us to do is ensure any annoying manual setup steps
+can be tracked, and rerun if need be.
+We'll also record the version in the repo after installation with the
+`--post-cmd` option.
+This should help reduce some cognitive load, i.e.,
+you only need to remember to run `calkit run` to get back to where you were.
+We could do this with Docker too, but I'll leave that up to you.
+
+TODO: Maybe this won't actually be rerun. Should this be a procedure?
 
 ## Tying it all together
 
