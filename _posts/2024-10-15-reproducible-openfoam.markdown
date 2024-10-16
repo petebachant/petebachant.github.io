@@ -167,12 +167,13 @@ Let's create a new figure TODO
 ```sh
 calkit new figure \
     --title "Mean velocity profiles" \
-    --path figures/mean-velocity-profiles.json \
+    --path figures/mean-velocity-profiles.png \
     --create-stage plot-mean-velocity-profiles \
-    --create-script \
-    --cmd python scripts/plot-mean-velocity-profiles.py \
-    --dep sim/... \ TODO
-    --dep sim/... TODO
+    --cmd "./run-docker.sh python scripts/plot-mean-velocity-profiles.py" \
+    --dep scripts/plot-mean-velocity-profiles.py \
+    --dep data/jhtdb-profiles.h5 \
+    --dep cases/... \ TODO
+    --dep cases/... TODO
 ```
 
 TODO: I can define a static path?
