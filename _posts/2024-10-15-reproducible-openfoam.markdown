@@ -65,7 +65,6 @@ You will need to have Git installed, and you'll need to have a
 You'll also need Python installed.
 I will typically use [Miniforge](TODO),
 but you can use whatever you'd like.
-You'll also need to install Docker.
 
 After that, you can install the Calkit Python package with
 
@@ -115,6 +114,41 @@ You can choose where it will go,
 but by default it will go in `$HOME/calkit`.
 
 TODO: Should this clone with a PAT?
+
+## Ensuring we have all of our dependencies installed
+
+This is often one of the most annoying steps,
+and it can require different actions on different operating systems,
+so we will leave the installations themselves to the users,
+but keep track
+We're going to use DVC stages to ensure we have versions of software
+running on our local machine to fulfill "metadependency" requirements, i.e.,
+things we need installed in order to create other reproducible environments:
+
+- Docker
+- Conda
+
+This will be our first introduction to DVC stages.
+
+```sh
+calkit new dependency \
+    --name docker \
+    --create-stage check-docker-installed \
+    --message "Ensure Docker is installed" \
+    --cmd "docker --version" \
+    --out docker-version.txt
+```
+
+Now add the Conda dependency
+
+```sh
+calkit new dependency \
+    --name conda
+    --create-stage check-conda-installed \
+    --message "Ensure Conda is installed" \
+    --cmd "conda --version" \
+    --out conda-version.txt
+```
 
 ## Getting some validation data
 
@@ -184,17 +218,15 @@ In order to run a Docker container on the local repo files,
 I'll create a Calkit Docker environment and corresponding run script with:
 
 ```sh
-calkit new environment \
-    --kind docker \
-    --name "OpenFOAM with foamPy" \
+calkit new docker-env \
+    --name openfoam \
+    --create-stage build-docker \
     --path sim/Dockerfile \
-    --docker-base microfluidica/openfoam:2406 \
-    --docker-add-module mambaforge \
-    --docker-add-module foampy \
-    --docker-workdir /sim \
-    --create \
-    --create-run-script \
-    --create-stage
+    --base microfluidica/openfoam:2406 \
+    --add-module mambaforge \
+    --add-module foampy \
+    --workdir /sim \
+    --create-run-script sim/run-docker.sh
 ```
 
 TODO: This should happen in the GUI?
@@ -208,6 +240,20 @@ If we run `calkit status`, we see TODO
 So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`.
 
 TODO: On the GUI
+
+## Creating a Conda environment for our Python scripts
+
+```sh
+calkit new conda-env \
+    --name blsim-python \
+    --create-stage create-conda-env \
+    --env-name blsim \
+    --add-package python=3.12 \
+    --add-package pandas \
+    --add-package jupyter \
+    --add-package notebook \
+    --add-pip-package plotly
+```
 
 ## Creating figures
 
@@ -304,6 +350,9 @@ we are going to create a Jupyter notebook TODO
 ```sh
 calkit new publication \
     --path notebook.ipynb \
+    --stage build-notebook \
     --create-stage \
     --stage-template notebook-html
 ```
+
+TODO: Ensure nbstripout is installed for the repo with `nbstripout --status`?
