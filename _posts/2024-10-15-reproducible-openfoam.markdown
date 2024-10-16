@@ -62,9 +62,10 @@ We're going to try to answer the question:
 
 You will need to have Git installed, and you'll need to have a
 [GitHub](https://github.com) account.
-You'll also need Python installed.
-I will typically use [Miniforge](TODO),
-but you can use whatever you'd like.
+You'll also need:
+- Python/Conda. I like to install [Miniforge](TODO), but there are a few
+  options.
+- Docker.
 
 After that, you can install the Calkit Python package with
 
@@ -90,10 +91,11 @@ or GitHub desktop app.
 
 We want to validate these RANS models, so we'll need some data.
 Up on the Calkit website there is a page for browsing public datasets.
-It just so happens that there is already a boundary layer dataset on
+It just so happens that there is already a boundary layer
+direct numerical simulation (DNS) dataset on
 Calkit downloaded from the
 [Johns Hopkins Turbulence Databases (JHTDB)](https://turbulence.pha.jhu.edu/),
-so we can just import that with
+so we can simply import that with
 
 ```sh
 calkit import dataset \
@@ -106,11 +108,7 @@ Under the hood, Calkit used DVC to import the dataset from the Calkit Cloud,
 adding metadata to the `datasets` section of `calkit.yaml`.
 We can now see that as part of the project datasets on the Calkit web app.
 
-Some observations: # TODO: Put in a callout?
-
-- Calkit is automatically committing and pushing changes to the repo.
-  This is done to speed things up, but can be disabled with `--no-commit`
-  and `--no-push`, respectively.
+TODO: Add image of dataset on the website.
 
 ## Getting an important reference
 
@@ -155,14 +153,14 @@ I'll create a Calkit Docker environment and corresponding run script with:
 
 ```sh
 calkit new docker-env \
-    --name openfoam \
+    --name openfoam-2406-foampy \
     --create-stage build-docker \
-    --path sim/Dockerfile \
+    --path Dockerfile \
     --base microfluidica/openfoam:2406 \
     --add-module mambaforge \
     --add-module foampy \
     --workdir /sim \
-    --create-run-script sim/run-docker.sh
+    --create-run-script run-docker.sh
 ```
 
 TODO: This should happen in the GUI?
@@ -179,6 +177,9 @@ TODO: On the GUI
 
 ## Creating a Conda environment for our Python scripts
 
+We're going to plot some of the data with various Python packages,
+so we need to ensure we have an environment in which to run those.
+
 ```sh
 calkit new conda-env \
     --name blsim-python \
@@ -188,8 +189,12 @@ calkit new conda-env \
     --add-package pandas \
     --add-package jupyter \
     --add-package notebook \
+    --add-package matplotlib \
     --add-pip-package plotly
 ```
+
+This will also create a DVC stage to ensure we create our Conda environment
+if necessary when running the pipeline.
 
 ## Creating figures
 
@@ -201,7 +206,7 @@ Let's create a new figure TODO
 calkit new figure \
     --title "Mean velocity profiles" \
     --path figures/mean-velocity-profiles.json \
-    --create-stage \
+    --create-stage plot-mean-velocity-profiles \
     --create-script \
     --cmd python scripts/plot-mean-velocity-profiles.py \
     --dep sim/... \ TODO
