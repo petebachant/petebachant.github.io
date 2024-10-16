@@ -114,16 +114,12 @@ TODO: Add image of dataset on the website.
 
 We know we're going to want to run multiple different versions of a similar
 case so we can test different turbulence models.
-We should also probably do a quick mesh dependence study.
 For this, I'm going to setup the case in a "templatized" way,
 and create new cases to run as needed from a script.
 
-I'm going to copy over some files from a case I had already created.
-You'll notice the `blockMeshDict` is actually named `blockMeshDict.template`,
+You'll notice the `constant/turbulenceProperties` file has a `.template`
+suffix
 and it uses Python's string formatting syntax to parameterize certain values.
-We're also going to templatize the `constant/turbulenceProperties` file,
-so we can easily create new cases with different turbulence settings.
-
 You'll also notice this is all managed through a `run.py` script,
 but we haven't installed any of the necessary dependencies to run it.
 In order to make these simulations reproducible, we're going to use
