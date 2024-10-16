@@ -86,41 +86,6 @@ Creating a project on Calkit also creates the project Git repo on GitHub.
 Next, clone the repo to your local machine with the Git CLI, GitHub CLI,
 or GitHub desktop app.
 
-## Ensuring we have all of our dependencies installed
-
-This is often one of the most annoying steps,
-and it can require different actions on different operating systems,
-so we will leave the installations themselves to the users,
-but keep track
-We're going to use DVC stages to ensure we have versions of software
-running on our local machine to fulfill "metadependency" requirements, i.e.,
-things we need installed in order to create other reproducible environments:
-
-- Docker
-- Conda
-
-This will be our first introduction to DVC stages.
-
-```sh
-calkit new dependency \
-    --name docker \
-    --create-stage check-docker-installed \
-    --message "Ensure Docker is installed" \
-    --cmd "docker --version" \
-    --out docker-version.txt
-```
-
-Now add the Conda dependency
-
-```sh
-calkit new dependency \
-    --name conda
-    --create-stage check-conda-installed \
-    --message "Ensure Conda is installed" \
-    --cmd "conda --version" \
-    --out conda-version.txt
-```
-
 ## Getting some validation data
 
 We want to validate these RANS models, so we'll need some data.
