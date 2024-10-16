@@ -117,23 +117,6 @@ We can now see that as part of the project datasets on the Calkit web app.
 
 TODO: Add image of dataset on the website.
 
-## Getting an important reference
-
-We want to mesh the domain similarly to the one used for the DNS dataset in the
-JHTDB.
-First, we want to import the README from the JHTDB dataset as a reference
-so we can see what the domain looks like.
-As luck would have it, this reference already exists in another project,
-so I can just run
-
-```sh
-calkit import reference \
-    petebachant/boundary-layer-turbulence-modeling/references.bib:JHTDBDescription
-```
-
-and I will have the reference in a local `references.bib` file (BibTeX format)
-as well as a PDF in the `references` folder.
-
 ## Starting our OpenFOAM case
 
 We know we're going to want to run multiple different versions of a similar
