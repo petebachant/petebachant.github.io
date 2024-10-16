@@ -114,4 +114,159 @@ one of which will allow you to clone the repo.
 You can choose where it will go,
 but by default it will go in `$HOME/calkit`.
 
+TODO: Should this clone with a PAT?
+
 ## Getting some validation data
+
+We want to validate these RANS models, so we'll need some data.
+Up on the Calkit website there is a page for browsing public datasets.
+It just so happens that there is already a boundary layer dataset on
+Calkit downloaded from the
+[Johns Hopkins Turbulence Databases (JHTDB)](https://turbulence.pha.jhu.edu/),
+so we can just import that with
+
+```sh
+calkit import dataset \
+    petebachant/boundary-layer-turbulence-modeling/data/jhtdb-transitional-bl/time-ave-profiles.h5 \
+    data/jhtdb-profiles.h5
+```
+
+We're going to import it to a different location here.
+Under the hood, Calkit used DVC to import the dataset from the Calkit Cloud,
+adding metadata to the `datasets` section of `calkit.yaml`.
+We can now see that as part of the project datasets on the Calkit web app.
+
+Some observations: # TODO: Put in a callout?
+
+- Calkit is automatically committing and pushing changes to the repo.
+  This is done to speed things up, but can be disabled with `--no-commit`
+  and `--no-push`, respectively.
+
+## Getting an important reference
+
+We want to mesh the domain similarly to the one used for the DNS dataset in the
+JHTDB.
+First, we want to import the README from the JHTDB dataset as a reference
+so we can see what the domain looks like.
+As luck would have it, this reference already exists in another project,
+so I can just run
+
+```sh
+calkit import reference \
+    petebachant/boundary-layer-turbulence-modeling/references.bib:JHTDBDescription
+```
+
+and I will have the reference in a local `references.bib` file (BibTeX format)
+as well as a PDF in the `references` folder.
+
+## Starting our OpenFOAM case
+
+We know we're going to want to run multiple different versions of a similar
+case so we can test different turbulence models.
+We should also probably do a quick mesh dependence study.
+For this, I'm going to setup the case in a "templatized" way,
+and create new cases to run as needed from a script.
+
+I'm going to copy over some files from a case I had already created.
+You'll notice the `blockMeshDict` is actually named `blockMeshDict.template`,
+and it uses Python's string formatting syntax to parameterize certain values.
+We're also going to templatize the `constant/turbulenceProperties` file,
+so we can easily create new cases with different turbulence settings.
+
+You'll also notice this is all managed through a `run.py` script,
+but we haven't installed any of the necessary dependencies to run it.
+In order to make these simulations reproducible, we're going to use
+Docker.
+
+## Creating a reproducible OpenFOAM environment with Docker
+
+In order to run a Docker container on the local repo files,
+I'll create a Calkit Docker environment and corresponding run script with:
+
+```sh
+calkit new environment \
+    --kind docker \
+    --name "OpenFOAM with foamPy" \
+    --path sim/Dockerfile \
+    --docker-base microfluidica/openfoam:2406 \
+    --docker-add-module mambaforge \
+    --docker-add-module foampy \
+    --docker-workdir /sim \
+    --create \
+    --create-run-script \
+    --create-stage
+```
+
+TODO: This should happen in the GUI?
+
+This command will create the necessary Dockerfile,
+the environment in our project metadata,
+and will add a stage to our DVC pipeline to build the image.
+
+If we run `calkit status`, we see TODO
+
+So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`.
+
+TODO: On the GUI
+
+## Creating figures
+
+We want to compare the OpenFOAM results to the DNS data,
+for which we can plot the mean velocity profiles, for example.
+Let's create a new figure TODO
+
+```sh
+calkit new figure \
+    --title "Mean velocity profiles" \
+    --path figures/mean-velocity-profiles.json \
+    --create-stage \
+    --create-script \
+    --cmd python scripts/plot-mean-velocity-profiles.py \
+    --dep sim/... \ TODO
+    --dep sim/... TODO
+```
+
+TODO: I can define a static path?
+
+Now another call to `calkit run` and `calkit save -m "Run pipeline"`
+will materialize this figure and push it to the repo.
+This figure is now viewable as its own object up on the website,
+on which we can make comments.
+Since we made it with Plotly,
+we can also zoom in, interact with the data, etc.
+
+## What about manual steps?
+
+Automation is great, and we should try to script everything if possible,
+but what about things that we only know how to do manually.
+In my case, I'm not all that great with scripting in ParaView,
+but I know how to manually create a snapshot of the mesh,
+so I'm going to do it that way, but I want it to be part of the pipeline so
+it can be tracked, and I'll be forced to regenerate the image if the
+mesh changes.
+
+```sh
+calkit new figure \
+    --path figures/mesh-snapshot.png \
+    --title "Mesh snapshot" \
+    --create-stage save-mesh-snapshot \
+    --manual-step "Save mesh image to figures/mesh-snapshot.png" \
+    --cmd "touch sim/cases/k-epsilon-ny-40/case.foam && paraview sim/cases/k-epsilon-ny-40/case.foam"
+    --dep sim/cases/k-epsilon-ny-40/constant/polyMesh
+```
+
+This command shows me a message telling me what to do, and will rerun
+if the mesh changes.
+Now let's execute `calkit run` again.
+
+## Tying it all together
+
+So we have something of a report,
+we are going to create a Jupyter notebook TODO
+
+```sh
+calkit new publication \
+    --path notebook.ipynb \
+    --create-stage \
+    --stage-template notebook-html
+```
