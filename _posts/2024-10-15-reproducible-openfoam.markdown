@@ -112,9 +112,12 @@ TODO: Add image of dataset on the website.
 In order to run a Docker container on the local repo files,
 I'll create a Calkit Docker environment and corresponding run script with:
 
+TODO: Below should be able to run without building an image
+
 ```sh
 calkit new docker-env \
-    --name openfoam-2406-foampy \
+    --name openfoam \
+    --image openfoam-2406-foampy \
     --create-stage build-docker \
     --path Dockerfile \
     --from microfluidica/openfoam:2406 \
