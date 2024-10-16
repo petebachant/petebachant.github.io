@@ -181,6 +181,24 @@ on which we can make comments.
 Since we made it with Plotly,
 we can also zoom in, interact with the data, etc.
 
+## Creating a slight variation to the figure with a fresh copy
+
+Now let's show the value of having our project exist in reproducible form,
+addressing the problem we laid out in the introduction.
+We're going to delete our local copy of the repo,
+clone a fresh copy,
+and attempt to simply change one of the axis labels slightly.
+
+First we edit our plotting script to make the relevant changes.
+Then we execute `calkit run`.
+Notice how the simulations were not rerun thanks to the DVC cache.
+If we run `calkit status` we see there are some differences,
+so we run `calkit save -m "Change x axis label"`.
+This creates a Git commit and pushes any relevant cached artifacts to the
+cloud.
+If we go visit the project on the Calkit website, we see our figure is
+up-to-date.
+
 ## Conclusions and next steps
 
 We've built a project that runs OpenFOAM simulations reproducibly,
