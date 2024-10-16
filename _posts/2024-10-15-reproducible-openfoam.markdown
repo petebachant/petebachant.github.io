@@ -320,10 +320,24 @@ we are going to create a Jupyter notebook TODO
 
 ```sh
 calkit new publication \
+    --kind notebook \
     --path notebook.ipynb \
-    --stage build-notebook \
-    --create-stage \
-    --stage-template notebook-html
+    --create-stage build-notebook \
+    --title "Validating RANS models against DNS of a turbulent boundary layer"
 ```
 
 TODO: Ensure nbstripout is installed for the repo with `nbstripout --status`?
+
+## Our finished product
+
+If we visit the Calkit website,
+we can now view our new reproducible OpenFOAM project.
+We can see the pipeline, questions we were hoping to answer,
+relevant references and datasets,
+figures we created, and the notebook that visualizes our results.
+
+## Archiving and obtaining a DOI
+
+Finally, we're going to archive all of the materials here and obtain a
+digital object identifier (DOI) for this snapshot,
+so others can cite it and refer back to this exact set of files.
