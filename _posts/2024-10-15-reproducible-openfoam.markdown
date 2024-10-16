@@ -59,3 +59,59 @@ We're going to try to answer the question:
 >Which RANS model works best for a simple turbulent boundary layer?
 
 ## Getting setup
+
+You will need to have Git installed, and you'll need to have a
+[GitHub](https://github.com) account.
+You'll also need Python installed.
+I will typically use [Miniforge](TODO),
+but you can use whatever you'd like.
+You'll also need to install Docker.
+
+After that, you can install the Calkit Python package with
+
+```sh
+pip install calkit-python
+```
+
+This will install DVC as well.
+
+## Creating the project
+
+Head over to https://calkit.io and log in with your GitHub account.
+Click the button to create a new project.
+Let's title ours "RANS boundary layer validation".
+We'll keep this private for now,
+though in general you shouldn't be scared to work openly.
+Creating a project on Calkit also creates the project Git repo on GitHub.
+
+## Getting the project onto our local machine
+
+There are a few options for getting our project onto our local machine:
+
+1. The Git CLI.
+2. GitHub Desktop.
+3. The Calkit web app.
+
+For the sake of novelty we're going to go with option 3,
+the Calkit web app.
+
+You'll notice up on the Calkit web app project page a section called
+"local server."
+Since you just installed Calkit,
+the local server is most likely not running,
+and the web app will tell you as much.
+So let's start it up with.
+
+```sh
+calkit server
+```
+
+If you refresh the page you'll see that the icon has turned green,
+indicating you're now connected.
+If you click on the local server page,
+you'll see some helper buttons,
+one of which will allow you to clone the repo.
+You can choose where it will go,
+but by default it will go in `$HOME/calkit`.
+
+## Getting some validation data
