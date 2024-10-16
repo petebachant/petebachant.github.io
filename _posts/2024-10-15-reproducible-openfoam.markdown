@@ -228,6 +228,9 @@ We're going to delete our local copy of the repo,
 clone a fresh copy,
 and attempt to simply change one of the axis labels slightly.
 
+TODO: Ensure this works if we delete the docker image, i.e., that is gets
+rebuilt.
+
 First we edit our plotting script to make the relevant changes.
 Then we execute `calkit run`.
 Notice how the simulations were not rerun thanks to the DVC cache.
