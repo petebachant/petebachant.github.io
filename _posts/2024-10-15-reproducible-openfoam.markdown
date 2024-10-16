@@ -87,6 +87,13 @@ Creating a project on Calkit also creates the project Git repo on GitHub.
 Next, clone the repo to your local machine with the Git CLI, GitHub CLI,
 or GitHub desktop app.
 
+## Adding our question
+
+On the Calkit website,
+we can add a question on the project homepage.
+This will add a commit to our repo, so we'll need to run `git pull`
+locally to retrieve the changes.
+
 ## Getting some validation data
 
 We want to validate these RANS models, so we'll need some data.
@@ -222,78 +229,19 @@ on which we can make comments.
 Since we made it with Plotly,
 we can also zoom in, interact with the data, etc.
 
-## What about manual steps?
-
-Automation is great, and we should try to script everything if possible,
-but what about things that we only know how to do manually.
-In my case, I'm not all that great with scripting in ParaView,
-but I know how to manually create a snapshot of the mesh,
-so I'm going to do it that way, but I want it to be part of the pipeline so
-it can be tracked, and I'll be forced to regenerate the image if the
-mesh changes.
-
-```sh
-calkit new figure \
-    --path figures/mesh-snapshot.png \
-    --title "Mesh snapshot" \
-    --stage save-mesh-snapshot \
-    --create-stage \
-    --manual-step "Save mesh image to figures/mesh-snapshot.png" \
-    --cmd "paraview sim/cases/k-epsilon-ny-40/case.foam" \
-    --dep sim/cases/k-epsilon-ny-40/constant/polyMesh
-```
-
-This command shows me a message telling me what to do, and will rerun
-if the mesh changes.
-Now let's execute `calkit run` again.
-Note ParaView will need to be installed for this to run properly.
-
-TODO: These dependencies should be listed in our repo somehow.
-They could actually be manual steps.
-
-But wait, what if we don't have ParaView installed?
-We can add another manual step for installing ParaView.
-Now, technically, we should point to a specific version,
-or maybe even run it as a Docker container,
-but we're aiming for reasonable reproducibility,
-not necessarily perfection.
-In this case, we will add the stage manually to the `dvc.yaml` file:
-
-```yaml
-stages:
-  ensure-paraview-installed:
-    cmd: >
-      calkit check-call
-      --message "Confirm ParaView is installed"
-      --cmd "paraview --version > paraview-version.txt"
-    outs:
-      - paraview-version.txt:
-          cache: false
-    always_changed: true
-...
-```
-
-Basically what this allows us to do is ensure any annoying manual setup steps
-can be tracked, and rerun if need be.
-We'll also record the version in the repo after installation with the
-`--post-cmd` option.
-This should help reduce some cognitive load, i.e.,
-you only need to remember to run `calkit run` to get back to where you were.
-We could do this with Docker too, but I'll leave that up to you.
-
-TODO: Maybe this won't actually be rerun. Should this be a procedure?
-
-## Tying it all together
+## Writing up the results
 
 So we have something of a report,
-we are going to create a Jupyter notebook TODO
+we are going to create a Jupyter notebook.
 
 ```sh
 calkit new publication \
-    --kind notebook \
-    --path notebook.ipynb \
-    --create-stage build-notebook \
-    --title "Validating RANS models against DNS of a turbulent boundary layer"
+    --kind report \
+    --title "Validating RANS models against DNS of a turbulent boundary layer" \
+    --path report.html \
+    --create-stage notebook-to-html \
+    --env blsim-python \
+    --cmd "jupyter nbconvert report.ipynb --execute --to=html --output report.html"
 ```
 
 TODO: Ensure nbstripout is installed for the repo with `nbstripout --status`?
