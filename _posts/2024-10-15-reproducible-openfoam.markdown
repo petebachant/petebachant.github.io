@@ -62,10 +62,7 @@ We're going to try to answer the question:
 
 You will need to have Git installed, and you'll need to have a
 [GitHub](https://github.com) account.
-You'll also need:
-- Python/Conda. I like to install [Miniforge](TODO), but there are a few
-  options.
-- Docker.
+You'll also need to have Python and Docker installed.
 
 After that, you can install the Calkit Python package with
 
@@ -110,21 +107,6 @@ We can now see that as part of the project datasets on the Calkit web app.
 
 TODO: Add image of dataset on the website.
 
-## Starting our OpenFOAM case
-
-We know we're going to want to run multiple different versions of a similar
-case so we can test different turbulence models.
-For this, I'm going to setup the case in a "templatized" way,
-and create new cases to run as needed from a script.
-
-You'll notice the `constant/turbulenceProperties` file has a `.template`
-suffix
-and it uses Python's string formatting syntax to parameterize certain values.
-You'll also notice this is all managed through a `run.py` script,
-but we haven't installed any of the necessary dependencies to run it.
-In order to make these simulations reproducible, we're going to use
-Docker.
-
 ## Creating a reproducible OpenFOAM environment with Docker
 
 In order to run a Docker container on the local repo files,
@@ -136,10 +118,8 @@ calkit new docker-env \
     --create-stage build-docker \
     --path Dockerfile \
     --base microfluidica/openfoam:2406 \
-    --add-module mambaforge \
-    --add-module foampy \
-    --workdir /sim \
-    --create-run-script run-docker.sh
+    --add-layers mambaforge foampy \
+    --wdir /sim
 ```
 
 TODO: This should happen in the GUI?
@@ -148,11 +128,70 @@ This command will create the necessary Dockerfile,
 the environment in our project metadata,
 and will add a stage to our DVC pipeline to build the image.
 
+`dvc.yaml` will now look like:
+
+```yaml
+stages:
+  build-docker:
+    cmd: >
+      docker build -t openfoam-2406-foampy . &&
+      docker inspect --format '{{.Id}}' openfoam-2406-foampy > Dockerfile.digest
+    deps:
+      - Dockerfile
+    outs:
+      - Dockerfile.digest:
+          cache: false
+```
+
 If we run `calkit status`, we see TODO
 
 So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`.
 
 TODO: On the GUI
+
+Metadata about this environment has also been saved to `calkit.yaml`:
+
+```yaml
+environments:
+  openfoam-2406-foampy:
+    kind: docker
+    path: Dockerfile
+    stage: build-docker
+    description: OpenFOAM v2406 with foamPy.
+    layers:
+      - mambaforge
+      - foampy
+    wdir: /sim  # TODO: Necessary?
+```
+
+## Adding the simulation runs to the pipeline
+
+Alright, now that we have an environment setup,
+we can start declaring what operations we want to run in our pipeline.
+I've setup this project to use [foamPy](https://github.com/petebachant/foamPy)
+to run a case with a "templatized" `turbulenceProperties` file via a script
+`run.py`,
+which we're going to run in our Docker environment.
+We can see the help output of the script with:
+
+```sh
+calkit run-env python run.py -h
+```
+
+Note that we don't need to specify the environment in which to run the command
+since there's only one in the project, but if there are multiple,
+Calkit will complain.
+
+We want to run the simulation with a few different turbulence models:
+
+- Laminar (no turbulence model)
+- $k$–$\epsilon$
+- $k$–$\omega$
+
+To do this, we're going to create a DVC "foreach" stage to run our
+script over a list of argument values.
+If we set this up properly, DVC will be smart enough to cache the results
+and not rerun simulations when they don't need to be rerun.
 
 ## Creating a figure to visualize our results
 
