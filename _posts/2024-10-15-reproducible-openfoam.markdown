@@ -117,7 +117,7 @@ TODO: Below should be able to run without building an image
 ```sh
 calkit new docker-env \
     --name openfoam \
-    --image openfoam-2406-foampy \
+    --image-name openfoam-2406-foampy \
     --create-stage build-docker \
     --path Dockerfile \
     --from microfluidica/openfoam:2406 \
