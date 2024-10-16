@@ -251,13 +251,17 @@ calkit new figure \
     --title "Mesh snapshot" \
     --create-stage save-mesh-snapshot \
     --manual-step "Save mesh image to figures/mesh-snapshot.png" \
-    --cmd "touch sim/cases/k-epsilon-ny-40/case.foam && paraview sim/cases/k-epsilon-ny-40/case.foam"
+    --cmd "paraview sim/cases/k-epsilon-ny-40/case.foam" \
     --dep sim/cases/k-epsilon-ny-40/constant/polyMesh
 ```
 
 This command shows me a message telling me what to do, and will rerun
 if the mesh changes.
 Now let's execute `calkit run` again.
+Note ParaView will need to be installed for this to run properly.
+
+TODO: These dependencies should be listed in our repo somehow.
+They could actually be manual steps.
 
 ## Tying it all together
 
