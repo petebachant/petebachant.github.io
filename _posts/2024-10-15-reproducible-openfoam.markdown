@@ -203,7 +203,7 @@ calkit new conda-env \
 This will also create a DVC stage to ensure we create our Conda environment
 if necessary when running the pipeline.
 
-## Creating figures
+## Creating a figure to visualize our results
 
 We want to compare the OpenFOAM results to the DNS data,
 for which we can plot the mean velocity profiles, for example.
