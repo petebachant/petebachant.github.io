@@ -87,13 +87,6 @@ Creating a project on Calkit also creates the project Git repo on GitHub.
 Next, clone the repo to your local machine with the Git CLI, GitHub CLI,
 or GitHub desktop app.
 
-## Adding our question
-
-On the Calkit website,
-we can add a question on the project homepage.
-This will add a commit to our repo, so we'll need to run `git pull`
-locally to retrieve the changes.
-
 ## Getting some validation data
 
 We want to validate these RANS models, so we'll need some data.
