@@ -158,8 +158,9 @@ Metadata about this environment has also been saved to `calkit.yaml`:
 
 ```yaml
 environments:
-  openfoam-2406-foampy:
+  openfoam:
     kind: docker
+    image: openfoam-2406-foampy
     path: Dockerfile
     stage: build-docker
     description: OpenFOAM v2406 with foamPy.
