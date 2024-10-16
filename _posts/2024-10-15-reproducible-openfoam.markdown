@@ -229,33 +229,10 @@ on which we can make comments.
 Since we made it with Plotly,
 we can also zoom in, interact with the data, etc.
 
-## Writing up the results
+## Conclusions and next steps
 
-So we have something of a report,
-we are going to create a Jupyter notebook.
-
-```sh
-calkit new publication \
-    --kind report \
-    --title "Validating RANS models against DNS of a turbulent boundary layer" \
-    --path report.html \
-    --create-stage notebook-to-html \
-    --env blsim-python \
-    --cmd "jupyter nbconvert report.ipynb --execute --to=html --output report.html"
-```
-
-TODO: Ensure nbstripout is installed for the repo with `nbstripout --status`?
-
-## Our finished product
-
-If we visit the Calkit website,
-we can now view our new reproducible OpenFOAM project.
-We can see the pipeline, questions we were hoping to answer,
-relevant references and datasets,
-figures we created, and the notebook that visualizes our results.
-
-## Archiving and obtaining a DOI
-
-Finally, we're going to archive all of the materials here and obtain a
-digital object identifier (DOI) for this snapshot,
-so others can cite it and refer back to this exact set of files.
+We've built a project that runs OpenFOAM simulations reproducibly,
+creates some figures, and ensures these are kept in version control
+and backed up to the cloud.
+Maybe next we'd like to create a publication from those figures,
+but that will need to be the subject of a future post.
