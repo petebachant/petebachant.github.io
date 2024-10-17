@@ -291,5 +291,12 @@ creates some figures, and ensures these are kept in version control
 and backed up to the cloud.
 Maybe next we'd like to create a publication from those figures,
 but that will need to be the subject of a future post.
+Guess what? You can also put a LaTeX build stage into the pipeline.
 
 We could add a mesh dependence stage before the TODO.
+
+OpenFOAM could be replaced with any other software that can be run with
+Docker, more dependencies could be added, etc.
+
+Do you use a different system to manage pipelines, data, artifacts?
+If so, let me know in the comments.
