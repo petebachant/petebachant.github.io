@@ -16,61 +16,48 @@ categories:
 Have you ever been here before?
 You've done a bunch of work to get a simulation to run, created some figures,
 and submitted a paper to a journal.
-A month or two later you get the reviews back and you're asked to, e.g.,
-make some modifications to make a figure more readable.
+A month or two later you get the reviews back and you're asked by _reviewer 2_
+to make some modifications to make a figure more readable.
 There's one small problem, however: You don't remember how that figure was
 created,
 or you've upgraded your laptop and now have different software installed,
 and the script won't run.
-In other words, you can't reproduce that figure.
-
-TODO: Relate that more to an OpenFOAM simulation.
+In other words, your project is not reproducible.
 
 I've been there too.
 A particularly painful experience is when you run many different simulations,
 deleting results after creating figures to save disk space,
-and now have to run them all over again.
+and then have to run them all over again if you want to change something
+minor.
 
-Now, using Git can be super helpful here.
-You can keep your scripts in version control,
-but what about your data or results that don't play well with Git because
-they're either large (GitHub rejects files larger than 100 MB)
-or not text?
-You could use Git Large File Storage (LFS),
-but that can be a bit overkill and expensive for files that don't
-change much.
-What about a tool to define and run a pipeline that generates all necessary
-artifacts so you can just keep running one command over and over again,
-without needing to remember which script does what?
+Here we are going to show how to make an OpenFOAM CFD project reproducible
+using [Calkit](https://github.com/calkit/calkit),
+which ties together and simplifies a few lower-level reproducibility tools:
+- Git
+- GitHub
+- DVC (Data Version Control)
+- Docker
+- Cloud storage
+and adds structured metadata for research artifacts.
 
-In comes DVC (Data Version Control) to the rescue.
-I found out about DVC a few months back and really liked the design.
-It has a way to version data (of course) and a neat YAML-based pipeline
-definition system.
-In fact, I liked it so much, that I built [Calkit](https://calkit.io),
-which is sort of like a glue layer between Git, DVC, GitHub, and cloud storage,
-to try to make it super simple to work reproducibly.
-Think "easy mode" for all those tools, putting everything in one place.
+Reviewer 2 will be so disappointed...
 
-Now I'm going to walk through setting up a research project that will use
-OpenFOAM.
-We're going to try to answer the question:
+Let's start with a basic research question:
 
->Which RANS model works best for a simple turbulent boundary layer?
+>Which RANS model works best for a flat plate turbulent boundary layer?
 
 ## Getting setup
 
 You will need to have Git installed, and you'll need to have a
 [GitHub](https://github.com) account.
-You'll also need to have Python and Docker installed.
-
-After that, you can install the Calkit Python package with
+You'll also need to have Python (Miniforge recommended) and Docker installed.
+After that, install the Calkit Python package with:
 
 ```sh
 pip install calkit-python
 ```
 
-This will install DVC as well.
+TODO: Screenshot showing version installed.
 
 ## Creating the project
 
@@ -84,6 +71,26 @@ Creating a project on Calkit also creates the project Git repo on GitHub.
 Next, clone the repo to your local machine with the Git CLI, GitHub CLI,
 or GitHub desktop app.
 
+TODO: Show cloning screenshot.
+
+## Setting up cloud integration
+
+We're going to need a token to use the Calkit cloud system,
+so head over to your user settings and generate one,
+then add that to your config with
+
+```sh
+calkit config set token {paste your token here}
+```
+
+Ensure that it's working properly with
+
+```sh
+calkit config check
+```
+
+TODO: Maybe we should check upon setting?
+
 ## Getting some validation data
 
 We want to validate these RANS models, so we'll need some data.
@@ -92,7 +99,7 @@ It just so happens that there is already a boundary layer
 direct numerical simulation (DNS) dataset on
 Calkit downloaded from the
 [Johns Hopkins Turbulence Databases (JHTDB)](https://turbulence.pha.jhu.edu/),
-so we can simply import that with
+so we can simply import that with:
 
 ```sh
 calkit import dataset \
@@ -100,53 +107,49 @@ calkit import dataset \
     data/jhtdb-profiles.h5
 ```
 
-We're going to import it to a different location here.
-Under the hood, Calkit used DVC to import the dataset from the Calkit Cloud,
-adding metadata to the `datasets` section of `calkit.yaml`.
 We can now see that as part of the project datasets on the Calkit web app.
+We can also see the file is present, but ignored by Git,
+since it's managed by DVC.
 
-TODO: Add image of dataset on the website.
+TODO: Add image of dataset on the website, maybe output of `calkit list datasets`
 
 ## Creating a reproducible OpenFOAM environment with Docker
 
-In order to run a Docker container on the local repo files,
-I'll create a Calkit Docker environment and corresponding run script with:
+If you've never heard of or worked with Docker,
+it can sound a bit daunting,
+but Calkit has some wrapper functionality to make it easy.
+Basically, Docker is going to let us create isolated reproducible
+environments in which to run software and Calkit will keep track of
+which environments belong to this project.
 
-TODO: Below should be able to run without building an image
+Let's create an OpenFOAM-based Docker environment and build stage with:
 
 ```sh
 calkit new docker-env \
     --name foam \
     --image-name openfoam-2406-foampy \
     --create-stage build-docker \
-    --path Dockerfile \
     --from microfluidica/openfoam:2406 \
     --add-layer mambaforge \
     --add-layer foampy \
     --description "OpenFOAM v2406 with foamPy." \
-    --wdir /sim
+    --run-stage \ # TODO?
+    --commit \ # TODO?
+    --push # TODO?
 ```
-
-TODO: This should happen in the GUI?
 
 This command will create the necessary Dockerfile,
 the environment in our project metadata,
-and will add a stage to our DVC pipeline to build the image.
+and will add a stage to our DVC pipeline to build the image before
+running any other commands.
 
-`dvc.yaml` will now look like:
+We can visualize the pipeline, i.e.,
+all the things that run, as a directed acyclic graph (DAG)
+using `dvc dag`.
+The Calkit website will also visualize the DAG on the project's workflow
+page.
 
-```yaml
-stages:
-  build-docker:
-    cmd: >
-      docker build -t openfoam-2406-foampy . &&
-      docker inspect --format '{{.Id}}' openfoam-2406-foampy > Dockerfile.digest
-    deps:
-      - Dockerfile
-    outs:
-      - Dockerfile.digest:
-          cache: false
-```
+Right now, we can see there's only one step, so let's add more.
 
 TODO: This way of tracking builds doesn't work if the image is gone
 
@@ -156,26 +159,10 @@ So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`.
 
 TODO: On the GUI
 
-Metadata about this environment has also been saved to `calkit.yaml`:
-
-```yaml
-environments:
-  foam:
-    kind: docker
-    image: openfoam-2406-foampy
-    path: Dockerfile
-    stage: build-docker
-    description: OpenFOAM v2406 with foamPy.
-    layers:
-      - mambaforge
-      - foampy
-    wdir: /sim  # TODO: Necessary?
-```
-
 Let's check that we can run something in the environment.
 
 ```sh
-calkit run-env blockMesh -help
+calkit run-env -n foam blockMesh -help
 ```
 
 ## Adding the simulation runs to the pipeline
@@ -194,7 +181,7 @@ calkit run-env python run.py -h
 
 Note that we don't need to specify the environment in which to run the command
 since there's only one in the project, but if there are multiple,
-Calkit will complain.
+Calkit will complain that you need to pick an environment.
 
 We want to run the simulation with a few different turbulence models:
 
@@ -202,16 +189,55 @@ We want to run the simulation with a few different turbulence models:
 - $k$–$\epsilon$
 - $k$–$\omega$
 
-To do this, we're going to create a DVC "foreach" stage to run our
-script over a list of argument values.
+To do this, we're going to create a "foreach" DVC stage to run our
+script over a sequence of argument values.
 If we set this up properly, DVC will be smart enough to cache the results
 and not rerun simulations when they don't need to be rerun.
+
+We create this with (TODO: make this work)
+
+```sh
+calkit new foreach-stage \
+    --cmd "calkit run-env python run.py --turbulence {var}" \
+    --name run-sim \
+    --dep system \
+    --dep constant/transportProperties \
+    --dep run.py \
+    --dep Dockerfile \
+    --out "cases/{var}/postProcessing" \
+    "laminar" "k-epsilon" "k-omega"
+```
+
+We are defining an output for each simulation as the `postProcessing` folder,
+which we will cache and push to the cloud for backup,
+so others (including our future self),
+can pull down the results and work with them without needing to rerun
+the simulations.
+We are also defining dependencies for the simulations.
+What this means is that if anything in the `system` folder, the `run.py`
+script, `constant/transportProperties`, or our Dockerfile changes,
+DVC will know it needs to rerun the simulations.
+Conversely, if those haven't changed and we already have results cached,
+there's no need to rerun.
+
+This is nice because we only need to remember one command and keep running it,
+and that's simply
+
+```sh
+calkit run
+```
+
+TODO: Call out below.
+Note: `calkit run` is a wrapper around `dvc repro` that parses some special
+metadata to define certain special objects, e.g., datasets or publications.
+
+TODO: Show our DAG now.
 
 ## Creating a figure to visualize our results
 
 We want to compare the OpenFOAM results to the DNS data,
 for which we can plot the mean velocity profiles, for example.
-Let's create a new figure TODO
+Let's create a new figure (TODO: make it work)
 
 ```sh
 calkit new figure \
@@ -221,9 +247,13 @@ calkit new figure \
     --cmd "calkit run-env python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
     --dep data/jhtdb-profiles.h5 \
-    --dep cases/... \ TODO
-    --dep cases/... TODO
+    --deps-from-stage-outs run-sim # TODO -- make this work
 ```
+
+The last line there is going to automatically create dependencies based on
+the outputs of our `run-sim` stage,
+which is a nice convenience, since we don't need to iterate over all
+of our turbulence config names.
 
 TODO: I can define a static path?
 
@@ -238,8 +268,7 @@ we can also zoom in, interact with the data, etc.
 
 Now let's show the value of having our project exist in reproducible form,
 addressing the problem we laid out in the introduction.
-We're going to delete our local copy of the repo,
-clone a fresh copy,
+We're going to start with a fresh copy of the repo
 and attempt to simply change one of the axis labels slightly.
 
 TODO: Ensure this works if we delete the docker image, i.e., that is gets
@@ -262,3 +291,5 @@ creates some figures, and ensures these are kept in version control
 and backed up to the cloud.
 Maybe next we'd like to create a publication from those figures,
 but that will need to be the subject of a future post.
+
+We could add a mesh dependence stage before the TODO.
