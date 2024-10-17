@@ -116,7 +116,7 @@ TODO: Below should be able to run without building an image
 
 ```sh
 calkit new docker-env \
-    --name openfoam \
+    --name foam \
     --image-name openfoam-2406-foampy \
     --create-stage build-docker \
     --path Dockerfile \
@@ -148,6 +148,8 @@ stages:
           cache: false
 ```
 
+TODO: This way of tracking builds doesn't work if the image is gone
+
 If we run `calkit status`, we see TODO
 
 So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`.
@@ -158,7 +160,7 @@ Metadata about this environment has also been saved to `calkit.yaml`:
 
 ```yaml
 environments:
-  openfoam:
+  foam:
     kind: docker
     image: openfoam-2406-foampy
     path: Dockerfile
