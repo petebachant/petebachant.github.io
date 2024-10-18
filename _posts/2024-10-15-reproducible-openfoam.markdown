@@ -148,13 +148,9 @@ page.
 
 Right now, we can see there's only one step, so let's add more.
 
-TODO: This way of tracking builds doesn't work if the image is gone
-
 If we run `calkit status`, we see TODO
 
 So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`. TODO
-
-TODO: On the GUI
 
 Let's check that we can run something in the environment.
 
