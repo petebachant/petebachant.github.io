@@ -86,7 +86,7 @@ calkit config set token {paste your token here}
 Ensure that it's working properly with
 
 ```sh
-calkit config check
+calkit config check # TODO: build?
 ```
 
 TODO: Maybe we should check upon setting?
