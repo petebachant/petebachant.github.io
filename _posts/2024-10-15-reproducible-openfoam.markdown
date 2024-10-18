@@ -194,7 +194,7 @@ script over a sequence of argument values.
 If we set this up properly, DVC will be smart enough to cache the results
 and not rerun simulations when they don't need to be rerun.
 
-We create this with (TODO: make this work)
+We can create this with:
 
 ```sh
 calkit new foreach-stage \
@@ -241,13 +241,13 @@ Let's create a new figure (TODO: make it work)
 
 ```sh
 calkit new figure \
+    figures/mean-velocity-profiles.png \
     --title "Mean velocity profiles" \
-    --path figures/mean-velocity-profiles.png \
-    --create-stage plot-mean-velocity-profiles \
+    --stage plot-mean-velocity-profiles \
     --cmd "calkit run-env python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
     --dep data/jhtdb-profiles.h5 \
-    --deps-from-stage-outs run-sim # TODO -- make this work
+    --deps-from-stage-outs run-sim
 ```
 
 The last line there is going to automatically create dependencies based on
