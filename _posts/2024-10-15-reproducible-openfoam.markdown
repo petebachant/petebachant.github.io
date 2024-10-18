@@ -209,7 +209,6 @@ calkit new foreach-stage \
     --dep Dockerfile \
     --out "cases/{var}/postProcessing" \
     "laminar" "k-epsilon" "k-omega"
-    --no-commit # TODO -- commit by default
 ```
 
 If you look at the `git log`, you'll notice that Calkit is making Git
