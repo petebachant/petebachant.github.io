@@ -104,7 +104,7 @@ so we can simply import that with:
 ```sh
 calkit import dataset \
     petebachant/boundary-layer-turbulence-modeling/data/jhtdb-transitional-bl/time-ave-profiles.h5 \
-    data/jhtdb-profiles.h5
+    data/jhtdb-profiles.h5 # TODO: Should use -o flag? Probably yeah
 ```
 
 We can now see that as part of the project datasets on the Calkit web app.
