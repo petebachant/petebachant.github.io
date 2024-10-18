@@ -138,10 +138,7 @@ calkit new docker-env \
     --from microfluidica/openfoam:2406 \
     --add-layer mambaforge \
     --add-layer foampy \
-    --description "OpenFOAM v2406 with foamPy." \
-    --run-stage \ # TODO?
-    --commit \ # TODO?
-    --push # TODO?
+    --description "OpenFOAM v2406 with foamPy."
 ```
 
 This command will create the necessary Dockerfile,
