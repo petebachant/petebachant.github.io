@@ -134,7 +134,7 @@ Let's create an OpenFOAM-based Docker environment and build stage with:
 calkit new docker-env \
     --name foam \
     --image-name openfoam-2406-foampy \
-    --create-stage build-docker \ # TODO: Remove create?
+    --stage build-docker \
     --from microfluidica/openfoam:2406 \
     --add-layer mambaforge \
     --add-layer foampy \
