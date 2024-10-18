@@ -257,8 +257,6 @@ Now another call to `calkit run` and `calkit save -m "Run pipeline"`
 will materialize this figure and push it to the repo.
 This figure is now viewable as its own object up on the website,
 on which we can make comments.
-Since we made it with Plotly,
-we can also zoom in, interact with the data, etc.
 
 ## Creating a slight variation to the figure with a fresh copy
 
