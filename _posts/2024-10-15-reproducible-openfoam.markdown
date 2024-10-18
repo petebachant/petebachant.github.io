@@ -89,7 +89,13 @@ Ensure that it's working properly with
 calkit config check # TODO: build?
 ```
 
-TODO: Maybe we should check upon setting?
+Next we need to setup our project's DVC config to
+authenticate with the Calkit Cloud API.
+To do this, open a terminal in the project directory and execute:
+
+```sh
+calkit config setup-remote
+```
 
 ## Getting some validation data
 
@@ -162,7 +168,7 @@ TODO: On the GUI
 Let's check that we can run something in the environment.
 
 ```sh
-calkit run-env -n foam blockMesh -help
+calkit runenv -n foam -- blockMesh -help # TODO: Make possible
 ```
 
 ## Adding the simulation runs to the pipeline
@@ -176,7 +182,7 @@ which we're going to run in our Docker environment.
 We can see the help output of the script with:
 
 ```sh
-calkit run-env python run.py -h
+calkit runenv python run.py -h
 ```
 
 Note that we don't need to specify the environment in which to run the command
@@ -198,7 +204,7 @@ We can create this with:
 
 ```sh
 calkit new foreach-stage \
-    --cmd "calkit run-env python run.py --turbulence {var}" \
+    --cmd "calkit runenv python run.py --turbulence {var}" \
     --name run-sim \
     --dep system \
     --dep constant/transportProperties \
@@ -206,7 +212,13 @@ calkit new foreach-stage \
     --dep Dockerfile \
     --out "cases/{var}/postProcessing" \
     "laminar" "k-epsilon" "k-omega"
+    --no-commit # TODO -- commit by default
 ```
+
+If you look at the `git log`, you'll notice that Calkit is making Git
+commits for all of these actions.
+This is considered a sane default that should help make things easier,
+but it is possible to disable this with `--no-commit`.
 
 We are defining an output for each simulation as the `postProcessing` folder,
 which we will cache and push to the cloud for backup,
@@ -244,7 +256,7 @@ calkit new figure \
     figures/mean-velocity-profiles.png \
     --title "Mean velocity profiles" \
     --stage plot-mean-velocity-profiles \
-    --cmd "calkit run-env python scripts/plot-mean-velocity-profiles.py" \
+    --cmd "calkit runenv python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
     --dep data/jhtdb-profiles.h5 \
     --deps-from-stage-outs run-sim
