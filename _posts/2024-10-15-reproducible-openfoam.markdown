@@ -158,14 +158,14 @@ TODO: This way of tracking builds doesn't work if the image is gone
 
 If we run `calkit status`, we see TODO
 
-So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`.
+So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`. TODO
 
 TODO: On the GUI
 
 Let's check that we can run something in the environment.
 
 ```sh
-calkit runenv -n foam -- blockMesh -help # TODO: Make possible
+calkit runenv -n foam -- blockMesh -help
 ```
 
 ## Adding the simulation runs to the pipeline
