@@ -253,8 +253,6 @@ the outputs of our `run-sim` stage,
 which is a nice convenience, since we don't need to iterate over all
 of our turbulence config names.
 
-TODO: I can define a static path?
-
 Now another call to `calkit run` and `calkit save -m "Run pipeline"`
 will materialize this figure and push it to the repo.
 This figure is now viewable as its own object up on the website,
