@@ -17,11 +17,13 @@ Have you ever been here before?
 You've done a bunch of work to get a simulation to run, created some figures,
 and submitted a paper to a journal.
 A month or two later you get the reviews back and you're asked by _reviewer 2_
-to make some modifications to make a figure more readable.
+to make some minor modifications to a figure.
 There's one small problem, however: You don't remember how that figure was
 created,
 or you've upgraded your laptop and now have different software installed,
 and the script won't run.
+Or maybe you cloned the correct Git repo with the code, but you don't
+remember where the data is supposed to be stored.
 In other words, your project is not reproducible.
 
 I've been there too.
@@ -32,15 +34,18 @@ minor.
 
 Here we are going to show how to make an OpenFOAM CFD project reproducible
 using [Calkit](https://github.com/calkit/calkit),
-which ties together and simplifies a few lower-level reproducibility tools:
+which ties together and simplifies a few lower-level tools to help with
+reproducibility:
 - Git
 - GitHub
 - DVC (Data Version Control)
 - Docker
 - Cloud storage
-and adds structured metadata for research artifacts.
+and adds structured metadata for research artifacts to help with
+searchability and reuse/remixing.
 
-Reviewer 2 will be so disappointed...
+Reviewer 2 will be so disappointed they didn't create as much busywork for
+you as they thought they would...
 
 Let's start with a basic research question:
 
@@ -50,7 +55,9 @@ Let's start with a basic research question:
 
 You will need to have Git installed, and you'll need to have a
 [GitHub](https://github.com) account.
-You'll also need to have Python (Miniforge recommended) and Docker installed.
+You'll also need to have Python
+([Mambaforge](https://conda-forge.org/miniforge/) recommended)
+and [Docker](https://docker.com) installed.
 After that, install the Calkit Python package with:
 
 ```sh
@@ -76,7 +83,10 @@ TODO: Show cloning screenshot.
 ## Setting up cloud integration
 
 We're going to need a token to use the Calkit cloud system,
-so head over to your user settings and generate one,
+so head over to your user settings and generate one
+
+TODO: Token generation figure
+
 then add that to your config with
 
 ```sh
@@ -174,7 +184,8 @@ calkit runenv python run.py -h
 
 Note that we don't need to specify the environment in which to run the command
 since there's only one in the project, but if there are multiple,
-Calkit will complain that you need to pick an environment.
+Calkit will complain that you need to pick an environment or set one as the
+default.
 
 We want to run the simulation with a few different turbulence models:
 
@@ -250,7 +261,7 @@ calkit new figure \
 
 The last line there is going to automatically create dependencies based on
 the outputs of our `run-sim` stage,
-which is a nice convenience, since we don't need to iterate over all
+which is convenient, since we don't need to iterate over all
 of our turbulence config names.
 
 Now another call to `calkit run` and `calkit save -m "Run pipeline"`
@@ -291,3 +302,5 @@ Docker, more dependencies could be added, etc.
 
 Do you use a different system to manage pipelines, data, artifacts?
 If so, let me know in the comments.
+
+TODO: Make it so users can create a new project starting from this one.
