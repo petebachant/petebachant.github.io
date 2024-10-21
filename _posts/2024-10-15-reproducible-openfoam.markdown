@@ -64,7 +64,7 @@ pip install calkit-python
 
 TODO: Screenshot showing version installed.
 
-## Creating the project
+## Creating and cloning the project
 
 Head over to https://calkit.io and log in with your GitHub account.
 Click the button to create a new project.
@@ -73,33 +73,25 @@ We'll keep this private for now
 (though in general you shouldn't be scared to work openly).
 Creating a project on Calkit also creates the project Git repo on GitHub.
 
-Next, clone the repo to your local machine with the Git CLI, GitHub CLI,
-or GitHub desktop app.
-
-TODO: Clone with Calkit so the remote is setup, or setup the remote on create.
-
-TODO: Show cloning screenshot.
-
-## Setting up cloud integration
-
-We're going to need a token to use the Calkit cloud system,
+We're going to need a token to use the Calkit cloud as a DVC remote,
 so head over to your user settings and generate one
 
 TODO: Token generation figure
 
-then add that to your config with
+Then we can set that token in our local Calkit config with:
 
 ```sh
 calkit config set token {paste your token here}
 ```
 
-Next we need to setup our project's DVC config to
-authenticate with the Calkit Cloud API.
-To do this, open a terminal in the project directory and execute:
+Next, clone the repo to your local machine with (filling in your username):
 
 ```sh
-calkit config setup-remote
+calkit clone https://github.com/{your user name}/rans-boundary-layer-validation.git
 ```
+
+Note you can modify the URL above to use SSH if that's how you interact with
+GitHub.
 
 ## Getting some validation data
 
@@ -109,7 +101,7 @@ It just so happens that there is already a boundary layer
 direct numerical simulation (DNS) dataset on
 Calkit downloaded from the
 [Johns Hopkins Turbulence Databases (JHTDB)](https://turbulence.pha.jhu.edu/),
-so we can simply import that with:
+so we can simply import that with (after `cd`ing into the project directory):
 
 ```sh
 calkit import dataset \
@@ -165,7 +157,7 @@ So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`. TODO
 Let's check that we can run something in the environment.
 
 ```sh
-calkit runenv -n foam -- blockMesh -help
+calkit runenv -- blockMesh -help
 ```
 
 ## Adding the simulation runs to the pipeline
@@ -179,13 +171,8 @@ which we're going to run in our Docker environment.
 We can see the help output of the script with:
 
 ```sh
-calkit runenv python run.py -h
+calkit runenv -- python run.py -h
 ```
-
-Note that we don't need to specify the environment in which to run the command
-since there's only one in the project, but if there are multiple,
-Calkit will complain that you need to pick an environment or set one as the
-default.
 
 We want to run the simulation with a few different turbulence models:
 
@@ -271,7 +258,7 @@ on which we can make comments.
 
 ## Creating a slight variation to the figure with a fresh copy
 
-Now let's show the value of having our project exist in reproducible form,
+Now let's show the value of having our project in a reproducible state,
 addressing the problem we laid out in the introduction.
 We're going to start with a fresh copy of the repo
 and attempt to simply change one of the axis labels slightly.
