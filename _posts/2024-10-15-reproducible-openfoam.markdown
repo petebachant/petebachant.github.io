@@ -44,10 +44,8 @@ reproducibility:
 and adds structured metadata for research artifacts to help with
 searchability and reuse/remixing.
 
-Reviewer 2 will be so disappointed they didn't create as much busywork for
-you as they thought they would...
-
-Let's start with a basic research question:
+To set the stage,
+let's start with a basic research question:
 
 >Which RANS model works best for a flat plate turbulent boundary layer?
 
@@ -71,12 +69,14 @@ TODO: Screenshot showing version installed.
 Head over to https://calkit.io and log in with your GitHub account.
 Click the button to create a new project.
 Let's title ours "RANS boundary layer validation".
-We'll keep this private for now,
-though in general you shouldn't be scared to work openly.
+We'll keep this private for now
+(though in general you shouldn't be scared to work openly).
 Creating a project on Calkit also creates the project Git repo on GitHub.
 
 Next, clone the repo to your local machine with the Git CLI, GitHub CLI,
 or GitHub desktop app.
+
+TODO: Clone with Calkit so the remote is setup, or setup the remote on create.
 
 TODO: Show cloning screenshot.
 
