@@ -70,7 +70,7 @@ Head over to https://calkit.io and log in with your GitHub account.
 Click the button to create a new project.
 Let's title ours "RANS boundary layer validation".
 We'll keep this private for now
-(though in general you shouldn't be scared to work openly).
+(though in general it's a good idea to work openly).
 Creating a project on Calkit also creates the project Git repo on GitHub.
 
 We're going to need a token to use the Calkit cloud as a DVC remote,
