@@ -194,7 +194,7 @@ calkit new foreach-stage \
     --dep system \
     --dep constant/transportProperties \
     --dep run.py \
-    --dep Dockerfile \
+    --dep Dockerfile-lock.json \
     --out "cases/{var}/postProcessing" \
     "laminar" "k-epsilon" "k-omega"
 ```
@@ -239,7 +239,7 @@ Let's create a new figure (TODO: make it work)
 calkit new figure \
     figures/mean-velocity-profiles.png \
     --title "Mean velocity profiles" \
-    --description "Mean velocity profiles." \ # TODO Add to CLI or remove necessity
+    --description "Mean velocity profiles." \
     --stage plot-mean-velocity-profiles \
     --cmd "calkit runenv python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
