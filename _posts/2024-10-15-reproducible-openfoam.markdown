@@ -189,7 +189,7 @@ We can create this with:
 
 ```sh
 calkit new foreach-stage \
-    --cmd "calkit runenv python run.py --turbulence {var}" \
+    --cmd "calkit runenv python run.py --turbulence {var} -f" \
     --name run-sim \
     --dep system \
     --dep constant/transportProperties \
