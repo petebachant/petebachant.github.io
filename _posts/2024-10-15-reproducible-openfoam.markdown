@@ -51,7 +51,9 @@ let's start with a basic research question:
 
 ## Getting setup
 
-You will need to have Git installed, and you'll need to have a
+You will need to have
+[Git](https://git-scm.com/)
+installed, and you'll need to have a
 [GitHub](https://github.com) account.
 You'll also need to have Python
 ([Mambaforge](https://conda-forge.org/miniforge/) recommended)
