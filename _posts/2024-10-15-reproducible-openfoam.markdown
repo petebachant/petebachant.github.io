@@ -189,7 +189,7 @@ We can create this with:
 
 ```sh
 calkit new foreach-stage \
-    --cmd "calkit runenv python run.py --turbulence {var} -f" \
+    --cmd "calkit runenv python run.py --turbulence-model {var} -f" \
     --name run-sim \
     --dep system \
     --dep constant/transportProperties \
@@ -239,6 +239,7 @@ Let's create a new figure (TODO: make it work)
 calkit new figure \
     figures/mean-velocity-profiles.png \
     --title "Mean velocity profiles" \
+    --description "Mean velocity profiles." \ # TODO Add to CLI or remove necessity
     --stage plot-mean-velocity-profiles \
     --cmd "calkit runenv python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
