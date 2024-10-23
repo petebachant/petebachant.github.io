@@ -75,11 +75,6 @@ Git repo on GitHub.
 
 ![Creating a new Calkit project.](/images/repro-openfoam/create-project.png)
 
-We can then add our question,
-so we remember to stay on track 😀
-
-![Calkit project questions list.](/images/repro-openfoam/questions.png)
-
 We're going to need a token to interact with the Calkit API,
 so head over to your
 [user settings](https://calkit.io/settings),
