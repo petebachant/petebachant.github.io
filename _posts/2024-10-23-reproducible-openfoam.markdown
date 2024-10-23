@@ -16,12 +16,11 @@ categories:
 Have you ever been here before?
 You've done a bunch of work to get a simulation to run, created some figures,
 and submitted a paper to a journal.
-A month or two later you get the reviews back and you're asked by _Reviewer 2_
-to make some minor modifications to a figure.
+A month or two later you get the reviews back and you're asked by the dreaded
+_Reviewer 2_ to make some minor modifications to a figure.
 There's one small problem, however:
 You don't remember how that figure was created,
-or you've upgraded your laptop and now have different software installed,
-and the script won't run.
+or you've upgraded your laptop and now the script won't run.
 Maybe you were able to clone the correct Git repo with the code,
 but you don't remember where the data is supposed to be stored.
 In other words, your project is not reproducible.
@@ -30,10 +29,9 @@ In other words, your project is not reproducible.
 
 Here we are going to show how to make a research project
 that uses OpenFOAM reproducible
-using [Calkit](https://github.com/calkit/calkit),
+with [Calkit](https://github.com/calkit/calkit),
 a tool I've been working on that ties together and simplifies a
-few lower-level tools to help with
-reproducibility:
+few lower-level tools to help with reproducibility:
 - Git
 - GitHub
 - DVC (Data Version Control)
@@ -82,7 +80,7 @@ generate one for use with the API, and copy it to your clipboard.
 
 ![Creating a new token.](/images/repro-openfoam/new-token.png)
 
-Then we can set that token in our local Calkit config with:
+Then we can set that token in our Calkit configuration with:
 
 ```sh
 calkit config set token YOUR_TOKEN_HERE
@@ -203,16 +201,17 @@ calkit runenv -- blockMesh -help
 ```
 
 Now we're good to go.
-We didn't need to install OpenFOAM, and neither will our collaborators.
+We didn't need to install OpenFOAM, and neither will our
+collaborators.
 We're now ready to start setting up the cases.
 
 ## Adding the simulation runs to the pipeline
 
 We can run things interactively and make sure things work,
 but it's not a good idea to rely on interactive or ad hoc processes
-to produce something permanent.
+to produce a permanent artifact.
 Any time you get to a point where you do want to save something permanent,
-that should be created by the pipeline,
+the pipeline should be updated to product that artifact,
 so let's add some simulation runs to ours.
 
 We want to run the simulation to validate a few different turbulence models:
@@ -299,14 +298,13 @@ calkit new figure \
 
 The last line there is going to automatically create dependencies based on
 the outputs of our `run-sim` stage,
-saving us the trouble of typing out all
-of our turbulence model names.
+saving us the trouble of typing out all of those directories manually.
 
 Another call to `calkit status` shows we need to run the pipeline again,
 and another call to `calkit run` then
 `calkit save -m "Run pipeline to create figure"`
 will create this figure and push it to the repo.
-This figure is now viewable as its own object up on the website.
+This figure is now viewable as its own object up on the website:
 
 ![Figure on website.](/images/repro-openfoam/figure-on-website.png)
 
@@ -314,7 +312,7 @@ This figure is now viewable as its own object up on the website.
 
 Now let's show the value of making our project reproducible,
 addressing the problem we laid out in the introduction, assuming Reviewer 2's
-request was something like
+request was something like:
 
 >The legend labels should be updated to use mathematical symbols.
 
@@ -334,7 +332,7 @@ since those files are kept out of Git.
 Running `calkit status` and `calkit run` again shows that what we've
 cloned is fully up-to-date.
 
-Next can edit our plotting script to make the relevant changes.
+Next we edit our plotting script to make the relevant changes.
 Then we execute `calkit run`.
 Again, notice how the simulations were not rerun thanks to the DVC cache.
 
