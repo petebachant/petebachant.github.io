@@ -178,10 +178,11 @@ calkit runenv -- blockMesh -help
 Alright, now that we have an environment setup,
 we can start declaring what operations we want to run in our pipeline.
 I've setup this project to use [foamPy](https://github.com/petebachant/foamPy)
-to run a case with a "templatized" `turbulenceProperties` file via a script
-`run.py`,
+to create and run variants of a case with a "templatized"
+`turbulenceProperties` file via a script `run.py`,
 which we're going to run in our Docker environment.
-We can see the help output of the script with:
+We can see the help output of the script,
+showing how we can specify the turbulence model via the command line, with:
 
 ```sh
 calkit runenv -- python run.py -h
