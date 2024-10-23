@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2024-10-15
+date: 2024-10-23
 layout: post
 slug: reproducible-openfoam
 title: Reproducible OpenFOAM simulations with Calkit
@@ -78,10 +78,12 @@ so we remember to stay on track 😀
 
 ![Calkit project questions list.](/images/repro-openfoam/questions.png)
 
-We're going to need a token to use the Calkit cloud as a DVC remote,
+We're going to need a token to interact with the Calkit API,
 so head over to your
 [user settings](https://calkit.io/settings),
 generate one for use with the API, and copy it to your clipboard.
+
+![Creating a new token.](/images/repro-openfoam/new-token.png)
 
 Then we can set that token in our local Calkit config with:
 
@@ -98,6 +100,11 @@ calkit clone https://github.com/{your user name}/rans-boundary-layer-validation.
 Note you can modify the URL above to use SSH if that's how you interact with
 GitHub.
 
+`calkit clone` is a simple wrapper around `git clone` that sets up the
+necessary configuration to use the Calkit Cloud as a DVC remote,
+the place where we're going to push our data,
+while our code goes to GitHub.
+
 ## Getting some validation data
 
 We want to validate these RANS models, so we'll need some data.
@@ -113,9 +120,11 @@ calkit import dataset \
     data/jhtdb-profiles.h5
 ```
 
-We can now see that as part of the project datasets on the Calkit web app.
+We can now see that as part of the project datasets on the Calkit website.
 We can also see the file is present, but ignored by Git,
 since it's managed by DVC.
+Because the dataset was imported, it does not take up any of this project's
+storage space, but will be present when the repo is cloned.
 
 ![Calkit project datasets page.](/images/repro-openfoam/datasets-page.png)
 
@@ -125,8 +134,8 @@ If you've never heard of or worked with Docker,
 it can sound a bit daunting,
 but Calkit has some wrapper functionality to make it easy.
 Basically, Docker is going to let us create isolated reproducible
-environments in which to run software and Calkit will keep track of
-which environments belong to this project.
+environments in which to run software and will keep track of
+which environments belong to this project in the `calkit.yaml` file.
 
 Let's create an OpenFOAM-based Docker environment and build stage with:
 
