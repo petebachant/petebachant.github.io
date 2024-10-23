@@ -101,7 +101,6 @@ GitHub.
 ## Getting some validation data
 
 We want to validate these RANS models, so we'll need some data.
-Up on the Calkit website there is a page for browsing public datasets.
 It just so happens that there is already a boundary layer
 direct numerical simulation (DNS) dataset on
 Calkit downloaded from the
@@ -118,7 +117,7 @@ We can now see that as part of the project datasets on the Calkit web app.
 We can also see the file is present, but ignored by Git,
 since it's managed by DVC.
 
-TODO: Add image of dataset on the website, maybe output of `calkit list datasets`
+![Calkit project datasets page.](/images/repro-openfoam/datasets-page.png)
 
 ## Creating a reproducible OpenFOAM environment with Docker
 
