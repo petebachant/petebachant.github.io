@@ -26,8 +26,7 @@ In other words, your project is not reproducible.
 
 ![Confused computer guy.](/images/repro-openfoam/confused.jpeg)
 
-Here we are going to show how to make a research project
-that uses OpenFOAM reproducible
+Here we are going to show how to make a research project reproducible
 with [Calkit](https://github.com/calkit/calkit),
 a tool I've been working on that ties together and simplifies a
 few lower-level tools to help with reproducibility:
@@ -36,6 +35,10 @@ few lower-level tools to help with reproducibility:
 - DVC (Data Version Control)
 - Docker
 - Cloud storage
+
+We're going to use OpenFOAM and Python to generate our outputs since these
+both can be pretty tricky to get setup correctly,
+never mind setup correctly twice!
 
 ## Getting setup
 
