@@ -383,3 +383,8 @@ Do you use a different system to manage pipelines, data, artifacts?
 If so, let me know in the comments.
 
 TODO: Make it so users can create a new project starting from this one.
+
+You can view this project up on
+[Calkit](https://calkit.io/petebachant/rans-boundary-layer-validation)
+and [GitHub](https://github.com/petebachant/rans-boundary-layer-validation)
+if you'd like to get started doing something similar.
