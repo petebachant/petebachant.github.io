@@ -237,7 +237,7 @@ TODO: Show our DAG now.
 
 We want to compare the OpenFOAM results to the DNS data,
 for which we can plot the mean velocity profiles, for example.
-Let's create a new figure (TODO: make it work)
+We can create a new figure with its own pipeline stage with:
 
 ```sh
 calkit new figure \
@@ -253,8 +253,8 @@ calkit new figure \
 
 The last line there is going to automatically create dependencies based on
 the outputs of our `run-sim` stage,
-which is convenient, since we don't need to iterate over all
-of our turbulence config names.
+saving us the trouble of typing out all
+of our turbulence model names.
 
 Now another call to `calkit run` and `calkit save -m "Run pipeline"`
 will materialize this figure and push it to the repo.
