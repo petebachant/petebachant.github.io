@@ -354,24 +354,25 @@ Reviewer 2 will be so happy 😀
 
 ## Conclusions and next steps
 
-We've built a project that runs OpenFOAM simulations reproducibly,
-creates some figures, and ensures these are kept in version control
+We created a project that runs OpenFOAM simulations reproducibly,
+produces a figure comparing against an imported dataset,
+and ensures these are kept in version control
 and backed up to the cloud.
-Maybe next we'd like to create a publication from those figures,
-but that will need to be the subject of a future post.
-Guess what? You can also put a LaTeX build stage into the pipeline.
+This is of course a simplified example for demonstration,
+but you could imagine expanding the pipeline
+to include more operations, such as:
 
-We could add a mesh dependence stage before the TODO.
+- Running a mesh independence study.
+- Building a LaTeX document as a report or paper.
 
-OpenFOAM could be replaced with any other software that can be run with
-Docker, more dependencies could be added, etc.
-
-Do you use a different system to manage pipelines, data, artifacts?
-If so, let me know in the comments.
-
-TODO: Make it so users can create a new project starting from this one.
+Since DVC pipelines can run any arbitrary command,
+you're not locked into a specific language or framework.
+You could run shell scripts, MATLAB programs, etc.,
+all in a single pipeline.
 
 You can view this project up on
 [Calkit](https://calkit.io/petebachant/rans-boundary-layer-validation)
 and [GitHub](https://github.com/petebachant/rans-boundary-layer-validation)
 if you'd like to get started doing something similar.
+Also, please comment below if you're using a different tool or framework
+to make your own work reproducible.
