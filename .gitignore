@@ -3,3 +3,4 @@ _site
 _drafts
 *.xcf
 .jekyll-cache
+*.DS_Store
