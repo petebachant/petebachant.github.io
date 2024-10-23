@@ -12,6 +12,9 @@ permalink: /projects/
 
 See more on [GitHub...](https://github.com/petebachant)
 
+[**Calkit**](https://github.com/calkit/calkit) --  A tool and platform
+to make reproducible research easier.
+
 [**turbinesFoam**](https://github.com/turbinesFoam/turbinesFoam) --  An OpenFOAM
 extension library for actuator line CFD simulations.
 
