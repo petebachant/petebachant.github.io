@@ -64,21 +64,24 @@ After that, install the Calkit Python package with:
 pip install calkit-python
 ```
 
-TODO: Screenshot showing version installed.
+![Installing with pip.](/images/repro-openfoam/pip-install.png)
 
 ## Creating and cloning the project
 
-Head over to https://calkit.io and log in with your GitHub account.
+Head over to [calkit.io](https://calkit.io)
+and log in with your GitHub account.
 Click the button to create a new project.
 Let's title ours "RANS boundary layer validation".
 We'll keep this private for now
-(though in general it's a good idea to work openly).
+(though in general it's good to work openly.)
 Creating a project on Calkit also creates the project Git repo on GitHub.
 
-We're going to need a token to use the Calkit cloud as a DVC remote,
-so head over to your user settings and generate one
+![Creating a new Calkit project.](/images/repro-openfoam/create-project.png)
 
-TODO: Token generation figure
+We're going to need a token to use the Calkit cloud as a DVC remote,
+so head over to your
+[user settings](https://calkit.io/settings),
+generate one for use with the API, and copy it to your clipboard.
 
 Then we can set that token in our local Calkit config with:
 
