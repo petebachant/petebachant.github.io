@@ -122,7 +122,18 @@ calkit import dataset \
     data/jhtdb-profiles.h5
 ```
 
-We can now see that as part of the project datasets on the Calkit website.
+If we run `calkit status` we can see that there is one commit that has been
+made but not pushed to `origin/main` (on GitHub), so we can
+make sure everything is backed up there with `calkit push`.
+
+![Status after importing dataset](/images/repro-openfoam/status-after-import-dataset.png)
+
+`calkit status` and `calkit push` behave very similarly to `git status`
+and `git push`. In fact, those commands are run alongside some additional
+DVC commands, the importance of which we will see shortly.
+
+We can now see our imported dataset as part of the project datasets on the
+Calkit website.
 We can also see the file is present, but ignored by Git,
 since it's managed by DVC.
 Because the dataset was imported, it does not take up any of this project's
