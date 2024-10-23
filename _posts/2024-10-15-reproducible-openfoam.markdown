@@ -39,11 +39,6 @@ reproducibility:
 - Docker
 - Cloud storage
 
-To set the stage,
-let's start with a basic research question:
-
->What RANS model works best for a simple boundary layer?
-
 ## Getting setup
 
 You will need to have
@@ -66,7 +61,12 @@ pip install calkit-python
 Head over to [calkit.io](https://calkit.io)
 and log in with your GitHub account.
 Click the button to create a new project.
-Let's title ours "RANS boundary layer validation".
+Let's title ours "RANS boundary layer validation",
+since for our example, we're going to create a project that attempts to
+answer the question:
+
+>What RANS model works best for a simple boundary layer?
+
 We'll keep this private for now
 (though in general it's good to work openly.)
 Creating a project on Calkit also creates the project Git repo on GitHub.
@@ -74,7 +74,7 @@ Creating a project on Calkit also creates the project Git repo on GitHub.
 ![Creating a new Calkit project.](/images/repro-openfoam/create-project.png)
 
 We can then add our question,
-so we don't get sidetracked 😀
+so we remember to stay on track 😀
 
 ![Calkit project questions list.](/images/repro-openfoam/questions.png)
 
