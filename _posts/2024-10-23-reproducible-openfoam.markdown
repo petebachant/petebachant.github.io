@@ -144,7 +144,7 @@ If you've never worked with Docker,
 it can sound a bit daunting,
 but Calkit has some tooling to make it a bit easier.
 Basically, Docker is going to let us create isolated reproducible
-environments in which to run software and will keep track of
+environments in which to run commands and will keep track of
 which environments belong to this project in the `calkit.yaml` file.
 
 Let's create an OpenFOAM-based Docker environment and build stage with:
