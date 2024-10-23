@@ -100,6 +100,8 @@ calkit clone https://github.com/{your user name}/rans-boundary-layer-validation.
 Note you can modify the URL above to use SSH if that's how you interact with
 GitHub.
 
+![Cloning the repo.](/images/repro-openfoam/clone.png)
+
 `calkit clone` is a simple wrapper around `git clone` that sets up the
 necessary configuration to use the Calkit Cloud as a DVC remote,
 the place where we're going to push our data,
