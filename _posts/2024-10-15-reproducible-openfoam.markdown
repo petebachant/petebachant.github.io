@@ -14,14 +14,16 @@ categories:
 Have you ever been here before?
 You've done a bunch of work to get a simulation to run, created some figures,
 and submitted a paper to a journal.
-A month or two later you get the reviews back and you're asked by _reviewer 2_
+A month or two later you get the reviews back and you're asked by _Reviewer 2_
 to make some minor modifications to a figure.
 There's one small problem, however: You don't remember how that figure was
 created,
 or you've upgraded your laptop and now have different software installed,
 and the script won't run.
-Or maybe you cloned the correct Git repo with the code, but you don't
-remember where the data is supposed to be stored.
+Maybe you were able to clone the correct Git repo with the code,
+but you don't
+remember where the data is supposed to be stored after you download it
+from Google Drive.
 In other words, your project is not reproducible.
 
 ![Confused computer guy.](/images/repro-openfoam/confused.jpeg)
