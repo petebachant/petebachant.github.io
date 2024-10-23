@@ -9,6 +9,8 @@ categories:
 - Software
 - Open science
 - Reproducibility
+- OpenFOAM
+- CFD
 ---
 
 Have you ever been here before?
@@ -16,19 +18,18 @@ You've done a bunch of work to get a simulation to run, created some figures,
 and submitted a paper to a journal.
 A month or two later you get the reviews back and you're asked by _Reviewer 2_
 to make some minor modifications to a figure.
-There's one small problem, however: You don't remember how that figure was
-created,
+There's one small problem, however:
+You don't remember how that figure was created,
 or you've upgraded your laptop and now have different software installed,
 and the script won't run.
 Maybe you were able to clone the correct Git repo with the code,
-but you don't
-remember where the data is supposed to be stored after you download it
-from Google Drive.
+but you don't remember where the data is supposed to be stored.
 In other words, your project is not reproducible.
 
 ![Confused computer guy.](/images/repro-openfoam/confused.jpeg)
 
-Here we are going to show how to make an OpenFOAM CFD project reproducible
+Here we are going to show how to make a research project
+that uses OpenFOAM reproducible
 using [Calkit](https://github.com/calkit/calkit),
 a tool I've been working on that ties together and simplifies a
 few lower-level tools to help with
@@ -56,7 +57,7 @@ pip install calkit-python
 
 ![Installing with pip.](/images/repro-openfoam/pip-install.png)
 
-## Creating and cloning the project
+## Creating and cloning the project repo
 
 Head over to [calkit.io](https://calkit.io)
 and log in with your GitHub account.
@@ -69,7 +70,8 @@ answer the question:
 
 We'll keep this private for now
 (though in general it's good to work openly.)
-Creating a project on Calkit also creates the project Git repo on GitHub.
+Note that creating a project on Calkit also creates the project
+Git repo on GitHub.
 
 ![Creating a new Calkit project.](/images/repro-openfoam/create-project.png)
 
@@ -109,7 +111,7 @@ while our code goes to GitHub.
 
 ## Getting some validation data
 
-We want to validate these RANS models, so we'll need some data.
+We want to validate these RANS models, so we'll need some data for comparison.
 It just so happens that there is already a boundary layer
 direct numerical simulation (DNS) dataset on
 Calkit downloaded from the
@@ -145,7 +147,7 @@ storage space, but will be present when the repo is cloned.
 
 If you've never heard of or worked with Docker,
 it can sound a bit daunting,
-but Calkit has some wrapper functionality to make it easy.
+but Calkit has some tooling to make it a little simpler.
 Basically, Docker is going to let us create isolated reproducible
 environments in which to run software and will keep track of
 which environments belong to this project in the `calkit.yaml` file.
@@ -171,14 +173,24 @@ running any other commands.
 If we run `calkit status` again,
 we see that there's another commit to be pushed to GitHub,
 and our pipeline is showing some changed dependencies and outputs.
+
+![Status after creating Docker environment.](/images/repro-openfoam/status-after-create-docker-env.png)
+
 This is a signal that it is out-of-date,
 and should be executed with `calkit run`.
 When we do that we see some output from Docker as an image is
 built, and `calkit status` then shows we have a new `dvc.lock` file
 staged and an untracked `Dockerfile-lock.json` file.
 
+![Status after first Calkit run.](/images/repro-openfoam/status-after-run-docker-build.png)
+
 We'll need to add that `Dockerfile-lock.json` file to our repo and then
-commit and push. We can do this with the `calkit save` command,
+commit and push. We can do this with the `calkit save` command:
+
+```sh
+calkit save dvc.lock Dockerfile-lock.json -m "Run pipeline to build Docker image"
+```
+
 which does the `add`, `commit`, `push` steps all in one,
 deciding which files to store in DVC versus Git, and pushing to the respective
 locations to save time and mental overhead.
@@ -186,7 +198,8 @@ However, if desired, you can of course run those individually for full control.
 
 ![Saving after building the Docker image.](/images/repro-openfoam/save-after-docker-build.png)
 
-Let's check that we can run something in the environment.
+Finally, let's check that we can run something in the environment, e.g.,
+print the help output of `blockMesh`:
 
 ```sh
 calkit runenv -- blockMesh -help
@@ -194,43 +207,34 @@ calkit runenv -- blockMesh -help
 
 This is great. We didn't need to install OpenFOAM, and neither will our
 collaborators.
+We're now ready to start setting up the cases.
 
 ## Adding the simulation runs to the pipeline
 
 We can run things interactively and make sure things work,
-but
-
-You don't want to rely on interactive work to produce something permanent.
-So, we
-
+but it's not a good idea to rely on interactive or ad hoc processes
+to produce something permanent.
 Any time you get to a point where you do want to save something permanent,
-that should be created by the pipeline.
+that should be created by the pipeline,
+so let's add some simulation runs to ours.
 
-Alright, now that we have an environment setup,
-we can start declaring what operations we want to run in our pipeline.
-I've setup this project to use [foamPy](https://github.com/petebachant/foamPy)
-to create and run variants of a case with a "templatized"
-`turbulenceProperties` file via a script `run.py`,
-which we're going to run in our Docker environment.
-We can see the help output of the script,
-showing how we can specify the turbulence model via the command line, with:
-
-```sh
-calkit runenv -- python run.py -h
-```
-
-We want to run the simulation with a few different turbulence models:
+We want to run the simulation to validate a few different turbulence models:
 
 - Laminar (no turbulence model)
 - $k$–$\epsilon$
 - $k$–$\omega$
 
-To do this, we're going to create a "foreach" DVC stage to run our
+I've setup this project to use [foamPy](https://github.com/petebachant/foamPy)
+to create and run variants of a case with a "templatized"
+`turbulenceProperties` file via a script `run.py`,
+which we're going to run in our Docker environment.
+
+To simulate the same case for multiple turbulence models,
+we're going to create a "foreach" DVC stage to run our
 script over a sequence of argument values.
 If we set this up properly, DVC will be smart enough to cache the results
 and not rerun simulations when they don't need to be rerun.
-
-We can create this with:
+We can create this stage with:
 
 ```sh
 calkit new foreach-stage \
@@ -244,7 +248,7 @@ calkit new foreach-stage \
     "laminar" "k-epsilon" "k-omega"
 ```
 
-Another run of `calkit status` shows our pipeline needs to be run,
+Another call to `calkit status` shows our pipeline needs to be run,
 which makes sense, so let's give it another `calkit run`.
 You'll note at the very start our Docker image build stage is not rerun
 thanks to DVC tracking the inputs and outputs.
@@ -259,7 +263,7 @@ calkit save -am "Run simulations"
 ```
 
 In this case, the outputs of the simulations were pushed up to the DVC remote
-in the Calkit cloud.
+in the Calkit Cloud.
 
 If you look at the `git log`, you'll notice that Calkit is making Git
 commits for all of these actions.
