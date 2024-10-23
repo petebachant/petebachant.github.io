@@ -88,13 +88,13 @@ generate one for use with the API, and copy it to your clipboard.
 Then we can set that token in our local Calkit config with:
 
 ```sh
-calkit config set token {paste your token here}
+calkit config set token YOUR_TOKEN_HERE
 ```
 
 Next, clone the repo to your local machine with (filling in your username):
 
 ```sh
-calkit clone https://github.com/{your user name}/rans-boundary-layer-validation.git
+calkit clone https://github.com/YOUR_USERNAME/rans-boundary-layer-validation.git
 ```
 
 Note you can modify the URL above to use SSH if that's how you interact with
@@ -168,17 +168,23 @@ the environment in our project metadata,
 and will add a stage to our DVC pipeline to build the image before
 running any other commands.
 
-We can visualize the pipeline, i.e.,
-all the things that run, as a directed acyclic graph (DAG)
-using `dvc dag`.
-The Calkit website will also visualize the DAG on the project's workflow
-page.
+If we run `calkit status` again,
+we see that there's another commit to be pushed to GitHub,
+and our pipeline is showing some changed dependencies and outputs.
+This is a signal that it is out-of-date,
+and should be executed with `calkit run`.
+When we do that we see some output from Docker as an image is
+built, and `calkit status` then shows we have a new `dvc.lock` file
+staged and an untracked `Dockerfile-lock.json` file.
 
-Right now, we can see there's only one step, so let's add more.
+We'll need to add that `Dockerfile-lock.json` file to our repo and then
+commit and push. We can do this with the `calkit save` command,
+which does the `add`, `commit`, `push` steps all in one,
+deciding which files to store in DVC versus Git, and pushing to the respective
+locations to save time and mental overhead.
+However, if desired, you can of course run those individually for full control.
 
-If we run `calkit status`, we see TODO
-
-So, we execute `calkit run`, and then `calkit save -m "Run pipeline"`. TODO
+![Saving after building the Docker image.](/images/repro-openfoam/save-after-docker-build.png)
 
 Let's check that we can run something in the environment.
 
@@ -186,7 +192,19 @@ Let's check that we can run something in the environment.
 calkit runenv -- blockMesh -help
 ```
 
+This is great. We didn't need to install OpenFOAM, and neither will our
+collaborators.
+
 ## Adding the simulation runs to the pipeline
+
+We can run things interactively and make sure things work,
+but
+
+You don't want to rely on interactive work to produce something permanent.
+So, we
+
+Any time you get to a point where you do want to save something permanent,
+that should be created by the pipeline.
 
 Alright, now that we have an environment setup,
 we can start declaring what operations we want to run in our pipeline.
@@ -225,6 +243,23 @@ calkit new foreach-stage \
     --out "cases/{var}/postProcessing" \
     "laminar" "k-epsilon" "k-omega"
 ```
+
+Another run of `calkit status` shows our pipeline needs to be run,
+which makes sense, so let's give it another `calkit run`.
+You'll note at the very start our Docker image build stage is not rerun
+thanks to DVC tracking the inputs and outputs.
+
+The output of `calkit status` now shows something we haven't seen yet:
+we have some new data produced as part of those simulation runs.
+We can do another `calkit save` to ensure everything is committed and
+pushed:
+
+```sh
+calkit save -am "Run simulations"
+```
+
+In this case, the outputs of the simulations were pushed up to the DVC remote
+in the Calkit cloud.
 
 If you look at the `git log`, you'll notice that Calkit is making Git
 commits for all of these actions.
@@ -266,7 +301,7 @@ We can create a new figure with its own pipeline stage with:
 calkit new figure \
     figures/mean-velocity-profiles.png \
     --title "Mean velocity profiles" \
-    --description "Mean velocity profiles." \
+    --description "Mean velocity profiles from DNS and RANS models." \
     --stage plot-mean-velocity-profiles \
     --cmd "calkit runenv python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
@@ -279,12 +314,16 @@ the outputs of our `run-sim` stage,
 saving us the trouble of typing out all
 of our turbulence model names.
 
-Now another call to `calkit run` and `calkit save -m "Run pipeline"`
-will materialize this figure and push it to the repo.
-This figure is now viewable as its own object up on the website,
-on which we can make comments.
+Another call to `calkit status` shows we need to run the pipeline again.
 
-## Creating a slight variation to the figure with a fresh copy
+Now another call to `calkit run` and
+`calkit save -m "Run pipeline to create figure"`
+will create this figure and push it to the repo.
+This figure is now viewable as its own object up on the website.
+
+![Figure on website.](/images/repro-openfoam/figure-on-website.png)
+
+## Solving the problem
 
 Now let's show the value of having our project in a reproducible state,
 addressing the problem we laid out in the introduction.
@@ -292,26 +331,35 @@ We're going to pretend we were forced to start from scratch,
 so we'll clone a fresh copy of the repo
 and attempt to simply change one of the axis labels slightly.
 
-So we move back up a directory and clone the repo again with:
+So we move back up a directory, delete the repo and clone it again with:
 
 ```sh
-calkit clone https://github.com/{your user name}/rans-boundary-layer-validation.git
+cd .. \
+&& rm -rf rans-boundary-layer-validation \
+&& calkit clone https://github.com/{your user name}/rans-boundary-layer-validation.git
 ```
 
 Moving in there,
-you'll notice the `postProcessing` directories exist,
-and so does our figure PNG file,
-both of which would not exist yet if we had simply used `git clone`.
+you'll notice our imported dataset,
+the `postProcessing` directories,
+and our figure PNG file were all downloaded,
+which would not have happened with a simple `git clone`,
+since those files are kept out of Git.
+
+Running `calkit status` and `calkit run` again shows that what we've
+cloned is fully up-to-date.
 
 Next can edit our plotting script to make the relevant changes.
 Then we execute `calkit run`.
 Notice how the simulations were not rerun thanks to the DVC cache.
 If we run `calkit status` we see there are some differences,
-so we run `calkit save -m "Change x-axis label for reviewer 2"`.
-This creates a Git commit and pushes any relevant cached artifacts to the
-cloud.
+so we run `calkit save -am "Change x-axis label for reviewer 2"`
+to get those saved and backed up.
 If we go visit the project on the Calkit website, we see our figure is
-up-to-date.
+up-to-date and has the requested changes in the legend.
+Reviewer 2 will be so happy.
+
+![Updated figure on website.](/images/repro-openfoam/figure-on-website-updated.png)
 
 ## Conclusions and next steps
 
