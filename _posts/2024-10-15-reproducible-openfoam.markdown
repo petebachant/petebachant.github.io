@@ -11,8 +11,6 @@ categories:
 - Reproducibility
 ---
 
-## Background
-
 Have you ever been here before?
 You've done a bunch of work to get a simulation to run, created some figures,
 and submitted a paper to a journal.
@@ -26,28 +24,23 @@ Or maybe you cloned the correct Git repo with the code, but you don't
 remember where the data is supposed to be stored.
 In other words, your project is not reproducible.
 
-I've been there too.
-A particularly painful experience is when you run many different simulations,
-deleting results after creating figures to save disk space,
-and then have to run them all over again if you want to change something
-minor.
+![Confused computer guy.](/images/repro-openfoam/confused.jpeg)
 
 Here we are going to show how to make an OpenFOAM CFD project reproducible
 using [Calkit](https://github.com/calkit/calkit),
-which ties together and simplifies a few lower-level tools to help with
+a tool I've been working on that ties together and simplifies a
+few lower-level tools to help with
 reproducibility:
 - Git
 - GitHub
 - DVC (Data Version Control)
 - Docker
 - Cloud storage
-and adds structured metadata for research artifacts to help with
-searchability and reuse/remixing.
 
 To set the stage,
 let's start with a basic research question:
 
->Which RANS model works best for a flat plate turbulent boundary layer?
+>What RANS model works best for a simple boundary layer?
 
 ## Getting setup
 
@@ -77,6 +70,11 @@ We'll keep this private for now
 Creating a project on Calkit also creates the project Git repo on GitHub.
 
 ![Creating a new Calkit project.](/images/repro-openfoam/create-project.png)
+
+We can then add our question,
+so we don't get sidetracked 😀
+
+![Calkit project questions list.](/images/repro-openfoam/questions.png)
 
 We're going to need a token to use the Calkit cloud as a DVC remote,
 so head over to your
@@ -265,14 +263,26 @@ on which we can make comments.
 
 Now let's show the value of having our project in a reproducible state,
 addressing the problem we laid out in the introduction.
-We're going to start with a fresh copy of the repo
+We're going to pretend we were forced to start from scratch,
+so we'll clone a fresh copy of the repo
 and attempt to simply change one of the axis labels slightly.
 
-First we edit our plotting script to make the relevant changes.
+So we move back up a directory and clone the repo again with:
+
+```sh
+calkit clone https://github.com/{your user name}/rans-boundary-layer-validation.git
+```
+
+Moving in there,
+you'll notice the `postProcessing` directories exist,
+and so does our figure PNG file,
+both of which would not exist yet if we had simply used `git clone`.
+
+Next can edit our plotting script to make the relevant changes.
 Then we execute `calkit run`.
 Notice how the simulations were not rerun thanks to the DVC cache.
 If we run `calkit status` we see there are some differences,
-so we run `calkit save -m "Change x axis label"`.
+so we run `calkit save -m "Change x-axis label for reviewer 2"`.
 This creates a Git commit and pushes any relevant cached artifacts to the
 cloud.
 If we go visit the project on the Calkit website, we see our figure is
