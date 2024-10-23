@@ -2,7 +2,6 @@
 comments: true
 date: 2024-10-23
 layout: post
-slug: reproducible-openfoam
 title: Reproducible OpenFOAM simulations with Calkit
 categories:
 - Engineering
