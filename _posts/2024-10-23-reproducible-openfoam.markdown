@@ -213,7 +213,7 @@ We can run things interactively and make sure things work,
 but it's not a good idea to rely on interactive or ad hoc processes
 to produce a permanent artifact.
 Any time you get to a point where you do want to save something permanent,
-the pipeline should be updated to product that artifact,
+the pipeline should be updated to produce that artifact,
 so let's add some simulation runs to ours.
 
 We want to run the simulation to validate a few different turbulence models:
