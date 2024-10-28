@@ -39,63 +39,57 @@ We're going to take a few relevant rules from the article
 1. Always store the raw data behind plots.
 1. Provide public access to scripts, runs, and results.
 
-Here we're going to develop a reproducible workflow without using the
-command line at all.
+Besides our office suite
+(here we'll use LibreOffice, but Microsoft Office could work just as well),
+we're going to need
+[Git](https://git-scm.com),
+Python ([Mambaforge](https://conda-forge.org/miniforge/) recommended),
+and Calkit installed (`pip install calkit-python` from the command line).
+There is a point to be made about minimizing the amount of commercial
+closed-source software
+used in research, since everything that needs to be purchased
+is another barrier to reproducibility, but we're not going to worry
+about that here.
 
-I will typically avoid office suites like Microsoft Office like the plague.
-I don't find them to be particularly helpful at producing anything that
-should live for a long time,
-and there are better tools for quick notes, calculations,
-and slideshows.
+The first thing we're going to do is create a Git repo for our project.
+We'll do this up on the Calkit website,
+which will create a repo for us on GitHub,
+and help us to _use Git without using Git_.
 
-After writing my masters thesis in Word,
-keeping track of reference and equation numbers manually because I couldn't
-get Word to format them properly,
-I've held a grudge against office suites.
+This is so we can follow the principle:
 
-TODO: Paid software and reproducibility.
-You need a computer, and those cost money too.
-This is nuanced.
+>Version control all custom scripts.
 
-Another time I was collaborating on a document with half a dozen people,
-and we were emailing around the document,
-using the tried-and-true version control system of appending
-initials and revision numbers every time,
-when two people made edits at the same time,
-and they needed to be merged manually.
+TODO: Import dataset from
+https://figshare.com/articles/dataset/Tropical_cyclone_impacts_in_coastal_marine_ecosystems/27316113?file=50036859
 
-Real time cloud editing a la Google Docs is has made this much better,
-but it remains troublesome, to say the least,
-to use an office suite for real scientific work.
+Or maybe
+https://figshare.com/ndownloader/files/50034510
 
-Unfortunately, office suites are a go-to tool for many,
-and I want to resist being elitist and simply insisting people
-switch to, e.g., LaTeX and Git because I said so.
-I actually tried this once a long time ago, and it did not go well.
-Most people are not early adopters...
+Now, spreadsheets are like custom scripts, data, and a computational
+environment all bundled into one,
+which has its benefits and drawbacks.
+Keeping our spreadsheet in version control simply means we're
+going to create a checkpoint, or "commit,"
+every time we make a relevant change.
+Instead of renaming the file every time,
+we're going to save a message describing the changes each time
+the file is modified,
+so we can go back in time if we need to.
 
-So, can we use an office suite and still work reproducibly?
-Here we will try.
+Next, let's address:
 
-The persona we will be here does not use the command line, ever,
-so we won't either.
-They store, analyze, and visualize their data in spreadsheets,
-and write papers in a WYSIWYG word processor.
+>Archive the exact versions of all external programs used.
 
-To be clear: I want this workflow to be okay!
-I don't think we should force all researchers to become hacker
-software engineers to create knowledge.
+This is a tough one.
+Are you allowed to archive Microsoft Office?
 
-We are going to use Calkit here, of course.
+We're at least going to define the version we're
+using in our project's metadata.
+To do this, we'll create a new environment description for our
+computer.
 
-The main principle we're going to follow is:
-
->Save every change
-
-So let's create a new Calkit project.
-
-This is going to take up a lot of storage space,
-but we can always clean this up later.
+TODO: This needs to be possible from the GUI.
 
 First we will lock this file for editing so none of our collaborators
 tries to work on it.
@@ -129,6 +123,16 @@ calkit server
 
 Side note: If you are a GUI-only kind of person,
 let me know if this is too annoying to be worth the trouble!
+
+Now, the most important rule:
+
+>For every result, keep track of how it was produced.
+
+It is possible to do this manually,
+but it is a waste of precious brainpower.
+Essentially we want to view our project as a whole
+and have some way of knowing if there is something about it
+that is out-of-date or invalid.
 
 The value to doing this lies in not needing to keep track of
 whether or not something needs to be redone because
@@ -164,4 +168,16 @@ Don't feel bad.
 
 Last but not least,
 we're going to bundle up and archive our materials so they can
-be cited in our paper.
+be cited in our paper,
+so we can follow the rule
+
+>Provide public access to scripts, runs, and results.
+
+TODO: Allow making project public, creating an archive.
+
+This may already be mandatory for the journals you're
+interested in publishing,
+and hopefully it will be mandatory for all at some point.
+I'd go even further to suggest most reviewers
+should attempt to reproduce a result as part of the review process.
+Might as well get ahead of the curve here.
