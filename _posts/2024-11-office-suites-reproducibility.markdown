@@ -15,7 +15,8 @@ you need to stop using Microsoft Word and Excel and
 become a computer hacker, right?
 There is some truth to that,
 that working with simpler, less interactive tools is typically better
-for producing permanent artifacts,
+for producing permanent artifacts and being somewhat certain about
+how they were produced,
 but it's not mandatory.
 
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7248736572437659648" height="536" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
@@ -55,6 +56,12 @@ The first thing we're going to do is create a Git repo for our project.
 We'll do this up on the Calkit website,
 which will create a repo for us on GitHub,
 and help us to _use Git without using Git_.
+
+We are going to treat our project repo as the place to put everything.
+Yep, everything that has anything to do with our work on this project
+goes in the repo.
+This will save us time later because there will be no question about
+where to look for stuff, because the answer is: in the repo.
 
 This is so we can follow the principle:
 
@@ -188,6 +195,9 @@ From https://www.elsevier.com/researcher/author/tools-and-resources/research-dat
 
 At some point, you probably won't be able to publish unless you include
 all of your code and data, so you might as well get ahead of the curve.
+
+Maybe it will speed up the publication process.
+Has anyone studied that?
 
 Working reproducibility will also make you more efficient and organized,
 so it's not just some noble service to society.
