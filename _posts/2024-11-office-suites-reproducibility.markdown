@@ -18,6 +18,27 @@ that working with simpler, less interactive tools is typically better
 for producing permanent artifacts,
 but it's not mandatory.
 
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7248736572437659648" height="536" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
+[This post](https://www.linkedin.com/posts/greg-wilson-a26510b6_the-next-time-you-see-a-post-saying-spreadsheets-activity-7248736573263863809-3siO?utm_source=share&utm_medium=member_desktop)
+is related.
+Do we know if spreadsheets are more error prone than Jupyter Notebooks,
+for example?
+We're not going to worry about that here.
+We're going to pretend we don't even know what a Jupyter Notebook is.
+We use spreadsheets because that's the tool we know and have access to.
+Further, errors are fine, so long as the version that produced the publication
+is available, and it is truly the one that produced the publication.
+
+We're going to take a few relevant rules from the article
+[Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285):
+
+1. For every result, keep track of how it was produced.
+1. Archive the exact versions of all external programs used.
+1. Version control all custom scripts.
+1. Always store the raw data behind plots.
+1. Provide public access to scripts, runs, and results.
+
 Here we're going to develop a reproducible workflow without using the
 command line at all.
 
@@ -31,11 +52,6 @@ After writing my masters thesis in Word,
 keeping track of reference and equation numbers manually because I couldn't
 get Word to format them properly,
 I've held a grudge against office suites.
-
-Many spreadsheets contain errors, but code probably does too [Greg Wilson].
-Errors are fine, so long as the version that produced the publication
-is available, and it is truly the one that produced the publication.
-That's the problem we're going to solve here.
 
 TODO: Paid software and reproducibility.
 You need a computer, and those cost money too.
