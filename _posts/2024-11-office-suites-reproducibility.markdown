@@ -63,6 +63,12 @@ goes in the repo.
 This will save us time later because there will be no question about
 where to look for stuff, because the answer is: in the repo.
 
+Instead of using something like Dropbox,
+we will use a repository so every time we save a file,
+we leave a trail of breadcrumbs regarding how we got there,
+why we did what we did, etc.
+It's like "track changes" for an entire folder.
+
 This is so we can follow the principle:
 
 >Version control all custom scripts.
