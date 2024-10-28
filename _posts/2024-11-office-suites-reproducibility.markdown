@@ -181,3 +181,13 @@ and hopefully it will be mandatory for all at some point.
 I'd go even further to suggest most reviewers
 should attempt to reproduce a result as part of the review process.
 Might as well get ahead of the curve here.
+
+![Elsevier research data guidelines](/images/repro-office/elsevier-research-data-guidelines.png)
+
+From https://www.elsevier.com/researcher/author/tools-and-resources/research-data/data-guidelines.
+
+At some point, you probably won't be able to publish unless you include
+all of your code and data, so you might as well get ahead of the curve.
+
+Working reproducibility will also make you more efficient and organized,
+so it's not just some noble service to society.
