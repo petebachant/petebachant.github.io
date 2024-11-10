@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2024-11-02
+date: 2024-11-11
 layout: post
 title: It's not possible to work reproducibly in Microsoft Word and Excel, right?
 categories:
@@ -18,11 +18,16 @@ less interactive tools is typically better for producing permanent artifacts,
 e.g., figures, papers, and being somewhat certain about how they were produced,
 but it's not mandatory.
 
-It's also not usually mandatory to work in a reproducible way,
-sharing all code and data so others can arrive at the same exact results,
-but it most likely will be someday,
+It's also not usually mandatory to work in a reproducible way, i.e.,
+sharing all code and data so others can arrive at the same exact results.
+These days, many journals are requiring a "data availability statement"
+(see the example from Elsevier below,)
+which allows authors to explain why code and data might not be available,
+but hopefully someday it will be fully mandatory to share everything,
 so here we're going to help you get a head start even if you haven't
 started living your life at the command line.
+
+![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
 
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7248736572437659648" height="536" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
 
