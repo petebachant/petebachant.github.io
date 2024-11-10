@@ -74,13 +74,6 @@ we leave a trail of breadcrumbs regarding how we got there,
 why we did what we did, etc.
 It's like "track changes" for an entire folder.
 
-First we will lock this file for editing so none of our collaborators
-tries to work on it.
-I think Word may have some sort of merge tool,
-but let's avoid it if we can.
-The necessity to truly work concurrently is very rare for these sorts of
-projects, in my experience.
-
 First, let's "collect" our data.
 We are going to add some rows to a spreadsheet.
 I am going to use LibreOffice here, but Microsoft Office should
