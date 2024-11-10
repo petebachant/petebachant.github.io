@@ -28,14 +28,23 @@ so here we're going to help you get a head start on that.
 
 ![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
 
-We're going to take a few relevant rules from the article
-[Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285):
+Inspired by the article
+[Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285),
+we're going to keep things simple and focus on two rules:
 
-1. For every result, keep track of how it was produced.
-1. Archive the exact versions of all external programs used.
-1. Version control all custom scripts.
-1. Always store the raw data behind plots.
-1. Provide public access to scripts, runs, and results.
+1. **Keep all files in version control.**
+  Something like Dropbox is not sufficient.
+  When you make a change you should have to describe that change,
+  and that record should exist in the log forever.
+  Adding your initials and a number to the filename is also not good enough!
+  Whenever you’ve made a change with any value, _commit_ it.
+1. **Generate permanent artifacts with a pipeline.**
+  This will allow us to know if our outputs, e.g., figures, derived datasets,
+  papers, have become out-of-date and no longer reflect their input data or
+  processing procedures, after which we can run the pipeline and get them
+  up-to-date.
+
+![Manual version control.](/images/repro-office/phd-comics-version-control.webp)
 
 Besides our office suite
 (here we'll use LibreOffice, but Microsoft Office could work just as well),
