@@ -2,7 +2,7 @@
 comments: true
 date: 2024-11-02
 layout: post
-title: Office suites are the enemy of reproducibility, right?
+title: It's not possible to work reproducibly in Microsoft Word and Excel, right?
 categories:
 - Open science
 - Reproducibility
@@ -11,13 +11,18 @@ categories:
 ![Anakin uses Excel.](/images/repro-office/anakin-excel.jpg)
 
 Everyone knows that when you want to get serious about reproducibility
-you need to stop using Microsoft Word and Excel and
-become a computer hacker, right?
-There is some truth to that,
-that working with simpler, less interactive tools is typically better
-for producing permanent artifacts and being somewhat certain about
-how they were produced,
+you need to stop using Microsoft Word and Excel and become a computer hacker,
+right?
+There is some truth to that, that working with simpler,
+less interactive tools is typically better for producing permanent artifacts,
+e.g., figures, papers, and being somewhat certain about how they were produced,
 but it's not mandatory.
+
+It's also not usually mandatory to work in a reproducible way,
+sharing all code and data so others can arrive at the same exact results,
+but it most likely will be someday,
+so here we're going to help you get a head start even if you haven't
+started living your life at the command line.
 
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7248736572437659648" height="536" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
 
