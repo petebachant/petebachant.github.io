@@ -44,10 +44,10 @@ we're going to keep things simple and focus on two rules:
   processing procedures, after which we can run the pipeline and get them
   up-to-date.
 
-![Manual version control.](/images/repro-office/phd-comics-version-control.webp)
-
-_Manual or ad hoc "version control" (don't do this.)
-From [phdcomics.com](https://phdcomics.com)._
+{% include figure.html
+src="/images/repro-office/phd-comics-version-control.webp"
+caption="Manual or ad hoc "version control" (don't do this.) From phdcomics.com."
+width="90%" %}
 
 We're going to follow the two rules with the help of Calkit,
 the installation instructions for which can be found
