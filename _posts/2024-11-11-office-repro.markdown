@@ -39,8 +39,9 @@ we're going to keep things simple and focus on two rules:
   Adding your initials and a number to the filename is also not good enough!
   Whenever you’ve made a change with any value, _commit_ it.
 1. **Generate permanent artifacts with a pipeline.**
-  This will allow us to know if our outputs, e.g., figures, derived datasets,
-  papers, have become out-of-date and no longer reflect their input data or
+  This will allow us to know if our output artifacts, e.g., figures,
+  derived datasets, papers,
+  have become out-of-date and no longer reflect their input data or
   processing procedures, after which we can run the pipeline and get them
   up-to-date.
 
