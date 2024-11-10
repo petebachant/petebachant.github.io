@@ -14,12 +14,13 @@ Everyone knows that when you want to get serious about reproducibility
 you need to stop using Microsoft Word and Excel and become a computer hacker,
 right?
 There is some truth to that, that working with simpler,
-less interactive tools is typically better for producing permanent artifacts,
-e.g., figures, papers, and being somewhat certain about how they were produced,
+less interactive tools is typically better for producing permanent artifacts
+and being somewhat certain about how they were produced,
 but it's not mandatory.
 
 It's also not usually mandatory to work in a reproducible way, i.e.,
-sharing all code and data so others can arrive at the same exact results.
+sharing all code, data, and other important information
+so that others can create the same results.
 These days, many journals are requiring a "data availability statement"
 (see the example from Elsevier below,)
 which allows authors to explain why code and data might not be available,
@@ -54,10 +55,12 @@ We're going to follow the two rules with the help of Calkit,
 the installation instructions for which can be found
 [here](https://github.com/calkit/calkit?tab=readme-ov-file#installation).
 
-The first thing we're going to do is create a Git repo for our project.
-We'll do this up on the Calkit website,
-which will create a repo for us on GitHub,
-and help us to _use Git without using Git_.
+The first thing we're going to do is create a Git (and GitHub)
+repo for our project,
+which can be done up on the [Calkit website](https://calkit.io).
+Don't worry though, we're not actually going to interact with Git directly.
+Calkit will hide that complexity for us, so basically we're going to
+_use Git without using Git_.
 
 We are going to treat our project repo as the place to put everything.
 Yep, everything that has anything to do with our work on this project
