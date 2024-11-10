@@ -24,8 +24,7 @@ These days, many journals are requiring a "data availability statement"
 (see the example from Elsevier below,)
 which allows authors to explain why code and data might not be available,
 but hopefully someday it will be fully mandatory to share everything,
-so here we're going to help you get a head start even if you haven't
-started living your life at the command line.
+so here we're going to help you get a head start on that.
 
 ![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
 
