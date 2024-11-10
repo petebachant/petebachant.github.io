@@ -28,18 +28,6 @@ so here we're going to help you get a head start on that.
 
 ![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
 
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7248736572437659648" height="536" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-
-[This post](https://www.linkedin.com/posts/greg-wilson-a26510b6_the-next-time-you-see-a-post-saying-spreadsheets-activity-7248736573263863809-3siO?utm_source=share&utm_medium=member_desktop)
-is related.
-Do we know if spreadsheets are more error prone than Jupyter Notebooks,
-for example?
-We're not going to worry about that here.
-We're going to pretend we don't even know what a Jupyter Notebook is.
-We use spreadsheets because that's the tool we know and have access to.
-Further, errors are fine, so long as the version that produced the publication
-is available, and it is truly the one that produced the publication.
-
 We're going to take a few relevant rules from the article
 [Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285):
 
