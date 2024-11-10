@@ -46,6 +46,9 @@ we're going to keep things simple and focus on two rules:
 
 ![Manual version control.](/images/repro-office/phd-comics-version-control.webp)
 
+_Manual or ad hoc "version control" (don't do this.)
+From [phdcomics.com](https://phdcomics.com)._
+
 Besides our office suite
 (here we'll use LibreOffice, but Microsoft Office could work just as well),
 we're going to need
