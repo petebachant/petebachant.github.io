@@ -74,41 +74,6 @@ we leave a trail of breadcrumbs regarding how we got there,
 why we did what we did, etc.
 It's like "track changes" for an entire folder.
 
-This is so we can follow the principle:
-
->Version control all custom scripts.
-
-TODO: Import dataset from
-https://figshare.com/articles/dataset/Tropical_cyclone_impacts_in_coastal_marine_ecosystems/27316113?file=50036859
-
-Or maybe
-https://figshare.com/ndownloader/files/50034510
-
-Now, spreadsheets are like custom scripts, data, and a computational
-environment all bundled into one,
-which has its benefits and drawbacks.
-Keeping our spreadsheet in version control simply means we're
-going to create a checkpoint, or "commit,"
-every time we make a relevant change.
-Instead of renaming the file every time,
-we're going to save a message describing the changes each time
-the file is modified,
-so we can go back in time if we need to.
-
-Next, let's address:
-
->Archive the exact versions of all external programs used.
-
-This is a tough one.
-Are you allowed to archive Microsoft Office?
-
-We're at least going to define the version we're
-using in our project's metadata.
-To do this, we'll create a new environment description for our
-computer.
-
-TODO: This needs to be possible from the GUI.
-
 First we will lock this file for editing so none of our collaborators
 tries to work on it.
 I think Word may have some sort of merge tool,
