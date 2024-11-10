@@ -49,17 +49,9 @@ we're going to keep things simple and focus on two rules:
 _Manual or ad hoc "version control" (don't do this.)
 From [phdcomics.com](https://phdcomics.com)._
 
-Besides our office suite
-(here we'll use LibreOffice, but Microsoft Office could work just as well),
-we're going to need
-[Git](https://git-scm.com),
-Python ([Mambaforge](https://conda-forge.org/miniforge/) recommended),
-and Calkit installed (`pip install calkit-python` from the command line).
-There is a point to be made about minimizing the amount of commercial
-closed-source software
-used in research, since everything that needs to be purchased
-is another barrier to reproducibility, but we're not going to worry
-about that here.
+We're going to follow the two rules with the help of Calkit,
+the installation instructions for which can be found
+[here](https://github.com/calkit/calkit?tab=readme-ov-file#installation).
 
 The first thing we're going to do is create a Git repo for our project.
 We'll do this up on the Calkit website,
