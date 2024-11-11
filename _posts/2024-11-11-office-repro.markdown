@@ -90,7 +90,7 @@ where to look for stuff, because the answer is: in the repo.
 The only command line thing we're going to do is spin up a local Calkit
 server to connect to the web app and allow us to modify the project
 on our local machine.
-So, open up a terminal and run:
+So, open up a terminal or Miniforge command prompt and run:
 
 ```sh
 calkit local-server TODO: Name like this?
