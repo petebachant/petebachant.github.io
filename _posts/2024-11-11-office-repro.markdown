@@ -13,12 +13,12 @@ categories:
 Everyone knows that when you want to get serious about reproducibility
 you need to stop using Microsoft Word and Excel and become a computer hacker,
 right?
-There is some truth to that, that working with simpler,
+There is some truth to that, that working with simpler, open source,
 less interactive tools is typically better for producing permanent artifacts
 and being somewhat certain about how they were produced,
 but it's not mandatory.
 
-It's also not usually mandatory to work in a reproducible way, i.e.,
+It's also not usually mandatory to work in a reproducible or open way, i.e.,
 sharing all code, data, and other important information
 so that others can create the same results.
 These days, many journals are requiring a "data availability statement"
