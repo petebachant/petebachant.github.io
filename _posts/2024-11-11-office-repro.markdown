@@ -15,7 +15,7 @@ you need to stop using Microsoft Word and Excel and become a computer hacker,
 right?
 There is some truth to that, that working with simpler, open source,
 less interactive tools is typically better for producing permanent artifacts
-and being somewhat certain about how they were produced,
+and enabling others to reproduce them,
 but it's not mandatory.
 
 It's also not usually mandatory to work in a reproducible or open way, i.e.,
