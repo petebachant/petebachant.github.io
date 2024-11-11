@@ -78,8 +78,7 @@ which can be done up on the [Calkit website](https://calkit.io).
 Don't worry though, we're not actually going to interact with Git directly.
 I know this is a major sticking point for some people,
 and I get it---learning Git is a daunting task.
-However, Calkit will be doing the Gitting for us, so we're going to
-_use Git without using Git_.
+However, Calkit will be doing the Git stuff for us.
 
 We are going to treat our project repo as the place to put everything.
 That's right,
