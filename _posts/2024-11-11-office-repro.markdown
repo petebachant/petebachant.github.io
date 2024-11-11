@@ -69,6 +69,8 @@ per
 [these instructions](https://github.com/calkit/calkit?tab=readme-ov-file#installation)
 (you may want to add `--upgrade` to the `pip install` command if you have
 an older version installed.)
+We'll also need to ensure we have
+[generated and stored a token in our local config](https://github.com/calkit/calkit/?tab=readme-ov-file#cloud-integration).
 
 The first thing we're going to do is create a Git (and GitHub)
 repo for our project,
