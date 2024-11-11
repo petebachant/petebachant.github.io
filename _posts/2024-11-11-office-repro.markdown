@@ -2,7 +2,7 @@
 comments: true
 date: 2024-11-11
 layout: post
-title: It's not possible to work reproducibly in Microsoft Word and Excel, right?
+title: Microsoft Word and Excel have no place in a reproducible workflow... right?
 categories:
 - Open science
 - Reproducibility
