@@ -26,6 +26,14 @@ These days, many journals are requiring a "data availability statement"
 which allows authors to explain why code and data might not be available,
 but hopefully someday it will be fully mandatory to share everything,
 so here we're going to help you get a head start on that.
+Who knows. Maybe if the reviewers can reproduce your work during the review
+process, your paper will be published more quickly
+(side note: has anyone studied that?)
+At the very least, you'll probably get
+[more citations](https://doi.org/10.1371/journal.pone.0230416).
+I also hypothesize that working reproducibly will make you more efficient
+and organized, leading to faster production of higher quality work,
+so there's an individual benefit here too.
 
 ![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
 
@@ -39,6 +47,8 @@ we're going to keep things simple and focus on two rules:
   and that record should exist in the log forever.
   Adding your initials and a number to the filename is also not good enough!
   Whenever you’ve made a change with any value, _commit_ it.
+  When all files are in a version control repository, it's like using
+  "track changes" for an entire folder.
 1. **Generate permanent artifacts with a pipeline.**
   This will allow us to know if our output artifacts, e.g., figures,
   derived datasets, papers,
@@ -70,110 +80,55 @@ However, Calkit will be doing the Gitting for us, so we're going to
 _use Git without using Git_.
 
 We are going to treat our project repo as the place to put everything.
-Yep, everything that has anything to do with our work on this project
+That's right,
+everything that has anything to do with our work on this project
 goes in the repo.
 This will save us time later because there will be no question about
 where to look for stuff, because the answer is: in the repo.
-
-Instead of using something like Dropbox,
-we will use a repository so every time we save a file,
-we leave a trail of breadcrumbs regarding how we got there,
-why we did what we did, etc.
-It's like "track changes" for an entire folder.
-
-First, let's "collect" our data.
-We are going to add some rows to a spreadsheet.
-I am going to use LibreOffice here, but Microsoft Office should
-work nearly identically.
-
-Every time we make a change, we upload a new version?
-That's pretty burdensome.
-Maybe use the local server and GUI.
 
 The only command line thing we're going to do is spin up a local Calkit
 server to connect to the web app and allow us to modify the project
 on our local machine.
 Someday this will likely run as a background service,
 but for now, it needs to be started manually.
-So, open up a terminal, and assuming you've
-installed [Git](https://git-scm.com)
-run `pip install --upgrade calkit-python`
-at some point, run
+So, open up a terminal and run:
 
 ```sh
-calkit server
+calkit local-server
 ```
 
-Side note: If you are a GUI-only kind of person,
-let me know if this is too annoying to be worth the trouble!
+TODO: Show server terminal running
 
-Now, the most important rule:
+If we navigate to our project page on the Calkit website,
+then go to the local machine page, we see that the repo has never been
+cloned to our computer, so let's click the clone button
 
->For every result, keep track of how it was produced.
+TODO: Show local machine needing clone and cloning. Animated GIF?
 
-It is possible to do this manually,
-but it is a waste of precious brainpower.
-Essentially we want to view our project as a whole
-and have some way of knowing if there is something about it
-that is out-of-date or invalid.
+By default, this will be cloned somewhere
+like `C:/Users/YourName/calkit/the-project-name`,
+which you can see in the status.
 
-The value to doing this lies in not needing to keep track of
-whether or not something needs to be redone because
-something about the pipeline has changed.
-For example, if the filtering is updated,
-there will be a cascading change as the figure and paper
-are now invalid.
-Being able to simply run the pipeline saves brainpower
-for more important things!
+Now that we have our repository cloned locally let's "collect" our data.
+We are going to do this by adding some rows to an Excel spreadsheet
+and saving it in our project repo `data.xlsx`.
 
-We're going to keep these files in Git instead of DVC,
-since they're relatively small.
-Git is not great for this, since the files are binary
-(actually they are zip archives of XML documents,
-but we won't go down that road here),
-but it's workable.
+TODO: Show Excel rows being added.
 
-We're just going to focus on two goals:
-1. Save every version in version control.
-2. Make sure we can't forget to update downstream artifacts if something
-   goes out-of-date.
+Back on the Calkit local machine page,
+we see that the `data.xlsx` spreadsheet is showing up as an untracked
+file in our repo.
+So, let's add it to the repo.
 
-TODO: Compute a metric by averaging our spreadsheet?
-Make sure this value is correct in the text?
+Now let's use Excel to create a figure.
+If we go in and create a chart inside and save the spreadsheet,
+we see up on the local machine page that we have a changed file.
+Let's commit that change and give it a message like
+"Add chart to spreadsheet".
 
-TODO: Figure and table in our document?
-
-TODO: Show a diff/merge process?
-
-So you've heard working reproducibly is important and feel left out because
-you use Excel and Word to do your work?
-Don't feel bad.
-
-Last but not least,
-we're going to bundle up and archive our materials so they can
-be cited in our paper,
-so we can follow the rule
-
->Provide public access to scripts, runs, and results.
-
-TODO: Allow making project public, creating an archive.
-
-This may already be mandatory for the journals you're
-interested in publishing,
-and hopefully it will be mandatory for all at some point.
-I'd go even further to suggest most reviewers
-should attempt to reproduce a result as part of the review process.
-Might as well get ahead of the curve here.
-
-![Elsevier research data guidelines](/images/repro-office/elsevier-research-data-guidelines.png)
-
-From https://www.elsevier.com/researcher/author/tools-and-resources/research-data/data-guidelines.
-
-At some point, you probably won't be able to publish unless you include
-all of your code and data, so you might as well get ahead of the curve.
-
-Maybe it will speed up the publication process.
-Has anyone studied that?
-
-Working reproducibility will also make you more efficient and organized,
-so it's not just some noble service to society.
+Alright, so our data is in version control.
+Now it's time to get to rule number 2: generate important artifacts
+with a pipeline.
+At the moment our pipeline is empty,
+so let's create a stage that extracts our chart from Excel into an image
+and denotes it as a figure in the repo.
