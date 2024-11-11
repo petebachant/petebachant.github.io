@@ -45,21 +45,28 @@ we're going to keep things simple and focus on two rules:
   have become out-of-date and no longer reflect their input data or
   processing procedures, after which we can run the pipeline and get them
   up-to-date.
+  It also means we only need to focus on building that pipeline and running
+  it. We don't need to memorize what scripts to run in what order---just
+  run the pipeline.
 
 {% include figure.html
 src="/images/repro-office/phd-comics-version-control.webp"
 caption="Manual or ad hoc "version control" (don't do this.) From phdcomics.com."
 width="90%" %}
 
-We're going to follow the two rules with the help of Calkit,
-the installation instructions for which can be found
-[here](https://github.com/calkit/calkit?tab=readme-ov-file#installation).
+We're going to do this with the help of Calkit, so make sure it's installed
+per
+[these instructions](https://github.com/calkit/calkit?tab=readme-ov-file#installation)
+(you may want to add `--upgrade` to the `pip install` command if you have
+an older version installed.)
 
 The first thing we're going to do is create a Git (and GitHub)
 repo for our project,
 which can be done up on the [Calkit website](https://calkit.io).
 Don't worry though, we're not actually going to interact with Git directly.
-Calkit will hide that complexity for us, so basically we're going to
+I know this is a major sticking point for some people,
+and I get it---learning Git is a daunting task.
+However, Calkit will be doing the Gitting for us, so we're going to
 _use Git without using Git_.
 
 We are going to treat our project repo as the place to put everything.
