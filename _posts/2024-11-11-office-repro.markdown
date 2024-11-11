@@ -104,7 +104,7 @@ cloned to our computer, so let's click the clone button
 TODO: Show local machine needing clone and cloning. Animated GIF?
 
 By default, this will be cloned somewhere
-like `C:/Users/YourName/calkit/the-project-name`,
+like `C:/Users/your-name/calkit/the-project-name`,
 which you can see in the status.
 
 Now that we have our repository cloned locally let's "collect" our data.
