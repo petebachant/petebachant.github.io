@@ -93,7 +93,7 @@ on our local machine.
 So, open up a terminal or Miniforge command prompt and run:
 
 ```sh
-calkit local-server TODO: Name like this?
+calkit local-server
 ```
 
 TODO: Show server terminal running
