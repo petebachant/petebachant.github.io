@@ -267,7 +267,7 @@ not longer reflects our input data.
 
 ![Adding a row to our dataset.](/images/repro-office/chart-more-rows.png)
 
-![Status after adding rows.](/images/repro-office/status-more-rows-2.png)
+![Status after adding rows.](/images/repro-office/status-more-rows.png)
 
 Now with one click we can rerun the pipeline,
 which is going to update both our figure PNG file and the paper PDF in one
