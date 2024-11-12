@@ -148,8 +148,6 @@ caption="We have an untracked file."
 width="450px"
 %}
 
-![Adding data.](/images/repro-office/add-data.png)
-
 After adding and committing,
 Calkit is going to automatically push to the remotes
 so everything stays backed up,
