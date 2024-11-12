@@ -119,17 +119,30 @@ cloned to our computer, so let's click the clone button
 By default, this will be cloned somewhere
 like `C:/Users/your-name/calkit/the-project-name`,
 which you can see in the status.
+We can also see that our repo is "clean,"
+i.e., there are no untracked files or modified files in there,
+and that our local copy is synced with both the Git and DVC remotes,
+meaning everything is backed up and we have the latest version.
+We'll strive to keep it that way.
 
 Now that we have our repository cloned locally let's "collect" our data.
 We are going to do this by adding some rows to an Excel spreadsheet
 and saving it in our project repo `data.xlsx`.
 
-TODO: Show Excel rows being added.
+![Our Excel data.](/images/repro-office/excel-data.png)
 
 Back on the Calkit local machine page,
 we see that the `data.xlsx` spreadsheet is showing up as an untracked
 file in our repo.
 So, let's add it to the repo.
+
+![Untracked data file.](/images/repro-office/untracked-data.png)
+
+![Adding data.](/images/repro-office/add-data.png)
+
+After adding, Calkit is going to automatically push to the remotes
+so everything stays backed up,
+and again we'll see that our repo is clean and in sync.
 
 Now let's use Excel to create a figure.
 If we go in and create a chart inside and save the spreadsheet,
