@@ -20,17 +20,19 @@ but it's not mandatory.
 
 On the other hand, it's starting to become more and more common,
 and will hopefully someday be mandatory
-to share all code and data when submitting an article to a journal,
+to share all code and data when submitting a manuscript to a journal,
 so that others can reproduce your work.
 This is a good thing for science overall,
-but also good for individual researchers.
+but also good for individual researchers,
+even though it may seem like more work.
+
 Besides the fact that you'll probably get
 [more citations](https://doi.org/10.1371/journal.pone.0230416),
 which should not necessarily be a goal in and of itself given recent
 controversies around citation coercion,
 working reproducibly will keep you more organized and focused,
 and will allow you to produce higher quality work more quickly.
-I also hypothesize that if reviewers can reproduce your work,
+I hypothesize that if reviewers can reproduce your work,
 your paper will get through the review process more quickly.
 
 ![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
@@ -61,10 +63,10 @@ we're going focus on just two simple rules:
 
 {% include figure.html
 src="/images/repro-office/phd-comics-version-control.webp"
-caption="Manual or ad hoc "version control" (don't do this.) From phdcomics.com."
+caption="Manual or ad hoc 'version control' (don't do this.) From phdcomics.com."
 width="90%" %}
 
-We're going to do this with the help of
+We're going to create our workflow with
 [Calkit](https://github.com/calkit/calkit),
 so if you want to follow along,
 make sure it's installed per
@@ -75,10 +77,9 @@ We'll also need to ensure we have
 [generated and stored a token in our local config](https://github.com/calkit/calkit/?tab=readme-ov-file#cloud-integration).
 
 In order to follow rule number 1,
-we are going to treat our project's repository, or "repo",
+we are going to treat our project's repository, or "repo,"
 as the place to store everything.
-That's right,
-any file that has anything to do with our work on this project
+Any file that has anything to do with our work on this project
 goes in the repo.
 This will save us time later because there will be no question about
 where to look for stuff, because the answer is: in the repo.
@@ -90,7 +91,7 @@ Don't worry though, we're not actually going to interact with Git
 and DVC directly.
 I know this is a major sticking point for some people,
 and I get it---learning Git is a daunting task.
-However, all the Git stuff will be done for us behind the scenes.
+However, all the Git/DVC stuff will be done for us behind the scenes.
 
 We can start off by creating a Git (and GitHub)
 repo for our project
@@ -160,7 +161,7 @@ Now it's time for rule number 2: Generate important artifacts
 with a pipeline.
 At the moment our pipeline is empty,
 so let's create a stage that extracts our chart from Excel into an image
-and denotes it as a figure in the repo.
+and denotes it as a figure in the project.
 On the web interface we'll see there's a button to create a new stage,
 and in there we'll find some stage templates to use.
 If we select "Figure from Excel",
@@ -168,7 +169,7 @@ there will be a few extra fields to fill out:
 
 1. The name of the stage. We'll use `extract-chart`, but you can call it
    whatever you like.
-1. The (local) Excel file path (`data.xlsx`).
+1. The Excel file path relative to the repo (`data.xlsx`).
 2. The desired output file path for our image. We'll use `figures/chart.png`,
    but again, you can choose whatever makes sense to you.
 3. The title and description of our figure.
@@ -204,9 +205,10 @@ We can then follow the same process we followed with
 Now let's open up the Word document and insert our PNG image exported
 from the pipeline.
 Be sure to use the "link to file" or "insert and link"
-option, so Word doesn't create an additional copy of the image data inside
+option, so Word doesn't duplicate the image data inside
 the document.
-This will allow us to update the figure and not need to reimport into Word.
+This will allow us to update the image externally and not need to
+reimport into Word.
 
 ![Insert link to file.](/images/repro-office/insert-link-to-file.png)
 
@@ -243,7 +245,7 @@ However, for a research project, there will almost certainly be multiple
 iterations,
 and if we need to do each manual step each iteration,
 it's going to get costly time-wise, and we could potentially forget
-which steps need to be taken depending on what file was changed.
+which steps need to be taken based on what file was changed.
 We may end up submitting our paper with a chart that doesn't reflect
 the most up-to-date data,
 which would mean the chart in the paper could not be reproduced by a
@@ -278,11 +280,14 @@ which can come in handy if all of a sudden things aren't looking right.
 Having the files in version control also means we can go check out an old
 version if we made a mistake.
 
-![Updated PDF.](/images/repro-office/updated-pdf.png)
+![Updated publication.](/images/repro-office/updated-publication.png)
 
 We did it.
 We created a reproducible workflow using Microsoft Word and Excel,
-and we didn't need to learn how Git or DVC work under the hood.
+and we didn't need to learn Git or DVC.
+No we can iterate on our data, analysis, figures, and writing,
+and all we need to do to get them all up-to-date and backed up is
+to run the pipeline and commit the changes.
 Now we can share our project and others can reproduce the outputs
 (so long as they have a Microsoft Office license, but that's a topic
 for another day.)
@@ -291,9 +296,14 @@ To recap, all we had to do was follow the two most important rules:
 1. All files go in version control.
 2. Artifacts need to be generated by the pipeline.
 
-You can go browse through this project up on the
-[Calkit website](https://calkit.io/petebachant/office-repro-example)
+Everything we did here would probably have been a little faster via
+the Calkit command line interface (CLI),
+but it's important to see that being a terminal wizard is not a prerequisite
+for working this way.
 
-As always, feel free to shoot me an
+You can go browse through this project up on the
+[Calkit website](https://calkit.io/petebachant/office-repro-example).
+
+Feel free to shoot me an
 [email](mailto:petebachant@gmail.com)
 if you'd like help setting up something similar for your project.
