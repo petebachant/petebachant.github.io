@@ -191,37 +191,44 @@ and a pipeline that's up-to-date.
 
 To wrap things up, we're going to use this figure in a paper,
 written using Microsoft Word.
-So, find a journal with a Microsoft Word (`.docx`) submission template
-and download that, saving it in the repo.
-Follow the same process we followed with `data.xlsx` to add and commit the
-untracked file to the repo.
+So, find a journal with a Microsoft Word (`.docx`) submission template,
+download that, and save it in the repo.
 In this case, I saved the template as a generic name like `paper.docx`,
 since in the context of this project, it doesn't really need a special name,
 unless of course `paper.docx` would somehow be ambiguous.
+We can then follow the same process we followed with
+`data.xlsx` to add and commit the untracked file to the repo.
 
-We can open up the Word document template and insert our PNG image exported
-from the pipeline. Be sure to use the "insert and link"
+![Untracked paper.docx.](/images/repro-office/untracked-paper.png)
+
+Now let's open up the Word document and insert our PNG image exported
+from the pipeline.
+Be sure to use the "insert and link"
 option, so Word doesn't create an additional copy of the image data inside
 the document.
 This will allow us to update the figure and not need to reimport into Word.
 
-TODO: Show insert and link
+![Insert and link image.](/images/repro-office/insert-and-link.png)
 
-Now let's generate a pipeline stage to convert our Word document to PDF,
+Again when we refresh we'll see that `paper.docx` has uncommitted changes,
+so let's commit them with a message like
+"Add figure to paper".
+
+Now let's complete our pipline by adding a stage to convert our
+Word document to PDF,
 so that can be the main artifact we share with the outside world.
-There's a stage template for that,
+There's a stage template for that on the website,
 so follow the stage generation steps we used to extract the figure, but
 this time select the "Word document to PDF" template,
 filling out the Word document file path, the output PDF path,
 and select "publication" as our artifact type.
 Fill in the title and description of the publication as well.
 
-TODO: The front end doesn't update our output artifact type and output
-path example when we do this.
+![Adding the Word to PDF stage.](/images/repro-office/word-to-pdf-stage.png)
 
 Again the pipeline will show that it's out-of-date,
 so let's run and commit again, using a message like
-"Add stage to export paper to PDF".
+"Export paper to PDF".
 
 But hold on a second you might say.
 Why go through the trouble of using version control and a pipeline
