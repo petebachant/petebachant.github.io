@@ -8,7 +8,10 @@ categories:
 - Reproducibility
 ---
 
-![Anakin uses Excel.](/images/repro-office/anakin-excel.jpg)
+{% include figure.html
+src="/images/repro-office/anakin-excel.jpg"
+caption="Anakin uses Excel."
+%}
 
 Everyone knows that when you want to get serious about reproducibility
 you need to stop using Microsoft Word and Excel and become a computer hacker,
@@ -32,7 +35,7 @@ which should not necessarily be a goal in and of itself given recent
 controversies around citation coercion,
 working reproducibly will keep you more organized and focused,
 and will allow you to produce higher quality work more quickly.
-I hypothesize that if reviewers can reproduce your work,
+I would also be willing to bet that if reviewers can reproduce your work,
 your paper will get through the review process more quickly.
 
 ![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
@@ -41,13 +44,13 @@ In any case, here I'm going to show that you don't need to become a software
 engineer to start working reproducibly.
 Inspired by the article
 [Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285),
-we're going focus on just two simple rules:
+we're going focus on just two rules:
 
 1. **Keep all files in version control.**
   Something like Dropbox is not sufficient.
   When you make a change you should have to describe that change,
   and that record should exist in the log forever.
-  Adding your initials and a number to the filename is also not good enough!
+  Adding your initials and a number to the filename is also not good enough.
   Whenever you’ve made a change with any value, _commit_ it.
   When all files are in a version control repository, it's like using
   "track changes" for an entire folder.
@@ -64,7 +67,7 @@ we're going focus on just two simple rules:
 {% include figure.html
 src="/images/repro-office/phd-comics-version-control.webp"
 caption="Manual or ad hoc 'version control' (don't do this.) From phdcomics.com."
-width="90%" %}
+width="70%" %}
 
 We're going to create our workflow with
 [Calkit](https://github.com/calkit/calkit),
@@ -97,7 +100,11 @@ We can start off by creating a Git (and GitHub)
 repo for our project
 up on the [Calkit website](https://calkit.io).
 
-![Creating the project](/images/repro-office/create-project.png)
+{% include figure.html
+src="/images/repro-office/create-project.png"
+caption="Creating the project."
+width="450px"
+%}
 
 Next, we'll do the only command line thing in this whole process
 and spin up a local Calkit server.
@@ -121,7 +128,7 @@ By default, this will be cloned somewhere
 like `C:/Users/your-name/calkit/the-project-name`,
 which you can see in the status.
 We can also see that our repo is "clean,"
-i.e., there are no untracked files or modified files in there,
+i.e., there are no untracked or modified files in there,
 and that our local copy is synced with both the Git and DVC remotes,
 meaning everything is backed up and we have the latest version.
 We'll strive to keep it that way.
@@ -137,11 +144,16 @@ we see that the `data.xlsx` spreadsheet is showing up as an untracked
 file in our repo.
 So, let's add it to the repo.
 
-![Untracked data file.](/images/repro-office/untracked-data.png)
+{% include figure.html
+src="/images/repro-office/untracked-data.png"
+caption="We have an untracked file."
+width="450px"
+%}
 
 ![Adding data.](/images/repro-office/add-data.png)
 
-After adding, Calkit is going to automatically push to the remotes
+After adding and committing,
+Calkit is going to automatically push to the remotes
 so everything stays backed up,
 and again we'll see that our repo is clean and in sync.
 
@@ -153,7 +165,11 @@ Let's commit that change and give it a message like
 
 ![Our Excel chart.](/images/repro-office/excel-chart.png)
 
-![Uncommitted changes.](/images/repro-office/uncommitted-changes.png)
+{% include figure.html
+src="/images/repro-office/uncommitted-changes.png"
+caption="We have some uncommitted changes in the repo."
+width="450px"
+%}
 
 Alright, so now our data is in version control and we'll
 know if it ever changes.
@@ -174,7 +190,11 @@ there will be a few extra fields to fill out:
    but again, you can choose whatever makes sense to you.
 3. The title and description of our figure.
 
-![Creating a new stage.](/images/repro-office/new-stage.png)
+{% include figure.html
+src="/images/repro-office/new-stage.png"
+caption="Creating a new pipeline stage to extract our chart from Excel."
+width="450px"
+%}
 
 After saving the stage the status view will tell us that the pipeline
 is out-of-date,
@@ -182,7 +202,11 @@ which makes sense.
 We added a stage but haven't yet run the pipeline.
 So let's do that.
 
-![Pipeline is out of date.](/images/repro-office/pipeline-out-of-date.png)
+{% include figure.html
+src="/images/repro-office/pipeline-out-of-date.png"
+caption="Our pipeline is out-of-date."
+width="450px"
+%}
 
 After the pipeline has been run we can see there are some uncommitted
 changes in the repo, so let's commit them with a message that makes sense,
@@ -199,8 +223,6 @@ since in the context of this project, it doesn't really need a special name,
 unless of course `paper.docx` would somehow be ambiguous.
 We can then follow the same process we followed with
 `data.xlsx` to add and commit the untracked file to the repo.
-
-![Untracked paper.docx.](/images/repro-office/untracked-paper.png)
 
 Now let's open up the Word document and insert our PNG image exported
 from the pipeline.
@@ -227,7 +249,11 @@ add `figures/chart.png` to the list of input dependencies,
 and select "publication" as our artifact type.
 Fill in the title and description of the publication as well.
 
-![Adding the Word to PDF stage.](/images/repro-office/word-to-pdf-stage-2.png)
+{% include figure.html
+src="/images/repro-office/word-to-pdf-stage-2.png"
+caption="Adding a stage to convert our Word document to PDF."
+width="450px"
+%}
 
 Again the pipeline will show that it's out-of-date,
 so let's run and commit again, using a message like
@@ -267,9 +293,13 @@ and that our pipeline is again out-of-date,
 meaning that our primary output (the PDF of the paper)
 not longer reflects our input data.
 
-![Adding a row to our dataset.](/images/repro-office/chart-more-rows.png)
+![Adding rows.](/images/repro-office/chart-more-rows.png)
 
-![Status after adding rows.](/images/repro-office/status-more-rows.png)
+{% include figure.html
+src="/images/repro-office/status-more-rows.png"
+caption="After adding a row to the spreadsheet, our pipeline is again out-of-date."
+width="450px"
+%}
 
 Now with one click we can rerun the pipeline,
 which is going to update both our figure PNG file and the paper PDF in one
