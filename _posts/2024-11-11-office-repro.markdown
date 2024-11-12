@@ -74,25 +74,33 @@ an older version installed.)
 We'll also need to ensure we have
 [generated and stored a token in our local config](https://github.com/calkit/calkit/?tab=readme-ov-file#cloud-integration).
 
-The first thing we're going to do is create a Git (and GitHub)
-repo for our project,
-which can be done up on the [Calkit website](https://calkit.io).
-Don't worry though, we're not actually going to interact with Git directly.
-I know this is a major sticking point for some people,
-and I get it---learning Git is a daunting task.
-However, Calkit will be doing the Git stuff for us.
-
-We are going to treat our project repo as the place to put everything.
+In order to follow rule number 1,
+we are going to treat our project's repository, or "repo",
+as the place to store everything.
 That's right,
-everything that has anything to do with our work on this project
+any file that has anything to do with our work on this project
 goes in the repo.
 This will save us time later because there will be no question about
 where to look for stuff, because the answer is: in the repo.
 
-The only command line thing we're going to do is spin up a local Calkit
-server to connect to the web app and allow us to modify the project
+This repo will use [Git](https:/git-scm.com) for text files
+and [DVC](https://dvc.org) for binary files, e.g., our Excel spreadsheets
+and Word documents.
+Don't worry though, we're not actually going to interact with Git
+and DVC directly.
+I know this is a major sticking point for some people,
+and I get it---learning Git is a daunting task.
+However, all the Git stuff will be done for us behind the scenes.
+
+We can start off by creating a Git (and GitHub)
+repo for our project
+up on the [Calkit website](https://calkit.io).
+
+Next, we'll do the only command line thing in this whole process
+and spin up a local Calkit server.
+This will allow us connect to the web app and allow us to modify the project
 on our local machine.
-So, open up a terminal or Miniforge command prompt and run:
+To start the server, open up a terminal or Miniforge command prompt and run:
 
 ```sh
 calkit local-server
