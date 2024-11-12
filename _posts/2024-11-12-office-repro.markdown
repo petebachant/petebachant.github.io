@@ -140,7 +140,7 @@ and saving it in our project repo `data.xlsx`.
 Back on the Calkit local machine page,
 we see that the `data.xlsx` spreadsheet is showing up as an untracked
 file in our repo.
-So, let's add it to the repo.
+So, let's add it to the repo by clicking the "Add" button.
 
 {% include figure.html
 src="/images/repro-office/untracked-data.png"
