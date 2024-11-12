@@ -116,7 +116,7 @@ To start the server, open up a terminal or Miniforge command prompt and run:
 calkit local-server
 ```
 
-If we navigate to our project page on the Calkit website,
+If we navigate to our project page on calkit.io,
 then go to the local machine page, we see that the repo has never been
 cloned to our computer, so let's click the clone button.
 
