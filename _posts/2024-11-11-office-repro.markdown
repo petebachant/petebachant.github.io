@@ -2,7 +2,7 @@
 comments: true
 date: 2024-11-11
 layout: post
-title: Microsoft Word and Excel have no place in a reproducible workflow... right?
+title: Microsoft Word and Excel have no place in a reproducible research workflow... right?
 categories:
 - Open science
 - Reproducibility
