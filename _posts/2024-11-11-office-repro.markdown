@@ -285,7 +285,7 @@ version if we made a mistake.
 We did it.
 We created a reproducible workflow using Microsoft Word and Excel,
 and we didn't need to learn Git or DVC.
-No we can iterate on our data, analysis, figures, and writing,
+Now we can iterate on our data, analysis, figures, and writing,
 and all we need to do to get them all up-to-date and backed up is
 to run the pipeline and commit the changes.
 Now we can share our project and others can reproduce the outputs
