@@ -114,7 +114,7 @@ If we navigate to our project page on the Calkit website,
 then go to the local machine page, we see that the repo has never been
 cloned to our computer, so let's click the clone button
 
-TODO: Show local machine needing clone and cloning. Animated GIF?
+![The repo has not yet been cloned.](/images/repro-office/needs-clone.png)
 
 By default, this will be cloned somewhere
 like `C:/Users/your-name/calkit/the-project-name`,
