@@ -108,7 +108,7 @@ To start the server, open up a terminal or Miniforge command prompt and run:
 calkit local-server
 ```
 
-TODO: Show server terminal running
+![Local server running.](/images/repro-office/local-server.png)
 
 If we navigate to our project page on the Calkit website,
 then go to the local machine page, we see that the repo has never been
