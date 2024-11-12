@@ -96,6 +96,8 @@ We can start off by creating a Git (and GitHub)
 repo for our project
 up on the [Calkit website](https://calkit.io).
 
+![Creating the project](/images/repro-office/create-project.png)
+
 Next, we'll do the only command line thing in this whole process
 and spin up a local Calkit server.
 This will allow us connect to the web app and allow us to modify the project
