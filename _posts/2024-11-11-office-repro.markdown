@@ -18,28 +18,28 @@ less interactive tools is typically better for producing permanent artifacts
 and enabling others to reproduce them,
 but it's not mandatory.
 
-It's also not usually mandatory to work in a reproducible or open way, i.e.,
-sharing all code, data, and other important information
-so that others can create the same results.
-These days, many journals are requiring a "data availability statement"
-(see the example from Elsevier below,)
-which allows authors to explain why code and data might not be available,
-but hopefully someday it will be fully mandatory to share everything,
-so here we're going to help you get a head start on that.
-Who knows. Maybe if the reviewers can reproduce your work during the review
-process, your paper will be published more quickly
-(side note: has anyone studied that?)
-At the very least, you'll probably get
-[more citations](https://doi.org/10.1371/journal.pone.0230416).
-I also hypothesize that working reproducibly will make you more efficient
-and organized, leading to faster production of higher quality work,
-so there's an individual benefit here too.
+On the other hand, it's starting to become more and more common,
+and will hopefully someday be mandatory
+to share all code and data when submitting an article to a journal,
+so that others can reproduce your work.
+This is a good thing for science overall,
+but also good for individual researchers.
+Besides the fact that you'll probably get
+[more citations](https://doi.org/10.1371/journal.pone.0230416),
+which should not necessarily be a goal in and of itself given recent
+controversies around citation coercion,
+working reproducibly will keep you more organized and focused,
+and will allow you to produce higher quality work more quickly.
+I also hypothesize that if reviewers can reproduce your work,
+your paper will get through the review process more quickly.
 
 ![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
 
+In any case, here I'm going to show that you don't need to become a software
+engineer to start working reproducibly.
 Inspired by the article
 [Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285),
-we're going to keep things simple and focus on two rules:
+we're going focus on just two simple rules:
 
 1. **Keep all files in version control.**
   Something like Dropbox is not sufficient.
@@ -64,8 +64,10 @@ src="/images/repro-office/phd-comics-version-control.webp"
 caption="Manual or ad hoc "version control" (don't do this.) From phdcomics.com."
 width="90%" %}
 
-We're going to do this with the help of Calkit, so make sure it's installed
-per
+We're going to do this with the help of
+[Calkit](https://github.com/calkit/calkit),
+so if you want to follow along,
+make sure it's installed per
 [these instructions](https://github.com/calkit/calkit?tab=readme-ov-file#installation)
 (you may want to add `--upgrade` to the `pip install` command if you have
 an older version installed.)
