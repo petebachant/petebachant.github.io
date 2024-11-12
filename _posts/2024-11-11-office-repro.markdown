@@ -203,18 +203,18 @@ We can then follow the same process we followed with
 
 Now let's open up the Word document and insert our PNG image exported
 from the pipeline.
-Be sure to use the "insert and link"
+Be sure to use the "link to file"
 option, so Word doesn't create an additional copy of the image data inside
 the document.
 This will allow us to update the figure and not need to reimport into Word.
 
-![Insert and link image.](/images/repro-office/insert-and-link.png)
+![Insert link to file.](/images/repro-office/insert-link-to-file.png)
 
 Again when we refresh we'll see that `paper.docx` has uncommitted changes,
 so let's commit them with a message like
 "Add figure to paper".
 
-Now let's complete our pipline by adding a stage to convert our
+Now let's complete our pipeline by adding a stage to convert our
 Word document to PDF,
 so that can be the main artifact we share with the outside world.
 There's a stage template for that on the website,
@@ -229,17 +229,31 @@ Fill in the title and description of the publication as well.
 Again the pipeline will show that it's out-of-date,
 so let's run and commit again, using a message like
 "Export paper to PDF".
+If we open up `paper.pdf` we can see that our figure is there
+just like we expected.
 
 But hold on a second you might say.
-Why go through the trouble of using version control and a pipeline
-when I could do all of this manually?
-It's only a few steps. I can remember that!
+Why did we go through all this trouble just to create a PDF with
+an Excel chart in it?
+This would have been only a few steps to do manually!
+That would be a valid point if this were a one-off project and nothing
+about it would ever change.
+However, for a research project, there will almost certainly be multiple
+iterations,
+and if we need to do each manual step each iteration,
+it's going to get costly time-wise, and we could potentially forget
+which steps need to be taken depending on what file was changed.
+We may end up submitting our paper with a chart that doesn't reflect
+the most up-to-date data,
+which would mean the chart in the paper could not be reproduced by a
+reader.
+Imagine if you have multiple datasets,
+a dozen figures, and some slides to go along with your paper.
+Keeping track of all that will consume valuable mental energy that could
+be better spent on interpretation and communication of the results!
 
-Here we'll illustrate that value for a simple project like this.
-But note: Most projects will become much more complex,
-with many figures, different datasets, etc.
-
-Let's go and add a few rows to our dataset,
+To close the loop and show the value of using version control and a pipeline,
+let's go and add a few rows to our dataset,
 which will in turn change our chart in Excel.
 If we save the file and look at the status,
 we can see that this file is different,
@@ -247,14 +261,9 @@ and that our pipeline is again out-of-date,
 meaning that our primary output (the PDF of the paper)
 not longer reflects our input data.
 
-If we wanted to do this manually,
-we would need to track the "cache invalidation" in our heads,
-noting that we need to re-export our figure and re-export our Word document
-to PDF.
-This can be tedious for a simple project such as this,
-so it's worth it to save the cognitive overhead and just let Calkit manage
-this stuff so we can focus on more important things,
-like writing a good argument or making our figure beautiful.
+![Adding a row to our dataset.](/images/repro-office/chart-more-rows.png)
+
+![Status after adding rows.](/images/repro-office/status-more-rows.png)
 
 Now with one click we can rerun the pipeline,
 which is going to update both our figure PNG file and the paper PDF in one
@@ -262,6 +271,8 @@ shot.
 We can then create a commit message explaining that we added to the dataset.
 These messages can be audited later to see when and why something changed,
 which can come in handy if all of a sudden things aren't looking right.
+
+![Updated PDF.](/images/repro-office/updated-pdf.png)
 
 We did it.
 We created a reproducible workflow using Microsoft Word and Excel,
