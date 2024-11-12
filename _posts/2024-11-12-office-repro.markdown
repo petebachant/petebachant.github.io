@@ -264,7 +264,7 @@ This would have been only a few steps to do manually!
 That would be a valid point if this were a one-off project and nothing
 about it would ever change.
 However, for a research project, there will almost certainly be multiple
-iterations,
+iterations (see again the PhD Comics cartoon above,)
 and if we need to do each manual step each iteration,
 it's going to get costly time-wise, and we could potentially forget
 which steps need to be taken based on what file was changed.
