@@ -150,8 +150,13 @@ we see up on the local machine page that we have a changed file.
 Let's commit that change and give it a message like
 "Add chart to spreadsheet".
 
-Alright, so our data is in version control.
-Now it's time to get to rule number 2: generate important artifacts
+![Our Excel chart.](/images/repro-office/excel-chart.png)
+
+![Uncommitted changes.](/images/repro-office/uncommitted-changes.png)
+
+Alright, so now our data is in version control and we'll
+know if it ever changes.
+Now it's time for rule number 2: Generate important artifacts
 with a pipeline.
 At the moment our pipeline is empty,
 so let's create a stage that extracts our chart from Excel into an image
@@ -161,9 +166,14 @@ and in there we'll find some stage templates to use.
 If we select "Figure from Excel",
 there will be a few extra fields to fill out:
 
-1. The (local) Excel file path.
-2. The output file path for our image.
+1. The name of the stage. We'll use `extract-chart`, but you can call it
+   whatever you like.
+1. The (local) Excel file path (`data.xlsx`).
+2. The desired output file path for our image. We'll use `figures/chart.png`,
+   but again, you can choose whatever makes sense to you.
 3. The title and description of our figure.
+
+![Creating a new stage.](/images/repro-office/new-stage.png)
 
 After saving the stage the status view will tell us that the pipeline
 is out-of-date,
@@ -171,11 +181,13 @@ which makes sense.
 We added a stage but haven't yet run the pipeline.
 So let's do that.
 
-TODO: Show running the pipeline.
+![Pipeline is out of date.](/images/repro-office/pipeline-out-of-date.png)
 
 After the pipeline has been run we can see there are some uncommitted
 changes in the repo, so let's commit them with a message that makes sense,
 e.g., "Extract figure from data.xlsx".
+We should again be in our happy state, with a clean repo synced with the cloud,
+and a pipeline that's up-to-date.
 
 To wrap things up, we're going to use this figure in a paper,
 written using Microsoft Word.
