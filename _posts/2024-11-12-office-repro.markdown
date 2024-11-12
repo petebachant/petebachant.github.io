@@ -116,15 +116,13 @@ To start the server, open up a terminal or Miniforge command prompt and run:
 calkit local-server
 ```
 
-![Local server running.](/images/repro-office/local-server.png)
-
 If we navigate to our project page on the Calkit website,
 then go to the local machine page, we see that the repo has never been
-cloned to our computer, so let's click the clone button
+cloned to our computer, so let's click the clone button.
 
 ![The repo has not yet been cloned.](/images/repro-office/needs-clone.png)
 
-By default, this will be cloned somewhere
+By default, it will be cloned somewhere
 like `C:/Users/your-name/calkit/the-project-name`,
 which you can see in the status.
 We can also see that our repo is "clean,"
