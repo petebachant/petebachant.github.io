@@ -48,7 +48,7 @@ Personally, I avoid Microsoft Office as much as possible
 after having written my master's thesis in Word,
 manually numbering figures, references, and equations because I couldn't
 figure out how to automate it
-(probably a skill issue, but very painful nonetheless.)
+(a skill issue, but painful nonetheless.)
 There was also one instance where I was collaborating with a group
 on a proposal by emailing a Word document back and forth,
 which resulted in some work being lost in an attempt to manually
