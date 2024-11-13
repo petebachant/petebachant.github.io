@@ -68,14 +68,13 @@ Inspired by the article
 we're going focus on just two rules:
 
 1. **Keep all files in version control.**
-  Adding your initials and a number to the filename and putting it in
-  something like Dropbox is not quite sufficient.
+  Adding your initials and a number to the filename
+  is kind of like a version control system, but is messy and error prone.
   It should be easy to tell if a file has been modified since the last time
   is was saved.
   When you make a change you should have to describe that change,
   and that record should exist in the log forever.
-  Whenever you've made a change with any value, _commit_ it.
-  When all files are in a version control repository, it's like using
+  When all files are in a true version control repository, it's like using
   "track changes" for an entire folder,
   and it doesn't require any discipline to avoid
   corrupting the history, e.g., by changing a version after it has had its
@@ -364,6 +363,13 @@ to run the pipeline and commit the changes.
 Now we can share our project and others can reproduce the outputs
 (so long as they have a Microsoft Office license, but that's a topic
 for another day.)
+
+Using Office in a collaborative workflow can be a bit more difficult,
+since if you are working concurrently,
+you may need to use Office's merge tools to ensure you don't lose any work.
+However, at least you will be able to have everyone's
+version backed up so you can inspect them at any time.
+
 To recap, all we had to do was follow the two most important rules:
 
 1. All files go in version control.
