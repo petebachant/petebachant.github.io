@@ -10,7 +10,7 @@ categories:
 
 {% include figure.html
 src="/images/repro-office/anakin-excel.jpg"
-caption="Anakin uses Excel."
+caption="Does using Microsoft Office always mean going to the dark side?"
 %}
 
 Everyone knows that when you want to get serious about reproducibility
@@ -24,7 +24,7 @@ but it's not mandatory.
 On the other hand, it's starting to become more and more common,
 and will hopefully someday be mandatory
 to share all code and data when submitting a manuscript to a journal,
-so that others can reproduce your work.
+so that others can reproduce the results.
 This is a good thing for science overall,
 but also good for individual researchers,
 even though it may seem like more work.
@@ -36,15 +36,33 @@ controversies around citation coercion,
 working reproducibly will keep you more organized and focused,
 and will allow you to produce higher quality work more quickly.
 I would also be willing to bet that if reviewers can reproduce your work,
-your paper will get through the review process more quickly.
+your paper will get through the review process faster,
+shortening the "time-to-impact."
 
 {% include figure.html
 src="/images/repro-office/elsevier-research-data-guidelines.png"
-caption="Elsevier's research data availability standards with commentary."
+caption="Elsevier's research data availability standards (with my own commentary added.)"
 %}
 
-In any case, here I'm going to show that you don't need to become a software
-engineer to start working reproducibly.
+Personally, I avoid Microsoft Office as much as possible
+after having written my master's thesis in Word,
+manually numbering figures, references, and equations because I couldn't
+figure out how to automate it
+(probably a skill issue, but very painful nonetheless.)
+There was also one instance where I was collaborating with a group
+on a proposal by emailing a Word document back and forth,
+which resulted in some work being lost in an attempt to manually
+merge changes made concurrently.
+
+By the time I wrote my PhD thesis I had fully bought into doing everything
+on the command line with LaTeX, Git, Python, etc.,
+and enjoyed it much more.
+In fact, I only purchased and installed Office to write this article.
+However, I want to show that it's possible
+to get started working reproducibly without becoming a de facto
+software engineer,
+that it's okay to use whatever tools you prefer so long as you
+
 Inspired by the article
 [Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285),
 we're going focus on just two rules:
@@ -54,7 +72,7 @@ we're going focus on just two rules:
   When you make a change you should have to describe that change,
   and that record should exist in the log forever.
   Adding your initials and a number to the filename is also not good enough.
-  Whenever you’ve made a change with any value, _commit_ it.
+  Whenever you've made a change with any value, _commit_ it.
   When all files are in a version control repository, it's like using
   "track changes" for an entire folder.
 1. **Generate permanent artifacts with a pipeline.**
