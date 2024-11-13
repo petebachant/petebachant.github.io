@@ -38,7 +38,10 @@ and will allow you to produce higher quality work more quickly.
 I would also be willing to bet that if reviewers can reproduce your work,
 your paper will get through the review process more quickly.
 
-![Data availability standards.](/images/repro-office/elsevier-research-data-guidelines.png)
+{% include figure.html
+src="/images/repro-office/elsevier-research-data-guidelines.png"
+caption="Elsevier's research data availability standards."
+%}
 
 In any case, here I'm going to show that you don't need to become a software
 engineer to start working reproducibly.
@@ -102,7 +105,7 @@ up on the [Calkit website](https://calkit.io).
 
 {% include figure.html
 src="/images/repro-office/create-project.png"
-caption="Creating the project."
+caption="Creating the project on calkit.io."
 width="450px"
 %}
 
@@ -138,7 +141,10 @@ Now that we have our repository cloned locally let's "collect" our data.
 We are going to do this by adding some rows to an Excel spreadsheet
 and saving it in our project repo `data.xlsx`.
 
-![Our Excel data.](/images/repro-office/excel-data.png)
+{% include figure.html
+src="/images/repro-office/excel-data.png"
+caption="'Collecting' our data in Excel."
+%}
 
 Back on the Calkit local machine page,
 we see that the `data.xlsx` spreadsheet is showing up as an untracked
@@ -162,11 +168,14 @@ we see up on the local machine page that we have a changed file.
 Let's commit that change and give it a message like
 "Add chart to spreadsheet".
 
-![Our Excel chart.](/images/repro-office/excel-chart.png)
+{% include figure.html
+src="/images/repro-office/excel-chart.png"
+caption="Creating our figure in Excel."
+%}
 
 {% include figure.html
 src="/images/repro-office/uncommitted-changes.png"
-caption="We have some uncommitted changes in the repo."
+caption="Uncommitted changes in the repo after adding a chart to the spreadsheet."
 width="450px"
 %}
 
@@ -203,7 +212,7 @@ So let's do that.
 
 {% include figure.html
 src="/images/repro-office/pipeline-out-of-date.png"
-caption="Our pipeline is out-of-date."
+caption="The pipeline is out-of-date after adding a stage."
 width="450px"
 %}
 
@@ -231,7 +240,10 @@ the document.
 This will allow us to update the image externally and not need to
 reimport into Word.
 
-![Insert link to file.](/images/repro-office/insert-link-to-file.png)
+{% include figure.html
+src="/images/repro-office/insert-link-to-file.png"
+caption="Linking to the image file when inserting a picture in Word."
+%}
 
 Again when we refresh we'll see that `paper.docx` has uncommitted changes,
 so let's commit them with a message like
@@ -281,7 +293,10 @@ a dozen figures, and some slides to go along with your paper.
 Keeping track of all that will consume valuable mental energy that could
 be better spent on interpretation and communication of the results!
 
-![Our final pipeline.](/images/repro-office/workflow-page.png)
+{% include figure.html
+src="/images/repro-office/workflow-page.png"
+caption="A diagram and YAML representation of the pipeline on calkit.io."
+%}
 
 To close the loop and show the value of using version control and a pipeline,
 let's go and add a few rows to our dataset,
@@ -292,7 +307,10 @@ and that our pipeline is again out-of-date,
 meaning that our primary output (the PDF of the paper)
 not longer reflects our input data.
 
-![Adding rows.](/images/repro-office/chart-more-rows.png)
+{% include figure.html
+src="/images/repro-office/chart-more-rows.png"
+caption="Adding rows to our dataset."
+%}
 
 {% include figure.html
 src="/images/repro-office/status-more-rows.png"
@@ -309,7 +327,10 @@ which can come in handy if all of a sudden things aren't looking right.
 Having the files in version control also means we can go check out an old
 version if we made a mistake.
 
-![Updated publication.](/images/repro-office/updated-publication.png)
+{% include figure.html
+src="/images/repro-office/updated-publication.png"
+caption="Confirming the figure in our publication's PDF includes the additional rows."
+%}
 
 We did it.
 We created a reproducible workflow using Microsoft Word and Excel,
