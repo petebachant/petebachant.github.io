@@ -76,7 +76,10 @@ we're going focus on just two rules:
   and that record should exist in the log forever.
   Whenever you've made a change with any value, _commit_ it.
   When all files are in a version control repository, it's like using
-  "track changes" for an entire folder.
+  "track changes" for an entire folder,
+  and it doesn't require any discipline to avoid
+  corrupting the history, e.g., by changing a version after it has had its
+  filename suffix added.
 1. **Generate permanent artifacts with a pipeline.**
   This will allow us to know if our output artifacts, e.g., figures,
   derived datasets, papers,
