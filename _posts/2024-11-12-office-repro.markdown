@@ -44,44 +44,33 @@ src="/images/repro-office/elsevier-research-data-guidelines.png"
 caption="Elsevier's research data availability standards (with my own commentary added.)"
 %}
 
-Personally, I avoid Microsoft Office as much as possible
-after having written my master's thesis in Word,
-manually numbering figures, references, and equations because I couldn't
-figure out how to automate it
-(a skill issue, but painful nonetheless.)
-There was also one instance where I was collaborating with a group
-on a proposal by emailing a Word document back and forth,
-which resulted in some work being lost in an attempt to manually
-merge changes made concurrently.
-
-By the time I wrote my PhD thesis I had fully bought into doing everything
-on the command line with LaTeX, Git, Python, etc.,
-and enjoyed it much more.
-In fact, I only purchased and installed Office to write this article.
-However, I want to show that it's possible
+Here I want to show that it's possible
 to get started working reproducibly without becoming a de facto
 software engineer,
 that it's okay to use whatever tools you prefer so long as you
 follow the right principles.
-
 Inspired by the article
 [Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285),
-we're going focus on just two rules:
+we're going focus on just two:
 
 1. **Keep all files in version control.**
+  This means a real version control system.
   Adding your initials and a number to the filename
   is kind of like a version control system, but is messy and error prone.
   It should be easy to tell if a file has been modified since the last time
   is was saved.
   When you make a change you should have to describe that change,
   and that record should exist in the log forever.
-  When all files are in a true version control repository, it's like using
+  When all files are in a true version controlled repository, it's like using
   "track changes" for an entire folder,
   and it doesn't require any discipline to avoid
   corrupting the history, e.g., by changing a version after it has had its
   filename suffix added.
 1. **Generate permanent artifacts with a pipeline.**
-  This will allow us to know if our output artifacts, e.g., figures,
+  Instead of a bunch of manual steps, pointing and clicking,
+  we should be able to repeatedly perform the same single action over and over
+  and get the same output.
+  A good pipeline will allow us to know if our output artifacts, e.g., figures,
   derived datasets, papers,
   have become out-of-date and no longer reflect their input data or
   processing procedures, after which we can run the pipeline and get them
@@ -113,7 +102,7 @@ goes in the repo.
 This will save us time later because there will be no question about
 where to look for stuff, because the answer is: in the repo.
 
-This repo will use [Git](https:/git-scm.com) for text files
+This repo will use [Git](https:/git-scm.com) for text-based files
 and [DVC](https://dvc.org) for binary files, e.g., our Excel spreadsheets
 and Word documents.
 Don't worry though, we're not actually going to interact with Git
@@ -134,7 +123,7 @@ width="450px"
 
 Next, we'll do the only command line thing in this whole process
 and spin up a local Calkit server.
-This will allow us connect to the web app and allow us to modify the project
+This will allow us connect to the web app and enable us to modify the project
 on our local machine.
 To start the server, open up a terminal or Miniforge command prompt and run:
 
@@ -170,6 +159,7 @@ caption="'Collecting' our data in Excel."
 %}
 
 Back on the Calkit local machine page,
+if we refresh the status
 we see that the `data.xlsx` spreadsheet is showing up as an untracked
 file in our repo.
 So, let's add it to the repo by clicking the "Add" button.
@@ -202,15 +192,15 @@ caption="Uncommitted changes in the repo after adding a chart to the spreadsheet
 width="450px"
 %}
 
-Alright, so now our data is in version control and we'll
+At this point our data is in version control so we'll
 know if it ever changes.
 Now it's time for rule number 2: Generate important artifacts
 with a pipeline.
 At the moment our pipeline is empty,
 so let's create a stage that extracts our chart from Excel into an image
 and denotes it as a figure in the project.
-On the web interface we'll see there's a button to create a new stage,
-and in there we'll find some stage templates to use.
+On the web interface we see there's a button to create a new stage,
+and in there are some optional stage templates.
 If we select "Figure from Excel",
 there will be a few extra fields to fill out:
 
@@ -249,11 +239,12 @@ To wrap things up, we're going to use this figure in a paper,
 written using Microsoft Word.
 So, find a journal with a Microsoft Word (`.docx`) submission template,
 download that, and save it in the repo.
-In this case, I saved the template as a generic name like `paper.docx`,
+In this case, I saved the IOP Journal of Physics
+template as the generic `paper.docx`,
 since in the context of this project, it doesn't really need a special name,
 unless of course `paper.docx` would somehow be ambiguous.
 We can then follow the same process we followed with
-`data.xlsx` to add and commit the untracked file to the repo.
+`data.xlsx` to add and commit the untracked `paper.docx` file to the repo.
 
 Now let's open up the Word document and insert our PNG image exported
 from the pipeline.
@@ -282,6 +273,9 @@ filling out the Word document file path, the output PDF path,
 add `figures/chart.png` to the list of input dependencies,
 and select "publication" as our artifact type.
 Fill in the title and description of the publication as well.
+Adding `figures/chart.png` to the input dependencies will cause our
+PDF generation stage to be rerun if that or `paper.docx` changes.
+Otherwise, it will not run, so running the pipeline can be as fast as possible.
 
 {% include figure.html
 src="/images/repro-office/word-to-pdf-stage-2.png"
@@ -357,33 +351,22 @@ caption="Confirming the figure in our publication's PDF includes the additional 
 
 We did it.
 We created a reproducible workflow using Microsoft Word and Excel,
-and we didn't need to learn Git or DVC.
+and we didn't need to learn Git or DVC
+or become a command line wizard.
 Now we can iterate on our data, analysis, figures, and writing,
 and all we need to do to get them all up-to-date and backed up is
-to run the pipeline and commit the changes.
+to run the pipeline and commit any changes.
 Now we can share our project and others can reproduce the outputs
 (so long as they have a Microsoft Office license, but that's a topic
-for another day.)
-
-Using Office in a collaborative workflow can be a bit more difficult,
-since if you are working concurrently,
-you may need to use Office's merge tools to ensure you don't lose any work.
-However, at least you will be able to have everyone's
-version backed up so you can inspect them at any time.
-
-To recap, all we had to do was follow the two most important rules:
-
+for another post.)
+Everything is still in Git and DVC, so our more command line oriented
+colleagues can work in that way if they like using the same project repo.
+To achieve this, all we had to do was follow the two most important rules:
 1. All files go in version control.
 2. Artifacts need to be generated by the pipeline.
 
-Everything we did here would probably have been a little faster via
-the Calkit command line interface (CLI),
-but it's important to see that being a terminal wizard is not a prerequisite
-for working this way.
-
-You can go browse through this project up on the
+If you'd like you can go browse through this project up on the
 [Calkit website](https://calkit.io/petebachant/office-repro-example).
-
-Feel free to shoot me an
+Also, feel free to shoot me an
 [email](mailto:petebachant@gmail.com)
 if you'd like help setting up something similar for your project.
