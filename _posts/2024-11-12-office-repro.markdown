@@ -40,7 +40,7 @@ your paper will get through the review process more quickly.
 
 {% include figure.html
 src="/images/repro-office/elsevier-research-data-guidelines.png"
-caption="Elsevier's research data availability standards."
+caption="Elsevier's research data availability standards with commentary."
 %}
 
 In any case, here I'm going to show that you don't need to become a software
@@ -125,7 +125,7 @@ cloned to our computer, so let's click the clone button.
 
 {% include figure.html
 src="/images/repro-office/needs-clone.png"
-caption="Nothin' to see here, because haven't cloned the repo yet."
+caption="The project's local machine page showing we haven't cloned the repo yet."
 %}
 
 By default, it will be cloned somewhere
