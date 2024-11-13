@@ -162,7 +162,7 @@ We'll strive to keep it that way.
 
 Now that we have our repository cloned locally let's "collect" our data.
 We are going to do this by adding some rows to an Excel spreadsheet
-and saving it in our project repo `data.xlsx`.
+and saving it in our project repo as `data.xlsx`.
 
 {% include figure.html
 src="/images/repro-office/excel-data.png"
