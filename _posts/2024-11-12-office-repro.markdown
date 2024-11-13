@@ -68,10 +68,12 @@ Inspired by the article
 we're going focus on just two rules:
 
 1. **Keep all files in version control.**
-  Something like Dropbox is not sufficient.
+  Adding your initials and a number to the filename and putting it in
+  something like Dropbox is not quite sufficient.
+  It should be easy to tell if a file has been modified since the last time
+  is was saved.
   When you make a change you should have to describe that change,
   and that record should exist in the log forever.
-  Adding your initials and a number to the filename is also not good enough.
   Whenever you've made a change with any value, _commit_ it.
   When all files are in a version control repository, it's like using
   "track changes" for an entire folder.
