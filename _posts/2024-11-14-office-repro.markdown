@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2024-11-12
+date: 2024-11-14
 layout: post
 title: Microsoft Word and Excel have no place in a reproducible research workflow... right?
 categories:
