@@ -41,7 +41,7 @@ shortening the time-to-impact.
 
 {% include figure.html
 src="/images/repro-office/elsevier-research-data-guidelines.png"
-caption="Elsevier's research data availability standards (with my own commentary added.)"
+caption="Elsevier's research data availability standards (with my own annotations.)"
 %}
 
 Here I want to show that it's possible
