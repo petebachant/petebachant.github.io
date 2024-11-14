@@ -48,7 +48,7 @@ Here I want to show that it's possible
 to get started working reproducibly without becoming a de facto
 software engineer,
 that it's okay to use whatever tools you prefer so long as you
-follow the right principles.
+follow the relevant principles.
 Inspired by the article
 [Ten Simple Rules for Computational Research](https://doi.org/10.1371/journal.pcbi.1003285),
 we're going focus on just two:
