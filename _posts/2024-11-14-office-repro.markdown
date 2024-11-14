@@ -37,7 +37,7 @@ working reproducibly will keep you more organized and focused,
 and will allow you to produce higher quality work more quickly.
 I would also be willing to bet that if reviewers can reproduce your work,
 your paper will get through the review process faster,
-shortening the "time-to-impact."
+shortening the time-to-impact.
 
 {% include figure.html
 src="/images/repro-office/elsevier-research-data-guidelines.png"
@@ -61,7 +61,7 @@ we're going focus on just two:
   is was saved.
   When you make a change you should have to describe that change,
   and that record should exist in the log forever.
-  When all files are in a true version controlled repository, it's like using
+  When all files are in a true version-controlled repository, it's like using
   "track changes" for an entire folder,
   and it doesn't require any discipline to avoid
   corrupting the history, e.g., by changing a version after it has had its
@@ -76,7 +76,7 @@ we're going focus on just two:
   processing procedures, after which we can run the pipeline and get them
   up-to-date.
   It also means we only need to focus on building that pipeline and running
-  it. We don't need to memorize what scripts to run in what order---just
+  it. We don't need to memorize what steps to perform in what order---just
   run the pipeline.
 
 {% include figure.html
@@ -96,7 +96,7 @@ We'll also need to ensure we have
 
 In order to follow rule number 1,
 we are going to treat our project's repository, or "repo,"
-as the place to store everything.
+as the one place to store everything.
 Any file that has anything to do with our work on this project
 goes in the repo.
 This will save us time later because there will be no question about
@@ -108,12 +108,12 @@ and Word documents.
 Don't worry though, we're not actually going to interact with Git
 and DVC directly.
 I know this is a major sticking point for some people,
-and I get it---learning Git is a daunting task.
-However, all the Git/DVC stuff will be done for us behind the scenes.
+and I get it. Learning Git is a daunting task.
+However, here all the Git/DVC stuff will be done for us behind the scenes.
 
 We can start off by creating a Git (and GitHub)
 repo for our project
-up on the [Calkit website](https://calkit.io).
+up on [calkit.io](https://calkit.io).
 
 {% include figure.html
 src="/images/repro-office/create-project.png"
@@ -155,14 +155,14 @@ and saving it in our project repo as `data.xlsx`.
 
 {% include figure.html
 src="/images/repro-office/excel-data.png"
-caption="'Collecting' our data in Excel."
+caption="Creating our dataset in Excel."
 %}
 
 Back on the Calkit local machine page,
 if we refresh the status
 we see that the `data.xlsx` spreadsheet is showing up as an untracked
-file in our repo.
-So, let's add it to the repo by clicking the "Add" button.
+file in the project repo.
+Let's add it to the repo by clicking the "Add" button.
 
 {% include figure.html
 src="/images/repro-office/untracked-data.png"
@@ -178,7 +178,8 @@ and again we'll see that our repo is clean and in sync.
 Now let's use Excel to create a figure.
 If we go in and create a chart inside and save the spreadsheet,
 we see up on the local machine page that we have a changed file.
-Let's commit that change and give it a message like
+Let's commit that change by clicking the "Commit" button
+and let's use a commit message like
 "Add chart to spreadsheet".
 
 {% include figure.html
@@ -202,7 +203,7 @@ and denotes it as a figure in the project.
 On the web interface we see there's a button to create a new stage,
 and in there are some optional stage templates.
 If we select "Figure from Excel",
-there will be a few extra fields to fill out:
+there will be a few fields to fill out:
 
 1. The name of the stage. We'll use `extract-chart`, but you can call it
    whatever you like.
@@ -217,11 +218,11 @@ caption="Creating a new pipeline stage to extract our chart from Excel."
 width="450px"
 %}
 
-After saving the stage the status view will tell us that the pipeline
+After saving the stage and refreshing the status we'll see that the pipeline
 is out-of-date,
 which makes sense.
 We added a stage but haven't yet run the pipeline.
-So let's do that.
+So let's do that by clicking the "Run" button.
 
 {% include figure.html
 src="/images/repro-office/pipeline-out-of-date.png"
@@ -240,8 +241,8 @@ written using Microsoft Word.
 So, find a journal with a Microsoft Word (`.docx`) submission template,
 download that, and save it in the repo.
 In this case, I saved the IOP Journal of Physics
-template as the generic `paper.docx`,
-since in the context of this project, it doesn't really need a special name,
+template generically as `paper.docx`,
+since in the context of this project, it doesn't need a special name,
 unless of course `paper.docx` would somehow be ambiguous.
 We can then follow the same process we followed with
 `data.xlsx` to add and commit the untracked `paper.docx` file to the repo.
@@ -299,16 +300,16 @@ However, for a research project, there will almost certainly be multiple
 iterations (see again the PhD Comics cartoon above,)
 and if we need to do each manual step each iteration,
 it's going to get costly time-wise, and we could potentially forget
-which steps need to be taken based on what file was changed.
+which steps need to be taken based on what files were changed.
 We may end up submitting our paper with a chart that doesn't reflect
 the most up-to-date data,
 which would mean the chart in the paper could not be reproduced by a
 reader.
-Imagine if you have multiple datasets,
+Imagine if you had multiple datasets,
 multiple steps of complex data analysis,
 a dozen figures, and some slides to go along with your paper.
-Keeping track of all that will consume valuable mental energy that could
-be better spent on interpretation and communication of the results!
+Keeping track of all that would consume valuable mental energy that could
+be better spent on interpreting and communicating the results!
 
 {% include figure.html
 src="/images/repro-office/workflow-page.png"
@@ -349,7 +350,7 @@ src="/images/repro-office/updated-publication.png"
 caption="Confirming the figure in our publication's PDF includes the additional rows."
 %}
 
-We did it.
+Well, we did it.
 We created a reproducible workflow using Microsoft Word and Excel,
 and we didn't need to learn Git or DVC
 or become a command line wizard.
@@ -359,14 +360,14 @@ to run the pipeline and commit any changes.
 Now we can share our project and others can reproduce the outputs
 (so long as they have a Microsoft Office license, but that's a topic
 for another post.)
-Everything is still in Git and DVC, so our more command line oriented
+Everything is still in Git and DVC, so our more command line-oriented
 colleagues can work in that way if they like using the same project repo.
 To achieve this, all we had to do was follow the two most important rules:
 1. All files go in version control.
 2. Artifacts need to be generated by the pipeline.
 
-If you'd like you can go browse through this project up on the
-[Calkit website](https://calkit.io/petebachant/office-repro-example).
+If you'd like you can browse through this project up on
+[calkit.io](https://calkit.io/petebachant/office-repro-example).
 Also, feel free to shoot me an
 [email](mailto:petebachant@gmail.com)
 if you'd like help setting up something similar for your project.
