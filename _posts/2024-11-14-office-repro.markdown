@@ -149,7 +149,7 @@ and that our local copy is synced with both the Git and DVC remotes,
 meaning everything is backed up and we have the latest version.
 We'll strive to keep it that way.
 
-Now that we have our repository cloned locally let's "collect" our data.
+Now that we have our repository cloned locally let's create our dataset.
 We are going to do this by adding some rows to an Excel spreadsheet
 and saving it in our project repo as `data.xlsx`.
 
