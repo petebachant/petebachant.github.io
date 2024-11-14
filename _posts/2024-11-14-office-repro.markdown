@@ -133,7 +133,7 @@ calkit local-server
 
 If we navigate to our project page on calkit.io,
 then go to the local machine page, we see that the repo has never been
-cloned to our computer, so let's click the clone button.
+cloned to our computer, so let's click the "Clone" button.
 
 {% include figure.html
 src="/images/repro-office/needs-clone.png"
