@@ -56,7 +56,7 @@ we're going focus on just two:
 1. **Keep all files in version control.**
   This means a real version control system.
   Adding your initials and a number to the filename
-  is kind of like a version control system, but is messy and error prone.
+  is kind of like a version control system, but is messy and error-prone.
   It should be easy to tell if a file has been modified since the last time
   is was saved.
   When you make a change you should have to describe that change,
@@ -108,7 +108,7 @@ and Word documents.
 Don't worry though, we're not actually going to interact with Git
 and DVC directly.
 I know this is a major sticking point for some people,
-and I get it. Learning Git is a daunting task.
+and I totally sympathize. Learning Git is a daunting task.
 However, here all the Git/DVC stuff will be done for us behind the scenes.
 
 We can start off by creating a Git (and GitHub)
