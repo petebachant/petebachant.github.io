@@ -383,7 +383,7 @@ def plot_cfd_meancontquiv(case="kOmegaSST", save=False):
          plt.savefig("figures/meancontquiv_" + case + savetype)
 ```
 
-This might be a overzealous use of the "don't repeat yourself" (DRY)
+This might be an overzealous use of the "don't repeat yourself" (DRY)
 principle,
 though the plotting function was technically repeated in both the experiment
 and CFD repos, i.e., a change would need to be made in both if desired.
@@ -396,7 +396,27 @@ If I had to reuse the materials from this experiment these days,
 I would start a new project from scratch and start copy/pasting things in
 as needed.
 
+1. Created a repo on GitHub.
+2. Imported the project on calkit.io.
+3. Cloned to my local machine with the Calkit local server running.
+1. Clicked "open with VS Code" from the Calkit local machine page.
+1. Ran `dvc init`.
+1. Ran `calkit config setup-remote`.
+1. Committed changes and ran `calkit push`.
+1. Manually copied and pasted the processed data CSVs from the experiment into
+   my project directory.
+1. Added the dataset to `calkit.yaml`, so we know where it came from.
+   These last two steps would be nice with a `calkit import dataset` call,
+   but that experiment would need to be made into a Calkit project,
+   which I haven't done yet.
+
 ## Conclusions and final thoughts
+
+Reproducibility is not the same thing as reusability.
+Each serves a different purpose.
+Reproducibility is ensuring correctness in the present,
+and reusability is ensuring value for the future.
+Both are important.
 
 Overall, I'd give myself a B- for reproducibility and reusability
 here.
