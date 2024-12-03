@@ -101,16 +101,129 @@ instead of coolwarm, since in this case mean velocity is not really
 a diverging quantity,
 but that's a topic for another day.
 
-There was a bit of a problem, however.
-The Anaconda Python distribution link brings us to anaconda.com
-rather than continuum.io,
-which is now a commercial download, and will obviously not include Python 3.5,
-as was recommended in the README.
-These days I mostly use the
-[Mambaforge](https://conda-forge.org/download/)
-distribution.
+Another one of the figures plotted quantities with error bars against
+two different Reynolds numbers,
+each with its own x-axis:
+
+![Re dep figure.](/images/repro-fail/re-dep-figure.png)
+
+I remember this being a pain to figure out,
+and I've had questions from others on how to create similar figures
+for their own data.
+Does that warrant an abstraction?
+
+## Attempting to reproduce the old environment
+
+I left myself some non-machine-usable instructions for reproducing the old
+environment: Install a version of Anaconda that uses Python 3.5
+and `pip install` two additional packages.
+Given that I already have `conda` installed,
+I figured I could generate a new environment with Python 3.5
+and take it from there.
+
+![Attempting to create a Python 3.5 environment.](/images/repro-fail/mamba-create-py35.png)
+
+No luck. Python 3.5 is not available in the `conda-forge` or `main`
+channels any longer.
+
+There are some old Anaconda Docker images up on Dockerhub.
+Maybe I can use one of those.
+The versions don't correspond to Python versions,
+however,
+so I had to search for the
+[release notes](https://docs.anaconda.com/anaconda/release-notes)
+to find which Anaconda version I wanted.
+Anaconda 2.4.0, released on November 2, 2015,
+was the first version to come with Python 3.5,
+and that version is available on Dockerhub,
+so I attempted to spin up an interactive container:
+
+![Docker run Anaconda.](/images/repro-fail/docker-run.png)
+
+To my surprise, this failed.
+Apparently there was a change in image format at some point and these
+images are no longer supported.
+
+So let's see if we can run the newest Anaconda version with Python 3.5.
+That would be Anaconda 4.2.0.
+That image was in the correct format!
+
+Attempting to install our two additional dependencies with `pip`
+proved to be problematic, however,
+with SSL verification errors,
+and an inability to find the correct distribution.
+Upgrading `pip` was not helpful,
+since it installed a version incompatible with Python 3.5.
+
+Looking up the latest version of `pip` compatible with Python 3.5
+shows lots of
+[recommendations](https://www.reddit.com/r/Python/comments/s0j7ao/which_pip_version_is_max_supported_to_be_useable/)
+to upgrade to 3.6,
+so maybe we'll just need to do that.
+At this point, we're blending the two strategies here---attempting to find
+an environment that works rather than reproducing the one that did back then.
+
+`mamba create -n rvat-re-dep python=3.6` failed, so we can hunt for the
+newest Anaconda verison with Python 3.6.
+At this point we're at Anaconda 5.2.0, so let's
+try to run that Docker container and do our `pip install`s in it.
+
+Installing `progressbar33` went okay,
+but `pip install pxl` caused an error with a missing graphics library
+that Matplotlib depended on:
+
+![Failed pxl install with Python 3.6.](/images/repro-fail/fail-pxl-install-py36-docker.png)
+
+I then set the default Matplotlib backend with
+
+```sh
+export MPLBACKEND=Agg
+```
+
+and `pxl` was able to be installed.
+
+At this point it's clear I am going to need to create my own Docker image
+if I want to keep going down
+this path,
+which I'm not even sure I do at this point.
+
+So I created a new Docker environment with its own build stage with Calkit:
+
+```sh
+calkit new docker-env \
+    --name main \
+    --image rvat-re-dep \
+    --from continuumio/anaconda3:5.2.0 \
+    --description "A custom Python 3.6 environment" \
+    --stage build-docker
+```
+
+In this case, the `Dockerfile` doesn't yet have everything we need,
+but it's a start.
+
+We add these lines and we should be good to go:
+
+```Dockerfile
+ENV MPLBACKEND=Agg
+
+RUN pip install --no-cache-dir progressbar33 pxl
+```
+
+Running our pipeline again with `calkit run` will automatically rebuild the
+image after that,
+then we can try
 
 ## Conclusions and final thoughts
+
+Overall, I'd give myself a B- for reproducibility and reusability
+here.
+The data and code were made openly available and
+cited in the relevant paper.
+However, as a product, this repo is not really easy to reuse.
+The CSVs of processed data are the core of the value,
+and maybe the plotting code provides some value for copy/pasting,
+but again, these require copying and pasting,
+which doesn't necessarily leave breadcrumbs for further reuse.
 
 Should we treat these bundles of data and code as products that require
 maintenance?
@@ -118,3 +231,6 @@ Or should we simply hand them off to the world and move on?
 Do we have some obligation to treat these as products and ensure they
 deliver value to the users,
 or is enough to simply provide all of the materials?
+
+Perhaps this project as a whole can be treated as a starting point
+for the user, and they can morph it to their own ends?
