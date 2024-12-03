@@ -388,6 +388,14 @@ principle,
 though the plotting function was technically repeated in both the experiment
 and CFD repos, i.e., a change would need to be made in both if desired.
 
+## How I would reuse this code and data now
+
+Over the years I have shifted my opinion on DRY,
+and realized it can cause some seriously bad architectures and designs.
+If I had to reuse the materials from this experiment these days,
+I would start a new project from scratch and start copy/pasting things in
+as needed.
+
 ## Conclusions and final thoughts
 
 Overall, I'd give myself a B- for reproducibility and reusability
