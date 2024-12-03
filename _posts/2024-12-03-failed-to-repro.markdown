@@ -211,7 +211,21 @@ RUN pip install --no-cache-dir progressbar33 pxl
 
 Running our pipeline again with `calkit run` will automatically rebuild the
 image after that,
-then we can try
+then we can try to run our script in the environment with:
+
+```sh
+calkit runenv python plot.py --all --save
+```
+
+The script encountered an error,
+but we now have some files saved in our Figures directory,
+which is a great start!
+
+If we look at our contour--quiver plot from above, we see it was mostly
+reproduced, but the LaTeX labels are not using the same font:
+
+![Contour/quiver plot from first Docker run.](/images/repro-fail/ref-figure-docker.png)
+
 
 ## Conclusions and final thoughts
 
@@ -224,6 +238,25 @@ The CSVs of processed data are the core of the value,
 and maybe the plotting code provides some value for copy/pasting,
 but again, these require copying and pasting,
 which doesn't necessarily leave breadcrumbs for further reuse.
+
+The changes we made here did not make our project completely self
+contained.
+For instance,
+we are still depending on Dockerhub to not delete that Anaconda image
+we're using as our base to build ours.
+We should probably push the image somewhere.
+Even if we did that, however,
+Docker could stop supporting that image format,
+leaving us unable to reproduce this again.
+We're depending on the Python Package Index (PyPI) to retain those versions
+of `progressbar33` and `pxl` for us to download.
+We're depending on the Debian archives to stay up.
+Is true reproducibility a real goal here?
+
+So what are the takeaways here?
+Reproducibility has an expiration date?
+Reusable products need to be carefully thought about to minimize
+their dependencies?
 
 Should we treat these bundles of data and code as products that require
 maintenance?
