@@ -75,6 +75,32 @@ create their figure variant?
 Should they simply start from scratch and copy/paste whatever they need
 from my code to write their own figure generation procedure?
 
+If the old environment were easy to use for just this procedure,
+that would probably be fine,
+but if it continues to be iterated upon with more variants created,
+at some point it will probably need to be modernized or even rewritten.
+
+I decided to try both strategies on two different branches to see which
+one was easier.
+
+One of the figure types in question is fairly complex.
+It plots out-of-plane mean velocity in a turbine wake as contours
+and in-plane mean velocity as vector arrows,
+and includes the projected area of the turbine.
+It uses LaTeX for the axis labels, and is set to match the true aspect
+ratio of the measurement plane.
+These figures were not committed to the Git repo,
+but I was able to find them in an executed version of the repo I had archived
+to Google Drive.
+Here's an example for reference:
+
+![Reference figure.](/images/repro-fail/ref-figure.png)
+
+As a side note, this figure should probably be using the viridis color map
+instead of coolwarm, since in this case mean velocity is not really
+a diverging quantity,
+but that's a topic for another day.
+
 There was a bit of a problem, however.
 The Anaconda Python distribution link brings us to anaconda.com
 rather than continuum.io,
@@ -83,3 +109,12 @@ as was recommended in the README.
 These days I mostly use the
 [Mambaforge](https://conda-forge.org/download/)
 distribution.
+
+## Conclusions and final thoughts
+
+Should we treat these bundles of data and code as products that require
+maintenance?
+Or should we simply hand them off to the world and move on?
+Do we have some obligation to treat these as products and ensure they
+deliver value to the users,
+or is enough to simply provide all of the materials?
