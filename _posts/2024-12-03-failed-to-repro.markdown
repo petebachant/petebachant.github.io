@@ -409,6 +409,31 @@ as needed.
    These last two steps would be nice with a `calkit import dataset` call,
    but that experiment would need to be made into a Calkit project,
    which I haven't done yet.
+1. Ran
+    ```sh
+    calkit new conda-env \
+        python \
+        pip \
+        matplotlib \
+        pandas \
+        jupyter \
+        --pip pxl \
+        -n reuse-rvat-re-dep \
+        --stage check-conda-env
+    ```
+1. Ran the pipeline with `calkit run`, which created the environment and a lock
+   file.
+1. Copied the `pyrvatrd` package into my project directory and added to
+   `calkit.yaml` so we can know what it was derived from.
+1. Started a notebook called `notebook.ipynb` and copy/pasted a function from
+   the experiment repo into it to see if I could replicate the mean velocity
+   contour/quiver plot.
+1. Did a whole bunch to get that script to run in a new environment.
+   See the commits in the repo.
+1. Added a pipeline stage to generate the mean contour/quiver plots at all
+   velocities.
+1. Added figures to `calkit.yaml` for each of these.
+1. Ran the pipeline, committed and pushed everything to the cloud.
 
 ## Conclusions and final thoughts
 
