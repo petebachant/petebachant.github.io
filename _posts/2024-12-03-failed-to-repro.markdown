@@ -8,11 +8,12 @@ categories:
 - Reproducibility
 ---
 
-I recently received an email from my PhD advisor introducing me to a grad
+I recently received an email from my former PhD advisor
+introducing me to a grad
 student who was interested in using some experimental data I had collected a
 decade ago to validate his simulations.
-Even back then, I was pretty adamant about open sourcing everything about a
-project, including code and data, so I was able to easily clone the
+Even back then, I was pretty adamant about open-sourcing my research
+projects, including code and data, so I was able to easily clone the
 [repo](https://github.com/UNH-CORE/RVAT-Re-dep)
 from GitHub.
 
@@ -21,7 +22,7 @@ In the README, I even had instructions for getting started:
 ![The README.](/images/repro-fail/readme.png)
 
 Python 3.5 is quite old at this point,
-and I use
+and these days I use
 [Mambaforge](https://conda-forge.org/download/)
 instead of Anaconda,
 but the ecosystems are compatible with each other,
@@ -124,7 +125,8 @@ and take it from there.
 ![Attempting to create a Python 3.5 environment.](/images/repro-fail/mamba-create-py35.png)
 
 No luck. Python 3.5 is not available in the `conda-forge` or `main`
-channels any longer.
+channels any longer,
+at least not for my MacBook's ARM processor.
 
 There are some old Anaconda Docker images up on Dockerhub.
 Maybe I can use one of those.
@@ -264,6 +266,127 @@ stages:
           Power and drag (or thrust) curves as a function of Reynolds number,
           computed with both the turbine diameter and blade chord length.
 ```
+
+## But how should this code and data actually be reused?
+
+I actually used this dataset in a later paper validating some CFD simulations,
+the repo for which is
+[also on GitHub](https://github.com/petebachant/CFT-wake-modeling-paper).
+My approach there was to write a single script
+`makefigs.py` to make all of the figures for the paper, except for the
+ones that needed to be created manually, e.g., ones that came from
+CAD drawings.
+
+Peering into the script we can see right away that there's no hope that it's
+reproducible:
+
+```python
+cfd_sst_dir = "/media/pete/Data1/OpenFOAM/pete-2.3.x/run/unh-rvat-3d/mesh14"
+cfd_sa_dir = "/media/Data2/OpenFOAM/pete-2.3.x/run/unh-rvat-3d/mesh14-sa"
+cfd_sst_2d_dir = "/media/pete/Data1/OpenFOAM/pete-2.3.x/run/unh-rvat-2d/kOmegaSST"
+cfd_sa_2d_dir = "/media/pete/Data1/OpenFOAM/pete-2.3.x/run/unh-rvat-2d/SpalartAllmaras"
+exp_dir = "/home/pete/Google Drive/Research/Experiments/RVAT Re dep"
+paper_dir = "/home/pete/Google Drive/Research/Papers/CFT wake modeling"
+cfd_dirs = {"3-D": {"kOmegaSST": cfd_sst_dir,
+                    "SpalartAllmaras": cfd_sa_dir},
+            "2-D": {"kOmegaSST": cfd_sst_2d_dir,
+                    "SpalartAllmaras": cfd_sa_2d_dir}}
+
+
+# Append directories to path so we can import their respective packages
+for d in [cfd_sst_dir, cfd_sa_dir, cfd_sst_2d_dir, cfd_sa_2d_dir, exp_dir]:
+    if not d in sys.path:
+        sys.path.append(d)
+```
+
+This script depends a lot on the state of the machine on which it was run,
+and even references paths on different hard drives.
+
+If we look at the bottom of the script, we can see each figure that would
+be generated if it were possible to run this now:
+
+```python
+    if "exp_perf" in args.plots or args.all:
+        plot_exp_perf(save=save)
+    if "meancontquiv" in args.plots or args.all:
+        plot_exp_meancontquiv(save=save)
+        plot_cfd_meancontquiv("kOmegaSST", save=save)
+        plot_cfd_meancontquiv("SpalartAllmaras", save=save)
+    if "verification" in args.plots or args.all:
+        plot_verification(save=save)
+    if "profiles" in args.plots or args.all:
+        plot_profiles(save=save)
+    if "perf_bar_charts" in args.plots or args.all:
+        make_perf_bar_charts(save=save)
+    if "recovery" in args.plots or args.all:
+        make_recovery_bar_chart(save=save)
+    if "kcont" in args.plots or args.all:
+        plot_exp_kcont(save=save)
+        plot_cfd_kcont("kOmegaSST", save=save)
+        plot_cfd_kcont("SpalartAllmaras", save=save)
+```
+
+The `plot_exp_perf` function is quite portable.
+It simply loads in a CSV and plots it with Matplotlib:
+
+```python
+def load_exp_perf_data():
+    """Loads section of exp perf data for U_infty=1.0 m/s."""
+    return pd.read_csv(os.path.join(exp_dir, "Data", "Processed",
+                                    "Perf-1.0.csv"))
+
+
+def plot_exp_perf(save=False):
+    df = load_exp_perf_data()
+    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(7.5, 3))
+    ax[0].plot(df.mean_tsr, df.mean_cp, "-o")
+    ax[0].set_ylabel(r"$C_P$")
+    ax[1].plot(df.mean_tsr, df.mean_cd, "-o")
+    ax[1].set_ylabel(r"$C_D$")
+    for a in ax:
+        a.set_xlabel(r"$\lambda$")
+    fig.tight_layout()
+    if save:
+        fig.savefig("figures/exp_perf" + savetype)
+```
+
+However, this could be improved
+by adding the experiment repo as a Git submodule so
+`exp_dir` could be a relative path.
+
+`plot_exp_meancontquiv` is a bit different.
+This function actually uses a Python package in the experiment repo
+called `pyrvatrd` to reuse the plotting logic inside:
+
+```python
+def plot_exp_meancontquiv(save=False):
+    os.chdir(exp_dir)
+    pyrvatrd.plotting.plot_meancontquiv(1.0)
+    os.chdir(paper_dir)
+    if save:
+        plt.savefig("figures/meancontquiv_exp" + savetype)
+```
+
+Again, this would be better if it referenced a submodule at a relative path.
+
+`plot_cfd_meancontquiv` does something similar,
+except each CFD simulation has its own Python package with an identical
+structure such that the function could be called:
+
+```python
+def plot_cfd_meancontquiv(case="kOmegaSST", save=False):
+    """Plots wake mean velocity contours/quivers from 3-D CFD case."""
+    os.chdir(cfd_dirs["3-D"][case])
+    cfd_packages["3-D"][case].plotting.plot_meancontquiv()
+    os.chdir(paper_dir)
+    if save:
+         plt.savefig("figures/meancontquiv_" + case + savetype)
+```
+
+This might be a overzealous use of the "don't repeat yourself" (DRY)
+principle,
+though the plotting function was technically repeated in both the experiment
+and CFD repos, i.e., a change would need to be made in both if desired.
 
 ## Conclusions and final thoughts
 
