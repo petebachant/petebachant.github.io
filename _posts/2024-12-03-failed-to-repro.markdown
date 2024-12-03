@@ -226,6 +226,44 @@ reproduced, but the LaTeX labels are not using the same font:
 
 ![Contour/quiver plot from first Docker run.](/images/repro-fail/ref-figure-docker.png)
 
+This is probably because our Docker image does not include a LaTeX distribution
+like I did when I first ran it.
+I attempted to modify the Docker image to install `texlive`,
+but this did not produce the same exact figure.
+However, I decided this was good enough for now.
+
+I did at least add one figure generation stage to the DVC pipeline to show
+how I'd probably approach this as a full Calkit project.
+The full pipeline (in `dvc.yaml`) looks like:
+
+```yaml
+stages:
+  build-docker:
+    cmd: calkit build-docker rvat-re-dep -i Dockerfile --platform linux/amd64
+    deps:
+      - Dockerfile
+    outs:
+      - Dockerfile-lock.json:
+          cache: false
+          persist: true
+    always_changed: true
+  plot-perf-re-dep:
+    cmd: calkit runenv -n main python plot.py perf_re_dep --save --no-show
+    deps:
+      - plot.py
+      - pyrvatrd/plotting.py
+      - Data/Processed
+      - Dockerfile-lock.json
+    outs:
+      - Figures/perf_re_dep.pdf
+    meta:
+      calkit:
+        type: figure
+        title: Turbine performance Reynolds number dependence
+        description: >
+          Power and drag (or thrust) curves as a function of Reynolds number,
+          computed with both the turbine diameter and blade chord length.
+```
 
 ## Conclusions and final thoughts
 
