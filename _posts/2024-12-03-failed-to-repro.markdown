@@ -388,6 +388,26 @@ principle,
 though the plotting function was technically repeated in both the experiment
 and CFD repos, i.e., a change would need to be made in both if desired.
 
+## What about usability?
+
+Beyond not being reproducible,
+this data and code was largely non-usable.
+So we should put on our product manager hat and think about
+what users would want to do with this stuff.
+We can use so-called "user stories" to do this.
+For example:
+
+1. As a researcher, I want to read mean wake velocity data so I can plot it
+   against my simulation results.
+
+These were not possible in the original state of the repo,
+so let's go ahead and change that.
+We're going to create a basic API.
+
+It was also not possible to use the data outside of the repo,
+since the paths were hard-coded assuming we would be running at the top
+of the repo as our working directory.
+
 ## How I would reuse this code and data now
 
 Over the years I have shifted my opinion on DRY,
@@ -434,6 +454,23 @@ as needed.
    velocities.
 1. Added figures to `calkit.yaml` for each of these.
 1. Ran the pipeline, committed and pushed everything to the cloud.
+
+## Improving the reusability of this experimental data
+
+I created a new project assuming I was going to try to reuse the
+RVAT-Re-dep data to validate a simulation.
+
+Make this a RVAT-Re-dep an installable Python package:
+
+```sh
+calkit new python-package unh_rvat_re_dep
+```
+
+This creates a `pyproject.toml` file and adds the package to the
+`software.packages` section in `calkit.yaml`.
+
+
+
 
 ## Conclusions and final thoughts
 
