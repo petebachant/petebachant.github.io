@@ -129,11 +129,11 @@ so I attempted to spin up an interactive container:
 ![Docker run Anaconda.](/images/repro-fail/docker-run.png)
 
 To my surprise, this failed.
-Apparently there was a change in image format at some point and these
-images are no longer supported.
+Apparently there was a change in Docker image format at some point and these
+types are no longer supported.
 So I searched for the newest Anaconda version with Python 3.5,
 which was Anaconda 4.2.0,
-and the image was in the correct format!
+and luckily the image was in the correct format.
 
 At this point I needed to create a new image derived from that one that
 installed the additional dependencies with `pip`.
@@ -229,7 +229,7 @@ isn't present in this Docker image.
 We could go down a rabbit hole trying to install the fonts into this image,
 but I'm going to call this a win for now.
 
-## But how should this code and data actually be reused?
+## What about reusability?
 
 I actually used this dataset in a later paper validating some CFD simulations,
 the repo for which is
@@ -350,6 +350,29 @@ principle,
 though the plotting function was technically repeated in both the experiment
 and CFD repos, i.e., a change would need to be made in both if desired.
 
+But again, let's take a step back and ask the question:
+what is the real value of this project?
+
+1. It provides a dataset against which numerical models can be validated in
+   order to help improve them for simulating these types of turbines.
+1. Some of the plotting procedures may be of interest, especially if the
+   prospective numerical modeler wanted to generate similar figures from
+   their simulation results.
+1. The main question of the work was to address at what scale a physical
+   model test needed to be to fairly approximate full-scale performance.
+
+What then are the products corresponding to this value?
+
+Most of the value in the dataset is in CSV files containing statistics of
+each of the tow tank runs during the experiment.
+With only those, many different plots can be made.
+
+The plotting procedures are fairly tightly coupled to the structure of the
+dataset, so they are not usable in their current form.
+
+The third point of value can simply be done as a hand calculation,
+which is nice.
+
 ## What about usability?
 
 Beyond not being reproducible,
@@ -451,6 +474,18 @@ Both are important.
 If we want the products of research to be usable far into the future
 we need to focus on keeping them as simple as possible,
 and we might need to do some maintenance to them over time.
+
+We need to think like product managers a bit and try to imagine
+simple ways to derive value from what we produce.
+It's nice if we can provide a simple recommendation or hand calculation,
+but in many cases some sort of complex computational workflow is shown in
+a paper, where readers are left to their own devices regarding how to
+actually use the workflow.
+
+So at a bare minimum, you should still be sharing everything.
+It should be reproducible.
+If you want to have the most impact, be thoughtful about the products
+of your research and how they can deliver the most value.
 
 Overall, I'd give myself a B- for reproducibility and reusability
 here.
