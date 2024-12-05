@@ -4,8 +4,8 @@ date: 2024-12-03
 layout: post
 title: I failed to reproduce my own results from a decade ago
 categories:
-- Open science
-- Reproducibility
+  - Open science
+  - Reproducibility
 ---
 
 I recently received an email from my former PhD advisor
@@ -131,98 +131,62 @@ so I attempted to spin up an interactive container:
 To my surprise, this failed.
 Apparently there was a change in image format at some point and these
 images are no longer supported.
+So I searched for the newest Anaconda version with Python 3.5,
+which was Anaconda 4.2.0,
+and the image was in the correct format!
 
-So let's see if we can run the newest Anaconda version with Python 3.5.
-That would be Anaconda 4.2.0.
-That image was in the correct format!
-
-Attempting to install our two additional dependencies with `pip`
-proved to be problematic, however,
-with SSL verification errors,
-and an inability to find the correct distribution.
-Upgrading `pip` was not helpful,
-since it installed a version incompatible with Python 3.5.
-
-Looking up the latest version of `pip` compatible with Python 3.5
-shows lots of
-[recommendations](https://www.reddit.com/r/Python/comments/s0j7ao/which_pip_version_is_max_supported_to_be_useable/)
-to upgrade to 3.6,
-so maybe we'll just need to do that.
-At this point, we're blending the two strategies here---attempting to find
-an environment that works rather than reproducing the one that did back then.
-
-`mamba create -n rvat-re-dep python=3.6` failed, so we can hunt for the
-newest Anaconda verison with Python 3.6.
-At this point we're at Anaconda 5.2.0, so let's
-try to run that Docker container and do our `pip install`s in it.
-
-Installing `progressbar33` went okay,
-but `pip install pxl` caused an error with a missing graphics library
-that Matplotlib depended on:
-
-![Failed pxl install with Python 3.6.](/images/repro-fail/fail-pxl-install-py36-docker.png)
-
-I then set the default Matplotlib backend with
-
-```sh
-export MPLBACKEND=Agg
-```
-
-and `pxl` was able to be installed.
-
-At this point it's clear I am going to need to create my own Docker image
-if I want to keep going down
-this path,
-which I'm not even sure I do at this point.
-
-So I created a new Docker environment with its own build stage with Calkit:
+At this point I needed to create a new image derived from that one that
+installed the additional dependencies with `pip`.
+So I created a new Docker environment and added a build stage to the pipeline
+with Calkit (a tool I've been developing more recently based on what I wish
+I had back then):
 
 ```sh
 calkit new docker-env \
     --name main \
     --image rvat-re-dep \
-    --from continuumio/anaconda3:5.2.0 \
-    --description "A custom Python 3.6 environment" \
+    --from continuumio/anaconda3:4.2.0 \
+    --description "A custom Python 3.5 environment" \
     --stage build-docker
 ```
 
-In this case, the `Dockerfile` doesn't yet have everything we need,
-but it's a start.
+In this case, the automatically-generated `Dockerfile` didn't yet have
+everything we need, but it's a start.
 
-We add these lines and we should be good to go:
+Simply adding the instructions from the README resulted in
+SSL verification and dependency resolution errors.
+After some Googling and trial-and-error,
+I was able to get things installed in this image with this command:
 
-```Dockerfile
-ENV MPLBACKEND=Agg
-
-RUN pip install --no-cache-dir progressbar33 pxl
+```dockerfile
+RUN pip install \
+    --trusted-host pypi.org \
+    --trusted-host pypi.python.org \
+    --trusted-host files.pythonhosted.org \
+    --no-cache-dir \
+    progressbar33 \
+    seaborn==0.7.0 \
+    pxl==0.0.9 \
+    --no-deps
 ```
 
-Running our pipeline again with `calkit run` will automatically rebuild the
-image after that,
-then we can try to run our script in the environment with:
+Note that I had to pin the `seaborn` version since `pxl` would install a
+newer version, which would install a newer version of `pandas`,
+which would fail, hence the `--no-deps` option.
 
-```sh
-calkit runenv python plot.py --all --save
+I also had to set the default Matplotlib backend with:
+
+```dockerfile
+env MPLBACKEND=Agg
 ```
 
-The script encountered an error,
-but we now have some files saved in our Figures directory,
-which is a great start!
+since PyQt4 was apparently missing and Matplotlib was trying to import it
+by default.
 
-If we look at our contour--quiver plot from above, we see it was mostly
-reproduced, but the LaTeX labels are not using the same font:
-
-![Contour/quiver plot from first Docker run.](/images/repro-fail/ref-figure-docker.png)
-
-This is probably because our Docker image does not include a LaTeX distribution
-like I did when I first ran it.
-I attempted to modify the Docker image to install `texlive`,
-but this did not produce the same exact figure.
-However, I decided this was good enough for now.
-
-I did at least add one figure generation stage to the DVC pipeline to show
-how I'd probably approach this as a full Calkit project.
-The full pipeline (in `dvc.yaml`) looks like:
+I then added figure generation stages to the DVC pipeline to show
+how I'd probably approach this as a full Calkit project, so that
+each output could be cached separately.
+The pipeline (in `dvc.yaml`) then looked like:
 
 ```yaml
 stages:
@@ -235,23 +199,35 @@ stages:
           cache: false
           persist: true
     always_changed: true
-  plot-perf-re-dep:
-    cmd: calkit runenv -n main python plot.py perf_re_dep --save --no-show
+  plot-mean-cont-quiv:
+    cmd: calkit runenv -n main python plot.py all_meancontquiv --save --no-show
     deps:
       - plot.py
       - pyrvatrd/plotting.py
+      - pyrvatrd/processing.py
       - Data/Processed
       - Dockerfile-lock.json
     outs:
-      - Figures/perf_re_dep.pdf
-    meta:
-      calkit:
-        type: figure
-        title: Turbine performance Reynolds number dependence
-        description: >
-          Power and drag (or thrust) curves as a function of Reynolds number,
-          computed with both the turbine diameter and blade chord length.
+      - Figures/meancontquiv_04.pdf
+      - Figures/meancontquiv_06.pdf
+      - Figures/meancontquiv_08.pdf
+      - Figures/meancontquiv_10.pdf
+      - Figures/meancontquiv_12.pdf
+  # More stages here...
 ```
+
+After a call to `calkit run`,
+we can take a look at the reference figure:
+
+![Reference figure generated with Python 3.5](/images/repro-fail/ref-figure-docker-py35.png)
+
+And we got very close!
+If you look very closely you'll notice the font for the tick labels
+is slightly different from the figure at the top of the page,
+since I had installed some font on my machine back then that
+isn't present in this Docker image.
+We could go down a rabbit hole trying to install the fonts into this image,
+but I'm going to call this a win for now.
 
 ## But how should this code and data actually be reused?
 
@@ -405,17 +381,17 @@ as needed.
 1. Created a repo on GitHub.
 2. Imported the project on calkit.io.
 3. Cloned to my local machine with the Calkit local server running.
-1. Clicked "open with VS Code" from the Calkit local machine page.
-1. Ran `dvc init`.
-1. Ran `calkit config setup-remote`.
-1. Committed changes and ran `calkit push`.
-1. Manually copied and pasted the processed data CSVs from the experiment into
+4. Clicked "open with VS Code" from the Calkit local machine page.
+5. Ran `dvc init`.
+6. Ran `calkit config setup-remote`.
+7. Committed changes and ran `calkit push`.
+8. Manually copied and pasted the processed data CSVs from the experiment into
    my project directory.
-1. Added the dataset to `calkit.yaml`, so we know where it came from.
+9. Added the dataset to `calkit.yaml`, so we know where it came from.
    These last two steps would be nice with a `calkit import dataset` call,
    but that experiment would need to be made into a Calkit project,
    which I haven't done yet.
-1. Ran
+10. Ran
     ```sh
     calkit new conda-env \
         python \
@@ -427,19 +403,19 @@ as needed.
         -n reuse-rvat-re-dep \
         --stage check-conda-env
     ```
-1. Ran the pipeline with `calkit run`, which created the environment and a lock
-   file.
-1. Copied the `pyrvatrd` package into my project directory and added to
-   `calkit.yaml` so we can know what it was derived from.
-1. Started a notebook called `notebook.ipynb` and copy/pasted a function from
-   the experiment repo into it to see if I could replicate the mean velocity
-   contour/quiver plot.
-1. Did a whole bunch to get that script to run in a new environment.
-   See the commits in the repo.
-1. Added a pipeline stage to generate the mean contour/quiver plots at all
-   velocities.
-1. Added figures to `calkit.yaml` for each of these.
-1. Ran the pipeline, committed and pushed everything to the cloud.
+11. Ran the pipeline with `calkit run`, which created the environment and a lock
+    file.
+12. Copied the `pyrvatrd` package into my project directory and added to
+    `calkit.yaml` so we can know what it was derived from.
+13. Started a notebook called `notebook.ipynb` and copy/pasted a function from
+    the experiment repo into it to see if I could replicate the mean velocity
+    contour/quiver plot.
+14. Did a whole bunch to get that script to run in a new environment.
+    See the commits in the repo.
+15. Added a pipeline stage to generate the mean contour/quiver plots at all
+    velocities.
+16. Added figures to `calkit.yaml` for each of these.
+17. Ran the pipeline, committed and pushed everything to the cloud.
 
 ## Improving the reusability of this experimental data
 
@@ -454,9 +430,6 @@ calkit new python-package unh_rvat_re_dep
 
 This creates a `pyproject.toml` file and adds the package to the
 `software.packages` section in `calkit.yaml`.
-
-
-
 
 ## Conclusions and final thoughts
 
