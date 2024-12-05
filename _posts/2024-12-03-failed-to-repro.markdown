@@ -234,15 +234,17 @@ Microsoft font.
 We could go down a rabbit hole trying to install the fonts into this image,
 but I'm going to call this a win for now.
 
-## What about reusability?
+## But what about reusability?
 
 I actually used this dataset in a later paper validating some CFD simulations,
 the repo for which is
 [also on GitHub](https://github.com/petebachant/CFT-wake-modeling-paper).
-My approach there was to write a single script
-`makefigs.py` to make all of the figures for the paper, except for the
-ones that needed to be created manually, e.g., ones that came from
-CAD drawings.
+My approach back then was to write a single script
+`makefigs.py` to make all of the figures for the paper.
+Note how this is totally different from the command used to generate the
+figures for the other paper,
+which is not great,
+and why something like `make` became the default in other contexts.
 
 Peering into the script we can see right away that there's no hope that it's
 reproducible:
@@ -268,87 +270,86 @@ for d in [cfd_sst_dir, cfd_sa_dir, cfd_sst_2d_dir, cfd_sa_2d_dir, exp_dir]:
 
 This script depends a lot on the state of the machine on which it was run,
 and even references paths on different hard drives.
+Each of these subproject repos had its own Python package, so
+I added all of their locations to the Python path so they could be imported,
+and later on, if I wanted to call any of the functions within,
+I had to change the working directory to the subproject directory,
+since these loaded data from relative paths.
+Strangely enough I only added one of the relevant subproject repos
+as a submodule to the paper repo.
 
-If we look at the bottom of the script, we can see each figure that would
-be generated if it were possible to run this now:
+So these repos were reusable insofar as I could regenerate the figures
+from them in a new directory for the paper,
+though it took a very complex setup to do so.
 
-```python
-    if "exp_perf" in args.plots or args.all:
-        plot_exp_perf(save=save)
-    if "meancontquiv" in args.plots or args.all:
-        plot_exp_meancontquiv(save=save)
-        plot_cfd_meancontquiv("kOmegaSST", save=save)
-        plot_cfd_meancontquiv("SpalartAllmaras", save=save)
-    if "verification" in args.plots or args.all:
-        plot_verification(save=save)
-    if "profiles" in args.plots or args.all:
-        plot_profiles(save=save)
-    if "perf_bar_charts" in args.plots or args.all:
-        make_perf_bar_charts(save=save)
-    if "recovery" in args.plots or args.all:
-        make_recovery_bar_chart(save=save)
-    if "kcont" in args.plots or args.all:
-        plot_exp_kcont(save=save)
-        plot_cfd_kcont("kOmegaSST", save=save)
-        plot_cfd_kcont("SpalartAllmaras", save=save)
-```
-
-The `plot_exp_perf` function is quite portable.
-It simply loads in a CSV and plots it with Matplotlib:
+If we take a look at one of the functions that plotted results from experiment
+and 4 different CFD setups, we can see how each subproject was used
+to create something new:
 
 ```python
-def load_exp_perf_data():
-    """Loads section of exp perf data for U_infty=1.0 m/s."""
-    return pd.read_csv(os.path.join(exp_dir, "Data", "Processed",
-                                    "Perf-1.0.csv"))
-
-
-def plot_exp_perf(save=False):
-    df = load_exp_perf_data()
-    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(7.5, 3))
-    ax[0].plot(df.mean_tsr, df.mean_cp, "-o")
-    ax[0].set_ylabel(r"$C_P$")
-    ax[1].plot(df.mean_tsr, df.mean_cd, "-o")
-    ax[1].set_ylabel(r"$C_D$")
-    for a in ax:
-        a.set_xlabel(r"$\lambda$")
-    fig.tight_layout()
-    if save:
-        fig.savefig("figures/exp_perf" + savetype)
-```
-
-However, this could be improved
-by adding the experiment repo as a Git submodule so
-`exp_dir` could be a relative path.
-
-`plot_exp_meancontquiv` is a bit different.
-This function actually uses a Python package in the experiment repo
-called `pyrvatrd` to reuse the plotting logic inside:
-
-```python
-def plot_exp_meancontquiv(save=False):
-    os.chdir(exp_dir)
-    pyrvatrd.plotting.plot_meancontquiv(1.0)
+def plot_profiles(save=False):
+    """Plot streamwise velocity and TKE profiles for all cases."""
+    fig, ax = plt.subplots(1, 2, figsize=(7.5, 3))
+    # Load data from 2-D SST case
+    os.chdir(cfd_dirs["2-D"]["kOmegaSST"])
+    df = pyurof2dsst.processing.load_u_profile()
+    ax[0].plot(df.y_R, df.u, "-", label="SST (2-D)")
+    df = pyurof2dsst.processing.load_k_profile()
+    ax[1].plot(df.y_R, df.k_total, "-", label="SST (2-D)")
+    # Load data from 2-D SA case
+    os.chdir(cfd_dirs["2-D"]["SpalartAllmaras"])
+    df = pyurof2dsa.processing.load_u_profile()
+    ax[0].plot(df.y_R, df.u, "-.", label="SA (2-D)")
+    df = pyurof2dsa.processing.load_k_profile()
+    ax[1].plot(df.y_R, df.k_total, "-.", label="SA (2-D)")
+    # Load data from 3-D SST case
+    os.chdir(cfd_dirs["3-D"]["kOmegaSST"])
+    df = pyurof3dsst.processing.load_u_profile()
+    ax[0].plot(df.y_R, df.u, "--", label="SST (3-D)")
+    df = pyurof3dsst.processing.load_k_profile()
+    ax[1].plot(df.y_R, df.k_total, "--", label="SST (3-D)")
+    # Load data from 3-D SA case
+    os.chdir(cfd_dirs["3-D"]["SpalartAllmaras"])
+    df = pyurof3dsa.processing.load_u_profile()
+    ax[0].plot(df.y_R, df.u, ":", label="SA (3-D)")
+    df = pyurof3dsa.processing.load_k_profile()
+    ax[1].plot(df.y_R, df.k_total, ":", label="SA (3-D)")
+    # Load data from experiment
+    df = load_exp_data()
+    df = df[df.z_H == 0]
+    ax[0].plot(df.y_R, df.mean_u, "o", label="Exp.", markerfacecolor="none")
+    ax[1].plot(df.y_R, df.k, "o", label="Exp.", markerfacecolor="none")
+    # Set legend and labels
+    ax[1].legend(loc="best")
+    for a in ax: a.set_xlabel("$y/R$")
+    ax[0].set_ylabel(r"$U/U_\infty$")
+    ax[1].set_ylabel(r"$k/U_\infty^2$")
+    plt.tight_layout()
+    # Move back into this directory
     os.chdir(paper_dir)
     if save:
-        plt.savefig("figures/meancontquiv_exp" + savetype)
+        fig.savefig("figures/profiles" + savetype)
 ```
 
-Again, this would be better if it referenced a submodule at a relative path.
+That code produced this figure:
 
-`plot_cfd_meancontquiv` does something similar,
-except each CFD simulation has its own Python package with an identical
-structure such that the function could be called:
+![Profiles from CFD.](/images/repro-fail/cfd-profiles.png)
 
-```python
-def plot_cfd_meancontquiv(case="kOmegaSST", save=False):
-    """Plots wake mean velocity contours/quivers from 3-D CFD case."""
-    os.chdir(cfd_dirs["3-D"][case])
-    cfd_packages["3-D"][case].plotting.plot_meancontquiv()
-    os.chdir(paper_dir)
-    if save:
-         plt.savefig("figures/meancontquiv_" + case + savetype)
-```
+And for reference, `load_exp_data` simply called `pandas.read_csv` on one
+of the original experiment's processed data files.
+
+I think this leads us to one slightly unrelated principle:
+keep everything in the same folder.
+Use Git submodules if you have to,
+but try not to have dependencies too far away from what you're
+trying to achieve.
+A related concept is the "monorepo."
+
+Extract anything generally useful into its own package?
+
+Provide a package with a clear API for working with your data,
+but realize other languages might want to use it,
+so keep it simple with file formats like CSV.
 
 This might be an overzealous use of the "don't repeat yourself" (DRY)
 principle,
@@ -479,6 +480,21 @@ Both are important.
 If we want the products of research to be usable far into the future
 we need to focus on keeping them as simple as possible,
 and we might need to do some maintenance to them over time.
+
+One of the most important reproducibility principles that arises
+is to keep everything in one place:
+Source code, data, environment definitions (including fonts).
+Docker and DVC help here.
+What we're trying to achieve is portability.
+Try not to depend on too much that is not accurately described in the
+repo itself.
+
+If I were to do something like that CFD paper over again, I would use
+a monorepo for the entire project with Git submodules for work done previously,
+and I would keep every single file in version control,
+with the larger raw results using DVC,
+and build the entire project around a single pipeline
+rather than a bunch of custom manually-executed sub-pipelines.
 
 We need to think like product managers a bit and try to imagine
 simple ways to derive value from what we produce.
