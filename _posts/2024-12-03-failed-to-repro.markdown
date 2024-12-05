@@ -25,7 +25,7 @@ the figures:
 ![The README.](/images/repro-fail/readme.png)
 
 Python 3.5 is quite old at this point,
-and these days I use
+and these days I mostly use
 [Mambaforge](https://conda-forge.org/download/)
 instead of Anaconda,
 but the ecosystems are largely compatible with each other,
@@ -79,9 +79,11 @@ where the data can be used to created new knowledge instead of simply
 repeating the past.
 However, I wanted to see what it would take to achieve both.
 
-## A target figure to reproduce
+## Attempting to reproduce the old environment
 
-One of the figure types in question is fairly complex.
+Before we start, let's pick a figure from the original paper to focus
+on reproducing.
+For this I chose one that's relatively complex.
 It plots out-of-plane mean velocity in a turbine wake as contours
 and in-plane mean velocity as vector arrows,
 and includes an outline of the turbine's projected area.
@@ -99,7 +101,7 @@ instead of coolwarm, since in this case mean velocity is not really
 a diverging quantity,
 but that's a topic for another day.
 
-## Attempting to reproduce the old environment
+### Onto the tactical stuff
 
 I left myself some non-machine-usable instructions for reproducing the old
 environment: Install a version of Anaconda that uses Python 3.5
