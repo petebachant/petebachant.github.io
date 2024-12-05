@@ -379,88 +379,24 @@ dataset, so they are not usable in their current form.
 The third point of value can simply be done as a hand calculation,
 which is nice.
 
-## What about usability?
+### Some incremental improvements
 
-Beyond not being reproducible,
-this data and code was largely non-usable.
-So we should put on our product manager hat and think about
-what users would want to do with this stuff.
-We can use so-called "user stories" to do this.
-For example:
+1. Make the `pyrvatrd` package installable by adding a `pyproject.toml` file.
+2. Use absolute paths in `pyrvatrd` so the data loading and plotting functions
+   can be called from outside.
 
-1. As a researcher, I want to read mean wake velocity data so I can plot it
-   against my simulation results.
+I created an example project reusing this dataset by including it as
+a Git submodule, which you can also view
+[up on GitHub](https://github.com/petebachant/reuse-rvat-re-dep).
 
-These were not possible in the original state of the repo,
-so let's go ahead and change that.
-We're going to create a basic API.
-
-It was also not possible to use the data outside of the repo,
-since the paths were hard-coded assuming we would be running at the top
-of the repo as our working directory.
-
-## How I would reuse this code and data now
-
-Over the years I have shifted my opinion on DRY,
-and realized it can cause some seriously bad architectures and designs.
-If I had to reuse the materials from this experiment these days,
-I would start a new project from scratch and start copy/pasting things in
-as needed.
-
-1. Created a repo on GitHub.
-2. Imported the project on calkit.io.
-3. Cloned to my local machine with the Calkit local server running.
-4. Clicked "open with VS Code" from the Calkit local machine page.
-5. Ran `dvc init`.
-6. Ran `calkit config setup-remote`.
-7. Committed changes and ran `calkit push`.
-8. Manually copied and pasted the processed data CSVs from the experiment into
-   my project directory.
-9. Added the dataset to `calkit.yaml`, so we know where it came from.
-   These last two steps would be nice with a `calkit import dataset` call,
-   but that experiment would need to be made into a Calkit project,
-   which I haven't done yet.
-10. Ran
-    ```sh
-    calkit new conda-env \
-        python \
-        pip \
-        matplotlib \
-        pandas \
-        jupyter \
-        --pip pxl \
-        -n reuse-rvat-re-dep \
-        --stage check-conda-env
-    ```
-11. Ran the pipeline with `calkit run`, which created the environment and a lock
-    file.
-12. Copied the `pyrvatrd` package into my project directory and added to
-    `calkit.yaml` so we can know what it was derived from.
-13. Started a notebook called `notebook.ipynb` and copy/pasted a function from
-    the experiment repo into it to see if I could replicate the mean velocity
-    contour/quiver plot.
-14. Did a whole bunch to get that script to run in a new environment.
-    See the commits in the repo.
-15. Added a pipeline stage to generate the mean contour/quiver plots at all
-    velocities.
-16. Added figures to `calkit.yaml` for each of these.
-17. Ran the pipeline, committed and pushed everything to the cloud.
-
-## Improving the reusability of this experimental data
-
-I created a new project assuming I was going to try to reuse the
-RVAT-Re-dep data to validate a simulation.
-
-Make this a RVAT-Re-dep an installable Python package:
-
-```sh
-calkit new python-package unh_rvat_re_dep
-```
-
-This creates a `pyproject.toml` file and adds the package to the
-`software.packages` section in `calkit.yaml`.
+I structured this as a Calkit project so the Conda environment is
+built as part of the pipeline,
+before attempting to run any plotting procedures,
+so the whole thing only takes a call to `calkit run`.
 
 ## Conclusions and final thoughts
+
+I feel like I've said a word too many times and now I forget the meaning.
 
 Technology marches onwards.
 We probably can't expect unlimited computational reproducibility
@@ -546,3 +482,7 @@ or is enough to simply provide all of the materials?
 
 Perhaps this project as a whole can be treated as a starting point
 for the user, and they can morph it to their own ends?
+
+Do you have some results for which you'd like to check the reproducibility?
+I might be willing to give it a shot as well.
+Shoot me an email!
