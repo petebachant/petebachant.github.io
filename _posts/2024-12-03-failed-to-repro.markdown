@@ -433,11 +433,24 @@ This creates a `pyproject.toml` file and adds the package to the
 
 ## Conclusions and final thoughts
 
-Reproducibility is not the same thing as reusability.
+Technology marches onwards.
+We probably can't expect unlimited computational reproducibility
+on any hardware.
+Just like I can't simply run a punch card program on my laptop,
+some code will just not last forever.
+Technologies like Docker can help us a lot here,
+but we need to be realistic.
+
+On the other hand,
+reproducibility is not the same thing as reusability.
 Each serves a different purpose.
 Reproducibility is ensuring correctness in the present,
 and reusability is ensuring value for the future.
 Both are important.
+
+If we want the products of research to be usable far into the future
+we need to focus on keeping them as simple as possible,
+and we might need to do some maintenance to them over time.
 
 Overall, I'd give myself a B- for reproducibility and reusability
 here.
