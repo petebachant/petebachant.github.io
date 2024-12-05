@@ -13,11 +13,14 @@ introducing me to a grad
 student who was interested in using some experimental data I had collected a
 decade ago to validate his simulations.
 Even back then, I was pretty adamant about open-sourcing my research
-projects, including code and data, so I was able to easily clone the
-[repo](https://github.com/UNH-CORE/RVAT-Re-dep)
-from GitHub.
+projects, including code and data,
+so it figured it would be pretty simple.
 
-In the README, I even had instructions for getting started:
+I was able to easily clone the
+[repo](https://github.com/UNH-CORE/RVAT-Re-dep)
+from GitHub since it's still up there.
+In the README, I even had instructions for getting started and regenerating
+the figures:
 
 ![The README.](/images/repro-fail/readme.png)
 
@@ -25,14 +28,15 @@ Python 3.5 is quite old at this point,
 and these days I use
 [Mambaforge](https://conda-forge.org/download/)
 instead of Anaconda,
-but the ecosystems are compatible with each other,
+but the ecosystems are largely compatible with each other,
 so I figured I could give it a shot with my Mambaforge environment.
 The `pip install` commands worked fine:
 
 ![Naively installing with pip.](/images/repro-fail/pip-install.png)
 
 So I tried running `python plot.py` to generate the figures, but that actually
-doesn't do anything without some additional options,
+doesn't do anything without some additional options
+(bad docs, me-from-the-past,)
 which was apparent from the help output printed to the terminal.
 So I ran `python plot.py --all` to generate all of the figures,
 and here was the result:
@@ -40,49 +44,42 @@ and here was the result:
 ![The initial plot all call.](/images/repro-fail/plot-all-initial.png)
 
 As we can see,
+I failed to reproduce the figures because
 the interface to the `scipy.stats.t.interval` function had changed since the
 version I was using back then.
-This puts us at a crossroads.
-We need to decide between:
+This puts us at a crossroads if we're truly going to try to reproduce
+these results.
+There are two options:
 
-1. Adapting the code for newer dependencies.
-2. Attempting to reproduce the environment in which this ran initially.
+1. Attempt to reproduce the environment in which this ran initially.
+1. Adapt the code for newer dependencies.
 
-I made option 2 hard for myself by not exporting the Conda environment
-way back when.
+I made option 1 hard for myself by not exporting the full Conda environment
+way back when, i.e.,
+"Anaconda using Python 3.5" is not a full description of the environment.
 That's a pretty significant oversight.
 
-At this point
-it's worth doing a little _product management_ and thinking about
-what is actual point of doing all this.
+But let's take another step back and question why we want to do this at all.
+What is the point of trying to reproduce these figures?
 I can think of two use cases:
 
 1. Reproducing the results can help ensure there are no mistakes,
    or that the outputs (figures) genuinely reflect the inputs (data)
    and procedures (code). There is a chance that I updated the code at some
    point but never reran `plot.py`, so the figures are out-of-date.
-   This is quite unlikely though. As a side note, this is a problem
-   my project [Calkit](https://github.com/calkit/calkit) helps solve.
-2. We want to produce a slight variant of one or more figures, adding
-   the results from a simulation for comparison.
+   This is quite unlikely though. I remember running this script many times
+   after processing the data to get the figures just right.
+1. We want to produce a slight variant of one or more figures, adding
+   the results from a simulation for the purposed of validation.
 
-I would deem use case 2 more important than use case 1
-since it involves carrying things forward rather than simply trying to
-repeat the past.
-But how does this inform which strategy to use?
-Should we adapt the code or reproduce the old environment?
-Is the new prospective user going to want to use the old environment to
-create their figure variant?
-Should they simply start from scratch and copy/paste whatever they need
-from my code to write their own figure generation procedure?
+We can call these reproducibility and _reusability_, respectively.
+These map fairly well to the strategies above as well.
+Both are important, but at this point I would prioritize reusability,
+where the data can be used to created new knowledge instead of simply
+repeating the past.
+However, I wanted to see what it would take to achieve both.
 
-If the old environment were easy to use for just this procedure,
-that would probably be fine,
-but if it continues to be iterated upon with more variants created,
-at some point it will probably need to be modernized or even rewritten.
-
-I decided to try both strategies on two different branches to see which
-one was easier.
+## A target figure to reproduce
 
 One of the figure types in question is fairly complex.
 It plots out-of-plane mean velocity in a turbine wake as contours
@@ -101,17 +98,6 @@ As a side note, this figure should probably be using the viridis color map
 instead of coolwarm, since in this case mean velocity is not really
 a diverging quantity,
 but that's a topic for another day.
-
-Another one of the figures plotted quantities with error bars against
-two different Reynolds numbers,
-each with its own x-axis:
-
-![Re dep figure.](/images/repro-fail/re-dep-figure.png)
-
-I remember this being a pain to figure out,
-and I've had questions from others on how to create similar figures
-for their own data.
-Does that warrant an abstraction?
 
 ## Attempting to reproduce the old environment
 
