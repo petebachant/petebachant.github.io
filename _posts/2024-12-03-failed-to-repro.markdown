@@ -84,12 +84,12 @@ However, I wanted to see what it would take to achieve both.
 One of the figure types in question is fairly complex.
 It plots out-of-plane mean velocity in a turbine wake as contours
 and in-plane mean velocity as vector arrows,
-and includes the projected area of the turbine.
+and includes an outline of the turbine's projected area.
 It uses LaTeX for the axis labels, and is set to match the true aspect
 ratio of the measurement plane.
 These figures were not committed to the Git repo,
 but I was able to find them in an executed version of the repo I had archived
-to Google Drive.
+to Google Drive in grad school.
 Here's an example for reference:
 
 ![Reference figure.](/images/repro-fail/ref-figure.png)
@@ -114,16 +114,16 @@ No luck. Python 3.5 is not available in the `conda-forge` or `main`
 channels any longer,
 at least not for my MacBook's ARM processor.
 
-There are some old Anaconda Docker images up on Dockerhub.
-Maybe I can use one of those.
+There are some old Anaconda Docker images up on Docker Hub,
+so I thought maybe I could use one of those.
 The versions don't correspond to Python versions,
 however,
-so I had to search for the
+so I had to search though the
 [release notes](https://docs.anaconda.com/anaconda/release-notes)
 to find which Anaconda version I wanted.
 Anaconda 2.4.0, released on November 2, 2015,
 was the first version to come with Python 3.5,
-and that version is available on Dockerhub,
+and that version is available on Docker Hub,
 so I attempted to spin up an interactive container:
 
 ![Docker run Anaconda.](/images/repro-fail/docker-run.png)
