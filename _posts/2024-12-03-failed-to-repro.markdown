@@ -219,15 +219,18 @@ stages:
 ```
 
 After a call to `calkit run`,
-we can take a look at the reference figure:
+we can take a look at the newly-created figure (with the published one below):
 
 ![Reference figure generated with Python 3.5](/images/repro-fail/ref-figure-docker-py35.png)
 
-And we got very close!
-If you look very closely you'll notice the font for the tick labels
+![Reference figure.](/images/repro-fail/ref-figure.png)
+
+And we got pretty darn close!
+If you look a keen eye you'll notice the font for the tick labels
 is slightly different from the figure at the top of the page,
-since I had installed some font on my machine back then that
-isn't present in this Docker image.
+since I believe I had installed the Arial font on my machine back then,
+which isn't present by default in this Docker image since it is a
+Microsoft font.
 We could go down a rabbit hole trying to install the fonts into this image,
 but I'm going to call this a win for now.
 
