@@ -24,17 +24,14 @@ the figures:
 
 ![The README.](/images/repro-fail/readme.png)
 
-Python 3.5 is quite old at this point,
-and these days I mostly use
+I have
 [Mambaforge](https://conda-forge.org/download/)
-instead of Anaconda,
+installed on my machine instead of Anaconda,
 but the ecosystems are largely compatible with each other,
-so I figured I could give it a shot with my Mambaforge environment.
-The `pip install` commands worked fine:
-
-![Naively installing with pip.](/images/repro-fail/pip-install.png)
-
-So I tried running `python plot.py` to generate the figures, but that actually
+so I figured I could give it try.
+The `pip install` commands worked fine,
+so I tried running `python plot.py` to generate the figures,
+but that actually
 doesn't do anything without some additional options
 (bad docs, me-from-the-past,)
 which was apparent from the help output printed to the terminal.
@@ -47,6 +44,9 @@ As we can see,
 I failed to reproduce the figures because
 the interface to the `scipy.stats.t.interval` function had changed since the
 version I was using back then.
+
+So, the naive approach failed, which isn't necessarily surprising after
+a full decade of software changes.
 This puts us at a crossroads if we're truly going to try to reproduce
 these results.
 There are two options:
@@ -54,14 +54,14 @@ There are two options:
 1. Attempt to reproduce the environment in which this ran initially.
 1. Adapt the code for newer dependencies.
 
-I made option 1 hard for myself by not exporting the full Conda environment
-way back when, i.e.,
-"Anaconda using Python 3.5" is not a full description of the environment.
+I made the first option hard for myself by not exporting
+the full Conda environment way back when, i.e.,
+"Anaconda with Python 3.5" is not a full description of the environment.
 That's a pretty significant oversight.
 
-But let's take another step back and question why we want to do this at all.
+But let's take a step back and question why we want to do this at all.
 What is the point of trying to reproduce these figures?
-I can think of two use cases:
+I can think of two reasons:
 
 1. Reproducing the results can help ensure there are no mistakes,
    or that the outputs (figures) genuinely reflect the inputs (data)
@@ -70,10 +70,13 @@ I can think of two use cases:
    This is quite unlikely though. I remember running this script many times
    after processing the data to get the figures just right.
 1. We want to produce a slight variant of one or more figures, adding
-   the results from a simulation for the purposed of validation.
+   the results from a simulation for the purposes of validation.
 
 We can call these reproducibility and _reusability_, respectively.
-These map fairly well to the strategies above as well.
+These map fairly well to the strategies above too.
+That is,
+reproducing the original environment is a reproducibility task,
+and adapting the code is a reusability one.
 Both are important, but at this point I would prioritize reusability,
 where the data can be used to created new knowledge instead of simply
 repeating the past.
@@ -84,26 +87,16 @@ However, I wanted to see what it would take to achieve both.
 Before we start, let's pick a figure from the original paper to focus
 on reproducing.
 For this I chose one that's relatively complex.
-It plots out-of-plane mean velocity in a turbine wake as contours
+It shows out-of-plane mean velocity in a turbine wake as contours
 and in-plane mean velocity as vector arrows,
 and includes an outline of the turbine's projected area.
 It uses LaTeX for the axis labels, and is set to match the true aspect
 ratio of the measurement plane.
-These figures were not committed to the Git repo,
-but I was able to find them in an executed version of the repo I had archived
-to Google Drive in grad school.
-Here's an example for reference:
+Here's what it looked like published:
 
 ![Reference figure.](/images/repro-fail/ref-figure.png)
 
-As a side note, this figure should probably be using the viridis color map
-instead of coolwarm, since in this case mean velocity is not really
-a diverging quantity,
-but that's a topic for another day.
-
-### Onto the tactical stuff
-
-I left myself some non-machine-usable instructions for reproducing the old
+I left myself some incomplete instructions for reproducing the old
 environment: Install a version of Anaconda that uses Python 3.5
 and `pip install` two additional packages.
 Given that I already have `conda` installed,
@@ -116,17 +109,18 @@ No luck. Python 3.5 is not available in the `conda-forge` or `main`
 channels any longer,
 at least not for my MacBook's ARM processor.
 
+The next possible avenue was Docker.
 There are some old Anaconda Docker images up on Docker Hub,
 so I thought maybe I could use one of those.
 The versions don't correspond to Python versions,
 however,
 so I had to search though the
-[release notes](https://docs.anaconda.com/anaconda/release-notes)
-to find which Anaconda version I wanted.
+[Anaconda release notes](https://docs.anaconda.com/anaconda/release-notes)
+to find which version I wanted.
 Anaconda 2.4.0, released on November 2, 2015,
 was the first version to come with Python 3.5,
 and that version is available on Docker Hub,
-so I attempted to spin up an interactive container:
+so I tried to spin up an interactive container:
 
 ![Docker run Anaconda.](/images/repro-fail/docker-run.png)
 
@@ -139,9 +133,10 @@ and luckily the image was in the correct format.
 
 At this point I needed to create a new image derived from that one that
 installed the additional dependencies with `pip`.
-So I created a new Docker environment and added a build stage to the pipeline
-with Calkit (a tool I've been developing more recently based on what I wish
-I had back then):
+So I created a new Docker environment and added a build stage to a
+fresh DVC pipeline with
+[Calkit](https://github.com/calkit/calkit)
+(a tool I've been working on inspired by situations like these):
 
 ```sh
 calkit new docker-env \
@@ -158,7 +153,7 @@ everything we need, but it's a start.
 Simply adding the instructions from the README resulted in
 SSL verification and dependency resolution errors.
 After some Googling and trial-and-error,
-I was able to get things installed in this image with this command:
+I was able to get things installed in the image by adding this command:
 
 ```dockerfile
 RUN pip install \
@@ -185,7 +180,7 @@ env MPLBACKEND=Agg
 since PyQt4 was apparently missing and Matplotlib was trying to import it
 by default.
 
-I then added figure generation stages to the DVC pipeline to show
+I then added figure generation stages to the pipeline to show
 how I'd probably approach this as a full Calkit project, so that
 each output could be cached separately.
 The pipeline (in `dvc.yaml`) then looked like:
@@ -226,12 +221,12 @@ we can take a look at the newly-created figure (with the published one below):
 ![Reference figure.](/images/repro-fail/ref-figure.png)
 
 And we got pretty darn close!
-If you look a keen eye you'll notice the font for the tick labels
-is slightly different from the figure at the top of the page,
+If you're paying attention you'll notice the font for the tick labels
+is slightly different from the published version,
 since I believe I had installed the Arial font on my machine back then,
 which isn't present by default in this Docker image since it is a
 Microsoft font.
-We could go down a rabbit hole trying to install the fonts into this image,
+We could go further and try to install the fonts into this image,
 but I'm going to call this a win for now.
 
 ## But what about reusability?
@@ -283,7 +278,8 @@ from them in a new directory for the paper,
 though it took a very complex setup to do so.
 
 If we take a look at one of the functions that plotted results from experiment
-and 4 different CFD setups, we can see how each subproject was used
+and 4 different CFD setups, we can see how each subproject,
+each with its own uniquely named Python package, was used
 to create something new:
 
 ```python
@@ -405,6 +401,8 @@ Just like I can't simply run a punch card program on my laptop,
 some code will just not last forever.
 Technologies like Docker can help us a lot here,
 but we need to be realistic.
+
+The wrong abstraction is worse than no abstraction.
 
 On the other hand,
 reproducibility is not the same thing as reusability.
