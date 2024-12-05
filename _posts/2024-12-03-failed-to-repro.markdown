@@ -8,6 +8,8 @@ categories:
   - Reproducibility
 ---
 
+_...and what it taught me about B2B sales..._
+
 I recently received an email from my former PhD advisor
 introducing me to a grad
 student who was interested in using some experimental data I had collected a
@@ -231,6 +233,21 @@ but I'm going to call this a win for now.
 
 ## But what about reusability?
 
+Before we talk about reusability we should talk a little about product
+management.
+What sort of "products" come from a research project,
+and what sorts of needs are they supposed to serve?
+
+Of course there's the article itself,
+which may provide some formula to make predictions about the world, e.g.,
+
+$$
+F = ma.
+$$
+
+Let's write some out in the form of so-called "user stories,"
+which are meant to help refocus us from _outputs_ towards _outcomes_.
+
 I actually used this dataset in a later paper validating some CFD simulations,
 the repo for which is
 [also on GitHub](https://github.com/petebachant/CFT-wake-modeling-paper).
@@ -241,8 +258,8 @@ figures for the other paper,
 which is not great,
 and why something like `make` became the default in other contexts.
 
-Peering into the script we can see right away that there's no hope that it's
-reproducible:
+Peering into the script we can see right away that there's no hope that it
+would be reproducible:
 
 ```python
 cfd_sst_dir = "/media/pete/Data1/OpenFOAM/pete-2.3.x/run/unh-rvat-3d/mesh14"
@@ -270,12 +287,7 @@ I added all of their locations to the Python path so they could be imported,
 and later on, if I wanted to call any of the functions within,
 I had to change the working directory to the subproject directory,
 since these loaded data from relative paths.
-Strangely enough I only added one of the relevant subproject repos
-as a submodule to the paper repo.
-
-So these repos were reusable insofar as I could regenerate the figures
-from them in a new directory for the paper,
-though it took a very complex setup to do so.
+Very messy!
 
 If we take a look at one of the functions that plotted results from experiment
 and 4 different CFD setups, we can see how each subproject,
@@ -334,6 +346,10 @@ That code produced this figure:
 And for reference, `load_exp_data` simply called `pandas.read_csv` on one
 of the original experiment's processed data files.
 
+What this is showing us is that outside of each subproject,
+the value provided by its Python package is to load a Pandas DataFrame
+for use elsewhere.
+
 I think this leads us to one slightly unrelated principle:
 keep everything in the same folder.
 Use Git submodules if you have to,
@@ -390,10 +406,11 @@ built as part of the pipeline,
 before attempting to run any plotting procedures,
 so the whole thing only takes a call to `calkit run`.
 
-## Conclusions and final thoughts
+## Conclusions
 
-I feel like I've said a word too many times and now I forget the meaning.
+### On reproducibility
 
+It's hard.
 Technology marches onwards.
 We probably can't expect unlimited computational reproducibility
 on any hardware.
@@ -401,6 +418,23 @@ Just like I can't simply run a punch card program on my laptop,
 some code will just not last forever.
 Technologies like Docker can help us a lot here,
 but we need to be realistic.
+
+Reproducibility is most valuable at the present time of the work
+being done.
+It can help them ensure researchers don't make mistakes.
+It can help speed up peer review.
+It can help ensure all team members can effectively work on the same
+project.
+
+Sometimes it might not even be that valuable later on,
+since value comes in reusability.
+
+## On reusability
+
+Researchers should do some product management work to ensure they are
+delivering value to the world.
+
+I feel like I've said a word too many times and now I forget the meaning.
 
 The wrong abstraction is worse than no abstraction.
 
