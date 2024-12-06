@@ -289,13 +289,15 @@ Researchers should do a some "product management"
 and attempt to maximize the value they can provide.
 The "product" of a given research project
 could be a simple formula for hand calculations,
-but these days the more valuable products will probably be datasets
+but these days the more valuable products will likely be datasets
 and software.
+
 Publishing a paper with an "in-house" code may be good for
 your career (for now anyway,)
 but if your discoveries are useless without a computer program to
 calculate predictions,
-the effort to derive value from your work will be unnecessarily high.
+the effort to derive value from your work will be unnecessarily high,
+and therefore some potential impact will be unrealized.
 "It's not documented well enough" is not a valid excuse either.
 Like with reproducibility,
 even if we haven't molded our research products into the most reusable
