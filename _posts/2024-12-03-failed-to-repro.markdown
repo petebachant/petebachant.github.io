@@ -294,9 +294,5 @@ the effort to derive value from your work will be unnecessarily high.
 Like with reproducibility,
 even if we haven't molded our research products into the most reusable
 form possible,
-we should be sharing everything we used to do the research,
+we should still share all of the relevant materials,
 so long as it's not harmful to someone else to do so.
-
-Do you have some results for which you'd like to check the reproducibility?
-I might be willing to give it a shot as well.
-Shoot me an email!
