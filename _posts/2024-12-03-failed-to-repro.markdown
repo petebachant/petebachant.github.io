@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2024-12-03
+date: 2024-12-06
 layout: post
 title: I failed to reproduce my own results from a decade ago
 categories:
@@ -10,11 +10,11 @@ categories:
 
 I recently received an email from my former PhD advisor
 introducing me to a grad
-student who was interested in using some experimental data I had collected a
-decade ago to validate his simulations.
+student interested in using some experimental data we had collected a
+decade ago to validate some simulations.
 The repo from the experiment was still up on
 [GitHub](https://github.com/UNH-CORE/RVAT-Re-dep),
-so I figured that would be easy,
+so I assumed that would be easy,
 but I was wrong.
 
 In the README, I had instructions for getting started and regenerating
@@ -29,7 +29,7 @@ installed on my machine instead of Anaconda,
 but the ecosystems are largely compatible with each other,
 so I figured there was a decent chance this would work.
 The `pip install` commands worked fine,
-so I tried running `python plot.py` to generate the figures,
+so I tried running `python plot.py`,
 but that actually
 doesn't do anything without some additional options
 (bad documentation, me-from-the-past!)
@@ -43,14 +43,11 @@ the interface to the `scipy.stats.t.interval` function had changed since the
 version I was using back then.
 This isn't necessarily surprising after 10+ years,
 but it puts us at a crossroads.
-There are two options:
+We would either need to adapt the code for newer dependencies
+or attempt to reproduce the environment in which this ran initially.
 
-1. Attempt to reproduce the environment in which this ran initially.
-1. Adapt the code for newer dependencies.
-
-But let's take a step back and question why we want to do this at all.
-What is the actual purpose?
-I can think of two:
+But let's take a step back and ask why we would want to do this at all.
+I can think of two reasons:
 
 1. Reproducing the results can help ensure there are no mistakes,
    or that the outputs (figures) genuinely reflect the inputs (data)
@@ -61,15 +58,9 @@ I can think of two:
 1. We want to produce a slight variant of one or more figures, adding
    the results from a simulation for the purposes of validation.
 
-We can call these _reproducibility_ and _reusability_, respectively.
-These map fairly well to the strategies above too.
-That is,
-reproducing the original environment is a reproducibility task,
-and adapting the code is a reusability one.
-Both are important, but at this point I would prioritize reusability,
-where the project materials can be used to created new knowledge instead of
-simply repeating the past.
-However, I wanted to see what it would take to achieve both.
+We can call these _reproducibility_ and _reusability_, respectively,
+and the grad student's request was clearly concerned with the latter.
+However, I wanted to explore both.
 
 ## Attempting to reproduce the old environment
 
@@ -99,7 +90,7 @@ No luck. Python 3.5 is not available in the `conda-forge` or `main`
 channels any longer,
 at least not for my MacBook's ARM processor.
 
-The next possible avenue was Docker.
+The next logical option was Docker.
 There are some old Anaconda Docker images up on Docker Hub,
 so I thought maybe I could use one of those.
 The versions don't correspond to Python versions,
@@ -125,7 +116,9 @@ At this point I needed to create a new image derived from that one that
 installed the additional dependencies with `pip`.
 So I created a new Docker environment for the project
 and added a build stage to a
-fresh DVC pipeline with
+fresh
+[DVC](https://dvc.org)
+pipeline with
 [Calkit](https://github.com/calkit/calkit)
 (a tool I've been working on inspired by situations like these):
 
@@ -171,22 +164,20 @@ env MPLBACKEND=Agg
 since PyQt4 was apparently missing and Matplotlib was trying to import it
 by default.
 
-After calling `calkit run`, which ran the pipeline to build the Docker image,
+After running the pipeline to build the Docker image,
 I ran the plotting script in that environment with:
 
 ```sh
 calkit runenv -n main -- python plot.py all_meancontquiv --save
 ```
 
-We can then take a look at the newly-created figure
-(with the published version shown again below it):
+We can take a look at the newly-created figure
+and compare with the original published version:
 
-![Reference figure generated with Python 3.5](/images/repro-fail/ref-figure-docker-py35.png)
-
-![Reference figure.](/images/repro-fail/ref-figure.png)
+![Reference figure generated with Python 3.5](/images/repro-fail/ref-fig-combined.png)
 
 If you look closely you'll notice the font for the tick labels
-is slightly different from the published version,
+is slightly different from the original version,
 since I believe I had installed the Arial font on my machine back then,
 which isn't present by default in this Docker image since it is a
 Microsoft font.
@@ -196,17 +187,17 @@ It took some hunting and finagling, but we reproduced the figure.
 
 ## But what about reusability?
 
-If we look back at this project's README above we can see I said absolutely
-nothing about how to reuse these materials.
+Looking back at project repo's README above we can see I said absolutely
+nothing about how to reuse the materials within.
 I didn't describe the data or code or how to use them.
 To be fair,
-at the time the main purpose of open-sourcing these materials
-was to open-source the materials.
+at the time the main purpose of open sourcing these materials
+was to open source the materials.
 Even that is still rare for research projects,
 and I do think it's the right thing to do.
 However, if we want to ensure our work produces the largest possible impact,
 we should spend some time thinking about how
-users can derive value from any of the materials,
+others can derive value from any of the materials,
 not just the paper we wrote.
 
 I actually used this dataset in a later paper validating some CFD simulations,
@@ -226,7 +217,7 @@ the value that the dataset's repo provided was:
     1. inspect the code that generated complex figures so it could be
        [adapted for plotting the CFD results](https://github.com/petebachant/UNH-RVAT-3D-OpenFOAM/blob/4496430e05f9aed170fceed714363fed2095d1d7/pyurof3dsst/plotting.py#L82).
 
-Now, items 2.1 and 2.2 were actually not that easy to do,
+Items 2.1 and 2.2 were actually not that easy to do,
 since the Python package was not installable.
 I actually had to add the folders to `sys.path` to import the packages,
 and they used relative paths,
@@ -261,6 +252,12 @@ Doing this is a good way to put yourself in the users' shoes
 and can reveal stumbling blocks.
 It also gives users a template to copy if they would find that helpful.
 
+It's important to note here that it's impossible to predict how others
+might derive value from these materials,
+and that's okay.
+Take some educated guesses, put it out there, and see what happens.
+That's much better than not sharing at all.
+
 ## Conclusions
 
 There are a few takeaways from this exercise.
@@ -282,11 +279,13 @@ and many papers don't even go that far,
 but we really should go further.
 Every project should fully describe the steps to reproduce the outputs,
 and there should be as few steps as possible.
+This can be beneficial while the project is in progress as well,
+especially if we have collaborators.
 
 Lastly, reproducibility is not the same
 thing as reusability.
 Researchers should do a some "product management"
-and attempt to maximize the value they can provide.
+and attempt to maximize the value they can deliver.
 The "product" of a given research project
 could be a simple formula for hand calculations,
 but these days the more valuable products will likely be datasets
