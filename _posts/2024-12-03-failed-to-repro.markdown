@@ -205,7 +205,7 @@ It took some hunting and finagling, but we reproduced the figure.
 If we look back at this project's README above we can see I said absolutely
 nothing about how to reuse these materials.
 I didn't describe the data or code or how to use them.
-Now, to be fair to myself,
+To be fair,
 at the time the main purpose of open-sourcing these materials
 was to open-source the materials.
 Even that is still rare for research projects,
@@ -237,7 +237,7 @@ since the Python package was not installable.
 I actually had to add the folders to `sys.path` to import the packages,
 and they used relative paths,
 so I had to change directories in order to load the correct data.
-This is somewhat of an easy fix though.
+These are both not too difficult to fix though.
 
 First, we can make the Python package installable by
 [adding a `pyproject.toml` file](https://github.com/UNH-CORE/RVAT-Re-dep/commit/426e35c407fd52f3e639462c22c41fc779849be9).
