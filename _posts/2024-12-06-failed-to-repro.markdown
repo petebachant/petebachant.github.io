@@ -300,7 +300,7 @@ to get value from your work will be unnecessarily high,
 and therefore some potential impact will be unrealized.
 "It's not documented well enough" is not a valid excuse either.
 Like with reproducibility,
-even if we haven't molded our research products into the most reusable
+even if we haven't molded our research products into the most user-friendly
 form possible,
 we should still share all of the relevant materials,
 so long as it's not harmful to someone else to do so.
