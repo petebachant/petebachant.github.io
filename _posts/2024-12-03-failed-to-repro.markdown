@@ -257,128 +257,33 @@ It also gives users a template to copy if they would find that helpful.
 
 ## Conclusions
 
+There are a few takeaways from this exercise.
+First off,
+reproducibility can be difficult
+even with all of the code and data available.
+Software and hardware continue to evolve,
+and just because the code "runs on my machine" today,
+doesn't mean it will a few years (or decades) down the road.
+On the other hand,
+reproducibility should probably have a practical expiration date anyway,
+since it's mostly useful around the time of publication
+to help avoid mistakes and potentially speed up peer review.
+
+Another important point is that documentation is crucial.
 Simply providing the code and data without documentation is better than
 nothing,
 and many papers don't even go that far.
 However,
 we should actually go further.
-Every project should describe the steps both to reproduce and reuse the
-outputs.
+Every project should fully describe the steps to reproduce the outputs.
 
-### On reproducibility
-
-It's hard.
-Technology marches onwards.
-We probably can't expect unlimited computational reproducibility
-on any hardware.
-Just like I can't simply run a punch card program on my laptop,
-some code will just not last forever.
-Technologies like Docker can help us a lot here,
-but we need to be realistic.
-
-Reproducibility is most valuable at the present time of the work
-being done.
-It can help them ensure researchers don't make mistakes.
-It can help speed up peer review.
-It can help ensure all team members can effectively work on the same
-project.
-
-Sometimes it might not even be that valuable later on,
-since value comes in reusability.
-
-## On reusability
-
-Researchers should do some product management work to ensure they are
-delivering value to the world.
-
-I feel like I've said a word too many times and now I forget the meaning.
-
-The wrong abstraction is worse than no abstraction.
-
-On the other hand,
-reproducibility is not the same thing as reusability.
-Each serves a different purpose.
-Reproducibility is ensuring correctness in the present,
-and reusability is ensuring value for the future.
-Both are important.
-
-If we want the products of research to be usable far into the future
-we need to focus on keeping them as simple as possible,
-and we might need to do some maintenance to them over time.
-
-One of the most important reproducibility principles that arises
-is to keep everything in one place:
-Source code, data, environment definitions (including fonts).
-Docker and DVC help here.
-What we're trying to achieve is portability.
-Try not to depend on too much that is not accurately described in the
-repo itself.
-
-If I were to do something like that CFD paper over again, I would use
-a monorepo for the entire project with Git submodules for work done previously,
-and I would keep every single file in version control,
-with the larger raw results using DVC,
-and build the entire project around a single pipeline
-rather than a bunch of custom manually-executed sub-pipelines.
-
-We need to think like product managers a bit and try to imagine
-simple ways to derive value from what we produce.
-It's nice if we can provide a simple recommendation or hand calculation,
-but in many cases some sort of complex computational workflow is shown in
-a paper, where readers are left to their own devices regarding how to
-actually use the workflow.
-
-So at a bare minimum, you should still be sharing everything.
-It should be reproducible.
-If you want to have the most impact, be thoughtful about the products
-of your research and how they can deliver the most value.
-
-Overall, I'd give myself a B- for reproducibility and reusability
-here.
-The data and code were made openly available and
-cited in the relevant paper.
-However, as a product, this repo is not really easy to reuse.
-The CSVs of processed data are the core of the value,
-and maybe the plotting code provides some value for copy/pasting,
-but again, these require copying and pasting,
-which doesn't necessarily leave breadcrumbs for further reuse.
-
-The changes we made here did not make our project completely self
-contained.
-For instance,
-we are still depending on Dockerhub to not delete that Anaconda image
-we're using as our base to build ours.
-We should probably push the image somewhere.
-Even if we did that, however,
-Docker could stop supporting that image format,
-leaving us unable to reproduce this again.
-We're depending on the Python Package Index (PyPI) to retain those versions
-of `progressbar33` and `pxl` for us to download.
-We're depending on the Debian archives to stay up.
-Is true reproducibility a real goal here?
-
-So what are the takeaways here?
-Reproducibility has an expiration date?
-Reusable products need to be carefully thought about to minimize
-their dependencies?
-
-Should we treat these bundles of data and code as products that require
-maintenance?
-Or should we simply hand them off to the world and move on?
-Do we have some obligation to treat these as products and ensure they
-deliver value to the users,
-or is enough to simply provide all of the materials?
-
-Perhaps this project as a whole can be treated as a starting point
-for the user, and they can morph it to their own ends?
-
-Though I will acknowledge that in some cases the only value you
-can possibly derive from some work is a simple hand calculation,
-that is increasingly rare as research becomes more complex.
-In many cases, the real value we can provide is through
-delivering datasets and software.
-
-Avoid complexity!
+The second major learning here is that reproducibility is not the same
+thing as reusability.
+Researchers should do a little "product management"
+and attempt to maximize the value they can provide.
+This could be a simple formula for hand calculations,
+but more often than not it will include datasets
+and software.
 
 Do you have some results for which you'd like to check the reproducibility?
 I might be willing to give it a shot as well.
