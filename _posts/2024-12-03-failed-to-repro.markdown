@@ -33,10 +33,7 @@ so I tried running `python plot.py` to generate the figures,
 but that actually
 doesn't do anything without some additional options
 (bad documentation, me-from-the-past!)
-which was at least apparent from the help output printed to the terminal.
-I then ran the correct command,
-`python plot.py --all` to generate all of the figures,
-and here was the result:
+After running the correct command, this was the result:
 
 ![The initial plot all call.](/images/repro-fail/plot-all-initial.png)
 
@@ -64,7 +61,7 @@ I can think of two:
 1. We want to produce a slight variant of one or more figures, adding
    the results from a simulation for the purposes of validation.
 
-We can call these reproducibility and _reusability_, respectively.
+We can call these _reproducibility_ and _reusability_, respectively.
 These map fairly well to the strategies above too.
 That is,
 reproducing the original environment is a reproducibility task,
@@ -243,6 +240,15 @@ Then we can
 so the data loading and plotting functions
 can be called from outside.
 
+Updating the code for the newer dependencies was not too difficult
+based on the tracebacks.
+After getting things running in a more modern Python 3.12 environment,
+I exported a
+["lock" file](https://github.com/UNH-CORE/RVAT-Re-dep/blob/master/environment-lock.yml)
+describing all versions used the last time
+it successfully ran.
+This is much more descriptive than "Anaconda with Python 3.5."
+
 Lastly, we should add some documentation explaining how to reuse
 the materials.
 I ended up adding two sections to the
@@ -286,7 +292,7 @@ This could be a simple formula for hand calculations,
 but more often than not it will include datasets
 and software.
 Publishing a paper with an "in-house" code may be good for
-your career,
+your career (for now anyway,)
 but if your discoveries are useless without a computer program to
 calculate predictions,
 the effort to derive value from your work will be unnecessarily high.
