@@ -192,7 +192,8 @@ was to open source the materials.
 Even that is still somewhat uncommon for research projects,
 and I do think it's a good goal in and of itself.
 However, if we want to ensure our work produces the largest possible impact,
-we should spend some time thinking about how
+we should do a little "product management"
+and spend some time thinking about how
 others can derive value from any of the materials,
 not just the paper we wrote.
 
@@ -283,7 +284,7 @@ especially if we have collaborators.
 
 Lastly, reproducibility is not the same
 thing as reusability.
-Researchers should do a little "product management"
+Researchers should do a little product management
 and attempt to maximize the value they can deliver.
 The "product" of a given research project
 could be a simple formula for hand calculations,
