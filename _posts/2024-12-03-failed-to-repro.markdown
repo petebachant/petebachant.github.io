@@ -265,31 +265,31 @@ It also gives users a template to copy if they would find that helpful.
 
 There are a few takeaways from this exercise.
 First off,
-reproducibility can be difficult
+reproducibility is hard,
 even with all of the code and data available.
 Software and hardware continue to evolve,
 and just because the code "runs on my machine" today,
 doesn't mean it will a few years (or decades) down the road.
 On the other hand,
-reproducibility should probably have a practical expiration date anyway,
+maybe reproducibility should have a practical expiration date anyway,
 since it's mostly useful around the time of publication
 to help avoid mistakes and potentially speed up peer review.
 
-Another important point is that documentation is crucial.
+Another important but obvious point is that documentation is crucial.
 Simply providing the code and data without documentation is better than
 nothing,
-and many papers don't even go that far.
-However,
-we really should go further.
+and many papers don't even go that far,
+but we really should go further.
 Every project should fully describe the steps to reproduce the outputs,
 and there should be as few steps as possible.
 
-The second major learning here is that reproducibility is not the same
+Lastly, reproducibility is not the same
 thing as reusability.
-Researchers should do a little "product management"
+Researchers should do a some "product management"
 and attempt to maximize the value they can provide.
-This could be a simple formula for hand calculations,
-but more often than not it will include datasets
+The "product" of a given research project
+could be a simple formula for hand calculations,
+but these days the more valuable products will probably be datasets
 and software.
 Publishing a paper with an "in-house" code may be good for
 your career (for now anyway,)
