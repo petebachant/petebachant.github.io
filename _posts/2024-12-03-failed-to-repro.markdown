@@ -230,7 +230,7 @@ It took some hunting and finagling, but we reproduced the figure.
 
 ## But what about reusability?
 
-If we look at this project's README we can see I said absolutely
+If we look back at this project's README above we can see I said absolutely
 nothing about how to reuse these materials.
 I didn't describe the data or code or how to use them.
 Now, to be fair to myself,
@@ -262,152 +262,17 @@ the value that the dataset's repo provided was:
 
 Now, items 2.1 and 2.2 were actually not that easy to do,
 since the Python package was not installable.
+I actually had to add the folders to `sys.path` to import the packages,
+and they used relative paths,
+so I had to change directories in order to load the correct data.
+This is somewhat of an easy fix though.
 
-My approach back then was to write a single script
-`makefigs.py` to make all of the figures for the paper.
-Note how this is totally different from the command used to generate the
-figures for the other paper,
-which is not great,
-and why something like `make` became the default in other contexts.
-
-Peering into the script we can see right away that there's no hope that it
-would be reproducible:
-
-```python
-cfd_sst_dir = "/media/pete/Data1/OpenFOAM/pete-2.3.x/run/unh-rvat-3d/mesh14"
-cfd_sa_dir = "/media/Data2/OpenFOAM/pete-2.3.x/run/unh-rvat-3d/mesh14-sa"
-cfd_sst_2d_dir = "/media/pete/Data1/OpenFOAM/pete-2.3.x/run/unh-rvat-2d/kOmegaSST"
-cfd_sa_2d_dir = "/media/pete/Data1/OpenFOAM/pete-2.3.x/run/unh-rvat-2d/SpalartAllmaras"
-exp_dir = "/home/pete/Google Drive/Research/Experiments/RVAT Re dep"
-paper_dir = "/home/pete/Google Drive/Research/Papers/CFT wake modeling"
-cfd_dirs = {"3-D": {"kOmegaSST": cfd_sst_dir,
-                    "SpalartAllmaras": cfd_sa_dir},
-            "2-D": {"kOmegaSST": cfd_sst_2d_dir,
-                    "SpalartAllmaras": cfd_sa_2d_dir}}
-
-
-# Append directories to path so we can import their respective packages
-for d in [cfd_sst_dir, cfd_sa_dir, cfd_sst_2d_dir, cfd_sa_2d_dir, exp_dir]:
-    if not d in sys.path:
-        sys.path.append(d)
-```
-
-This script depends a lot on the state of the machine on which it was run,
-and even references paths on different hard drives.
-Each of these subproject repos had its own Python package, so
-I added all of their locations to the Python path so they could be imported,
-and later on, if I wanted to call any of the functions within,
-I had to change the working directory to the subproject directory,
-since these loaded data from relative paths.
-Very messy!
-
-If we take a look at one of the functions that plotted results from experiment
-and 4 different CFD setups, we can see how each subproject,
-each with its own uniquely named Python package, was used
-to create something new:
-
-```python
-def plot_profiles(save=False):
-    """Plot streamwise velocity and TKE profiles for all cases."""
-    fig, ax = plt.subplots(1, 2, figsize=(7.5, 3))
-    # Load data from 2-D SST case
-    os.chdir(cfd_dirs["2-D"]["kOmegaSST"])
-    df = pyurof2dsst.processing.load_u_profile()
-    ax[0].plot(df.y_R, df.u, "-", label="SST (2-D)")
-    df = pyurof2dsst.processing.load_k_profile()
-    ax[1].plot(df.y_R, df.k_total, "-", label="SST (2-D)")
-    # Load data from 2-D SA case
-    os.chdir(cfd_dirs["2-D"]["SpalartAllmaras"])
-    df = pyurof2dsa.processing.load_u_profile()
-    ax[0].plot(df.y_R, df.u, "-.", label="SA (2-D)")
-    df = pyurof2dsa.processing.load_k_profile()
-    ax[1].plot(df.y_R, df.k_total, "-.", label="SA (2-D)")
-    # Load data from 3-D SST case
-    os.chdir(cfd_dirs["3-D"]["kOmegaSST"])
-    df = pyurof3dsst.processing.load_u_profile()
-    ax[0].plot(df.y_R, df.u, "--", label="SST (3-D)")
-    df = pyurof3dsst.processing.load_k_profile()
-    ax[1].plot(df.y_R, df.k_total, "--", label="SST (3-D)")
-    # Load data from 3-D SA case
-    os.chdir(cfd_dirs["3-D"]["SpalartAllmaras"])
-    df = pyurof3dsa.processing.load_u_profile()
-    ax[0].plot(df.y_R, df.u, ":", label="SA (3-D)")
-    df = pyurof3dsa.processing.load_k_profile()
-    ax[1].plot(df.y_R, df.k_total, ":", label="SA (3-D)")
-    # Load data from experiment
-    df = load_exp_data()
-    df = df[df.z_H == 0]
-    ax[0].plot(df.y_R, df.mean_u, "o", label="Exp.", markerfacecolor="none")
-    ax[1].plot(df.y_R, df.k, "o", label="Exp.", markerfacecolor="none")
-    # Set legend and labels
-    ax[1].legend(loc="best")
-    for a in ax: a.set_xlabel("$y/R$")
-    ax[0].set_ylabel(r"$U/U_\infty$")
-    ax[1].set_ylabel(r"$k/U_\infty^2$")
-    plt.tight_layout()
-    # Move back into this directory
-    os.chdir(paper_dir)
-    if save:
-        fig.savefig("figures/profiles" + savetype)
-```
-
-That code produced this figure:
-
-![Profiles from CFD.](/images/repro-fail/cfd-profiles.png)
-
-And for reference, `load_exp_data` simply called `pandas.read_csv` on one
-of the original experiment's processed data files.
-
-What this is showing us is that outside of each subproject,
-the value provided by its Python package is to load a Pandas DataFrame
-for use elsewhere.
-
-I think this leads us to one slightly unrelated principle:
-keep everything in the same folder.
-Use Git submodules if you have to,
-but try not to have dependencies too far away from what you're
-trying to achieve.
-A related concept is the "monorepo."
-
-Extract anything generally useful into its own package?
-
-Provide a package with a clear API for working with your data,
-but realize other languages might want to use it,
-so keep it simple with file formats like CSV.
-
-This might be an overzealous use of the "don't repeat yourself" (DRY)
-principle,
-though the plotting function was technically repeated in both the experiment
-and CFD repos, i.e., a change would need to be made in both if desired.
-
-But again, let's take a step back and ask the question:
-what is the real value of this project?
-
-1. It provides a dataset against which numerical models can be validated in
-   order to help improve them for simulating these types of turbines.
-1. Some of the plotting procedures may be of interest, especially if the
-   prospective numerical modeler wanted to generate similar figures from
-   their simulation results.
-1. The main question of the work was to address at what scale a physical
-   model test needed to be to fairly approximate full-scale performance.
-
-What then are the products corresponding to this value?
-
-Most of the value in the dataset is in CSV files containing statistics of
-each of the tow tank runs during the experiment.
-With only those, many different plots can be made.
-
-The plotting procedures are fairly tightly coupled to the structure of the
-dataset, so they are not usable in their current form.
-
-The third point of value can simply be done as a hand calculation,
-which is nice.
-
-### Some incremental improvements
-
-1. Make the `pyrvatrd` package installable by adding a `pyproject.toml` file.
-2. Use absolute paths in `pyrvatrd` so the data loading and plotting functions
-   can be called from outside.
+First, we can make the `pyrvatrd` package installable by
+[adding a `pyproject.toml` file](https://github.com/UNH-CORE/RVAT-Re-dep/commit/426e35c407fd52f3e639462c22c41fc779849be9).
+Then we can
+[switch to using absolute paths](https://github.com/UNH-CORE/RVAT-Re-dep/commit/e22523d6f6d7f5f09a103c27dabeed3d6b0278d7#diff-a07a3aaaea2bef878af1e0059f5743fc3380fab5ff8ba9e9b07713641bcf3690)
+in `pyrvatrd` so the data loading and plotting functions
+can be called from outside.
 
 I created an example project reusing this dataset by including it as
 a Git submodule, which you can also view
