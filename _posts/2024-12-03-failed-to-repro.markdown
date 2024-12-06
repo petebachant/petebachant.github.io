@@ -32,7 +32,7 @@ The `pip install` commands worked fine,
 so I tried running `python plot.py` to generate the figures,
 but that actually
 doesn't do anything without some additional options
-(bad documentation, me-from-the-past,)
+(bad documentation, me-from-the-past!)
 which was at least apparent from the help output printed to the terminal.
 I then ran the correct command,
 `python plot.py --all` to generate all of the figures,
@@ -41,22 +41,19 @@ and here was the result:
 ![The initial plot all call.](/images/repro-fail/plot-all-initial.png)
 
 As we can see,
-I failed to reproduce the figures because
+this failed because
 the interface to the `scipy.stats.t.interval` function had changed since the
 version I was using back then.
-
-The naive approach failed, which isn't necessarily surprising after
-a full decade of software changes.
-This puts us at a crossroads if we're truly going to try to reproduce
-these results.
+This isn't necessarily surprising after 10+ years,
+but it puts us at a crossroads.
 There are two options:
 
 1. Attempt to reproduce the environment in which this ran initially.
 1. Adapt the code for newer dependencies.
 
 But let's take a step back and question why we want to do this at all.
-What is the point of trying to reproduce these figures?
-I can think of two reasons:
+What is the actual purpose?
+I can think of two:
 
 1. Reproducing the results can help ensure there are no mistakes,
    or that the outputs (figures) genuinely reflect the inputs (data)
