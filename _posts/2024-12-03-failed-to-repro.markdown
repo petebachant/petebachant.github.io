@@ -230,42 +230,39 @@ It took some hunting and finagling, but we reproduced the figure.
 
 ## But what about reusability?
 
-Before we talk about reusability we should talk a little about product
-management.
-What sort of "products" come from a research project,
-and what sorts of needs are they supposed to serve?
-In other words,
-how are users supposed to derive value from our research outputs?
-
-We originally sought out to observe how the performance and wake
-characteristics of the turbine changed with Reynolds number,
-so that engineers would know the smallest scale at which a physical model
-test could reasonably predict full-scale performance.
-This actually results in a simple hand calculation for Reynolds number,
-but this isn't the use case the grad student was getting at.
-
-I can think of two additional "user stories,"
-which are meant to help refocus us from _outputs_ towards _outcomes_:
-
-1. As a researcher, I want some experimental data from a cross-flow turbine
-   wake so I can validate my CFD simulation.
-1. As a researcher, I want to be able to plot my CFD results alongside some
-   experimental data so I can see how well it post-dicts the results.
-
-For each of these stories,
-we should try to ensure the user experience (UX) is as delightful
-as possible.
-
-For the first user story,
-the easiest way to get the data is to probably go directly to GitHub
-and download the CSVs containing statistical data.
-Or if you're using Git for your research project (which you really should be,)
-add the project as a Git submodule and read the data from there
-instead of copy/pasting the file into your own project.
+If we look at this project's README we can see I said absolutely
+nothing about how to reuse these materials.
+I didn't describe the data or code or how to use them.
+Now, to be fair to myself,
+at the time the main purpose of open-sourcing these materials
+was to open-source the materials.
+Even that is still rare for research projects,
+and I do think it's the right thing to do.
+However, if we want to ensure our work has the most impact possible,
+we should spend some time thinking about how
+users can derive value from any of the materials,
+not just the paper we wrote.
 
 I actually used this dataset in a later paper validating some CFD simulations,
 the repo for which is
 [also on GitHub](https://github.com/petebachant/CFT-wake-modeling-paper).
+Looking in there,
+the value that the dataset's repo provided was:
+
+1. CSV files containing statistical data.
+1. A Python package that made it possible to:
+    1. [recreate the Matplotlib figures](https://github.com/petebachant/CFT-wake-modeling-paper/blob/master/scripts/makefigs.py#L69)
+       so we didn't need to copy/paste them,
+    1. instantiate a `WakeMap` Python class that computed various gradients to
+       aid in
+       [computing wake recovery quantities](https://github.com/petebachant/CFT-wake-modeling-paper/blob/master/scripts/makefigs.py#L262)
+       to compare against simulation,
+    1. inspect the code that generated complex figures so it could be
+       [adapted for plotting the CFD results](https://github.com/petebachant/UNH-RVAT-3D-OpenFOAM/blob/4496430e05f9aed170fceed714363fed2095d1d7/pyurof3dsst/plotting.py#L82).
+
+Now, items 2.1 and 2.2 were actually not that easy to do,
+since the Python package was not installable.
+
 My approach back then was to write a single script
 `makefigs.py` to make all of the figures for the paper.
 Note how this is totally different from the command used to generate the
@@ -421,7 +418,22 @@ built as part of the pipeline,
 before attempting to run any plotting procedures,
 so the whole thing only takes a call to `calkit run`.
 
+I ended up adding two sections to the README: one for reproducing
+the results and one for reusing the results.
+It's kind of crazy I didn't do this from the start,
+but I was simply focused on ensuring the materials were openly
+available,
+not necessarily that they would be easy to use.
+
 ## Conclusions
+
+Simply providing the code and data without documentation is better than
+nothing,
+and many papers don't even go that far.
+However,
+we should actually go further.
+Every project should describe the steps both to reproduce and reuse the
+outputs.
 
 ### On reproducibility
 
@@ -529,6 +541,12 @@ or is enough to simply provide all of the materials?
 
 Perhaps this project as a whole can be treated as a starting point
 for the user, and they can morph it to their own ends?
+
+Though I will acknowledge that in some cases the only value you
+can possibly derive from some work is a simple hand calculation,
+that is increasingly rare as research becomes more complex.
+In many cases, the real value we can provide is through
+delivering datasets and software.
 
 Avoid complexity!
 
