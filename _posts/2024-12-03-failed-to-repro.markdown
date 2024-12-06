@@ -56,7 +56,7 @@ I can think of two reasons:
 1. We want to produce a slight variant of one or more figures, adding
    the results from a simulation for the purposes of validation.
 
-We can categorize these as _reproducibility_ and _reusability_, respectively,
+These can be categorized as _reproducibility_ and _reusability_, respectively,
 and the grad student's request was clearly concerned with the latter.
 However, I wanted to explore both.
 
