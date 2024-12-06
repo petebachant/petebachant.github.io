@@ -207,7 +207,7 @@ at the time the main purpose of open-sourcing these materials
 was to open-source the materials.
 Even that is still rare for research projects,
 and I do think it's the right thing to do.
-However, if we want to ensure our work has the most impact possible,
+However, if we want to ensure our work produces the largest possible impact,
 we should spend some time thinking about how
 users can derive value from any of the materials,
 not just the paper we wrote.
