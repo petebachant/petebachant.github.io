@@ -17,7 +17,7 @@ The repo from the experiment was still up on
 so I assumed that would be easy,
 but I was wrong.
 
-In the README, I had instructions for getting started and regenerating
+I had left instructions in the README for getting started and regenerating
 the figures:
 
 ![The README.](/images/repro-fail/readme.png)
@@ -44,21 +44,19 @@ version I was using back then.
 This isn't necessarily surprising after 10+ years,
 but it puts us at a crossroads.
 We would either need to adapt the code for newer dependencies
-or attempt to reproduce the environment in which this ran initially.
+or attempt to reproduce the environment in which it ran before.
 
 But let's take a step back and ask why we would want to do this at all.
 I can think of two reasons:
 
 1. Reproducing the results can help ensure there are no mistakes,
    or that the outputs (figures) genuinely reflect the inputs (data)
-   and procedures (code). There is a chance that I updated the code at some
-   point but never reran `plot.py`, so the figures are out-of-date.
-   This is quite unlikely though. I remember running this script many times
-   after processing the data to get the figures just right.
+   and processes (code). There is a chance that I updated the code at some
+   point but never reran `plot.py`, making the figures out-of-date.
 1. We want to produce a slight variant of one or more figures, adding
    the results from a simulation for the purposes of validation.
 
-We can call these _reproducibility_ and _reusability_, respectively,
+We can categorize these as _reproducibility_ and _reusability_, respectively,
 and the grad student's request was clearly concerned with the latter.
 However, I wanted to explore both.
 
@@ -132,7 +130,7 @@ calkit new docker-env \
 ```
 
 In this case, the automatically-generated `Dockerfile` didn't yet have
-everything we need, but it's a start.
+everything we needed, but it was a start.
 
 Simply adding the `pip install` instructions from the README resulted in
 SSL verification and dependency resolution errors.
@@ -177,24 +175,20 @@ and compare with the original published version:
 ![Reference figure generated with Python 3.5](/images/repro-fail/ref-fig-combined.png)
 
 If you look closely you'll notice the font for the tick labels
-is slightly different from the original version,
-since I believe I had installed the Arial font on my machine back then,
-which isn't present by default in this Docker image since it is a
-Microsoft font.
-We could go further and try to install the fonts into this image,
+is slightly different from that in the original version.
+We could go further and try to build the necessary font into the Docker image,
 but I'm going to call this a win for now.
 It took some hunting and finagling, but we reproduced the figure.
 
 ## But what about reusability?
 
 Looking back at project repo's README above we can see I said absolutely
-nothing about how to reuse the materials within.
-I didn't describe the data or code or how to use them.
+nothing about how one could reuse the materials in a different project.
 To be fair,
 at the time the main purpose of open sourcing these materials
 was to open source the materials.
 Even that is still rare for research projects,
-and I do think it's the right thing to do.
+and I do think it's a good goal in and of itself.
 However, if we want to ensure our work produces the largest possible impact,
 we should spend some time thinking about how
 others can derive value from any of the materials,
@@ -204,9 +198,9 @@ I actually used this dataset in a later paper validating some CFD simulations,
 the repo for which is
 [also on GitHub](https://github.com/petebachant/CFT-wake-modeling-paper).
 Looking in there,
-the value that the dataset's repo provided was:
+the value that this project's repo provided was:
 
-1. CSV files containing statistical data.
+1. CSV files containing aggregated or reduced data.
 1. A Python package that made it possible to:
     1. [recreate the Matplotlib figures](https://github.com/petebachant/CFT-wake-modeling-paper/blob/master/scripts/makefigs.py#L69)
        so we didn't need to copy/paste them,
@@ -219,9 +213,11 @@ the value that the dataset's repo provided was:
 
 Items 2.1 and 2.2 were actually not that easy to do,
 since the Python package was not installable.
-I actually had to add the folders to `sys.path` to import the packages,
-and they used relative paths,
-so I had to change directories in order to load the correct data.
+In the follow-on project
+I had to add the folder to `sys.path` to import the package,
+and since it used relative paths,
+I had to make the new code change directories
+in order to load the correct data.
 These are both not too difficult to fix though.
 
 First, we can make the Python package installable by
@@ -240,8 +236,8 @@ describing all versions used the last time
 it successfully ran.
 This is much more descriptive than "Anaconda with Python 3.5."
 
-Lastly, we should add some documentation explaining how to reuse
-the materials.
+Finally, I wanted to add some documentation explaining how to reuse
+this code and data.
 I ended up adding two sections to the
 [README](https://github.com/UNH-CORE/RVAT-Re-dep?tab=readme-ov-file#unh-rvat-reynolds-number-dependence-experiment):
 one for reproducing the results and one for reusing the results.
@@ -284,7 +280,7 @@ especially if we have collaborators.
 
 Lastly, reproducibility is not the same
 thing as reusability.
-Researchers should do a some "product management"
+Researchers should do a little "product management"
 and attempt to maximize the value they can deliver.
 The "product" of a given research project
 could be a simple formula for hand calculations,
@@ -295,7 +291,8 @@ Publishing a paper with an "in-house" code may be good for
 your career (for now anyway,)
 but if your discoveries are useless without a computer program to
 calculate predictions,
-the effort to derive value from your work will be unnecessarily high,
+the effort others will need to expend
+to derive value from your work will be unnecessarily high,
 and therefore some potential impact will be unrealized.
 "It's not documented well enough" is not a valid excuse either.
 Like with reproducibility,
