@@ -274,8 +274,9 @@ Simply providing the code and data without documentation is better than
 nothing,
 and many papers don't even go that far.
 However,
-we should actually go further.
-Every project should fully describe the steps to reproduce the outputs.
+we really should go further.
+Every project should fully describe the steps to reproduce the outputs,
+and there should be as few steps as possible.
 
 The second major learning here is that reproducibility is not the same
 thing as reusability.
@@ -284,6 +285,17 @@ and attempt to maximize the value they can provide.
 This could be a simple formula for hand calculations,
 but more often than not it will include datasets
 and software.
+Publishing a paper with an "in-house" code may be good for
+your career,
+but if your discoveries are useless without a computer program to
+calculate predictions,
+the effort to derive value from your work will be unnecessarily high.
+"It's not documented well enough" is not a valid excuse either.
+Like with reproducibility,
+even if we haven't molded our research products into the most reusable
+form possible,
+we should be sharing everything we used to do the research,
+so long as it's not harmful to someone else to do so.
 
 Do you have some results for which you'd like to check the reproducibility?
 I might be willing to give it a shot as well.
