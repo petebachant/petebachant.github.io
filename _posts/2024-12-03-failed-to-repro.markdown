@@ -12,19 +12,18 @@ I recently received an email from my former PhD advisor
 introducing me to a grad
 student who was interested in using some experimental data I had collected a
 decade ago to validate his simulations.
-Even back then, I was pretty adamant about open-sourcing my research
-projects, including code and data,
-so it figured it would be pretty simple.
+The repo from the experiment was still up on
+[GitHub](https://github.com/UNH-CORE/RVAT-Re-dep),
+so I figured that would be easy,
+but I was wrong.
 
-I was able to easily clone the
-[repo](https://github.com/UNH-CORE/RVAT-Re-dep)
-from GitHub since it's still up there.
-In the README, I even had instructions for getting started and regenerating
+In the README, I had instructions for getting started and regenerating
 the figures:
 
 ![The README.](/images/repro-fail/readme.png)
 
-I have
+So I gave it a try.
+These days I have
 [Mambaforge](https://conda-forge.org/download/)
 installed on my machine instead of Anaconda,
 but the ecosystems are largely compatible with each other,
@@ -33,9 +32,10 @@ The `pip install` commands worked fine,
 so I tried running `python plot.py` to generate the figures,
 but that actually
 doesn't do anything without some additional options
-(bad docs, me-from-the-past,)
-which was apparent from the help output printed to the terminal.
-So I ran `python plot.py --all` to generate all of the figures,
+(bad documentation, me-from-the-past,)
+which was at least apparent from the help output printed to the terminal.
+I then ran the correct command,
+`python plot.py --all` to generate all of the figures,
 and here was the result:
 
 ![The initial plot all call.](/images/repro-fail/plot-all-initial.png)
@@ -45,7 +45,7 @@ I failed to reproduce the figures because
 the interface to the `scipy.stats.t.interval` function had changed since the
 version I was using back then.
 
-So, the naive approach failed, which isn't necessarily surprising after
+The naive approach failed, which isn't necessarily surprising after
 a full decade of software changes.
 This puts us at a crossroads if we're truly going to try to reproduce
 these results.
@@ -94,7 +94,7 @@ Here's what it looked like published:
 I left myself some incomplete instructions for reproducing the old
 environment: Install a version of Anaconda that uses Python 3.5
 and `pip install` two additional packages.
-Bad job, me-from-the-past!
+Again, bad documentation, me-from-the-past!
 Given that I already have `conda` installed,
 I figured I could generate a new environment with Python 3.5
 and take it from there.
@@ -177,41 +177,14 @@ env MPLBACKEND=Agg
 since PyQt4 was apparently missing and Matplotlib was trying to import it
 by default.
 
-I then added figure generation stages to the pipeline to show
-how I'd probably approach this as a full Calkit project, so that
-each output could be cached separately.
-The pipeline (in `dvc.yaml`) then looked like:
+After calling `calkit run`, which ran the pipeline to build the Docker image,
+I ran the plotting script in that environment with:
 
-```yaml
-stages:
-  build-docker:
-    cmd: calkit build-docker rvat-re-dep -i Dockerfile --platform linux/amd64
-    deps:
-      - Dockerfile
-    outs:
-      - Dockerfile-lock.json:
-          cache: false
-          persist: true
-    always_changed: true
-  plot-mean-cont-quiv:
-    cmd: calkit runenv -n main python plot.py all_meancontquiv --save --no-show
-    deps:
-      - plot.py
-      - pyrvatrd/plotting.py
-      - pyrvatrd/processing.py
-      - Data/Processed
-      - Dockerfile-lock.json
-    outs:
-      - Figures/meancontquiv_04.pdf
-      - Figures/meancontquiv_06.pdf
-      - Figures/meancontquiv_08.pdf
-      - Figures/meancontquiv_10.pdf
-      - Figures/meancontquiv_12.pdf
-  # More stages here...
+```sh
+calkit runenv -n main -- python plot.py all_meancontquiv --save
 ```
 
-After a call to `calkit run`,
-we can take a look at the newly-created figure
+We can then take a look at the newly-created figure
 (with the published version shown again below it):
 
 ![Reference figure generated with Python 3.5](/images/repro-fail/ref-figure-docker-py35.png)
@@ -219,7 +192,7 @@ we can take a look at the newly-created figure
 ![Reference figure.](/images/repro-fail/ref-figure.png)
 
 And we got pretty darn close!
-If you're paying attention you'll notice the font for the tick labels
+If you look closely you'll notice the font for the tick labels
 is slightly different from the published version,
 since I believe I had installed the Arial font on my machine back then,
 which isn't present by default in this Docker image since it is a
