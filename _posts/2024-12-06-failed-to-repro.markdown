@@ -288,7 +288,7 @@ Researchers should do a little product management
 and attempt to maximize the value they can deliver.
 The "product" of a given research project
 could be a simple formula for hand calculations,
-but these days the more valuable products will likely be datasets
+but these days the valuable products will likely include datasets
 and software.
 
 Publishing a paper with an "in-house" code may be good for
