@@ -267,28 +267,24 @@ and they used relative paths,
 so I had to change directories in order to load the correct data.
 This is somewhat of an easy fix though.
 
-First, we can make the `pyrvatrd` package installable by
+First, we can make the Python package installable by
 [adding a `pyproject.toml` file](https://github.com/UNH-CORE/RVAT-Re-dep/commit/426e35c407fd52f3e639462c22c41fc779849be9).
 Then we can
 [switch to using absolute paths](https://github.com/UNH-CORE/RVAT-Re-dep/commit/e22523d6f6d7f5f09a103c27dabeed3d6b0278d7#diff-a07a3aaaea2bef878af1e0059f5743fc3380fab5ff8ba9e9b07713641bcf3690)
-in `pyrvatrd` so the data loading and plotting functions
+so the data loading and plotting functions
 can be called from outside.
 
-I created an example project reusing this dataset by including it as
+Lastly, we should add some documentation explaining how to reuse
+the materials.
+I ended up adding two sections to the
+[README](https://github.com/UNH-CORE/RVAT-Re-dep?tab=readme-ov-file#unh-rvat-reynolds-number-dependence-experiment):
+one for reproducing the results and one for reusing the results.
+I also created an example project reusing this dataset by including it as
 a Git submodule, which you can also view
 [up on GitHub](https://github.com/petebachant/reuse-rvat-re-dep).
-
-I structured this as a Calkit project so the Conda environment is
-built as part of the pipeline,
-before attempting to run any plotting procedures,
-so the whole thing only takes a call to `calkit run`.
-
-I ended up adding two sections to the README: one for reproducing
-the results and one for reusing the results.
-It's kind of crazy I didn't do this from the start,
-but I was simply focused on ensuring the materials were openly
-available,
-not necessarily that they would be easy to use.
+Doing this is a good way to put yourself in the users' shoes
+and can reveal stumbling blocks.
+It also gives users a template to copy if they would find that helpful.
 
 ## Conclusions
 
