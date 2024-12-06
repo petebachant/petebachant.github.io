@@ -8,8 +8,8 @@ categories:
   - Reproducibility
 ---
 
-I recently received an email from my former PhD advisor
-introducing me to a grad
+My former PhD advisor
+emailed me recently regarding a grad
 student interested in using some experimental data we had collected a
 decade ago to validate some simulations.
 The repo from the experiment was still up on
