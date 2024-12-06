@@ -284,7 +284,7 @@ especially if we have collaborators.
 
 Lastly, reproducibility is not the same
 thing as reusability.
-Researchers should do a little product management
+Researchers should do some product management
 and attempt to maximize the value they can deliver.
 The "product" of a given research project
 could be a simple formula for hand calculations,
