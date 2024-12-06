@@ -191,7 +191,6 @@ We can then take a look at the newly-created figure
 
 ![Reference figure.](/images/repro-fail/ref-figure.png)
 
-And we got pretty darn close!
 If you look closely you'll notice the font for the tick labels
 is slightly different from the published version,
 since I believe I had installed the Arial font on my machine back then,
