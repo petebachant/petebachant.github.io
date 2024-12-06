@@ -189,7 +189,7 @@ nothing about how one could reuse the materials in a different project.
 To be fair,
 at the time the main purpose of open sourcing these materials
 was to open source the materials.
-Even that is still rare for research projects,
+Even that is still somewhat uncommon for research projects,
 and I do think it's a good goal in and of itself.
 However, if we want to ensure our work produces the largest possible impact,
 we should spend some time thinking about how
