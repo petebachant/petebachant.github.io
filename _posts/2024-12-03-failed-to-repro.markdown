@@ -8,8 +8,6 @@ categories:
   - Reproducibility
 ---
 
-_...and what it taught me about B2B sales..._
-
 I recently received an email from my former PhD advisor
 introducing me to a grad
 student who was interested in using some experimental data I had collected a
@@ -56,11 +54,6 @@ There are two options:
 1. Attempt to reproduce the environment in which this ran initially.
 1. Adapt the code for newer dependencies.
 
-I made the first option hard for myself by not exporting
-the full Conda environment way back when, i.e.,
-"Anaconda with Python 3.5" is not a full description of the environment.
-That's a pretty significant oversight.
-
 But let's take a step back and question why we want to do this at all.
 What is the point of trying to reproduce these figures?
 I can think of two reasons:
@@ -80,8 +73,8 @@ That is,
 reproducing the original environment is a reproducibility task,
 and adapting the code is a reusability one.
 Both are important, but at this point I would prioritize reusability,
-where the data can be used to created new knowledge instead of simply
-repeating the past.
+where the project materials can be used to created new knowledge instead of
+simply repeating the past.
 However, I wanted to see what it would take to achieve both.
 
 ## Attempting to reproduce the old environment
@@ -101,6 +94,7 @@ Here's what it looked like published:
 I left myself some incomplete instructions for reproducing the old
 environment: Install a version of Anaconda that uses Python 3.5
 and `pip install` two additional packages.
+Bad job, me-from-the-past!
 Given that I already have `conda` installed,
 I figured I could generate a new environment with Python 3.5
 and take it from there.
@@ -135,7 +129,8 @@ and luckily the image was in the correct format.
 
 At this point I needed to create a new image derived from that one that
 installed the additional dependencies with `pip`.
-So I created a new Docker environment and added a build stage to a
+So I created a new Docker environment for the project
+and added a build stage to a
 fresh DVC pipeline with
 [Calkit](https://github.com/calkit/calkit)
 (a tool I've been working on inspired by situations like these):
@@ -152,7 +147,7 @@ calkit new docker-env \
 In this case, the automatically-generated `Dockerfile` didn't yet have
 everything we need, but it's a start.
 
-Simply adding the instructions from the README resulted in
+Simply adding the `pip install` instructions from the README resulted in
 SSL verification and dependency resolution errors.
 After some Googling and trial-and-error,
 I was able to get things installed in the image by adding this command:
@@ -216,7 +211,8 @@ stages:
 ```
 
 After a call to `calkit run`,
-we can take a look at the newly-created figure (with the published one below):
+we can take a look at the newly-created figure
+(with the published version shown again below it):
 
 ![Reference figure generated with Python 3.5](/images/repro-fail/ref-figure-docker-py35.png)
 
@@ -230,6 +226,7 @@ which isn't present by default in this Docker image since it is a
 Microsoft font.
 We could go further and try to install the fonts into this image,
 but I'm going to call this a win for now.
+It took some hunting and finagling, but we reproduced the figure.
 
 ## But what about reusability?
 
@@ -237,16 +234,34 @@ Before we talk about reusability we should talk a little about product
 management.
 What sort of "products" come from a research project,
 and what sorts of needs are they supposed to serve?
+In other words,
+how are users supposed to derive value from our research outputs?
 
-Of course there's the article itself,
-which may provide some formula to make predictions about the world, e.g.,
+We originally sought out to observe how the performance and wake
+characteristics of the turbine changed with Reynolds number,
+so that engineers would know the smallest scale at which a physical model
+test could reasonably predict full-scale performance.
+This actually results in a simple hand calculation for Reynolds number,
+but this isn't the use case the grad student was getting at.
 
-$$
-F = ma.
-$$
+I can think of two additional "user stories,"
+which are meant to help refocus us from _outputs_ towards _outcomes_:
 
-Let's write some out in the form of so-called "user stories,"
-which are meant to help refocus us from _outputs_ towards _outcomes_.
+1. As a researcher, I want some experimental data from a cross-flow turbine
+   wake so I can validate my CFD simulation.
+1. As a researcher, I want to be able to plot my CFD results alongside some
+   experimental data so I can see how well it post-dicts the results.
+
+For each of these stories,
+we should try to ensure the user experience (UX) is as delightful
+as possible.
+
+For the first user story,
+the easiest way to get the data is to probably go directly to GitHub
+and download the CSVs containing statistical data.
+Or if you're using Git for your research project (which you really should be,)
+add the project as a Git submodule and read the data from there
+instead of copy/pasting the file into your own project.
 
 I actually used this dataset in a later paper validating some CFD simulations,
 the repo for which is
@@ -514,6 +529,8 @@ or is enough to simply provide all of the materials?
 
 Perhaps this project as a whole can be treated as a starting point
 for the user, and they can morph it to their own ends?
+
+Avoid complexity!
 
 Do you have some results for which you'd like to check the reproducibility?
 I might be willing to give it a shot as well.
