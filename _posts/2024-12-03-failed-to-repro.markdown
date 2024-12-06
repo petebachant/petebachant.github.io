@@ -74,7 +74,8 @@ Here's what it looked like published:
 
 ![Reference figure.](/images/repro-fail/ref-figure.png)
 
-I left myself some incomplete instructions for reproducing the old
+I left myself some incomplete instructions in that README
+for reproducing the old
 environment: Install a version of Anaconda that uses Python 3.5
 and `pip install` two additional packages.
 Again, bad documentation, me-from-the-past!
@@ -84,7 +85,8 @@ and take it from there.
 
 ![Attempting to create a Python 3.5 environment.](/images/repro-fail/mamba-create-py35.png)
 
-No luck. Python 3.5 is not available in the `conda-forge` or `main`
+No luck, however.
+Python 3.5 is not available in the `conda-forge` or `main`
 channels any longer,
 at least not for my MacBook's ARM processor.
 
@@ -169,20 +171,20 @@ I ran the plotting script in that environment with:
 calkit runenv -n main -- python plot.py all_meancontquiv --save
 ```
 
-We can take a look at the newly-created figure
+Let's take a look at the newly-created figure
 and compare with the original published version:
 
 ![Reference figure generated with Python 3.5](/images/repro-fail/ref-fig-combined.png)
 
 If you look closely you'll notice the font for the tick labels
-is slightly different from that in the original version.
+is slightly different from that in the original.
 We could go further and try to build the necessary font into the Docker image,
 but I'm going to call this a win for now.
 It took some hunting and finagling, but we reproduced the figure.
 
 ## But what about reusability?
 
-Looking back at project repo's README above we can see I said absolutely
+Looking back at project repo's README we can see I said absolutely
 nothing about how one could reuse the materials in a different project.
 To be fair,
 at the time the main purpose of open sourcing these materials
@@ -252,6 +254,7 @@ It's important to note here that it's impossible to predict how others
 might derive value from these materials,
 and that's okay.
 Take some educated guesses, put it out there, and see what happens.
+Maybe you'll want to iterate later, like I've done here.
 That's much better than not sharing at all.
 
 ## Conclusions
@@ -292,7 +295,7 @@ your career (for now anyway,)
 but if your discoveries are useless without a computer program to
 calculate predictions,
 the effort others will need to expend
-to derive value from your work will be unnecessarily high,
+to get value from your work will be unnecessarily high,
 and therefore some potential impact will be unrealized.
 "It's not documented well enough" is not a valid excuse either.
 Like with reproducibility,
