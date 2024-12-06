@@ -27,7 +27,7 @@ These days I have
 [Mambaforge](https://conda-forge.org/download/)
 installed on my machine instead of Anaconda,
 but the ecosystems are largely compatible with each other,
-so I figured I could give it try.
+so I figured there was a decent chance this would work.
 The `pip install` commands worked fine,
 so I tried running `python plot.py` to generate the figures,
 but that actually
