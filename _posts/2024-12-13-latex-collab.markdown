@@ -91,6 +91,15 @@ and will give you the flexibility to add things like figure generation
 steps to run ahead of the paper compilation,
 and setup the appropriate dependencies.
 
+## Configure Codespace secrets
+
+In order to push our PDFs up to the Calkit cloud,
+we will need a token.
+
+## Optional: Setup a prebuild for the Codespace configuration
+
+This will help speed things up a bit.
+
 ## Add a new publication to the project
 
 On the publications tab,
