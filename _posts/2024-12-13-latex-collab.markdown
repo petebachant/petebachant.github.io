@@ -47,6 +47,12 @@ Calkit ties together and leverages Git, GitHub, DVC, Docker, and more
 to allow everything to live in a single folder,
 and easily be run on different machines.
 
+Here, the Calkit web app is going to setup our GitHub repo
+for LaTeX editing and compilation.
+This could all be done manually outside,
+but the goal here is to make it as simple as possible with as few steps
+as possible.
+
 Starting from the beginning,
 we'll assume we already have an Overleaf project and we want
 to migrate it over.
@@ -126,3 +132,11 @@ calkit new publication \
    --environment texlive \
    ./thesis
 ```
+
+## Conclusions
+
+This setup will allow us to do the other things we'll
+need to do in our research project like store datasets,
+process them, create figures,
+and also build them into our paper.
+It can all happen in one place with one command.
