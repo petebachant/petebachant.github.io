@@ -71,7 +71,7 @@ VS Code's graphical tools, it's quite easy.
 
 In order to set this up, you will need a GitHub account
 
-## Creating the project
+## Create the project
 
 Head to [calkit.io](https://calkit.io),
 sign in with GitHub,
@@ -83,6 +83,16 @@ This will create a GitHub repo for us,
 setup DVC,
 and create a dev container in which we and our collaborators can work.
 
+Note that this will create a full Calkit project and DVC pipeline.
+You could remove those dependencies if this truly were a pure writing
+project,
+but they don't add much overhead anyway,
+and will give you the flexibility to add things like figure generation
+steps to run ahead of the paper compilation,
+and setup the appropriate dependencies.
+
+## Add a new publication to the project
+
 On the publications tab,
 create a new publication,
 select the type as report for now,
@@ -91,6 +101,10 @@ This will add a LaTeX template to our repo and a build stage to our
 DVC pipeline.
 
 TODO: Allow importing from Overleaf?
+
+TODO: Should this just be called a document?
+
+## Edit the document in a dev container
 
 Next, click "edit in GitHub Codespace."
 This will open up a new tab with an in-browser VS Code
@@ -131,6 +145,18 @@ calkit new publication \
    --stage-type latex \
    --environment texlive \
    ./thesis
+```
+
+## Pull it down to edit locally
+
+```sh
+calkit clone https://github.com/my-username/my-project-name.git
+```
+
+Then open in VS Code.
+
+```sh
+
 ```
 
 ## Conclusions
