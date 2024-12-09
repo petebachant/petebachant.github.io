@@ -33,6 +33,13 @@ We are going to show a practical example here that makes use of
 Calkit, an open source
 tool I've been working on to help with reproducibility in
 research projects.
+
+Full disclosure: There is a paid aspect of the Calkit Cloud
+to help pay for the costs of running the system,
+since it allows for storage of artifacts,
+but the software is fully open source and there is a free plan
+that provides more than enough storage to do what we'll do here.
+
 Calkit defines a framework for managing the entire project,
 not just the writing part,
 but we'll just focus on writing and document creation here.
