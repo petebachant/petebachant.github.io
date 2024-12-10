@@ -203,6 +203,17 @@ that.
 
 TODO: Feature for uploading marked up PDF?
 
+These issues will also show up in the "To-do" section of the Calkit project
+homepage.
+
+## Pushing the PDF to the Calkit Cloud
+
+The default behavior of DVC is to not save
+pipeline outputs to the repo, but instead commit them to DVC.
+The Calkit Cloud serves as a DVC remote for us to push these artifacts
+to back them up.
+To get this to work
+
 ## Conclusions
 
 This setup will allow us to do the other things we'll
