@@ -2,7 +2,7 @@
 comments: true
 date: 2024-12-13
 layout: post
-title: A cloud-based workflow for collaborating on LaTeX documents
+title: Cloud-based LaTeX collaboration with Calkit and GitHub Codespaces
 categories:
   - Open science
   - Reproducibility
@@ -10,78 +10,48 @@ categories:
   - Open source
 ---
 
-I've noticed a bit of dissatisfaction with Overleaf lately.
-In my opinion it's a great tool for what it's meant for: Collaborating on
-LaTeX documents where the document is the main thing changing.
+Research projects will very often involve some sort of LaTeX document,
+e.g., a conference paper, slide deck, journal article,
+or multiple of each.
 
-What that means is that the project needs to be one where it's
-mostly writing,
-not data analysis, figure generation, etc.,
-since Overleaf isn't made for those other things.
-Since my projects almost always involved more than just writing a document,
-Overleaf was not the right tool for the job,
-so I didn't use it much.
+Here we're going to walk through setting up a collaborative LaTeX editing
+environment with Calkit and GitHub Codespaces.
 
-I'm going to give a slightly different philosophical stance on
-collaborating on documents or any other files for that matter.
-I don't actually think concurrent editing is good actually.
-For the same piece of content, team members should work in series,
-or the work should be split up into relatively uncoupled
-pieces before updating in parallel.
-
-We are going to show a practical example here that makes use of
-Calkit, an open source
-tool I've been working on to help with reproducibility in
-research projects.
+There are other cloud-based LaTeX collaboration tools,
+e.g., Overleaf, which is great,
+but I feel like tools like Overleaf are
+mostly suitable to pure writing projects.
+Research projects involve writing, sure,
+but they also involve collecting data,
+analyzing data, creating figures, etc.,
+which is not within the scope of Overleaf.
+Calkit on the other hand is intended to be a framework for all of the above,
+including the writing part,
+and leverages tools that can easily run both in the cloud and locally,
+for maximum flexibility.
 
 Full disclosure: There is a paid aspect of the Calkit Cloud
 to help pay for the costs of running the system,
-since it allows for storage of artifacts,
+since it allows for storage of artifacts like PDFs,
 but the software is fully open source and there is a free plan
 that provides more than enough storage to do what we'll do here.
 
-Calkit defines a framework for managing the entire project,
-not just the writing part,
-but we'll just focus on writing and document creation here.
-Calkit ties together and leverages Git, GitHub, DVC, Docker, and more
-to allow everything to live in a single folder,
-and easily be run on different machines.
-
-Here, the Calkit web app is going to setup our GitHub repo
-for LaTeX editing and compilation.
-This could all be done manually outside,
-but the goal here is to make it as simple as possible with as few steps
-as possible.
-
-Starting from the beginning,
-we'll assume we already have an Overleaf project and we want
-to migrate it over.
-
-Another benefit of what we'll create here is the ability to work offline
-using nearly identical tooling.
-We're going to use a GitHub Codespace for cloud editing,
-which defines a so-called "dev container" that can be connected to remotely
-or run locally with VS Code.
-
-Another elephant in the room is Git.
-Git is scary for the uninitiated, but here we'll show that with
-VS Code's graphical tools, it's quite easy.
-
 ## Prerequisites
 
-In order to set this up, you will need a GitHub account
+In order to set this up, you will need a GitHub account.
 
 ## Create the project
 
 Head to [calkit.io](https://calkit.io),
 sign in with GitHub,
+and click the "create project" button.
 
-TODO: Remove plan selection
+TODO: Remove plan selection?
 
-then create a new project.
-This will create a GitHub repo for us,
+Upon submitting, Calkit will create a GitHub repo for us,
 setup DVC,
-and create a dev container in which we and our collaborators can work.
+and create a so-called "dev container" configuration from
+which we and our collaborators can spin up our GitHub Codespace.
 
 Note that this will create a full Calkit project and DVC pipeline.
 You could remove those dependencies if this truly were a pure writing
@@ -95,6 +65,9 @@ and setup the appropriate dependencies.
 
 In order to push our PDFs up to the Calkit cloud,
 we will need a token.
+You can skip this step if you want to keep your compiled PDFs elsewhere,
+e.g., commit them directly to Git,
+which is okay if there small and/or won't change often.
 
 ## Optional: Setup a prebuild for the Codespace configuration
 
@@ -106,12 +79,16 @@ On the publications tab,
 create a new publication,
 select the type as report for now,
 and select the `latex/article` template.
-This will add a LaTeX template to our repo and a build stage to our
-DVC pipeline.
+This will add a LaTeX article to our repo and a build stage to our
+DVC pipeline,
+which will use a Docker container to build the document.
 
-TODO: Allow importing from Overleaf?
+Let's create the document in a new folder called `paper`:
 
-TODO: Should this just be called a document?
+![Creating the publication.](TODO)
+
+TODO: Add these as shortcuts on the project homepage?
+This could also include adding pipeline stages, etc.
 
 ## Edit the document in a dev container
 
@@ -120,15 +97,92 @@ This will open up a new tab with an in-browser VS Code
 editor, which will have access to our GitHub repo
 and will be able to compile the LaTeX document.
 
+If we execute `calkit run` in the terminal,
+we'll see the document will be compiled.
+
+### Break your lines properly
+
+When writing documents that will be versioned with Git,
+you want to make sure you break lines properly
+by splitting them at punctuation or otherwise breaking into one
+logical phrase per line.
+This will help when viewing differences between versions
+and proposed changes from collaborators.
+If you write paragraphs as one long line and let your editor "soft wrap"
+them,
+it will be a pain.
+
+So, instead of writing something like:
+
+```
+This is my very long and nice paragraph. It consists of many sentences, which make up the paragraph.
+```
+
+write:
+
+```
+This is my very long and nice paragraph.
+It consists of many sentences,
+which make up the paragraph.
+```
+
+The compiled document will look the same.
+
+Add some text to `paper/paper.tex` and press the play button icon
+in the upper right corner.
+This will automatically call `calkit run` again and refresh the PDF view.
+
+## Commit and push/pull changes
+
+The VS Code interface has a built in graphical tool for working with Git,
+which can make things a little easier.
+You can do most of what you need to do if you know these concepts:
+
+- Repository (repo): A collection of files tracked with Git.
+- Commit: A set of changes saved to the repo.
+- Push: Send updates to the cloud.
+- Pull: Download updates from the cloud and merge them into our current
+  working copy of the repo.
+- Stage: Add files to a commit.
+
+Using GitHub pull requests is outside the scope of this article.
+For many projects,
+it will make sense to have all collaborators simply commit
+to the main branch and continue to clean things up as you go.
+
 ## Handling concurrent collaboration
 
-The Calkit web app has a feature that allows locking files for editing.
+Other cloud-based tools like Google Docs and Overleaf
+allow multiple people to edit a document at the same time,
+continuously saving behind the scenes.
+In this workflow, we're using Git,
+which also technically allows concurrent editing,
+but every change or batch of changes needs to be deliberately committed,
+rather than being saved automatically.
+
+My personal opinion is that concurrent collaborative editing is
+actually not a good thing.
+However, if you want to do it,
+you still can,
+but you'll need to communicate a little more with your collaborators
+so you don't step on each other's toes and end up with merge conflicts.
+
+The Calkit web app has a feature that allows nominally locking files for
+editing,
+but at the time of writing is doesn't enforce these locks.
 You can use this so your collaborators see they shouldn't
-work on the file at the same time.
+work on the file at the same time,
+or simply shoot them a message on Slack or something to pass the ball around.
 
-## Reviewing proposed changes using PRs?
+There are other strategies that can work as well.
+Ultimately you just want to make sure no two people are working on the same
+paragraph(s) at the same time.
+You could split up the work by paragraph,
+or even use LaTeX `\input` commands to allow each collaborator to work
+on their own file, e.g.,
+if you've divided up the work by chapter or section.
 
-## Adding comments to address
+## Commenting and project management
 
 If you highlight a region of the PDF, you can create a comment
 and a corresponding GitHub issue.
@@ -137,36 +191,17 @@ you can include "fixes #5" or "resolves #5" in the commit message,
 and GitHub will automatically close it.
 I love that feature!
 
-## Importing from Overleaf
+In the `.tex` file, you can highlight some text and create a GitHub
+issue from it with the "Create Issue From Selection" command.
+Open up the command palette with `ctrl/cmd+shift+p` and
+start typing "issue from selection".
+The command should show up at the top of the list.
+After you create a new issue,
+click the GitHub icon in the left pane and look through the recent issues.
+You can right click on an issue and select "Go to Linked Code" to do just
+that.
 
-```sh
-calkit import publication \
-    https://overleaf.com/my-thing \
-    --kind journal-article
-    --stage latex-build
-```
-
-```sh
-calkit new publication \
-   --title "PhD thesis" \
-   --import https://overleaf.com/something \
-   --stage build-thesis \
-   --stage-type latex \
-   --environment texlive \
-   ./thesis
-```
-
-## Pull it down to edit locally
-
-```sh
-calkit clone https://github.com/my-username/my-project-name.git
-```
-
-Then open in VS Code.
-
-```sh
-
-```
+TODO: Feature for uploading marked up PDF?
 
 ## Conclusions
 
