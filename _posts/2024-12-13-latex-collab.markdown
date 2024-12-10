@@ -36,38 +36,37 @@ since it allows for storage of artifacts like PDFs,
 but the software is fully open source and there is a free plan
 that provides more than enough storage to do what we'll do here.
 
-## Prerequisites
+## Create the Calkit project
 
-In order to set this up, you will need a GitHub account.
-
-## Create the project
-
-Head to [calkit.io](https://calkit.io),
+In order to set this up, you will first need a GitHub account.
+Then head to [calkit.io](https://calkit.io),
 sign in with GitHub,
 and click the "create project" button.
-
-TODO: Remove plan selection?
 
 Upon submitting, Calkit will create a GitHub repo for us,
 setup DVC,
 and create a so-called "dev container" configuration from
-which we and our collaborators can spin up our GitHub Codespace.
-
-Note that this will create a full Calkit project and DVC pipeline.
-You could remove those dependencies if this truly were a pure writing
-project,
-but they don't add much overhead anyway,
-and will give you the flexibility to add things like figure generation
-steps to run ahead of the paper compilation,
-and setup the appropriate dependencies.
+which we can spin up our GitHub Codespace.
 
 ## Configure Codespace secrets
 
-In order to push our PDFs up to the Calkit cloud,
+In order to push our PDF artifacts up to the Calkit cloud,
 we will need a token.
 You can skip this step if you want to keep your compiled PDFs elsewhere,
 e.g., commit them directly to Git,
 which is okay if there small and/or won't change often.
+
+TODO: Quick action on Calkit homepage to manage Codespace secrets
+that goes to
+https://github.com/{owner}/{repo}/settings/secrets/codespaces
+
+Create a secret called `CALKIT_DVC_TOKEN`
+and paste in the value.
+
+Quick action should generate the DVC token, then allow them to copy
+and click a link to add to
+
+"Create a DVC token and add to GitHub Codespace secrets"
 
 ## Optional: Setup a prebuild for the Codespace configuration
 
@@ -75,14 +74,14 @@ This will help speed things up a bit.
 
 ## Add a new publication to the project
 
-On the publications tab,
-create a new publication,
-select the type as report for now,
-and select the `latex/article` template.
+TODO: Enable below
+
+Click the quick action to "create a new publication."
+In the dialog,
+select the `latex/article` template.
 This will add a LaTeX article to our repo and a build stage to our
 DVC pipeline,
 which will use a Docker container to build the document.
-
 Let's create the document in a new folder called `paper`:
 
 ![Creating the publication.](TODO)
@@ -90,7 +89,7 @@ Let's create the document in a new folder called `paper`:
 TODO: Add these as shortcuts on the project homepage?
 This could also include adding pipeline stages, etc.
 
-## Edit the document in a dev container
+## Edit the document in a GitHub Codespaces dev container
 
 Next, click "edit in GitHub Codespace."
 This will open up a new tab with an in-browser VS Code
@@ -98,9 +97,16 @@ editor, which will have access to our GitHub repo
 and will be able to compile the LaTeX document.
 
 If we execute `calkit run` in the terminal,
-we'll see the document will be compiled.
+we'll see the document will be compiled to `paper/paper.pdf`
+We can add some text to the document
+and rebuild it with the play button icon in the upper right corner of
+the editor.
+In the TeX section of the toolbar on the left there are
+some quick commands for building the document and viewing the PDF.
+Saving the `paper.tex` file should kick of an automatic rebuild
+and refresh the PDF view if it's open.
 
-### Break your lines properly
+### Tip: Break your lines properly
 
 When writing documents that will be versioned with Git,
 you want to make sure you break lines properly
@@ -135,7 +141,8 @@ This will automatically call `calkit run` again and refresh the PDF view.
 ## Commit and push/pull changes
 
 The VS Code interface has a built in graphical tool for working with Git,
-which can make things a little easier.
+which can make things a little easier compare to learning the Git CLI,
+if you're unfamiliar.
 You can do most of what you need to do if you know these concepts:
 
 - Repository (repo): A collection of files tracked with Git.
@@ -150,19 +157,25 @@ For many projects,
 it will make sense to have all collaborators simply commit
 to the main branch and continue to clean things up as you go.
 
+### Pushing the PDF to the Calkit Cloud
+
+The default behavior of DVC is to not save
+pipeline outputs to the repo, but instead commit them to DVC.
+The Calkit Cloud serves as a DVC remote for us to push these artifacts
+to back them up.
+Running `calkit push` will send our PDF to the cloud
+and make it viewable on the project's publications page.
+Note that `calkit push` will also send the Git changes to GitHub,
+which completely backs up the project.
+
 ## Handling concurrent collaboration
 
 Other cloud-based tools like Google Docs and Overleaf
 allow multiple people to edit a document at the same time,
 continuously saving behind the scenes.
-In this workflow, we're using Git,
-which also technically allows concurrent editing,
-but every change or batch of changes needs to be deliberately committed,
-rather than being saved automatically.
-
 My personal opinion is that concurrent collaborative editing is
-actually not a good thing.
-However, if you want to do it,
+usually not a good thing.
+However, if you want to do it with this setup,
 you still can,
 but you'll need to communicate a little more with your collaborators
 so you don't step on each other's toes and end up with merge conflicts.
@@ -203,21 +216,20 @@ that.
 
 TODO: Feature for uploading marked up PDF?
 
+You could also have a collaborator mark up a PDF and submit a single GitHub
+issue with the PDF attached.
+
 These issues will also show up in the "To-do" section of the Calkit project
 homepage.
 
-## Pushing the PDF to the Calkit Cloud
-
-The default behavior of DVC is to not save
-pipeline outputs to the repo, but instead commit them to DVC.
-The Calkit Cloud serves as a DVC remote for us to push these artifacts
-to back them up.
-To get this to work
-
 ## Conclusions
 
+Here we showed how to collaborate on a Calkit project's LaTeX document
+in the cloud using a GitHub Codespace.
 This setup will allow us to do the other things we'll
 need to do in our research project like store datasets,
 process them, create figures,
 and also build them into our paper.
 It can all happen in one place with one command.
+We are also able to work equally well locally as we can in the cloud,
+providing maximum flexibility.
