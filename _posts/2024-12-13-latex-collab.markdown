@@ -210,11 +210,11 @@ write a commit message, and click commit.
 We'll then see a button to sync the changes with the cloud,
 which we can go ahead and press.
 
-### Pushing the PDF to the Calkit Cloud
+### Push the PDF to the Calkit Cloud
 
 The default behavior of DVC is to not save
-pipeline outputs to the repo, but instead commit them to DVC,
-because Git is not particularly well suited to large files.
+pipeline outputs to Git, but instead commit them to DVC,
+since Git is not particularly well suited to large files.
 The Calkit Cloud serves as a DVC remote for us to push these artifacts
 to back them up.
 If we go down to the terminal and run `calkit push`,
@@ -227,7 +227,7 @@ which completely backs up the project.
 
 ![Calkit push.](/images/latex-collab/push.png)
 
-## Handling concurrent collaboration
+## Collaborate concurrently
 
 What we've seen so far is an individual's workflow.
 
@@ -264,7 +264,7 @@ For many projects,
 it will make sense to have all collaborators simply commit
 to the main branch and continue to clean things up as you go.
 
-## Commenting and project management
+## Manage the project with GitHub issues
 
 If you highlight a region of the PDF, you can create a comment
 and a corresponding GitHub issue.
@@ -290,6 +290,11 @@ issue with the PDF attached.
 
 These issues will also show up in the "To-do" section of the Calkit project
 homepage.
+
+For complex cases with lots of tasks and team members,
+GitHub projects is a nice tool,
+allowing you to put your tasks into a Kanban board,
+prioritize them, rate their effort level, and more.
 
 The LaTeX `todonotes` extension can also work nicely,
 
