@@ -25,12 +25,12 @@ and more importantly
 I feel like it's only really suited to pure writing projects.
 Research projects involve writing, sure,
 but they also involve a potentially iterative workflow including
-collecting and analyzing data, creating figures, etc.,
+collecting and analyzing data, running simulations, creating figures, etc.,
 which are not within the scope of Overleaf.
 
 [Calkit](https://github.com/calkit/calkit)
 on the other hand is intended to be a framework for all of the above,
-including the writing part,
+including writing,
 and leverages tools that can easily run both in the cloud and locally,
 for maximum flexibility.
 Here, however, we're going to focus doing everything in a web browser.
@@ -41,20 +41,21 @@ Disclosure: There is a paid aspect of the Calkit Cloud,
 which I manage,
 to help pay for the costs of running the system,
 and to prevent users for pushing up obscene amounts of data.
-However, the software is fully open source and there is a free plan
+However, the software is open source and there is a free plan
 that provides more than enough storage to do what we'll do here.
 
-## Create the Calkit project
+## Create the project
 
 In order to follow along, you will first need a GitHub account.
 Then head to [calkit.io](https://calkit.io),
 sign in with GitHub,
 and click the "create project" button.
-
 Upon submitting, Calkit will create a GitHub repo for us,
 setup DVC,
 and create a so-called "dev container" configuration from
 which we can spin up our GitHub Codespace.
+
+![Creating a new project.](/images/latex-collab/new-project.png)
 
 ## Configure Codespace secrets
 
@@ -72,6 +73,8 @@ to manage GitHub Codespaces secrets for the project.
 Create a secret called `CALKIT_DVC_TOKEN`
 and paste in the token.
 
+![Adding the secret.](/images/latex-collab/codespaces-secrets-2.png)
+
 ## Add a new publication to the project
 
 Next, click the quick action to "create a new publication from template."
@@ -84,9 +87,9 @@ which will automatically create
 a TeX Live Docker container to build the document.
 Let's create the document in a new folder called `paper`:
 
-![Creating the publication.](TODO)
+![Creating the publication.](/images/latex-collab/new-pub-2.png)
 
-## Create the Codespace and edit the document
+## Create the Codespace
 
 Next, click "Open in GitHub Codespaces."
 Once created, we'll see an in-browser VS Code
@@ -102,16 +105,34 @@ but the free plan limits are reasonably generous.
 It's also quite easy to run the same dev container config locally in
 [VS Code](https://code.visualstudio.com/).
 
-It will take a few minutes for the Codespace to be created,
-after which we'll be able to see our files.
-We can open up `paper/paper.tex` and click the play button icon in
-the upper right hand corner to build the document.
-Note that this will run the entire pipeline, not just the paper build
-stage,
+This might take few minutes to start up the first time,
+so go grab a coffee or take the dog for a walk.
+
+![Creating the Codespace.](/images/latex-collab/building-codespace.png)
+
+## Edit the document
+
+After the Codespace is built and ready,
+we can open up `paper/paper.tex` and start editing.
+
+![Editing the source.](/images/latex-collab/paper.tex.png)
+
+If you look in the upper right hand corner of the editor panel,
+you'll see a play button icon thanks to the
+[LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop)
+extension.
+Clicking that play button will rebuild the document.
+Just to the right of that button is one that will open the PDF in
+split window,
+which will refresh on each build.
+
+![The editor with buttons.](/images/latex-collab/editor-split.png)
+
+Note that the play button will run the entire pipeline,
+not just the paper build stage,
 so we can add more stages later, e.g., for creating figures,
 or even another LaTeX document,
-and everything will run with that play button,
-ensuring we're completely up-to-date.
+and everything will be kept up-to-date.
 Check out the
 [DVC stage documentation](https://dvc.org/doc/user-guide/pipelines/defining-pipelines#stages)
 for more details on how to
@@ -160,7 +181,7 @@ This will automatically call `calkit run` again and refresh the PDF view.
 
 ## Commit and push/pull changes
 
-The VS Code interface has a built in graphical tool for working with Git,
+The VS Code interface has a built-in graphical tool for working with Git,
 which can make things a little easier compare to learning the Git CLI,
 if you're unfamiliar.
 You can do most of what you need to do if you know these concepts:
@@ -171,6 +192,8 @@ You can do most of what you need to do if you know these concepts:
 - Pull: Download updates from the cloud and merge them into our current
   working copy of the repo.
 - Stage: Add files to a commit.
+
+
 
 ### Pushing the PDF to the Calkit Cloud
 
@@ -245,9 +268,7 @@ issue with the PDF attached.
 These issues will also show up in the "To-do" section of the Calkit project
 homepage.
 
-## Working offline
-
-TODO
+The LaTeX `todonotes` extension can also work nicely,
 
 ## Conclusions
 
@@ -257,6 +278,9 @@ This setup will allow us to do the other things we'll
 need to do in our research project like store datasets,
 process them, create figures,
 and also build them into our paper.
-It can all happen in one place with one command.
+It can all happen in one place with one command
+(see [this example](https://calkit.io/calkit/example-basic).)
 We are also able to work equally well locally as we can in the cloud,
 providing maximum flexibility.
+Most importantly,
+anyone on our team will be able to reproduce the results.
