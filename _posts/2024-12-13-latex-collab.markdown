@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2024-12-13
+date: 2024-12-11
 layout: post
 title: Cloud-based LaTeX collaboration with Calkit and GitHub Codespaces
 categories:
@@ -19,13 +19,17 @@ There are cloud-based LaTeX collaboration tools that promise to make this
 easier,
 the most popular of which is probably
 [Overleaf](https://overleaf.com).
-I think Overleaf is very cool,
-but I feel like it's only really suited to pure writing projects.
+Overleaf is pretty neat,
+but the free version is quite limited in terms of versioning and collaboration,
+and more importantly
+I feel like it's only really suited to pure writing projects.
 Research projects involve writing, sure,
-but they also involve collecting and analyzing data, creating figures, etc.,
-which is not within the scope of Overleaf.
+but they also involve a potentially iterative workflow including
+collecting and analyzing data, creating figures, etc.,
+which are not within the scope of Overleaf.
 
-Calkit on the other hand is intended to be a framework for all of the above,
+[Calkit](https://github.com/calkit/calkit)
+on the other hand is intended to be a framework for all of the above,
 including the writing part,
 and leverages tools that can easily run both in the cloud and locally,
 for maximum flexibility.
@@ -76,7 +80,8 @@ select the `latex/article` template,
 and fill in the rest of the required information.
 This will add a LaTeX article to our repo and a build stage to our
 DVC pipeline,
-which will use a TeX Live Docker container to build the document.
+which will automatically create
+a TeX Live Docker container to build the document.
 Let's create the document in a new folder called `paper`:
 
 ![Creating the publication.](TODO)
@@ -84,18 +89,20 @@ Let's create the document in a new folder called `paper`:
 ## Create the Codespace and edit the document
 
 Next, click "Open in GitHub Codespaces."
-This will open up a new tab with an in-browser VS Code
-editor, which will have access to our GitHub repo
+Once created, we'll see an in-browser VS Code
+editor, which will have access to our project repository
 and will be able to compile the LaTeX document.
 Consider this your very own virtual machine in the cloud for working
 on this project.
+You can update settings, add extensions, install packages, etc.
+You have total control over it.
 Note that GitHub does
 [charge for this service](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces),
-but the free plan limits are pretty generous.
-It's also quite easy to run the same dev container config locally
-in VS Code.
+but the free plan limits are reasonably generous.
+It's also quite easy to run the same dev container config locally in
+[VS Code](https://code.visualstudio.com/).
 
-It will take a few minutes for the Codespace to initialize,
+It will take a few minutes for the Codespace to be created,
 after which we'll be able to see our files.
 We can open up `paper/paper.tex` and click the play button icon in
 the upper right hand corner to build the document.
@@ -119,8 +126,10 @@ the editor.
 
 ## Break lines in a Git-friendly way
 
+This particular advice is not unique to cloud-based LaTeX editing,
+but it's worth mentioning anyway.
 When writing documents that will be versioned with Git,
-you want to make sure you break lines properly
+make sure to break lines properly
 by splitting them at punctuation or otherwise breaking into one
 logical phrase per line.
 This will help when viewing differences between versions
@@ -163,11 +172,6 @@ You can do most of what you need to do if you know these concepts:
   working copy of the repo.
 - Stage: Add files to a commit.
 
-Using GitHub pull requests is outside the scope of this article.
-For many projects,
-it will make sense to have all collaborators simply commit
-to the main branch and continue to clean things up as you go.
-
 ### Pushing the PDF to the Calkit Cloud
 
 The default behavior of DVC is to not save
@@ -190,6 +194,9 @@ However, if you want to do it with this setup,
 you still can,
 but you'll need to communicate a little more with your collaborators
 so you don't step on each other's toes and end up with merge conflicts.
+Alternatively, if you really like the Google Docs experience,
+you can setup the Codespace for
+[live collaboration](https://docs.github.com/en/codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace).
 
 The Calkit web app has a feature that allows nominally locking files for
 editing,
@@ -205,6 +212,11 @@ You could split up the work by paragraph,
 or even use LaTeX `\input` commands to allow each collaborator to work
 on their own file, e.g.,
 if you've divided up the work by chapter or section.
+
+Using GitHub pull requests is outside the scope of this article.
+For many projects,
+it will make sense to have all collaborators simply commit
+to the main branch and continue to clean things up as you go.
 
 ## Commenting and project management
 
