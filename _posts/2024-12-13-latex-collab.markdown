@@ -293,7 +293,7 @@ homepage.
 
 For complex cases with lots of tasks and team members,
 GitHub projects is a nice tool,
-allowing you to put your tasks into a Kanban board,
+allowing you to put your tasks into a Kanban board or table,
 prioritize them, rate their effort level, and more.
 
 The LaTeX `todonotes` extension can also work nicely,
