@@ -213,7 +213,8 @@ which we can go ahead and press.
 ### Pushing the PDF to the Calkit Cloud
 
 The default behavior of DVC is to not save
-pipeline outputs to the repo, but instead commit them to DVC.
+pipeline outputs to the repo, but instead commit them to DVC,
+because Git is not particularly well suited to large files.
 The Calkit Cloud serves as a DVC remote for us to push these artifacts
 to back them up.
 If we go down to the terminal and run `calkit push`,
@@ -291,6 +292,8 @@ These issues will also show up in the "To-do" section of the Calkit project
 homepage.
 
 The LaTeX `todonotes` extension can also work nicely,
+
+Show GitHub.dev link?
 
 ## Conclusions
 
