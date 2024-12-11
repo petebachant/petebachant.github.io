@@ -193,7 +193,22 @@ You can do most of what you need to do if you know these concepts:
   working copy of the repo.
 - Stage: Add files to a commit.
 
+If we make some changes to `paper.tex`,
+we can see a blue notification dot next to the source control icon in the
+left sidebar.
+In this view we can see there are two files that have been changed,
+`paper.tex`, which is understandable,
+and `dvc.lock`,
+which is a file DVC creates to keep track of the pipeline,
+and shows up in the "Staged Changes" list.
+We want to save the changes both this file and `paper.tex` in one commit,
+so let's stage the changes to `paper.tex`,
+write a commit message, and click commit.
 
+![Staging the changes.](/images/latex-collab/stage.png)
+
+We'll then see a button to sync the changes with the cloud,
+which we can go ahead and press.
 
 ### Pushing the PDF to the Calkit Cloud
 
@@ -201,12 +216,19 @@ The default behavior of DVC is to not save
 pipeline outputs to the repo, but instead commit them to DVC.
 The Calkit Cloud serves as a DVC remote for us to push these artifacts
 to back them up.
-Running `calkit push` will send our PDF to the cloud
-and make it viewable on the project's publications page.
+If we go down to the terminal and run `calkit push`,
+we'll push our DVC artifacts (just the PDF at this point)
+up to the cloud as well,
+which will make our PDF visible in the publications section of
+the Calkit project homepage.
 Note that `calkit push` will also send the Git changes to GitHub,
 which completely backs up the project.
 
+![Calkit push.](/images/latex-collab/push.png)
+
 ## Handling concurrent collaboration
+
+What we've seen so far is an individual's workflow.
 
 Other cloud-based tools like Google Docs and Overleaf
 allow multiple people to edit a document at the same time,
