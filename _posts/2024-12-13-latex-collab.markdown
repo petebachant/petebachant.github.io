@@ -253,10 +253,10 @@ backed up in the Calkit Cloud.
 
 ## Collaborate concurrently
 
-What we've seen so far is an individual's workflow.
+What we've seen so far is mostly an individual's workflow.
 What if we have multiple people working on the document at the same time?
-Other cloud-based tools like Google Docs and Overleaf
-allow multiple people to edit a file simultaneously,
+Other cloud-based systems like Google Docs and Overleaf
+allow multiple users to edit a file simultaneously,
 continuously saving behind the scenes.
 My personal opinion is that concurrent collaborative editing is
 usually not that helpful,
@@ -264,6 +264,8 @@ at least not on the same paragraph(s).
 However, if you really like the Google Docs experience,
 you can setup the Codespace for
 [live collaboration](https://docs.github.com/en/codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace).
+Otherwise, collaborators can create their own Codespaces from the same
+configuration just like we created ours.
 
 Git is actually quite good at automatically merging changes together,
 but typically you'll want to make sure no two people are working on the same
