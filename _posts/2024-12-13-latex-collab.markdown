@@ -30,7 +30,7 @@ which are not within the scope of Overleaf's functionality.
 [Calkit](https://github.com/calkit/calkit)
 on the other hand is a framework for all of the above,
 including writing,
-and it built upon tools that can easily run both in the cloud and locally,
+and is built upon tools that can easily run both in the cloud and locally,
 on- or offline,
 for maximum flexibility.
 Here we're going to focus doing everything in a web browser.
