@@ -63,7 +63,8 @@ which we can spin up our GitHub Codespace and start working.
 
 ## Add a new publication to the project
 
-Next, click the quick action link to "create a new publication from template."
+Next, click the quick action link on the project homepage
+to "create a new publication from template."
 In the dialog,
 select the `latex/article` template,
 and fill in the rest of the required information.
@@ -164,7 +165,7 @@ including how to define dependencies and outputs for the stages.
 
 ## Break lines in a Git-friendly way
 
-This advice is not unique to cloud-based LaTeX editing,
+This advice is not unique to cloud-based editing,
 but it's worth mentioning anyway.
 When writing documents that will be versioned with Git,
 make sure to break lines properly
@@ -173,7 +174,7 @@ logical phrase per line.
 This will help when viewing differences between versions
 and proposed changes from collaborators.
 If you write paragraphs as one long line and let them "soft wrap,"
-it will be a pain.
+it will be a little more difficult.
 
 So, instead of writing something like:
 
@@ -200,9 +201,9 @@ Rather than syncing our files automatically,
 we need to deliberately "commit" changes to create a snapshot
 and then sync or "push" them to the cloud.
 This can be a stumbling block when first getting started,
-but it's valuable because it makes one stop and think about how to
+but one major benefit is that it makes one stop and think about how to
 describe a given set of changes.
-More importantly, every snapshot will be available forever,
+Another benefit is that every snapshot will be available forever,
 so if you create lots of them, you'll never lose work.
 In a weird mood and ruined a paragraph that read well yesterday?
 Easy fix---just revert the changes.
@@ -255,7 +256,7 @@ Later on,
 if you end up adding things like large data files for analysis,
 or even photos and videos from an experiment,
 these can also be versioned with DVC and
-backed up in the Calkit Cloud.
+backed up in the cloud.
 
 ## Collaborate concurrently
 
