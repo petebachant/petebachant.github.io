@@ -248,7 +248,7 @@ completely backing up the project.
 Later on,
 if you end up adding things like large data files for analysis,
 or even photos and videos from an experiment,
-these can also be versioned in DVC and
+these can also be versioned with DVC and
 backed up in the Calkit Cloud.
 
 ## Collaborate concurrently
@@ -341,15 +341,20 @@ and can be created and closed from there as well.
 
 ## Conclusions
 
-Here we showed how to collaborate on a Calkit project's LaTeX document
+Here we saw a way to collaborate on a Calkit project's LaTeX document
 in the cloud using a GitHub Codespace.
-This setup will allow us to do the other things we'll
-need to do in our research project like store datasets,
-process them, create figures,
-and also build them into our paper.
-It can all happen in one place with one command
-(see [this example](https://calkit.io/calkit/example-basic).)
-We are also able to work equally well locally as we can in the cloud,
-providing maximum flexibility.
+Because the paper is built as a stage in a DVC pipeline,
+this setup will allow us to do the other things we'll
+need to do in our research project like create datasets,
+process them, make figures,
+and keep those and the paper up-to-date with a single command
+(see [this example](https://calkit.io/calkit/example-basic) for a
+project that includes these additional steps.)
+We also went over some tactics to help with version control,
+concurrent editing,
+and project management.
 Most importantly,
-anyone on our team will be able to reproduce the results.
+this setup is totally portable.
+We'll be able to work equally well locally as we can in the cloud,
+providing maximum flexibility,
+and allowing anyone to reproduce the results anywhere.
