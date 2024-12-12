@@ -193,28 +193,28 @@ like Google Docs, Overleaf, or Dropbox.
 Rather than syncing our files automatically,
 we need to deliberately "commit" changes to create a snapshot
 and then sync or "push" them to the cloud.
-This can be a stumbling block when first getting started with version control,
-but it's valuable because it makes you stop and think about how to
+This can be a stumbling block when first getting started,
+but it's valuable because it makes one stop and think about how to
 describe a given set of changes.
 More importantly, every snapshot will be available forever,
 so if you create lots of them, you'll never lose work.
 In a weird mood and ruined a paragraph that read well yesterday?
 Easy fix---just revert the changes.
 
-The VS Code interface has a built-in graphical tool for working with Git,
-which can make things a little easier compare to learning the Git
-command-line interface (CLI,)
-if you're unfamiliar.
+The VS Code interface has a built-in graphical tool for working with Git
+and GitHub,
+which can make things a little easier compare to learning the
+command-line interface (CLI.)
 If we make some changes to `paper.tex`,
 we can see a blue notification dot next to the source control icon in the
 left sidebar.
 In this view we can see there are two files that have been changed,
-`paper.tex`, which is understandable,
-and `dvc.lock`,
-which is a file DVC creates to keep track of the pipeline,
+`paper.tex` and `dvc.lock`,
+the latter of which is a file DVC creates to keep track of the pipeline,
 and shows up in the "Staged Changes" list,
-which is the list of files that would be added to a snapshot if we were
+a list of files that would be added to a snapshot if we were
 to create a commit right now.
+
 We want to save the changes both this file and `paper.tex` in one commit,
 so let's stage the changes to `paper.tex`,
 write a commit message, and click commit.
@@ -222,7 +222,7 @@ It is conventional to use the imperative mood for commit messages,
 so instead of something like "Added new text",
 one might use "Add new text",
 though it's totally up to you and your collaborators to define
-that for your project.
+that standard for your project.
 
 ![Staging the changes.](/images/latex-collab/stage.png)
 
@@ -244,9 +244,9 @@ If we go down to the terminal and run `calkit push`,
 we'll push our DVC artifacts (just the PDF at this point)
 up to the cloud as well,
 which will make our PDF visible in the publications section of
-the Calkit project homepage.
+the project homepage.
 Note that `calkit push` will also send the Git changes to GitHub,
-which completely backs up the project.
+completely backing up the project.
 
 ![Calkit push.](/images/latex-collab/push.png)
 
@@ -264,17 +264,18 @@ Other cloud-based tools like Google Docs and Overleaf
 allow multiple people to edit a file simultaneously,
 continuously saving behind the scenes.
 My personal opinion is that concurrent collaborative editing is
-usually not a good thing.
+usually not a good thing,
+at least not on the same paragraph(s).
 However, if you want to do it with this setup,
 you still can,
 but you'll need to communicate a little more with your collaborators
 so you don't step on each other's toes and end up with merge conflicts,
 which require manual fixes.
-There's actually an experimental file locking feature on the Calkit Cloud
+There's an experimental file locking feature on the Calkit Cloud
 for notifying your team that the document should not be edited,
 though at the time of writing the locks are only displayed,
 not enforced.
-You could also simply send your team a message on Slack letting them know
+You could also simply send your team a Slack message letting them know
 you're working on the doc, or a given section, and avoid conflicts that way.
 Alternatively, if you really like the Google Docs experience,
 you can setup the Codespace for
@@ -299,9 +300,9 @@ it will be easier to have all collaborators simply commit
 to the main branch and continue to clean things up as you go.
 If commits are kept small with descriptive messages,
 this will be even easier.
-
-To boil this down to one piece of advice,
-be sure to run `git pull` often, either from the UI or from the terminal.
+Also, be sure to run `git pull` often,
+either from the UI or from the terminal,
+so you don't miss out on others' changes.
 
 ## Manage the project with GitHub issues
 
