@@ -99,6 +99,10 @@ drop a note in a
 
 Next, from the project homepage,
 click "Open in GitHub Codespaces."
+Alternatively, if you haven't created your own project,
+you can
+[create your own Codespace in mine](https://github.com/codespaces/new/petebachant/calkit-latex-codespaces?quickstart=1).
+
 Once created, we'll see an in-browser
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
 editor, which will have access to our project repository
