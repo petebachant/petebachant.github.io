@@ -185,18 +185,24 @@ The compiled document will look the same.
 
 ## Commit and push/pull changes
 
+For better or for worse,
+working with Git/GitHub is different from other systems
+like Google Docs, Overleaf, or Dropbox.
+Rather than syncing our files automatically,
+we need to deliberately "commit" changes to create a snapshot
+and then sync or "push" them to the cloud.
+This can be a stumbling block when first getting started with version control,
+but it's valuable because it makes you stop and think about how to
+describe a given set of changes.
+More importantly, every snapshot will be available forever,
+so if you create lots of them, you'll never lose work.
+In a weird mood and ruined a paragraph that read well yesterday?
+Easy fix---just revert the changes.
+
 The VS Code interface has a built-in graphical tool for working with Git,
-which can make things a little easier compare to learning the Git CLI,
+which can make things a little easier compare to learning the Git
+command-line interface (CLI,)
 if you're unfamiliar.
-You can do most of what you need to do if you know these concepts:
-
-- Repository (repo): A collection of files tracked with Git.
-- Commit: A set of changes saved to the repo.
-- Push: Send updates to the cloud.
-- Pull: Download updates from the cloud and merge them into our current
-  working copy of the repo.
-- Stage: Add files to a commit.
-
 If we make some changes to `paper.tex`,
 we can see a blue notification dot next to the source control icon in the
 left sidebar.
@@ -204,23 +210,34 @@ In this view we can see there are two files that have been changed,
 `paper.tex`, which is understandable,
 and `dvc.lock`,
 which is a file DVC creates to keep track of the pipeline,
-and shows up in the "Staged Changes" list.
+and shows up in the "Staged Changes" list,
+which is the list of files that would be added to a snapshot if we were
+to create a commit right now.
 We want to save the changes both this file and `paper.tex` in one commit,
 so let's stage the changes to `paper.tex`,
 write a commit message, and click commit.
+It is conventional to use the imperative mood for commit messages,
+so instead of something like "Added new text",
+one might use "Add new text",
+though it's totally up to you and your collaborators to define
+that for your project.
 
 ![Staging the changes.](/images/latex-collab/stage.png)
 
-We'll then see a button to sync the changes with the cloud,
+After committing we'll see a button to sync the changes with the cloud,
 which we can go ahead and press.
+This will first pull and then push our commits up to GitHub,
+which our collaborators will then be able to pull into their own workspaces.
 
 ### Push the PDF to the Calkit Cloud
 
 The default behavior of DVC is to not save
-pipeline outputs to Git, but instead commit them to DVC,
-since Git is not particularly well suited to large files.
-The Calkit Cloud serves as a DVC remote for us to push these artifacts
-to back them up.
+pipeline outputs like our compiled PDF to Git,
+but instead commit them to DVC,
+since Git is not particularly good at handling large and/or binary files.
+The Calkit Cloud serves as a "DVC remote" for us to push these artifacts
+to back them up and make them available to our team.
+
 If we go down to the terminal and run `calkit push`,
 we'll push our DVC artifacts (just the PDF at this point)
 up to the cloud as well,
@@ -231,42 +248,58 @@ which completely backs up the project.
 
 ![Calkit push.](/images/latex-collab/push.png)
 
+Later on,
+if you end up adding things like large data files for analysis,
+or even photos and videos from an experiment,
+these can also be versioned in DVC and
+backed up in the Calkit Cloud.
+
 ## Collaborate concurrently
 
 What we've seen so far is an individual's workflow.
-
+What if we have multiple people working on the document at the same time?
 Other cloud-based tools like Google Docs and Overleaf
-allow multiple people to edit a document at the same time,
+allow multiple people to edit a file simultaneously,
 continuously saving behind the scenes.
 My personal opinion is that concurrent collaborative editing is
 usually not a good thing.
 However, if you want to do it with this setup,
 you still can,
 but you'll need to communicate a little more with your collaborators
-so you don't step on each other's toes and end up with merge conflicts.
+so you don't step on each other's toes and end up with merge conflicts,
+which require manual fixes.
+There's actually an experimental file locking feature on the Calkit Cloud
+for notifying your team that the document should not be edited,
+though at the time of writing the locks are only displayed,
+not enforced.
+You could also simply send your team a message on Slack letting them know
+you're working on the doc, or a given section, and avoid conflicts that way.
 Alternatively, if you really like the Google Docs experience,
 you can setup the Codespace for
 [live collaboration](https://docs.github.com/en/codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace).
 
-The Calkit web app has a feature that allows nominally locking files for
-editing,
-but at the time of writing is doesn't enforce these locks.
-You can use this so your collaborators see they shouldn't
-work on the file at the same time,
-or simply shoot them a message on Slack or something to pass the ball around.
-
 There are other strategies that can work as well.
+Git is actually quite good at automatically merging changes together.
 Ultimately you just want to make sure no two people are working on the same
-paragraph(s) at the same time.
+line(s) at the same time.
 You could split up the work by paragraph,
-or even use LaTeX `\input` commands to allow each collaborator to work
+or even use LaTeX `\input` commands in the main `.tex` file
+to allow each collaborator to work
 on their own file, e.g.,
 if you've divided up the work by chapter or section.
 
-Using GitHub pull requests is outside the scope of this article.
-For many projects,
-it will make sense to have all collaborators simply commit
+Git can also create different branches of the repo in order to merge them
+together at a later time, optionally via GitHub pull requests,
+which can allow the team to review proposed changes before they're
+incorporated.
+However, for many projects,
+it will be easier to have all collaborators simply commit
 to the main branch and continue to clean things up as you go.
+If commits are kept small with descriptive messages,
+this will be even easier.
+
+To boil this down to one piece of advice,
+be sure to run `git pull` often, either from the UI or from the terminal.
 
 ## Manage the project with GitHub issues
 
