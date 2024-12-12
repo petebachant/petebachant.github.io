@@ -306,12 +306,27 @@ so you don't miss out on others' changes.
 
 ## Manage the project with GitHub issues
 
+Another important aspect of collaborative writing is reviewing
+and discussing the work.
+I recommend using
+[GitHub issues](https://docs.github.com/en/issues)
+as a place to create to-do items
+and discuss them,
+which is particularly relevant for team members who are mostly
+reviewing rather thant writing.
+
+A few potential approaches for a review process that creates these issues:
+
+1. Download the latest PDF of the document, add comments, and attach
+   the marked up PDF to a new GitHub issue.
+   A variant of this is printing it out and scanning the version with red pen
+   all over it.
+2. Highlight regions of the text in the `.tex` file,
+   either on the GitHub website or in the VS Code editor,
+   and create an issue from that snippet.
+
 If you highlight a region of the PDF, you can create a comment
 and a corresponding GitHub issue.
-If you make a commit that addresses a given issue,
-you can include "fixes #5" or "resolves #5" in the commit message,
-and GitHub will automatically close it.
-I love that feature!
 
 In the `.tex` file, you can highlight some text and create a GitHub
 issue from it with the "Create Issue From Selection" command.
@@ -323,22 +338,19 @@ click the GitHub icon in the left pane and look through the recent issues.
 You can right click on an issue and select "Go to Linked Code" to do just
 that.
 
-TODO: Feature for uploading marked up PDF?
-
-You could also have a collaborator mark up a PDF and submit a single GitHub
-issue with the PDF attached.
-
 These issues will also show up in the "To-do" section of the Calkit project
 homepage.
 
+If you make a commit that addresses a given issue,
+you can include "fixes #5" or "resolves #5" in the commit message,
+and GitHub will automatically close it.
+I love that feature!
+
 For complex cases with lots of tasks and team members,
-GitHub projects is a nice tool,
+[GitHub projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+is a nice feature,
 allowing you to put your tasks into a Kanban board or table,
-prioritize them, rate their effort level, and more.
-
-The LaTeX `todonotes` extension can also work nicely,
-
-Show GitHub.dev link?
+prioritize them, assess their effort level, and more.
 
 ## Conclusions
 
