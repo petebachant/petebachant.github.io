@@ -172,20 +172,20 @@ it will be a pain.
 So, instead of writing something like:
 
 ```
-This is my very nice paragraph. It consists of many sentences, which make up the paragraph.
+This is a very nice paragraph. It consists of many sentences, which make up the paragraph.
 ```
 
 write:
 
 ```
-This is my very nice paragraph.
+This is a very nice paragraph.
 It consists of many sentences,
 which make up the paragraph.
 ```
 
 The compiled document will look the same.
 
-## Commit and push/pull changes
+## Commit and sync changes
 
 For better or for worse,
 working with Git/GitHub is different from other systems
@@ -330,7 +330,6 @@ If you make a commit that addresses a given issue,
 you can include "fixes #5" or "resolves #5" in the commit message,
 referencing the issue number,
 and GitHub will automatically close it.
-I love that feature and use it often.
 
 For complex cases with lots of tasks and team members,
 [GitHub projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
@@ -359,4 +358,4 @@ Most importantly,
 this setup is totally portable.
 We'll be able to work equally well locally as we can in the cloud,
 providing maximum flexibility,
-and allowing anyone to reproduce the results anywhere.
+and allowing anyone to reproduce the outputs anywhere.
