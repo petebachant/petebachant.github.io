@@ -13,29 +13,31 @@ categories:
 Research projects will very often involve some sort of LaTeX document,
 e.g., a conference paper, slide deck, journal article,
 or multiple of each.
-Collaborating on one of these can be a pain.
-
-There are cloud-based LaTeX collaboration tools that promise to make this
-easier,
+Collaborating on one of these can be painful.
+There are cloud-based LaTeX collaboration tools that help,
 the most popular of which is probably
 [Overleaf](https://overleaf.com).
 Overleaf is pretty neat,
-but the free version is quite limited in terms of versioning and collaboration,
-and more importantly
+but the free version is quite limited in terms of versioning, collaboration,
+and offline editing.
+Most importantly
 I feel like it's only really suited to pure writing projects.
 Research projects involve writing, sure,
-but they also involve a potentially iterative workflow including
+but they also involve (often iteratively)
 collecting and analyzing data, running simulations, creating figures, etc.,
-which are not within the scope of Overleaf.
+which are not within the scope of Overleaf's functionality.
 
 [Calkit](https://github.com/calkit/calkit)
-on the other hand is intended to be a framework for all of the above,
+on the other hand is a framework for all of the above,
 including writing,
-and leverages tools that can easily run both in the cloud and locally,
+and it built upon tools that can easily run both in the cloud and locally,
+on- or offline,
 for maximum flexibility.
-Here, however, we're going to focus doing everything in a web browser.
-We'll walk through setting up a collaborative LaTeX editing
-environment with Calkit and GitHub Codespaces.
+Here we're going to focus doing everything in a web browser.
+We'll set up a collaborative LaTeX editing
+environment with Calkit and
+[GitHub Codespaces](https://github.com/features/codespaces),
+a cloud-based virtual machine service.
 
 Disclosure: There is a paid aspect of the Calkit Cloud,
 which I manage,
@@ -46,20 +48,22 @@ that provides more than enough storage to do what we'll do here.
 
 ## Create the project
 
-In order to follow along, you will first need a GitHub account.
+In order to follow along, you'll need a GitHub account,
+so if you don't have one,
+[sign up for free](https://github.com/signup).
 Then head to [calkit.io](https://calkit.io),
 sign in with GitHub,
 and click the "create project" button.
-Upon submitting, Calkit will create a GitHub repo for us,
-setup DVC,
+Upon submitting, Calkit will create a new GitHub repository for us,
+setup [DVC](https://dvc.org) (Data Version Control) inside it,
 and create a so-called "dev container" configuration from
-which we can spin up our GitHub Codespace.
+which we can spin up our GitHub Codespace and start working.
 
 ![Creating a new project.](/images/latex-collab/new-project.png)
 
 ## Configure Codespace secrets
 
-In order to push our PDF artifacts up to the Calkit Cloud's DVC remote,
+In order to push artifacts like PDFs up to the Calkit Cloud's DVC remote,
 we will need a token.
 You can skip this step if you want to keep your compiled PDFs elsewhere,
 e.g., commit them directly to Git,
@@ -85,14 +89,22 @@ This will add a LaTeX article to our repo and a build stage to our
 DVC pipeline,
 which will automatically create
 a TeX Live Docker container to build the document.
-Let's create the document in a new folder called `paper`:
+Here we'll create the document in a new folder called `paper`:
 
 ![Creating the publication.](/images/latex-collab/new-pub-2.png)
 
+Keep in mind that you'll be able add different LaTeX style and config
+files later on if the generic article template doesn't suit your needs.
+Also, if you have ideas for templates you think should be included,
+drop a note in a
+[new GitHub issue](https://github.com/calkit/calkit/issues/new).
+
 ## Create the Codespace
 
-Next, click "Open in GitHub Codespaces."
-Once created, we'll see an in-browser VS Code
+Next, from the project homepage on calkit.io,
+click "Open in GitHub Codespaces."
+Once created, we'll see an in-browser
+[Visual Studio Code (VS Code)](https://code.visualstudio.com/)
 editor, which will have access to our project repository
 and will be able to compile the LaTeX document.
 Consider this your very own virtual machine in the cloud for working
@@ -103,9 +115,10 @@ Note that GitHub does
 [charge for this service](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces),
 but the free plan limits are reasonably generous.
 It's also quite easy to run the same dev container config locally in
-[VS Code](https://code.visualstudio.com/).
+in VS Code.
 
-This might take few minutes to start up the first time,
+It might take few minutes to start up the first time
+as the Codespace is created,
 so go grab a coffee or take the dog for a walk.
 
 ![Creating the Codespace.](/images/latex-collab/building-codespace.png)
@@ -113,15 +126,15 @@ so go grab a coffee or take the dog for a walk.
 ## Edit the document
 
 After the Codespace is built and ready,
-we can open up `paper/paper.tex` and start editing.
+we can open up `paper/paper.tex` and start writing.
 
 ![Editing the source.](/images/latex-collab/paper.tex.png)
 
 If you look in the upper right hand corner of the editor panel,
-you'll see a play button icon thanks to the
+you'll see a play button icon added by the
 [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop)
 extension.
-Clicking that play button will rebuild the document.
+Clicking that will rebuild the document.
 Just to the right of that button is one that will open the PDF in
 split window,
 which will refresh on each build.
@@ -133,21 +146,17 @@ not just the paper build stage,
 so we can add more stages later, e.g., for creating figures,
 or even another LaTeX document,
 and everything will be kept up-to-date.
+This is effectively the same thing as calling `calkit run`
+from the terminal.
 Check out the
 [DVC stage documentation](https://dvc.org/doc/user-guide/pipelines/defining-pipelines#stages)
 for more details on how to
 build and manage your pipeline,
 including how to define dependencies and outputs for the stages.
 
-If we execute `calkit run` in the terminal,
-we'll see the document will be compiled to `paper/paper.pdf`
-We can add some text to the document
-and rebuild it with the play button icon in the upper right corner of
-the editor.
-
 ## Break lines in a Git-friendly way
 
-This particular advice is not unique to cloud-based LaTeX editing,
+This advice is not unique to cloud-based LaTeX editing,
 but it's worth mentioning anyway.
 When writing documents that will be versioned with Git,
 make sure to break lines properly
@@ -155,8 +164,7 @@ by splitting them at punctuation or otherwise breaking into one
 logical phrase per line.
 This will help when viewing differences between versions
 and proposed changes from collaborators.
-If you write paragraphs as one long line and let your editor "soft wrap"
-them,
+If you write paragraphs as one long line and let them "soft wrap,"
 it will be a pain.
 
 So, instead of writing something like:
@@ -174,10 +182,6 @@ which make up the paragraph.
 ```
 
 The compiled document will look the same.
-
-Add some text to `paper/paper.tex` and press the play button icon
-in the upper right corner.
-This will automatically call `calkit run` again and refresh the PDF view.
 
 ## Commit and push/pull changes
 
