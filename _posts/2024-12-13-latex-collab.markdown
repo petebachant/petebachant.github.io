@@ -310,47 +310,47 @@ Another important aspect of collaborative writing is reviewing
 and discussing the work.
 I recommend using
 [GitHub issues](https://docs.github.com/en/issues)
-as a place to create to-do items
+as a place to create to-do items or tasks
 and discuss them,
 which is particularly relevant for team members who are mostly
 reviewing rather thant writing.
 
-A few potential approaches for a review process that creates these issues:
+One approach to creating issues is to
+Download the latest PDF of the document, add comments, and attach
+the marked up PDF to a new GitHub issue.
+A variant of this is printing it out and scanning the version with red pen
+all over it.
 
-1. Download the latest PDF of the document, add comments, and attach
-   the marked up PDF to a new GitHub issue.
-   A variant of this is printing it out and scanning the version with red pen
-   all over it.
-2. Highlight regions of the text in the `.tex` file,
-   either on the GitHub website or in the VS Code editor,
-   and create an issue from that snippet.
-
-If you highlight a region of the PDF, you can create a comment
-and a corresponding GitHub issue.
-
+Another approach is to create issues from within VS Code.
 In the `.tex` file, you can highlight some text and create a GitHub
 issue from it with the "Create Issue From Selection" command.
 Open up the command palette with `ctrl/cmd+shift+p` and
 start typing "issue from selection".
 The command should show up at the top of the list.
+
+![Creating issue from VS Code](/images/latex-collab/issue-from-selection.png)
+
 After you create a new issue,
 click the GitHub icon in the left pane and look through the recent issues.
 You can right click on an issue and select "Go to Linked Code" to do just
 that.
 
-These issues will also show up in the "To-do" section of the Calkit project
-homepage.
+![Go to linked code.](/images/latex-collab/go-to-linked-code.png)
 
 If you make a commit that addresses a given issue,
 you can include "fixes #5" or "resolves #5" in the commit message,
+referencing the issue number,
 and GitHub will automatically close it.
-I love that feature!
+I love that feature and use it often.
 
 For complex cases with lots of tasks and team members,
 [GitHub projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 is a nice feature,
 allowing you to put your tasks into a Kanban board or table,
 prioritize them, assess their effort level, and more.
+Also note that these GitHub issues will also show up in
+the "To-do" section on the Calkit project homepage,
+and can be created and closed from there as well.
 
 ## Conclusions
 
