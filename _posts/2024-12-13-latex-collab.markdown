@@ -33,15 +33,15 @@ including writing,
 and is built upon tools that can easily run both in the cloud and locally,
 on- or offline,
 for maximum flexibility.
-Here we're going to focus doing everything in a web browser.
+Here we're going to focus doing everything in a web browser though.
 We'll set up a collaborative LaTeX editing
 environment with Calkit and
 [GitHub Codespaces](https://github.com/features/codespaces),
 a cloud-based virtual machine service.
 
-Disclosure: There is a paid aspect of the Calkit Cloud,
+**Disclosure:** There is a paid aspect of the Calkit Cloud,
 which I manage,
-to help pay for the costs of running the system,
+to help with the costs of running the system,
 and to prevent users for pushing up obscene amounts of data.
 However, the software is open source and there is a free plan
 that provides more than enough storage to do what we'll do here.
@@ -65,10 +65,6 @@ which we can spin up our GitHub Codespace and start working.
 
 In order to push artifacts like PDFs up to the Calkit Cloud's DVC remote,
 we will need a token.
-You can skip this step if you want to keep your compiled PDFs elsewhere,
-e.g., commit them directly to Git,
-which is okay if there small and/or won't change often.
-
 On the Calkit project homepage you'll see a link to manage user tokens.
 Head over there and create one, selecting "DVC" as the purpose.
 Save this in a password manager if you have one,
@@ -81,14 +77,14 @@ and paste in the token.
 
 ## Add a new publication to the project
 
-Next, click the quick action to "create a new publication from template."
+Next, click the quick action link to "create a new publication from template."
 In the dialog,
 select the `latex/article` template,
 and fill in the rest of the required information.
 This will add a LaTeX article to our repo and a build stage to our
 DVC pipeline,
 which will automatically create
-a TeX Live Docker container to build the document.
+a TeX Live Docker environment to build the document.
 Here we'll create the document in a new folder called `paper`:
 
 ![Creating the publication.](/images/latex-collab/new-pub-2.png)
@@ -101,7 +97,7 @@ drop a note in a
 
 ## Create the Codespace
 
-Next, from the project homepage on calkit.io,
+Next, from the project homepage,
 click "Open in GitHub Codespaces."
 Once created, we'll see an in-browser
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
@@ -114,7 +110,7 @@ You have total control over it.
 Note that GitHub does
 [charge for this service](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces),
 but the free plan limits are reasonably generous.
-It's also quite easy to run the same dev container config locally in
+It's also faily easy to run the same dev container configuration locally in
 in VS Code.
 
 It might take few minutes to start up the first time
@@ -123,7 +119,7 @@ so go grab a coffee or take the dog for a walk.
 
 ![Creating the Codespace.](/images/latex-collab/building-codespace.png)
 
-## Edit the document
+## Edit and build the document
 
 After the Codespace is built and ready,
 we can open up `paper/paper.tex` and start writing.
@@ -141,13 +137,19 @@ which will refresh on each build.
 
 ![The editor with buttons.](/images/latex-collab/editor-split.png)
 
-Note that the play button will run the entire pipeline,
+Note that the play button will run the entire pipeline
+(like calling `calkit run` from a terminal,)
 not just the paper build stage,
 so we can add more stages later, e.g., for creating figures,
 or even another LaTeX document,
-and everything will be kept up-to-date.
-This is effectively the same thing as calling `calkit run`
-from the terminal.
+and everything will be kept up-to-date as needed.
+This is a major difference between this workflow and that of a typical
+LaTeX editor, i.e.,
+that the entire project is treated holistically,
+so for example,
+there's no need to worry about if you forgot to rerun the paper build
+after tweaking a figure---it's all one pipeline.
+
 Check out the
 [DVC stage documentation](https://dvc.org/doc/user-guide/pipelines/defining-pipelines#stages)
 for more details on how to
