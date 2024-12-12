@@ -105,10 +105,10 @@ editor, which will have access to our project repository
 and will be able to compile the LaTeX document.
 Consider this your very own virtual machine in the cloud for working
 on this project.
-You can update settings, add extensions, install packages, etc.
+You can update settings, add extensions, etc.
 You have total control over it.
 Note that GitHub does
-[charge for this service](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces),
+[charge for Codespaces](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces),
 but the free plan limits are reasonably generous.
 It's also faily easy to run the same dev container configuration locally in
 in VS Code.
@@ -145,8 +145,8 @@ or even another LaTeX document,
 and everything will be kept up-to-date as needed.
 This is a major difference between this workflow and that of a typical
 LaTeX editor, i.e.,
-that the entire project is treated holistically,
-so for example,
+that the entire project is treated holistically.
+So for example,
 there's no need to worry about if you forgot to rerun the paper build
 after tweaking a figure---it's all one pipeline.
 
@@ -172,13 +172,13 @@ it will be a pain.
 So, instead of writing something like:
 
 ```
-This is my very long and nice paragraph. It consists of many sentences, which make up the paragraph.
+This is my very nice paragraph. It consists of many sentences, which make up the paragraph.
 ```
 
 write:
 
 ```
-This is my very long and nice paragraph.
+This is my very nice paragraph.
 It consists of many sentences,
 which make up the paragraph.
 ```
@@ -203,7 +203,7 @@ Easy fix---just revert the changes.
 
 The VS Code interface has a built-in graphical tool for working with Git
 and GitHub,
-which can make things a little easier compare to learning the
+which can make things a little easier compared to learning the
 command-line interface (CLI.)
 If we make some changes to `paper.tex`,
 we can see a blue notification dot next to the source control icon in the
@@ -218,16 +218,11 @@ to create a commit right now.
 We want to save the changes both this file and `paper.tex` in one commit,
 so let's stage the changes to `paper.tex`,
 write a commit message, and click commit.
-It is conventional to use the imperative mood for commit messages,
-so instead of something like "Added new text",
-one might use "Add new text",
-though it's totally up to you and your collaborators to define
-that standard for your project.
 
 ![Staging the changes.](/images/latex-collab/stage.png)
 
 After committing we'll see a button to sync the changes with the cloud,
-which we can go ahead and press.
+which we can go ahead and click.
 This will first pull and then push our commits up to GitHub,
 which our collaborators will then be able to pull into their own workspaces.
 
@@ -264,32 +259,24 @@ Other cloud-based tools like Google Docs and Overleaf
 allow multiple people to edit a file simultaneously,
 continuously saving behind the scenes.
 My personal opinion is that concurrent collaborative editing is
-usually not a good thing,
+usually not that helpful,
 at least not on the same paragraph(s).
-However, if you want to do it with this setup,
-you still can,
-but you'll need to communicate a little more with your collaborators
-so you don't step on each other's toes and end up with merge conflicts,
-which require manual fixes.
-There's an experimental file locking feature on the Calkit Cloud
-for notifying your team that the document should not be edited,
-though at the time of writing the locks are only displayed,
-not enforced.
-You could also simply send your team a Slack message letting them know
-you're working on the doc, or a given section, and avoid conflicts that way.
-Alternatively, if you really like the Google Docs experience,
+However, if you really like the Google Docs experience,
 you can setup the Codespace for
 [live collaboration](https://docs.github.com/en/codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace).
 
-There are other strategies that can work as well.
-Git is actually quite good at automatically merging changes together.
-Ultimately you just want to make sure no two people are working on the same
+Git is actually quite good at automatically merging changes together,
+but typically you'll want to make sure no two people are working on the same
 line(s) at the same time.
-You could split up the work by paragraph,
-or even use LaTeX `\input` commands in the main `.tex` file
+You'll need to communicate a little more with your collaborators
+so you don't step on each other's toes and end up with merge conflicts,
+which require manual fixes.
+You could simply send your team a Slack message letting them know
+you're working on the doc, or a given section, and avoid conflicts that way.
+You could split up the work by paragraph or section,
+and even use LaTeX `\input` commands in the main `.tex` file
 to allow each collaborator to work
-on their own file, e.g.,
-if you've divided up the work by chapter or section.
+on their own file.
 
 Git can also create different branches of the repo in order to merge them
 together at a later time, optionally via GitHub pull requests,
