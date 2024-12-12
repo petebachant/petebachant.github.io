@@ -61,20 +61,6 @@ which we can spin up our GitHub Codespace and start working.
 
 ![Creating a new project.](/images/latex-collab/new-project.png)
 
-## Configure Codespace secrets
-
-In order to push artifacts like PDFs up to the Calkit Cloud's DVC remote,
-we will need a token.
-On the Calkit project homepage you'll see a link to manage user tokens.
-Head over there and create one, selecting "DVC" as the purpose.
-Save this in a password manager if you have one,
-then head back to the project homepage and click the quick action link
-to manage GitHub Codespaces secrets for the project.
-Create a secret called `CALKIT_DVC_TOKEN`
-and paste in the token.
-
-![Adding the secret.](/images/latex-collab/codespaces-secrets-2.png)
-
 ## Add a new publication to the project
 
 Next, click the quick action link to "create a new publication from template."
@@ -96,6 +82,22 @@ drop a note in a
 [new GitHub issue](https://github.com/calkit/calkit/issues/new).
 
 ## Create the Codespace
+
+In order to push artifacts like PDFs up to the Calkit Cloud's DVC remote,
+we will need a token and we'll need to set it as a secret for the Codespace.
+On the Calkit project homepage you'll see a link in the quick actions
+to manage user tokens.
+
+![Project home page.](/images/latex-collab/project-home-3.png)
+
+Head over there and create one, selecting "DVC" as the purpose.
+Save this in a password manager if you have one,
+then head back to the project homepage and click the quick action link
+to configure GitHub Codespaces secrets for the project.
+Create a secret called `CALKIT_DVC_TOKEN`
+and paste in the token.
+
+![Adding the secret.](/images/latex-collab/codespaces-secrets-2.png)
 
 Next, from the project homepage,
 click "Open in GitHub Codespaces."
@@ -305,7 +307,7 @@ I recommend using
 [GitHub issues](https://docs.github.com/en/issues)
 as a place to create to-do items or tasks
 and discuss them,
-which is particularly relevant for team members who are mostly
+which is particularly helpful for team members who are mostly
 reviewing rather thant writing.
 
 One approach to creating issues is to
