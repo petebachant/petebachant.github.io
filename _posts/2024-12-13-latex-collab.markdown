@@ -10,11 +10,11 @@ categories:
   - Open source
 ---
 
-Research projects will very often involve some sort of LaTeX document,
+Research projects often involve some sort of LaTeX document,
 e.g., a conference paper, slide deck, journal article,
 or multiple of each.
-Collaborating on one of these can be painful.
-There are cloud-based LaTeX collaboration tools that help,
+Collaborating on one of these can be painful,
+but there are cloud-based LaTeX collaboration tools that can help,
 the most popular of which is probably
 [Overleaf](https://overleaf.com).
 Overleaf is pretty neat,
@@ -22,7 +22,7 @@ but the free version is quite limited in terms of versioning, collaboration,
 and offline editing.
 Most importantly
 I feel like it's only really suited to pure writing projects.
-Research projects involve writing, sure,
+Research projects involve writing for sure,
 but they also involve (often iteratively)
 collecting and analyzing data, running simulations, creating figures, etc.,
 which are not within the scope of Overleaf's functionality.
