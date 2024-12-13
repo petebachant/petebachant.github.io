@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2024-12-11
+date: 2024-12-13
 layout: post
 title: Cloud-based LaTeX collaboration with Calkit and GitHub Codespaces
 categories:
