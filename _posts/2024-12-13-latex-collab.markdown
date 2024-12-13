@@ -10,7 +10,7 @@ categories:
   - Open source
 ---
 
-Research projects often involve some sort of LaTeX document,
+Research projects often involve producing some sort of LaTeX document,
 e.g., a conference paper, slide deck, journal article, proposal,
 or multiple of each.
 Collaborating on one of these can be painful,
@@ -28,7 +28,8 @@ collecting and analyzing data, running simulations, creating figures, etc.,
 which are outside Overleaf's scope.
 
 [Calkit](https://github.com/calkit/calkit)
-on the other hand is a framework for all of the above,
+on the other hand is a research project framework encompassing
+all of the above,
 including writing,
 and is built upon tools that can easily run both in the cloud and locally,
 on- or offline,
@@ -42,7 +43,7 @@ a container-based virtual machine service.
 **Disclosure:** There is a paid aspect of the Calkit Cloud,
 which I manage,
 to help with the costs of running the system,
-and to prevent users for pushing up obscene amounts of data.
+and to prevent users for pushing up unreasonable amounts of data.
 However, the software is open source and there is a free plan
 that provides more than enough storage to do what we'll do here.
 
