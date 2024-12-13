@@ -11,21 +11,21 @@ categories:
 ---
 
 Research projects often involve some sort of LaTeX document,
-e.g., a conference paper, slide deck, journal article,
+e.g., a conference paper, slide deck, journal article, proposal,
 or multiple of each.
 Collaborating on one of these can be painful,
-but there are cloud-based LaTeX collaboration tools that can help,
+though there are web- or cloud-based tools to help,
 the most popular of which is probably
 [Overleaf](https://overleaf.com).
 Overleaf is pretty neat,
 but the free version is quite limited in terms of versioning, collaboration,
 and offline editing.
-Most importantly
+Most importantly,
 I feel like it's only really suited to pure writing projects.
 Research projects involve writing for sure,
 but they also involve (often iteratively)
 collecting and analyzing data, running simulations, creating figures, etc.,
-which are not within the scope of Overleaf's functionality.
+which are outside Overleaf's scope.
 
 [Calkit](https://github.com/calkit/calkit)
 on the other hand is a framework for all of the above,
@@ -37,7 +37,7 @@ Here we're going to focus doing everything in a web browser though.
 We'll set up a collaborative LaTeX editing
 environment with Calkit and
 [GitHub Codespaces](https://github.com/features/codespaces),
-a cloud-based virtual machine service.
+a container-based virtual machine service.
 
 **Disclosure:** There is a paid aspect of the Calkit Cloud,
 which I manage,
@@ -78,7 +78,7 @@ Here we'll create the document in a new folder called `paper`:
 
 Keep in mind that you'll be able add different LaTeX style and config
 files later on if the generic article template doesn't suit your needs.
-Also, if you have ideas for templates you think should be included,
+Also, if you have suggestions for templates you think should be included,
 drop a note in a
 [new GitHub issue](https://github.com/calkit/calkit/issues/new).
 
@@ -87,7 +87,7 @@ drop a note in a
 In order to push artifacts like PDFs up to the Calkit Cloud's DVC remote,
 we will need a token and we'll need to set it as a secret for the Codespace.
 On the Calkit project homepage you'll see a link in the quick actions
-to manage user tokens.
+section for managing user tokens.
 
 ![Project home page.](/images/latex-collab/project-home-3.png)
 
@@ -97,6 +97,8 @@ then head back to the project homepage and click the quick action link
 to configure GitHub Codespaces secrets for the project.
 Create a secret called `CALKIT_DVC_TOKEN`
 and paste in the token.
+
+![Creating the token.](/images/latex-collab/new-token.png)
 
 ![Adding the secret.](/images/latex-collab/codespaces-secrets-2.png)
 
@@ -110,14 +112,14 @@ Once created, we'll see an in-browser
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
 editor, which will have access to our project repository
 and will be able to compile the LaTeX document.
-Consider this your very own virtual machine in the cloud for working
+Consider this your very own Linux virtual machine in the cloud for working
 on this project.
 You can update settings, add extensions, etc.
 You have total control over it.
 Note that GitHub does
 [charge for Codespaces](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces),
 but the free plan limits are reasonably generous.
-It's also faily easy to run the same dev container configuration locally in
+It's also fairly easy to run the same dev container configuration locally in
 in VS Code.
 
 It might take few minutes to start up the first time
@@ -156,12 +158,13 @@ that the entire project is treated holistically.
 So for example,
 there's no need to worry about if you forgot to rerun the paper build
 after tweaking a figure---it's all one pipeline.
-
-Check out the
+See
+[this project](https://calkit.io/calkit/example-basic/workflow)
+for an example,
+and check out the
 [DVC stage documentation](https://dvc.org/doc/user-guide/pipelines/defining-pipelines#stages)
 for more details on how to
-build and manage your pipeline,
-including how to define dependencies and outputs for the stages.
+build and manage a pipeline.
 
 ## Break lines in a Git-friendly way
 
@@ -230,7 +233,7 @@ write a commit message, and click commit.
 
 After committing we'll see a button to sync the changes with the cloud,
 which we can go ahead and click.
-This will first pull and then push our commits up to GitHub,
+This will first pull from and then push our commits up to GitHub,
 which our collaborators will then be able to pull into their own workspaces.
 
 ### Push the PDF to the Calkit Cloud
@@ -240,7 +243,7 @@ pipeline outputs like our compiled PDF to Git,
 but instead commit them to DVC,
 since Git is not particularly good at handling large and/or binary files.
 The Calkit Cloud serves as a "DVC remote" for us to push these artifacts
-to back them up and make them available to our team.
+to back them up and make them available to others with access to the project.
 
 If we go down to the terminal and run `calkit push`,
 we'll push our DVC artifacts (just the PDF at this point)
@@ -261,7 +264,7 @@ backed up in the cloud.
 ## Collaborate concurrently
 
 What we've seen so far is mostly an individual's workflow.
-What if we have multiple people working on the document at the same time?
+But what if we have multiple people working on the document at the same time?
 Other cloud-based systems like Google Docs and Overleaf
 allow multiple users to edit a file simultaneously,
 continuously saving behind the scenes.
@@ -276,7 +279,7 @@ configuration just like we created ours.
 
 Git is actually quite good at automatically merging changes together,
 but typically you'll want to make sure no two people are working on the same
-line(s) at the same time.
+lines of text at the same time.
 You'll need to communicate a little more with your collaborators
 so you don't step on each other's toes and end up with merge conflicts,
 which require manual fixes.
@@ -340,7 +343,7 @@ and GitHub will automatically close it.
 
 For complex cases with lots of tasks and team members,
 [GitHub projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-is a nice feature,
+is a nice solution,
 allowing you to put your tasks into a Kanban board or table,
 prioritize them, assess their effort level, and more.
 Also note that these GitHub issues will also show up in
@@ -349,20 +352,30 @@ and can be created and closed from there as well.
 
 ## Conclusions
 
-Here we saw a way to collaborate on a Calkit project's LaTeX document
-in the cloud using a GitHub Codespace.
-Because the paper is built as a stage in a DVC pipeline,
-this setup will allow us to do the other things we'll
-need to do in our research project like create datasets,
-process them, make figures,
-and keep those and the paper up-to-date with a single command
-(see [this example](https://calkit.io/calkit/example-basic) for a
-project that includes these additional steps.)
+Here we set up a way to collaborate on a LaTeX document
+in the cloud using GitHub Codespaces.
+The process was a little more involved compared to
+using a dedicated LaTeX web app
+like Overleaf,
+but our assumption was that this document is part of a larger
+research project that involves more than just writing.
+Because the document is integrated into a Calkit project,
+it is built as a stage in a DVC pipeline,
+which can later be extended to include other computing tasks
+like creating datasets,
+processing them, making figures, and more.
+
 We also went over some tactics to help with version control,
 concurrent editing,
 and project management.
-Most importantly,
+Though we did everything in a web browser,
 this setup is totally portable.
 We'll be able to work equally well locally as we can in the cloud,
 providing maximum flexibility,
 and allowing anyone to reproduce the outputs anywhere.
+
+Have you struggled to collaborate on LaTeX documents with your team
+before?
+I'd be interested to hear your story,
+so feel free to send me an
+[email](mailto:petebachan@gmail.com).
