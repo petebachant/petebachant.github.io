@@ -56,7 +56,7 @@ Then head to [calkit.io](https://calkit.io),
 sign in with GitHub,
 and click the "create project" button.
 Upon submitting, Calkit will create a new GitHub repository for us,
-setup [DVC](https://dvc.org) (Data Version Control) inside it,
+setup [DVC (Data Version Control)](https://dvc.org) inside it,
 and create a so-called "dev container" configuration from
 which we can spin up our GitHub Codespace and start working.
 
@@ -64,8 +64,8 @@ which we can spin up our GitHub Codespace and start working.
 
 ## Add a new publication to the project
 
-Next, click the quick action link on the project homepage
-to "create a new publication from template."
+Click the quick action link on the project homepage
+to "create a new publication from a template."
 In the dialog,
 select the `latex/article` template,
 and fill in the rest of the required information.
@@ -237,7 +237,7 @@ which we can go ahead and click.
 This will first pull from and then push our commits up to GitHub,
 which our collaborators will then be able to pull into their own workspaces.
 
-### Push the PDF to the Calkit Cloud
+### Push the PDF to the cloud
 
 The default behavior of DVC is to not save
 pipeline outputs like our compiled PDF to Git,
