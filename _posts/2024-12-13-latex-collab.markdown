@@ -372,8 +372,7 @@ and project management.
 Though we did everything in a web browser,
 this setup is totally portable.
 We'll be able to work equally well locally as we can in the cloud,
-providing maximum flexibility,
-and allowing anyone to reproduce the outputs anywhere.
+allowing anyone to reproduce the outputs anywhere.
 
 Have you struggled to collaborate on LaTeX documents with your team
 before?
