@@ -147,60 +147,45 @@ Basically, Docker is going to let us create isolated reproducible
 environments in which to run commands and will keep track of
 which environments belong to this project in the `calkit.yaml` file.
 
-Let's create an OpenFOAM-based Docker environment and build stage with:
+Let's create an OpenFOAM-based Docker environment with:
 
 ```sh
 calkit new docker-env \
     --name foam \
     --image openfoam-2406-foampy \
-    --stage build-docker \
     --from microfluidica/openfoam:2406 \
-    --add-layer mambaforge \
+    --add-layer miniforge \
     --add-layer foampy \
     --description "OpenFOAM v2406 with foamPy."
 ```
 
 This command will create the necessary Dockerfile,
 the environment in our project metadata,
-and will add a stage to our DVC pipeline to build the image before
-running any other commands.
+and will be automatically built if necessary when a command is executed
+in this environment.
 
-If we run `calkit status` again,
-we see that there's another commit to be pushed to GitHub,
-and our pipeline is showing some changed dependencies and outputs.
+If we run `calkit xenv -- blockMesh -help`,
+the Docker image build be built and we'll see the help output from
+`blockMesh`.
+Running this command again will not kick off a rebuild
+unless the Dockerfile is modified.
 
-![Status after creating Docker environment.](/images/repro-openfoam/status-after-create-docker-env.png)
-
-This is a signal that it is out-of-date,
-and should be executed with `calkit run`.
-When we do that we see some output from Docker as an image is
-built, and `calkit status` then shows we have a new `dvc.lock` file
-staged and an untracked `Dockerfile-lock.json` file.
-
-![Status after first Calkit run.](/images/repro-openfoam/status-after-run-docker-build.png)
-
-We'll need to add that `Dockerfile-lock.json` file to our repo and then
-commit and push to the cloud so it is backed up and accessible to our
+You'll notice there is a new `Dockerfile-lock.json` file
+in the repo,
+which is how Calkit determines if the image needs to be rebuilt.
+We should now
+commit and push this file to the cloud so it is backed up and accessible to our
 collaborators.
 We can do this with the `calkit save` command:
 
 ```sh
-calkit save dvc.lock Dockerfile-lock.json -m "Run pipeline to build Docker image"
+calkit save Dockerfile-lock.json -m "Add Docker lock file"
 ```
 
 which does the `add`, `commit`, `push` steps all in one,
 deciding which files to store in DVC versus Git, and pushing to the respective
 locations to save time and cognitive overhead.
 However, if desired, you can of course run those individually for full control.
-
-![Saving after building the Docker image.](/images/repro-openfoam/save-after-docker-build.png)
-
-Finally, let's check that we can run something in the environment, e.g.,
-print the help output of `blockMesh`:
-
-```sh
-calkit runenv -- blockMesh -help
-```
 
 Now we're good to go.
 We didn't need to install OpenFOAM, and neither will our
@@ -236,7 +221,7 @@ We can create this stage with:
 
 ```sh
 calkit new foreach-stage \
-    --cmd "calkit runenv python run.py --turbulence-model {var} -f" \
+    --cmd "calkit xenv python run.py --turbulence-model {var} -f" \
     --name run-sim \
     --dep system \
     --dep constant/transportProperties \
@@ -292,7 +277,7 @@ calkit new figure \
     --title "Mean velocity profiles" \
     --description "Mean velocity profiles from DNS and RANS models." \
     --stage plot-mean-velocity-profiles \
-    --cmd "calkit runenv python scripts/plot-mean-velocity-profiles.py" \
+    --cmd "calkit xenv python scripts/plot-mean-velocity-profiles.py" \
     --dep scripts/plot-mean-velocity-profiles.py \
     --dep data/jhtdb-profiles.h5 \
     --deps-from-stage-outs run-sim
