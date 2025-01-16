@@ -159,10 +159,10 @@ calkit new docker-env \
     --description "OpenFOAM v2406 with foamPy."
 ```
 
-This command will create the necessary Dockerfile,
-the environment in our project metadata,
-and will be automatically built if necessary when a command is executed
-in this environment.
+This command will create the necessary Dockerfile and
+add the environment to our project metadata.
+The environment will be automatically created or updated
+as necessary when a command is executed in this environment.
 
 If we run `calkit xenv -- blockMesh -help`,
 the Docker image build be built and we'll see the help output from
