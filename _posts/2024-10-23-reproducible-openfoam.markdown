@@ -226,7 +226,7 @@ calkit new foreach-stage \
     --dep system \
     --dep constant/transportProperties \
     --dep run.py \
-    --dep Dockerfile-lock.json \
+    --dep Dockerfile \
     --out "cases/{var}/postProcessing" \
     "laminar" "k-epsilon" "k-omega"
 ```
