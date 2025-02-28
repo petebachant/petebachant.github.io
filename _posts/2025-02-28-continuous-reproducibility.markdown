@@ -120,3 +120,12 @@ You should probably never be showing anyone anything developed with
 an interactive workflow.
 Those "products" are temporary and only there for you to get feedback
 on your batch process definitions.
+
+Don't worry about reusability.
+So long as your project is reproducible,
+you are at least demonstrating to the world how it's done,
+and they can rerun and adapt it accordingly.
+
+Excel mental model?
+Most projects are too complex to be fully managed in a spreadsheet,
+though many will try valiantly.
