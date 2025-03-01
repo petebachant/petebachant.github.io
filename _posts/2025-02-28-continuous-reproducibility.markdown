@@ -34,10 +34,44 @@ An enabling practice for CI/CD is test automation.
 What test automation does is ensure that the behaviors of the
 software (outputs) match a set of defined inputs.
 
+The benefit of CI comes from many small changes incorporated immediately.
+Applying this to a research project is also beneficial.
+
+"Incorporated" means committed to a version control system that allows us
+to revert changes or return to previous versions.
+
 In any case, practicing CI and CD are key to delivering
 higher quality products more quickly,
 and this is widely accepted as truth in the software
 development world.
+
+Many think their work is reproducible,
+though it probably isn't.
+I have personally attempted reproducing some results from
+code and data archives cited in papers.
+Many times what is shared is incomplete.
+Sometimes it's just the code without the actually configuration
+used to generate the results.
+Sometimes it's just the data with an explanation on how to use it.
+
+Now, if these projects were setup to be CR,
+the entire thing could be shared.
+
+This shows up in software development as the
+"works on my machine" phenomenon.
+Is this a problem?
+Is it necessarily true that a failure to reproduce means the results
+are invalid?
+Probably not.
+Irreproducible does not mean irreplicable,
+but it certainly makes things much harder.
+
+CR via GitHub Actions CI with Calkit...
+This gives you an "objective" machine on which to run your pipeline.
+If you want, use can use the `--force` to bypass all cached results
+and ensure they are created identically.
+This could be useful if you haven't properly defined all the dependencies
+for a given output.
 
 In a software development project,
 it is optimal to create lots of small but valuable changes,
