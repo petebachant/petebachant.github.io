@@ -2,7 +2,8 @@
 comments: true
 date: 2025-02-28
 layout: post
-title: Continuous reproducibility and the interactive/batch dichotomy
+title: Continuous reproducibility and the interactive/batch dichotomy, or
+  why working sloppily is not faster
 categories:
   - Open science
   - Reproducibility
