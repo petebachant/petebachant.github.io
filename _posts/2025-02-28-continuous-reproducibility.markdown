@@ -9,6 +9,9 @@ categories:
   - Reproducibility
 ---
 
+Or, how DevOps principles can help you get your research done more
+quickly at higher quality.
+
 I have a hypothesis: Working reproducibly is more efficient than not,
 despite the fact it might feel like extra work.
 Further,
