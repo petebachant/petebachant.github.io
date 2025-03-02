@@ -164,3 +164,5 @@ and they can rerun and adapt it accordingly.
 Excel mental model?
 Most projects are too complex to be fully managed in a spreadsheet,
 though many will try valiantly.
+
+ResOps like DevOps.
