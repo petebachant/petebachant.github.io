@@ -167,5 +167,32 @@ and they can rerun and adapt it accordingly.
 Excel mental model?
 Most projects are too complex to be fully managed in a spreadsheet,
 though many will try valiantly.
+Every time you make a change, the spreadsheet values all update.
+This means that their values are reproducible.
+If you like what you see, you save the file.
+If you have enabled track changes, or you use Google Sheets
+named version feature,
+you're then putting it in version control.
+Now, this would be okay if you could generate everything in a single
+spreadsheet,
+and by everything I mean all figures, publications, etc.
+Obviously spreadsheets don't do that,
+so you'd need to use some other software for those things.
+So when we expand from using a single file per project to multiple
+files and processes per project, we need to use a more sophisticated tool.
+In this case,
+our project now becomes a folder of files,
+and we shift our mindset to managing this folder instead of one file.
+
+This project folder should then contain everything.
+Yes, everything.
+And we're going to need a tool to "track changes" to the folder,
+instead of a single file.
+We're also going to need some way of updating outputs
+if inputs or process definitions change.
+
+```mermaid
+input data cell --> spreadsheet formula --> output data cells
+```
 
 ResOps like DevOps.
