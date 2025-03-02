@@ -197,3 +197,7 @@ input data cell --> spreadsheet formula --> output data cells
 ```
 
 ResOps like DevOps.
+
+Anything worth doing is usually difficult,
+and difficult things get easier if you do them in small steps.
+Finishing a small step should mean the project stays reproducible.
