@@ -26,8 +26,9 @@ continuously reproducible,
 it can be done more quickly and with higher quality.
 
 This idea comes from software development,
-namely the concepts of continuous integration (CI)
-and continuous deployment (CD).
+namely the concepts of continuous integration
+and continuous delivery or deployment
+([CI/CD](https://en.wikipedia.org/wiki/CI/CD)).
 CI means that valuable changes are incorporated into the
 single source of truth as soon as they
 are discovered,
