@@ -205,3 +205,8 @@ Finishing a small step should mean the project stays reproducible.
 Cite Barba's "repro packs" and how this idea is different because
 your entire project is a repro pack from the start,
 rather than something you put together at the end.
+
+Waterfall versus agile argument?
+Instead of having stage gates like plan, collect data,
+analyze, write, start writing from the beginning.
+View the entire project holistically.
