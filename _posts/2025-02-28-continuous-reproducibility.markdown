@@ -102,10 +102,20 @@ Secondly, it is error prone.
 Missing a step in a manual "pipeline" could result in out-of-date
 or even incorrect results making their way into the final publication.
 
+The scientific review process today is similar to the handoffs
+between software development and quality assurance (QA) teams.
+However, journal article referees are usually not rerunning analyses.
+
 The two most important tactics to achieving CR are:
 
 1. Keep all files in version control.
-2. Generate all artifacts with a single pipeline.
+2. Generate all artifacts with a single pipeline. The opposite of this would
+   be having one pipeline to run the simulation,
+   one to post-process, one to generate figures,
+   one to compile the publication,
+   all of which need to be executed separately by the researcher.
+   A pipeline system that can cache results is critical here if there are
+   expensive steps, but more on that later.
 
 ## Examples of CR workflows
 
@@ -150,6 +160,41 @@ are invalid?
 Probably not.
 Irreproducible does not mean irreplicable,
 but it certainly makes things much harder.
+
+Some processes are too heavy to be practical to rerun.
+For example,
+it is usually not feasible to rerun a large scale simulation on a
+high performance computing (HPC) cluster to simply check its
+reproducibility.
+In this case, some automated documentation of the version of the code,
+configuration files,
+and the computation environment(s) can be sufficient.
+The key word here is automated.
+Simply saying
+"we ran SimulationApp v1.2 on the University of Whatever's cluster"
+in the paper is too ambiguous.
+Luckily,
+a version control system is a convenient way to take a snapshot of all files.
+However, it is possible to "cheat."
+
+## Anti-patterns to avoid
+
+Even if when using a VCS,
+it's possible to fall into a large batch mindset.
+
+Working for a long period of time with dirty repo,
+or even saving artifacts generated with a dirty repo.
+Commit first, then run, if you intend to save the outputs.
+
+## The opposite of continuous delivery
+
+A common pattern in many analytical endeavors is to periodically
+share slides with curated results.
+
+The shift to CR would mean generating these slides as part of a pipeline,
+so they continually stay up-to-date,
+and the single source of truth and its history can be accessed
+by all collaborators.
 
 As a side note,
 similar arguments could be used to support
