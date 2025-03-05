@@ -2,12 +2,43 @@
 comments: true
 date: 2025-02-28
 layout: post
-title: Continuous reproducibility and the interactive/batch dichotomy, or
-  why working sloppily is not faster
+title: >
+  _Continuous Reproducibility_: How adopting DevOps principles can help
+  improve the speed and quality of scientific discovery
 categories:
   - Open science
   - Reproducibility
 ---
+
+In the 21st century,
+the principles of
+[lean startup](https://en.wikipedia.org/wiki/Lean_startup),
+[agile software development](https://en.wikipedia.org/wiki/Agile_software_development),
+and [DevOps](https://en.wikipedia.org/wiki/DevOps)
+have significantly reduced waste, improved quality,
+enhanced innovation,
+and increased the speed of development of software products and related
+technology.
+At the same time, the
+[pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
+and many findings are failing to be replicated
+or even reproduced.
+
+The practitioners of research borrow many habits
+and tools from the software development world,
+which makes sense given that so much of work of researchers relies on computers,
+but I believe the DevOps strategies of continuous integration
+and continuous delivery (or deployment; CI/CD)
+should be applied more thoroughly in the research process.
+This could be called _Continuous Reproducibility_.
+
+Firstly,
+what is CI/CD and how does it relate to working habits and project
+management?
+
+Fundamentally,
+these movements are about breaking down silos
+and moving from large batch to small batch sizes.
 
 Or, how DevOps principles can help you get your research done more
 quickly at higher quality.
@@ -210,3 +241,12 @@ Waterfall versus agile argument?
 Instead of having stage gates like plan, collect data,
 analyze, write, start writing from the beginning.
 View the entire project holistically.
+
+Painful situations you can avoid by applying CR:
+1.
+
+## References
+
+1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
+   Are Ideas Getting Harder to Find?
+   _American Economic Review_. https://doi.org/10.1257/aer.20180338.
