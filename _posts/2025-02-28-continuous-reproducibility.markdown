@@ -3,8 +3,8 @@ comments: true
 date: 2025-02-28
 layout: post
 title: >
-  _Continuous Reproducibility_: How adopting DevOps principles can help
-  improve the speed and quality of scientific discovery
+  "_Continuous Reproducibility_: How adopting DevOps principles can help
+  improve the speed and quality of scientific discovery"
 categories:
   - Open science
   - Reproducibility
@@ -21,32 +21,95 @@ and increased the speed of development of software products and related
 technology.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
-and many findings are failing to be replicated
-or even reproduced.
+and many findings are failing to be replicated (validated in a full end-to-end sense, re-acquiring and reanalyzing raw data)
+or even reproduced (verified by rerunning the same computational processes
+on the same data).
 
 The practitioners of research borrow many habits
 and tools from the software development world,
 which makes sense given that so much of work of researchers relies on computers,
 but I believe the DevOps strategies of continuous integration
-and continuous delivery (or deployment; CI/CD)
-should be applied more thoroughly in the research process.
-This could be called _Continuous Reproducibility_.
+and continuous delivery (or deployment;
+[CI/CD](https://en.wikipedia.org/wiki/CI/CD))
+is the next big thing researchers can learn from the software development community.
+This could be called _Continuous Reproducibility_ (CR).
 
 Firstly,
 what is CI/CD and how does it relate to working habits and project
 management?
+CI means that valuable changes are integrated or incorporated into the
+single source of truth, i.e., the main branch, as soon as they
+are created,
+and CD means that the external world has access to these changes as
+soon as possible.
+An enabling practice for CI/CD is test automation.
+What test automation does is ensure that the behaviors of the
+software (outputs) match a set of defined inputs.
 
+Working this way encourages small batch sizes
+and discourages the so-called
+["waterfall"](https://en.wikipedia.org/wiki/Waterfall_model)
+project management style,
+where projects pass through "stage gates," e.g.,
+planning, design, execution, testing, release,
+in a linear fashion with little to no feedback loops,
+often handled by completely different teams handing off artifacts
+to each other without truly collaborating.
+The waterfall approach is often inefficient because planning is
+difficult or nearly impossible when the requirements
+are uncertain and therefore cannot be fully documented up front.
 Fundamentally,
 these movements are about breaking down silos
 and moving from large batch to small batch sizes.
 
-Or, how DevOps principles can help you get your research done more
-quickly at higher quality.
+This is analogous to climbing a ladder one small step at a time
+instead of taking one big jump.
 
-I have a hypothesis: Working reproducibly is more efficient than not,
-despite the fact it might feel like extra work.
-Further,
-a research project should never not be reproducible.
+In research,
+to shift from large batch to small batch flows,
+CR is an enabling practice that ensures the single source of truth,
+the full collection of project files
+(documents, datasets, code, figures, publications)
+despite evolving rapidly and in small increments,
+remains reproducible throughout the entire project lifecycle.
+
+One tactic practiced by the open science community is to publish
+a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
+along with each scientific article.
+However, in my experience,
+these are often curated after the project is mostly finished,
+and therefore were not actually used throughout the process.
+They often only include a subset of the files,
+e.g., only the datasets, or only the code,
+but not the files used to generate the figures or manuscript.
+Further, they are usually missing some information that only the researcher
+knows since they are working with the files every day on a computer
+whose state (operating system, software installed, etc.)
+may have evolved over years.
+[I am guilty of this too](https://petebachant.me/failed-to-repro/).
+
+I believe there is a lot of value left on the table by taking this
+phased approach.
+For one, it is more complex with higher cognitive overhead.
+When working this way,
+that insider information lives in the researcher's head,
+meaning every time they make a change to some file,
+they need to keep track of the downstream consequences
+and run the appropriate processes,
+perhaps doing something like manually copying and pasting artifacts into
+a different location.
+Secondly, it is error prone.
+Missing a step in a manual "pipeline" could result in out-of-date
+or even incorrect results making their way into the final publication.
+
+The two most important tactics to achieving CR are:
+
+1. Keep all files in version control.
+2. Generate all artifacts with a single pipeline.
+
+## Examples of CR workflows
+
+## Tactics for continuous reproducibility
 
 What does this mean to work reproducibly though?
 It means at any point in time, the outputs of a given project
@@ -55,19 +118,6 @@ accurately reflect the inputs and process definitions therein.
 I would go further to posit that if a project can remain
 continuously reproducible,
 it can be done more quickly and with higher quality.
-
-This idea comes from software development,
-namely the concepts of continuous integration
-and continuous delivery or deployment
-([CI/CD](https://en.wikipedia.org/wiki/CI/CD)).
-CI means that valuable changes are incorporated into the
-single source of truth as soon as they
-are discovered,
-and CD means that the external world has access to these changes as
-quickly as possible.
-An enabling practice for CI/CD is test automation.
-What test automation does is ensure that the behaviors of the
-software (outputs) match a set of defined inputs.
 
 The benefit of CI comes from many small changes incorporated immediately.
 Applying this to a research project is also beneficial.
@@ -100,6 +150,12 @@ are invalid?
 Probably not.
 Irreproducible does not mean irreplicable,
 but it certainly makes things much harder.
+
+As a side note,
+similar arguments could be used to support
+eliminating research proposals.
+Instead, simply fund innovative and capable scientists
+and let them figure out what's important to discover.
 
 CR via GitHub Actions CI with Calkit...
 This gives you an "objective" machine on which to run your pipeline.
@@ -243,6 +299,7 @@ analyze, write, start writing from the beginning.
 View the entire project holistically.
 
 Painful situations you can avoid by applying CR:
+
 1.
 
 ## References
