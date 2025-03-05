@@ -8,6 +8,7 @@ title: >
 categories:
   - Open science
   - Reproducibility
+  - Software engineering
 ---
 
 In the 21st century,
@@ -119,6 +120,34 @@ The two most important tactics to achieving CR are:
    A pipeline system that can cache results is critical here if there are
    expensive steps, but more on that later.
 
+The change in mindset is a move from focusing on individual files
+and artifacts to a focus on the project as a whole.
+
+Software engineers will work on one small part of the code
+and run an automated test suite to ensure the entire project still works.
+
+This is the sort of mindset a research project should strive towards.
+
+We don't move through phases and stop allowing for change.
+
+For example,
+data filtering may have a mistake,
+and this has multiple downstream implications.
+It's very possible that this mistake is discovered after submission
+of a journal article.
+In a CR workflow,
+the filtering algorithm can be updated
+and the pipeline can be run all in a single command,
+ensuring all figures in the paper are up-to-date.
+
+What if there's an important aggregate number in the paper?
+Ensure that number is inserted as part of the pipeline.
+Or at the very least,
+include an explicit
+[manual step](https://docs.calkit.org/pipeline/manual-steps/)
+in the pipeline that will tell the user they
+need to check that number
+any time a dependency has changed.
 
 ## Examples of CR workflows
 
