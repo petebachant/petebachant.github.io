@@ -48,6 +48,11 @@ An enabling practice for CI/CD is test automation.
 What test automation does is ensure that the behaviors of the
 software (outputs) match a set of defined inputs.
 
+Automated testing then makes developers feel safe that the
+changes they're about to incorporate don't break anything.
+Similarly,
+automating research projects...
+
 Working this way encourages small batch sizes
 and discourages the so-called
 ["waterfall"](https://en.wikipedia.org/wiki/Waterfall_model)
@@ -63,6 +68,17 @@ are uncertain and therefore cannot be fully documented up front.
 Fundamentally,
 these movements are about breaking down silos
 and moving from large batch to small batch sizes.
+
+Silos exist in research between funding organizations and PIs,
+PIs and grad students and postdocs,
+and authors and referees.
+There are sometimes silos between collaborators,
+where for example,
+only one team member knows how to run the code,
+or has their computer setup to do so.
+SWEs avoid this problem by setting up automated pipelines
+and running these on 3rd party machines,
+usually starting from no state.
 
 This is analogous to climbing a ladder one small step at a time
 instead of taking one big jump.
@@ -208,6 +224,12 @@ in the paper is too ambiguous.
 Luckily,
 a version control system is a convenient way to take a snapshot of all files.
 However, it is possible to "cheat."
+
+This is analogous to a software application with a large database
+of users?
+We don't need to be able to continuously recreate all of that data,
+but we need to ensure that data could be recreated with any
+version of the code.
 
 ## Anti-patterns to avoid
 
