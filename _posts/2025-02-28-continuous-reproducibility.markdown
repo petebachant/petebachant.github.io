@@ -110,7 +110,7 @@ However, journal article referees are usually not rerunning analyses.
 
 The two most important tactics to achieving CR are:
 
-1. Keep all files in version control.
+1. Keep all files in version control, in a single repository.
 1. Automate dependency management.
 2. Generate all artifacts with a single pipeline. The opposite of this would
    be having one pipeline to run the simulation,
@@ -226,6 +226,20 @@ never share uncommitted results.
 ### Not using version control
 
 ### Manual or ad hoc version control
+
+### One project, many repos
+
+This is analogous to the "distributed monolith" software architecture,
+where tightly coupled components are spread across multiple codebases
+and/or infrastructure groups.
+In research, this could take the form of one repo for the data collection,
+one repo for the data processing software,
+one repo for the paper.
+These are all inherently coupled in service of producing the paper.
+Just keep them together in the same repo.
+If by change some sub-component, e.g., the software,
+becomes useful on its own,
+deal with that afterwards, not up front.
 
 ### Large batch version control practices
 
