@@ -25,6 +25,19 @@ At the same time, the
 and many findings are failing to be replicated (validated in a full end-to-end sense, re-acquiring and reanalyzing raw data)
 or even reproduced (verified by rerunning the same computational processes
 on the same inputs).
+These are at least partly quality issues,
+and I believe there are some lessons to be learned.
+
+Though the goals of software product development and research are
+slightly different,
+the learnings in software development can be applied to research projects.
+TODO: Explain the difference.
+
+In this article I want to focus on CI/CD and how it helps encourage
+breaking down silos and working in small batches.
+
+The silo problem is...
+The large batch problem is...
 
 The practitioners of research borrow many habits
 and tools from the software development world,
@@ -495,7 +508,14 @@ very small projects, but what's the limit?
 Should we draw the line at a single paper?
 What if we have a follow-on investigation on the same topic?
 
-## Calkit
+## Tooling
+
+Researchers at the frontier of open science and reproducibility
+use tools and platforms developed for software development
+because there are striking similarities.
+
+However, I do believe research is different enough from software
+development to warrant new tooling.
 
 Calkit is designed to help:
 
@@ -506,6 +526,12 @@ Calkit is designed to help:
 
 Staying loosely, or non-coupled and reproducible is more important than
 not repeating code.
+
+## Into the way far future
+
+Maybe journal articles go away, and the literature becomes something like
+Wikipedia.
+Maybe funding is given to capable teams rather than for specific projects.
 
 ## References
 
