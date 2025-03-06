@@ -69,6 +69,9 @@ Fundamentally,
 these movements are about breaking down silos
 and moving from large batch to small batch sizes.
 
+Research projects are not quite the same as software projects.
+For one, most software projects, if successful, don't end.
+
 Silos exist in research between funding organizations and PIs,
 PIs and grad students and postdocs,
 and authors and referees.
