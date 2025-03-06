@@ -426,6 +426,14 @@ an interactive workflow.
 Those "products" are temporary and only there for you to get feedback
 on your batch process definitions.
 
+## Start your paper (and thesis) on day 1
+
+It's going to be mostly boilerplate,
+but that's okay.
+As you go through your lit review, you'll be writing the introduction.
+Again, instead of phases, make it into one continuous evolutionary process
+until it's ready to release.
+
 ## Reusability
 
 Don't worry about reusability.
