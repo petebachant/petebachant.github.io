@@ -36,6 +36,9 @@ is the next important
 concept researchers can borrow from the software development community.
 This could be called _Continuous Reproducibility_ (CR).
 
+Fundamentally these movements are about breaking down silos and
+shifting from large batches to small batches of work.
+
 Firstly,
 what is CI/CD and how does it relate to working habits and project
 management?
@@ -69,6 +72,10 @@ Fundamentally,
 these movements are about breaking down silos
 and moving from large batch to small batch sizes.
 
+The CR pipeline is like a CD pipeline.
+It is run every time a change is incorporated so there is a single
+source of truth for the project that includes everything.
+
 Research projects are not quite the same as software projects.
 For one, most software projects, if successful, don't end.
 
@@ -85,6 +92,12 @@ usually starting from no state.
 
 This is analogous to climbing a ladder one small step at a time
 instead of taking one big jump.
+
+A core mindset shift is from thinking of a bunch of disparate
+artifacts created in discrete phases to
+the project itself as a whole that evolves continuously.
+It may reach milestones along the way,
+but the project is the most important unit.
 
 In research,
 to shift from large batch to small batch flows,
@@ -131,7 +144,7 @@ The two most important tactics to achieving CR are:
 
 1. Keep all files in version control, in a single repository.
 1. Automate dependency management.
-2. Generate all artifacts with a single pipeline. The opposite of this would
+1. Generate all artifacts with a single pipeline. The opposite of this would
    be having one pipeline to run the simulation,
    one to post-process, one to generate figures,
    one to compile the publication,
@@ -167,6 +180,8 @@ include an explicit
 in the pipeline that will tell the user they
 need to check that number
 any time a dependency has changed.
+
+## The interactive/batch dance
 
 ## Examples of CR workflows
 
@@ -472,6 +487,25 @@ Painful situations you can avoid by applying CR:
 
 Working in a continuously reproducible way will provide the confidence
 to share all materials associated with a research project openly.
+
+## How big should a project be?
+
+We've already established that we want to move away from
+very small projects, but what's the limit?
+Should we draw the line at a single paper?
+What if we have a follow-on investigation on the same topic?
+
+## Calkit
+
+Calkit is designed to help:
+
+- Focus on the project as the most important unit of work.
+- Continuously integrate small changes and keep the "build" up-to-date.
+
+## Don't be afraid to repeat yourself
+
+Staying loosely, or non-coupled and reproducible is more important than
+not repeating code.
 
 ## References
 
