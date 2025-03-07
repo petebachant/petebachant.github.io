@@ -680,12 +680,6 @@ Calkit is designed to help:
 Staying loosely, or non-coupled and reproducible is more important than
 not repeating code.
 
-## Into the way far future
-
-Maybe journal articles go away, and the literature becomes something like
-Wikipedia.
-Maybe funding is given to capable teams rather than for specific projects.
-
 ## References
 
 1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
