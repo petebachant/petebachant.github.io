@@ -22,22 +22,100 @@ and increased the speed of development of software products and related
 technology.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
-and many findings are failing to be replicated (validated in a full end-to-end sense, re-acquiring and reanalyzing raw data)
-or even reproduced (verified by rerunning the same computational processes
-on the same inputs).
-These are at least partly quality issues,
-and I believe there are some lessons to be learned.
+and many findings are failing to be replicated
+(validated in an end-to-end sense, re-acquiring and reanalyzing raw data)
+or even reproduced
+(verified by rerunning the same computational processes
+on the same input data).
+Researchers already borrow plenty of tooling and practices from
+the software world,
+but I believe those mentioned above have not yet crossed over.
 
-Though the goals of software product development and research are
-slightly different,
-the learnings in software development can be applied to research projects.
-TODO: Explain the difference.
+In this article I will focus on one set of practices in particular:
+those of _Continuous Integration_ and _Continuous Delivery_ (CI/CD),
+which could manifest as something we might call
+_Continuous Reproducibility_ (CR) in the research world.
 
-In this article I want to focus on CI/CD and how it helps encourage
-breaking down silos and working in small batches.
+At the core,
+the agile, lean, DevOps, and related movements are about breaking down silos
+and working in small batches with faster feedback loops.
+These are beneficial in scenarios where solutions,
+and sometimes even problems, are not fully understood, i.e.,
+they are about making decisions and taking action under high uncertainty.
+Does that sound like scientific research to you?
 
-The silo problem is...
-The large batch problem is...
+Silos and large batch flows show up in the process of software development
+when following a so-called waterfall project management model,
+where the project moves through discrete stage gates.
+Each phase is often owned by a different (siloed) team,
+and involves a large batch of work that needs to be handed off for the next
+stage.
+These phases may be:
+
+1. Market research
+2. Requirements definition
+3. Design
+4. Implementation
+5. Testing
+6. Integration
+7. Delivery
+
+Software engineers learned that under conditions of high uncertainty,
+these large batches of work can often produce large amounts of waste,
+as full knowledge of the market's problem and ideal solution
+cannot be known up front.
+Thus, instead of one big waterfall,
+the project can be broken down into many small cycles
+where teams collaborate cross-functionally.
+That is, those with knowledge of the market work alongside designers,
+who work alongside engineers to iterate towards the optimal solution
+on timescales measured in days instead of months, quarters, or years.
+
+CI/CD turn the later stages (4--7) into one continuous process with
+many small steps, where implementation, testing, integration,
+and delivery are owned by the same team,
+and again, often done multiple times per day instead of once at the end.
+This is possible thanks to the use of automated testing and deployment
+pipelines.
+As developers create valuable changes,
+they are integrated into a single source of truth,
+a so-called "main branch,"
+right away.
+Confidence that nothing has broken comes from running a suite of
+tests.
+This single source of truth is then delivered to the users as quickly
+as possible,
+where the constant stream of small improvements provides much less
+disruption to their usage compared to infrequent "big bang" releases.
+
+But how does this relate to scientific research?
+Where do silos and large batch flows show up in science?
+One might model the modern scientific process as a waterfall,
+with stages like:
+
+1. Request for proposal
+1. Proposal
+1. Study design
+1. Study implementation
+1. Writing
+1. Peer review (testing)
+1. Publication (delivery)
+1. Reproduction
+1. Replication
+
+Now, turning this whole process into a single one with frequent feedback
+loops is outside the scope of this article,
+though one could imagine there is room for efficiency gains.
+Instead, we will focus on phases 4--8.
+Note that peer review and delivery happen inside a research
+group before being published to the larger world,
+very similar to what happens inside a software product team.
+It is here where Continuous Reproducibility can help speed things up
+with automation.
+
+Continuous Reproducibility similarly will rely on automation.
+Every small change to a research project should trigger an automated
+CR process, so the single source of truth remains consistent at all times.
 
 The practitioners of research borrow many habits
 and tools from the software development world,
