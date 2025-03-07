@@ -116,7 +116,8 @@ Instead, here we will focus on phases 4--9.
 
 It's important to clarify that
 peer review and delivery happen inside a research
-group before publishing results to the larger world,
+group before publishing results to the larger world
+(though preprints do deliver externally earlier),
 very similar to what happens inside a software product team.
 A researcher may make some changes to simulation or data processing code,
 which in turn leads them to produce a figure,
@@ -406,6 +407,15 @@ of users?
 We don't need to be able to continuously recreate all of that data,
 but we need to ensure that data could be recreated with any
 version of the code.
+
+## 'Trunk-based' development
+
+Experimentation is necessary,
+and this doesn't just mean scientific experiments.
+Trying out a different way of processing or visualizing data could lead
+to a more effective approach.
+
+Instead of deploying different versions of the code...
 
 ## Anti-patterns to avoid
 
