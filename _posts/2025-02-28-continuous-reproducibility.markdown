@@ -31,7 +31,7 @@ Researchers already borrow plenty of tooling and practices from
 the software world,
 but I believe those mentioned above have not yet crossed over.
 
-In this article I will focus on one set of practices in particular:
+Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
 ([CI/CD](https://en.wikipedia.org/wiki/CI/CD))),
 which could manifest as something we might call
@@ -46,7 +46,9 @@ they are about making decisions and taking action under high uncertainty.
 Does that sound like scientific research to you?
 
 Silos and large batch flows show up in the process of software development
-when following a so-called waterfall project management model,
+when following a so-called
+["waterfall"](https://en.wikipedia.org/wiki/Waterfall_model)
+project management model,
 where the project moves through discrete stage gates.
 Each phase is often owned by a different (siloed) team,
 and involves a large batch of work that needs to be handed off for the next
@@ -83,7 +85,7 @@ they are integrated into a single source of truth,
 a so-called "main branch,"
 right away.
 Confidence that nothing has broken comes from running a suite of
-tests.
+automated tests.
 This single source of truth is then delivered to the users as quickly
 as possible,
 where the constant stream of small improvements provides much less
@@ -105,12 +107,12 @@ with stages like:
 1. Reproduction
 1. Replication
 
-Now, turning this whole process into a single one with frequent feedback
+Now, turning this entire process into one with frequent feedback
 loops and cross-functional collaboration is outside the scope of this article,
 though one could imagine there is room for efficiency gains, e.g.,
 by eliminating the proposal phase and simply funding capable teams to
 work on the research gaps that they discover in a time-boxed manner.
-Instead, we will focus on phases 4--9.
+Instead, here we will focus on phases 4--9.
 
 It's important to clarify that
 peer review and delivery happen inside a research
@@ -119,14 +121,14 @@ very similar to what happens inside a software product team.
 A researcher may make some changes to simulation or data processing code,
 which in turn leads them to produce a figure,
 and perhaps write some text in a draft of an article.
-This article may be delivered to the principal investigator (PI)
+This draft may be delivered to the principal investigator (PI)
 for review.
 I am arguing that there are productivity gains to be had by shortening
 this feedback loop.
 It is here where Continuous Reproducibility practices can help speed things up
 with automation.
 
-Grad students may meet with their advisors weekly to give progress updates.
+Graduate students may meet with their advisors weekly to give progress updates.
 As part of this ritual they may need to create new slide shows
 with the latest results.
 This is a significant effort, and these slideshows will often be thrown
@@ -135,6 +137,39 @@ A CR workflow would advocate starting the writing process early,
 even from the very beginning of the project,
 and using that as the single source of truth for the project status,
 slowly evolving it into a publishable state.
+
+One important missing principle is a holistic view.
+The project should be the important unit.
+Yes, there are modules and subcomponents,
+but these all exist in a larger picture.
+Practically speaking,
+this means all files belong together in a single collection.
+This includes proposals, notes, drawings, data, code, figures, slideshows,
+articles, etc.
+
+I was looking back at my research materials from my master's thesis the other
+day, and I noticed how this holistic view was not taken.
+Every small task got its own folder,
+and these were interspersed with folders related to coursework
+and other administrative documents.
+I recommend that all files related to research on a given topic belong
+in one folder.
+Yes, there can be subfolders, but don't try to create silos between them
+up front.
+
+These workflows can be distinguished by how long "throwaway" work
+lives without being incorporated into the single source of truth.
+
+A non-CR workflow would be...
+
+The "throwaway" work should only exist for minutes instead of days.
+Again, to draw the analogy to software development,
+some interactive development (e.g., using a debugger)
+can be done for minutes to hours,
+a valuable change is discovered,
+and a "pull request" is submitted.
+Working on a potential change for many days, weeks, or even months
+is a bad practice.
 
 Let's first start with some principles:
 
@@ -157,9 +192,6 @@ is the next important
 concept researchers can borrow from the software development community.
 This could be called _Continuous Reproducibility_ (CR).
 
-Fundamentally these movements are about breaking down silos and
-shifting from large batches to small batches of work.
-
 Firstly,
 what is CI/CD and how does it relate to working habits and project
 management?
@@ -176,22 +208,6 @@ Automated testing then makes developers feel safe that the
 changes they're about to incorporate don't break anything.
 Similarly,
 automating research projects...
-
-Working this way encourages small batch sizes
-and discourages the so-called
-["waterfall"](https://en.wikipedia.org/wiki/Waterfall_model)
-project management style,
-where projects pass through "stage gates," e.g.,
-planning, design, execution, testing, release,
-in a linear fashion with little to no feedback loops,
-often handled by completely different teams handing off artifacts
-to each other without truly collaborating.
-The waterfall approach is often inefficient because planning is
-difficult or nearly impossible when the requirements
-are uncertain and therefore cannot be fully documented up front.
-Fundamentally,
-these movements are about breaking down silos
-and moving from large batch to small batch sizes.
 
 The CR pipeline is like a CD pipeline.
 It is run every time a change is incorporated so there is a single
@@ -243,6 +259,10 @@ whose state (operating system, software installed, etc.)
 may have evolved over years.
 [I am guilty of this too](https://petebachant.me/failed-to-repro/).
 
+So instead of having a "create repro pack" phase,
+the entire project repo should be a repro pack from the very start.
+This is enabled by CR.
+
 I believe there is a lot of value left on the table by taking this
 phased approach.
 For one, it is more complex with higher cognitive overhead.
@@ -275,6 +295,14 @@ The two most important tactics to achieving CR are:
 
 The change in mindset is a move from focusing on individual files
 and artifacts to a focus on the project as a whole.
+For example,
+thinking that the data processing code is done
+and now the writing can start is not a CR mindset.
+The review process, internal or external,
+will undoubtedly uncover necessary changes.
+If an automated CR pipeline is not in place,
+the extra work from these iterations will accumulate.
+Put the CR pipeline in place from the very beginning!
 
 Software engineers will work on one small part of the code
 and run an automated test suite to ensure the entire project still works.
@@ -303,6 +331,15 @@ need to check that number
 any time a dependency has changed.
 
 ## The interactive/batch dance
+
+Interactivity is the enemy of reproducibility.
+Interactivity produces mostly throwaway work.
+Interactive work is converted into batch work if it is deemed valuable.
+
+CR says not that we should eliminate interactive work,
+but that the value uncovered by interactive work should be incorporated
+into a batch process as quickly as possible,
+which will manifest as small changes.
 
 ## Examples of CR workflows
 
