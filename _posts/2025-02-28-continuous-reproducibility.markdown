@@ -32,7 +32,8 @@ the software world,
 but I believe those mentioned above have not yet crossed over.
 
 In this article I will focus on one set of practices in particular:
-those of _Continuous Integration_ and _Continuous Delivery_ (CI/CD),
+those of _Continuous Integration_ and _Continuous Delivery_
+([CI/CD](https://en.wikipedia.org/wiki/CI/CD))),
 which could manifest as something we might call
 _Continuous Reproducibility_ (CR) in the research world.
 
@@ -97,6 +98,7 @@ with stages like:
 1. Proposal
 1. Study design
 1. Study implementation
+1. Analysis
 1. Writing
 1. Peer review (testing)
 1. Publication (delivery)
@@ -104,14 +106,42 @@ with stages like:
 1. Replication
 
 Now, turning this whole process into a single one with frequent feedback
-loops is outside the scope of this article,
-though one could imagine there is room for efficiency gains.
-Instead, we will focus on phases 4--8.
-Note that peer review and delivery happen inside a research
-group before being published to the larger world,
+loops and cross-functional collaboration is outside the scope of this article,
+though one could imagine there is room for efficiency gains, e.g.,
+by eliminating the proposal phase and simply funding capable teams to
+work on the research gaps that they discover in a time-boxed manner.
+Instead, we will focus on phases 4--9.
+
+It's important to clarify that
+peer review and delivery happen inside a research
+group before publishing results to the larger world,
 very similar to what happens inside a software product team.
-It is here where Continuous Reproducibility can help speed things up
+A researcher may make some changes to simulation or data processing code,
+which in turn leads them to produce a figure,
+and perhaps write some text in a draft of an article.
+This article may be delivered to the principal investigator (PI)
+for review.
+I am arguing that there are productivity gains to be had by shortening
+this feedback loop.
+It is here where Continuous Reproducibility practices can help speed things up
 with automation.
+
+Grad students may meet with their advisors weekly to give progress updates.
+As part of this ritual they may need to create new slide shows
+with the latest results.
+This is a significant effort, and these slideshows will often be thrown
+away.
+A CR workflow would advocate starting the writing process early,
+even from the very beginning of the project,
+and using that as the single source of truth for the project status,
+slowly evolving it into a publishable state.
+
+Let's first start with some principles:
+
+1. The research project itself should be thought of as a single unit.
+   It is not helpful to silo the data analysis phase from the writing phase.
+   These are inherently coupled, and treating them as if they are not will
+   be less efficient.
 
 Continuous Reproducibility similarly will rely on automation.
 Every small change to a research project should trigger an automated
