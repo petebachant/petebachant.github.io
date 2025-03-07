@@ -344,7 +344,30 @@ which will manifest as small changes.
 
 ## Examples of CR workflows
 
+## An analogy: The journey and the destination
+
+The destination is the paper.
+
+CR is building a trail and saving GPS coordinates along the route,
+since you'll be going back and forth often.
+
+Non-CR, at best,
+is creating a map from memory at the destination.
+At worst,
+it's getting to the destination, taking a photo,
+and leaving it at that.
+
+It's actually really important for others to be able to get to where
+you got so they can go further.
+But if you don't even know how you got there...
+
+The less automated your workflow, the more likely it is to be wrong.
+
 ## Tactics for continuous reproducibility
+
+If you've read this far, hopefully you're convinced that your project
+should remain reproducible on a daily basis.
+So how can we achieve that?
 
 What does this mean to work reproducibly though?
 It means at any point in time, the outputs of a given project
@@ -407,6 +430,29 @@ of users?
 We don't need to be able to continuously recreate all of that data,
 but we need to ensure that data could be recreated with any
 version of the code.
+
+## Premature abstraction and the curse of design
+
+Keep your project general at first.
+That is, dump all files into a single place.
+Don't split into a bunch of different projects,
+e.g., one for your proposal, one for the experiment,
+one for the analysis code,
+one for the journal article,
+and one for the thesis.
+
+It's almost always better to go from large to small than the other way
+around.
+In software development,
+this principle is known as premature abstraction,
+and it is well known that the wrong abstraction is much more expensive
+than no abstraction at all.
+
+A similar concept is that of a "monorepo,"
+or a single repository containing multiple sub-projects.
+This is much better than excessive fragmentation.
+In fact,
+Google uses a single monorepo for most of their code.
 
 ## 'Trunk-based' development
 
