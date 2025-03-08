@@ -54,6 +54,9 @@ with intricate interfaces between them and a grand plan of orchestration,
 put a single box and define the desired outputs.
 At least strive to do this as much as possible.
 This is related to the concept of premature abstraction.
+You are in a constant battle against entropy,
+and if you start falling behind your work will slow down
+and you're more likely to make mistakes.
 
 Silos and large batch flows show up in the process of software development
 when following a so-called
