@@ -57,6 +57,7 @@ This is related to the concept of premature abstraction.
 You are in a constant battle against entropy,
 and if you start falling behind your work will slow down
 and you're more likely to make mistakes.
+Gall's law... TODO
 
 Silos and large batch flows show up in the process of software development
 when following a so-called
@@ -191,6 +192,11 @@ Let's first start with some principles:
    It is not helpful to silo the data analysis phase from the writing phase.
    These are inherently coupled, and treating them as if they are not will
    be less efficient.
+2. A single command should kick off everything.
+   No lists of setup steps.
+   No "go into this folder and run ..., then go into this folder and run..."
+   You will probably not describe these instructions accurately enough,
+   so automate them into a single pipeline.
 
 Continuous Reproducibility similarly will rely on automation.
 Every small change to a research project should trigger an automated
