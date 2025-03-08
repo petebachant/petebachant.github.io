@@ -331,6 +331,12 @@ in the pipeline that will tell the user they
 need to check that number
 any time a dependency has changed.
 
+## The biggest mindset shift
+
+Monorepo.
+Don't allow complexity to explode by letting your project turn into many
+projects.
+
 ## The interactive/batch dance
 
 Interactivity is the enemy of reproducibility.
@@ -343,6 +349,15 @@ into a batch process as quickly as possible,
 which will manifest as small changes.
 
 ## Examples of CR workflows
+
+Microsoft Excel.
+If you could do everything in Excel,
+that would count as a CR workflow.
+Now, there are many reasons you shouldn't do that,
+but it fits the criteria:
+
+1. Version controlled
+2. Outputs are consistent with inputs and process definitions
 
 ## An analogy: The journey and the destination
 
@@ -430,6 +445,14 @@ of users?
 We don't need to be able to continuously recreate all of that data,
 but we need to ensure that data could be recreated with any
 version of the code.
+
+## But what if I'm already halfway done?
+
+That's okay.
+You can start working reproducibly from now.
+At least you can put everything you have right now into version control,
+then start adding to the pipeline for everything that needs to be
+created after.
 
 ## Premature abstraction and the curse of design
 
