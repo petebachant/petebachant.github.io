@@ -806,6 +806,14 @@ Start thesis from the beginning.
 Reproducibility flaws in this project:
 - Sandia Red Mesa
 
+## Objections
+
+>But the dataset/code is the only thing of value w.r.t. reusability from my
+>project, so why share all the other stuff?
+
+Does sharing all the other stuff prevent users from taking just what
+they want/need?
+
 ## References
 
 1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
