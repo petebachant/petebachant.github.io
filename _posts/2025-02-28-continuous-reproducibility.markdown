@@ -782,6 +782,30 @@ Calkit is designed to help:
 Staying loosely, or non-coupled and reproducible is more important than
 not repeating code.
 
+## A real world example
+
+Toy projects are one thing,
+but what about a real one?
+
+When I was working on my PhD,
+I followed some of these principles,
+but not all of them.
+Recently,
+I converted my entire PhD into a single project,
+reproducible with a single command.
+Though some pipeline steps are "frozen"...
+
+All releases have been created appropriately...
+
+Subprojects...
+
+Could I have built this up from scratch?
+
+Start thesis from the beginning.
+
+Reproducibility flaws in this project:
+- Sandia Red Mesa
+
 ## References
 
 1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
