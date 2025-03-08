@@ -477,6 +477,10 @@ At least you can put everything you have right now into version control,
 then start adding to the pipeline for everything that needs to be
 created after.
 
+## Problems CR avoids
+
+- Do I need to rerun this script?
+
 ## Premature abstraction and the curse of design
 
 Keep your project general at first.
