@@ -36,6 +36,8 @@ those of _Continuous Integration_ and _Continuous Delivery_
 ([CI/CD](https://en.wikipedia.org/wiki/CI/CD))),
 which could manifest as something we might call
 _Continuous Reproducibility_ (CR) in the research world.
+Making it easier to adopt CR practices is one of the primary goals
+of [Calkit](https://calkit.org).
 
 At the core,
 the agile, lean, DevOps, and related movements are about breaking down silos
@@ -44,6 +46,14 @@ These are beneficial in scenarios where solutions,
 and sometimes even problems, are not fully understood, i.e.,
 they are about making decisions and taking action under high uncertainty.
 Does that sound like scientific research to you?
+
+Even more fundamentally,
+these are about reducing complexity.
+Instead of putting things in many different boxes
+with intricate interfaces between them and a grand plan of orchestration,
+put a single box and define the desired outputs.
+At least strive to do this as much as possible.
+This is related to the concept of premature abstraction.
 
 Silos and large batch flows show up in the process of software development
 when following a so-called
@@ -192,6 +202,10 @@ and continuous delivery (or deployment;
 is the next important
 concept researchers can borrow from the software development community.
 This could be called _Continuous Reproducibility_ (CR).
+It has also been described as
+[_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
+though I think the concept extends beyond analysis and into
+generating other artifacts like figures and publications.
 
 Firstly,
 what is CI/CD and how does it relate to working habits and project
@@ -764,3 +778,7 @@ not repeating code.
 1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
    Are Ideas Getting Harder to Find?
    _American Economic Review_. https://doi.org/10.1257/aer.20180338.
+2. Brett K Beaulieu-Jones and Casey S Greene.
+   Reproducibility of computational workflows is automated using continuous
+   analysis
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC6103790/
