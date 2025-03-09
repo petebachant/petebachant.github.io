@@ -59,6 +59,9 @@ and if you start falling behind your work will slow down
 and you're more likely to make mistakes.
 Gall's law... TODO
 
+CI/CD has taught the software industry that it is well worth
+the upfront investment.
+
 Silos and large batch flows show up in the process of software development
 when following a so-called
 ["waterfall"](https://en.wikipedia.org/wiki/Waterfall_model)
@@ -506,8 +509,8 @@ do it anyway.
 
 For example,
 run your pipeline on GitHub Actions.
-See [this example]()
-for a Calkit project that runs every day.
+See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
+for a Calkit project that runs automatically.
 
 TODO: This should be an example of one that runs on every PR.
 
