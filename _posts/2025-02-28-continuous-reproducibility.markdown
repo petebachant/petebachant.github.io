@@ -228,6 +228,33 @@ An enabling practice for CI/CD is test automation.
 What test automation does is ensure that the behaviors of the
 software (outputs) match a set of defined inputs.
 
+Coincidentally,
+today I was setting up a CI pipeline for
+[Calkit](https://github.com/calkit/calkit).
+Even though the tests all run fine on my machine,
+it took me
+[15 iterations](https://github.com/calkit/calkit/pull/273)
+to get them running up on the GitHub Actions CI/CD service.
+Along the way, I discovered that the contributor's guide
+was missing
+[one system-level dependency](https://github.com/calkit/calkit/commit/ae3b3bf8d969bdf1714470967da4d650bbdd2bd3).
+
+This is very important for collaboration because there were some details
+about my own laptop that I had forgotten about (hidden state),
+which allow the tests to run fine on my machine,
+but would fail on others.
+If you're working completely alone,
+maybe this doesn't matter,
+but you probably want it to be easy for someone to build upon your
+work so it has the maximum impact, right?
+If someone can't get your project to run,
+how are they supposed to build upon it?
+Further,
+what if you have a team working on the project?
+You're going to want it to be easy for anyone on the team to contribute.
+In this case, CR will help you avoid the annoying
+"works on my machine" investigations.
+
 Automated testing then makes developers feel safe that the
 changes they're about to incorporate don't break anything.
 Similarly,
@@ -468,6 +495,21 @@ of users?
 We don't need to be able to continuously recreate all of that data,
 but we need to ensure that data could be recreated with any
 version of the code.
+
+### Do run all processes as part of the pipeline
+
+Even if you've gotten things to run in an interactive way,
+and you think the results won't change if you run in batch mode,
+do it anyway.
+
+### Do use a CI/CD service if possible
+
+For example,
+run your pipeline on GitHub Actions.
+See [this example]()
+for a Calkit project that runs every day.
+
+TODO: This should be an example of one that runs on every PR.
 
 ## But what if I'm already halfway done?
 
@@ -828,6 +870,24 @@ Reproducibility flaws in this project:
 
 Does sharing all the other stuff prevent users from taking just what
 they want/need?
+At the very least, the rest of your project will serve as documentation
+for how the datasets, etc., can be used,
+and if the project reproduces,
+that documentation will be _true_.
+
+>Reproducing someone else's project isn't that important.
+>As long as the equations
+>in the paper are correct,
+>I can just reimplement on my own.
+
+If the computations don't reproduce,
+and the computations are supposed to be evidence of the equations being
+true,
+how can we assume that there is any valid evidence for the equations
+being true?
+Journal referees are definitely not replicating results as part of the
+review process,
+and I doubt they are reproducing results either.
 
 ## References
 
