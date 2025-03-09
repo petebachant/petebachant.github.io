@@ -479,7 +479,7 @@ created after.
 
 ## Problems CR avoids
 
-- Do I need to rerun this script?
+- Do I need to rerun this script/notebook? It's kind of heavy.
 
 ## Premature abstraction and the curse of design
 
@@ -557,6 +557,15 @@ it's not really a pipeline.
 There will almost certainly be information missing.
 This includes setting up dependencies as well.
 
+### Prose dependency management
+
+This isn't as bad as prose pipelines, but still should be avoided.
+
+### DIY caching logic
+
+Caching is one of the hardest tasks in software engineering.
+Offload that responsibility to a framework.
+
 ### Multiple pipelines
 
 Coincidentally,
@@ -566,6 +575,8 @@ with no instructions on how to run them,
 if there is any inter-dependence, etc.
 
 It also doesn't contain the paper manuscript compilation.
+
+### Not using a framework
 
 ## The opposite of continuous delivery
 
