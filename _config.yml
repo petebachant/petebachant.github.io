@@ -12,7 +12,7 @@ permalink: /:title/
 markdown: kramdown
 highlighter: rouge
 
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-paginate
 
