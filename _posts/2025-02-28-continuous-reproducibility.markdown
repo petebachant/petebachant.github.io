@@ -3,8 +3,8 @@ comments: true
 date: 2025-02-28
 layout: post
 title: >
-  "_Continuous Reproducibility_: How adopting DevOps principles can help
-  improve the speed and quality of scientific discovery"
+  Continuous Reproducibility: How DevOps principles can help
+  improve the speed and quality of scientific discovery
 categories:
   - Open science
   - Reproducibility
@@ -27,9 +27,18 @@ and many findings are failing to be replicated
 or even reproduced
 (verified by rerunning the same computational processes
 on the same input data).
+A good deal of effort has been spent training researchers
+in software engineering (SWE) best practices, i.e.,
+how to write code,
+with positive results,
+and I believe DevOps in particular will bear similar fruit.
 Researchers already borrow plenty of tooling and practices from
 the software world,
 but I believe those mentioned above have not yet crossed over.
+Now that softwares are getting better at writing code,
+using version control, etc.,
+I believe the next step is to apply DevOps principles
+to research project management.
 
 Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
@@ -57,7 +66,35 @@ answering questions,
 producing artifacts as evidence to support the answers.
 These artifacts are almost always created by some sort of software.
 Here I will argue that we need to treat entire projects holistically,
-not jus the software part.
+not just the software part.
+
+```mermaid
+flowchart LR
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+In my experience, two aspects that are rarely automated are:
+
+1. Dependency management.
+   The necessary dependencies to run a project are often listed,
+   but often incompletely.
+   Even if one is using some environment definition
+   format, e.g., `requirements.txt`, the creation and usage of that
+   environment are left to the reader.
+   This gets even more complex if a project requires multiple environments
+   with different dependencies,
+   or even different computers to run.
+2. Full pipeline orchestration. Oftentimes the "pipeline" is a list of steps
+   in the README file left to the reader to execute manually.
+
+If these two steps are automated and checked every time the project
+runs,
+perhaps even on a different computer than the author's,
+it will be much more likely to be reproducible.
 
 These outcomes are achieved with automation.
 Code is automatically tested to ensure it can be safely incorporated.
@@ -391,6 +428,19 @@ If an automated CR pipeline is not in place,
 the extra work from these iterations will accumulate.
 Put the CR pipeline in place from the very beginning!
 
+## But why can't we work in a waterfall way in research?
+
+You can, as long nothing will need to change.
+If the peer review process has no chance of necessitating any
+changes in data process or visualization,
+then sure,
+work in a waterfall.
+
+If you absolutely know your ideas are correct from the outset,
+and that your paper will be accepted without revisions on the first try,
+ignore this article.
+You are good!
+
 Software engineers will work on one small part of the code
 and run an automated test suite to ensure the entire project still works.
 
@@ -705,7 +755,9 @@ where its state is tracked with a version control system.
 This is the state of the inputs and processes.
 
 ```mermaid
-inputs --> processes --> outputs
+flowchart LR
+    A[inputs] --> B[processes]
+    B --> C[outputs]
 ```
 
 What is it like to not work reproducibly?
@@ -820,7 +872,9 @@ We're also going to need some way of updating outputs
 if inputs or process definitions change.
 
 ```mermaid
-input data cell --> spreadsheet formula --> output data cells
+flowchart LR
+   A[input data cell] --> B[spreadsheet formula]
+   B --> C[output data cells]
 ```
 
 ResOps like DevOps.
