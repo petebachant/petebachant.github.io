@@ -47,6 +47,18 @@ and sometimes even problems, are not fully understood, i.e.,
 they are about making decisions and taking action under high uncertainty.
 Does that sound like scientific research to you?
 
+Software engineering principles have been making their way into
+scientific software development practices [3],
+and this is very good thing.
+However, many research projects are not software projects,
+despite the fact that some software...
+Research projects often seek to produce knowledge,
+answering questions,
+producing artifacts as evidence to support the answers.
+These artifacts are almost always created by some sort of software.
+Here I will argue that we need to treat entire projects holistically,
+not jus the software part.
+
 These outcomes are achieved with automation.
 Code is automatically tested to ensure it can be safely incorporated.
 Code is automatically deployed to remove the pain of any manual procedures,
@@ -281,6 +293,8 @@ Automated testing then makes developers feel safe that the
 changes they're about to incorporate don't break anything.
 Similarly,
 automating research projects...
+
+From https://phdcomics.com/comics.php?f=1689
 
 The CR pipeline is like a CD pipeline.
 It is run every time a change is incorporated so there is a single
@@ -870,6 +884,43 @@ Calkit is designed to help:
 Staying loosely, or non-coupled and reproducible is more important than
 not repeating code.
 
+In _Best Practices for Scientific Computing_, Wilson et al.
+cite "don't repeat yourself (or others)" (DRY) as an important rule.
+This is good advice, but it's important not to apply it as
+your primary code quality objective.
+Adhering to DRY too strictly can result in excessive
+external dependencies
+and make reproducibility harder,
+since theses external dependencies need to be properly tracked and setup.
+
+I would prioritize a working pipeline first.
+If it involves some duplicated code,
+that's okay.
+Coincidentally, later in the same article they say
+"optimize software only after it works correctly,"
+which can also be taken to mean optimization to adhere to DRY.
+I have been guilty of this in the past,
+and it produces unnecessary complexity.
+
+For example,
+imagine we have to process two datasets, A and B,
+and they are similar, but not identical.
+We could start with the assumption that we want one script that can adapt
+to both, but that's generally a bad idea.
+Write two scripts, copy/pasting if necessary,
+and get them to work properly in way you can confirm automatically, e.g.,
+that the pipeline produces identical artifacts.
+Then you can refactor out duplication if necessary.
+However,
+it's generally a good rule of thumb to wait until you've repeated something
+at least 3 times to refactor into its own thing.
+
+Keep in mind that having script A, script B, and shared module C
+will mean we have to jump into module C in order to understand the scripts.
+This could reduce readability if not done properly.
+
+Any any case, prioritize a working pipeline over "clean code."
+
 ## A real world example
 
 Toy projects are one thing,
@@ -937,6 +988,17 @@ And to do so, researchers should practice CR.
 
 ## Research projects are not (always) software projects, and researchers don't necessarily need to be software engineers
 
+## I will help you implement CR in your lab (for free)
+
+I may need to edit this later,
+but if you want to implement these practices in your lab,
+firstly, I am building a toolset and platform to
+make it easier to do this without being a software engineer.
+And secondly,
+I currently have time to dedicate to "free consulting"
+if you'd like to implement these practices.
+For nearly a decade I have been implementing them in a software team.
+
 ## References
 
 1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
@@ -946,3 +1008,7 @@ And to do so, researchers should practice CR.
    Reproducibility of computational workflows is automated using continuous
    analysis
    https://pmc.ncbi.nlm.nih.gov/articles/PMC6103790/
+3. Wilson G, Aruliah DA, Brown CT, Chue Hong NP, Davis M, et al. (2014)
+   Best Practices for Scientific Computing.
+   PLOS Biology 12(1): e1001745.
+   https://doi.org/10.1371/journal.pbio.1001745
