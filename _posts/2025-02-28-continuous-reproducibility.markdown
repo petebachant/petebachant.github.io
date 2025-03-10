@@ -47,6 +47,25 @@ and sometimes even problems, are not fully understood, i.e.,
 they are about making decisions and taking action under high uncertainty.
 Does that sound like scientific research to you?
 
+These outcomes are achieved with automation.
+Code is automatically tested to ensure it can be safely incorporated.
+Code is automatically deployed to remove the pain of any manual procedures,
+so it can be done more frequently.
+Code is accessible to all team members and CI/CD operates on an
+independent computing system
+so the knowledge on how to test and deploy is not siloed in a subset
+of the team, or worse, a single individual.
+
+Many research projects involve some sort of code,
+even if they're not seeking to build software products.
+
+You might argue that a PI needs to be siloed away from the grad students
+and postdocs because they have other roles.
+However, this siloing will produce inefficiency.
+
+The later in the process an error is found,
+the more expensive it is to fix.
+
 Even more fundamentally,
 these are about reducing complexity.
 Instead of putting things in many different boxes
@@ -389,6 +408,15 @@ any time a dependency has changed.
 Monorepo.
 Don't allow complexity to explode by letting your project turn into many
 projects.
+
+## Reducing pain through automation
+
+The more painful a process is,
+the less likely someone is to do it.
+If this process also leads to improved quality,
+quality will suffer.
+Therefore,
+it's important to automated things to reduce pain and uncertainty.
 
 ## The interactive/batch dance
 
@@ -891,6 +919,23 @@ being true?
 Journal referees are definitely not replicating results as part of the
 review process,
 and I doubt they are reproducing results either.
+
+## Are you practicing continuous reproducibility: A test
+
+1. Can anyone on the team view a single source of truth for the project files
+   at any time?
+2. Can the project run on anyone's computer?
+3. Is there some objective and automated way to check if the project is in consistent state?
+
+PIs may say they're too busy to get involved in the lower level activities,
+that they need the grad students and postdocs to provide them with weekly
+summary reports.
+
+That may be the case.
+However, these reports should be generated automatically.
+And to do so, researchers should practice CR.
+
+## Research projects are not (always) software projects, and researchers don't necessarily need to be software engineers
 
 ## References
 
