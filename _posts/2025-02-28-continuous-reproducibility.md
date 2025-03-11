@@ -656,6 +656,10 @@ do it anyway.
    As you go through your lit review, you'll be writing the introduction.
    Again, instead of phases, make it into one continuous evolutionary process
    until it's ready to release.
+4. Create project update slideshows with the same pipeline used to create
+   everything else. Automate this so you're not manually copy/pasting
+   things into slides each week for project updates.
+5. Prefer many small changes over fewer large changes.
 
 ## Anti-patterns to avoid
 
@@ -670,51 +674,6 @@ Or at least commit changes to the code and outputs all at the same time.
 Never share results generated with uncommitted code.
 Or further,
 never share uncommitted results.
-
-### Large batch version control practices
-
-Many small commits are generally preferable to fewer large commits.
-
-## The opposite of continuous delivery
-
-A common pattern in many analytical endeavors is to periodically
-share slides with curated results.
-
-The shift to CR would mean generating these slides as part of a pipeline,
-so they continually stay up-to-date,
-and the single source of truth and its history can be accessed
-by all collaborators.
-
-As a side note,
-similar arguments could be used to support
-eliminating research proposals.
-Instead, simply fund innovative and capable scientists
-and let them figure out what's important to discover.
-
-CR via GitHub Actions CI with Calkit...
-This gives you an "objective" machine on which to run your pipeline.
-If you want, use can use the `--force` to bypass all cached results
-and ensure they are created identically.
-This could be useful if you haven't properly defined all the dependencies
-for a given output.
-
-In a software development project,
-it is optimal to create lots of small but valuable changes,
-always integrating these into the single source of truth,
-or the main branch.
-
-In a research project is certainly can be a good idea to use
-automated tests for the software to check its accuracy,
-but reproducibility is slightly different.
-
-The way CI works is that any proposed change goes through some testing,
-and...
-
-So, our research project should have a single source of truth
-where its state is tracked with a version control system.
-This is the state of the inputs and processes.
-
-
 
 What is it like to not work reproducibly?
 Well, it means that the path one took to produce an artifact can no longer
