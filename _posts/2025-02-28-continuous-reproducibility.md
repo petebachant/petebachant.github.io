@@ -170,7 +170,7 @@ if only one grad student has their machine setup to
 This section is going to be slightly biased towards
 [Calkit](https://github.com/calkit/calkit),
 a project framework and toolset I've been working on to help
-enable continuous reproducibility,
+enable CR,
 but it is by no means the only way to follow the principles,
 and I will try to provide other options.
 
@@ -235,8 +235,9 @@ Google uses a single monorepo for most of their code.
 
 You should keep literally everything in the project that matters,
 which includes raw data.
+Calkit leverages DVC for versioning larger data files and
 
-#### Avoid splintering into many small projects
+#### Avoid splintering into many small projects from the start
 
 This is analogous to the "distributed monolith" software architecture,
 where tightly coupled components are spread across multiple codebases
@@ -275,6 +276,8 @@ Alternatives include Make, Snakemake, or a shell script.
 If the project is super lightweight, e.g.,
 a pure writing project with no figure generation,
 the "pipeline" could be to save a Word document as a PDF.
+
+showyourwork...
 
 Coincidentally,
 the ["repro pack" attached to [1]](https://doi.org/10.3886/E111743V2)
