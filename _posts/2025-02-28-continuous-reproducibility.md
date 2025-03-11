@@ -568,29 +568,6 @@ The less automated your workflow, the more likely it is to be wrong.
 
 ## Tactics for continuous reproducibility
 
-If you've read this far, hopefully you're convinced that your project
-should remain reproducible on a daily basis.
-So how can we achieve that?
-
-What does this mean to work reproducibly though?
-It means at any point in time, the outputs of a given project
-accurately reflect the inputs and process definitions therein.
-
-I would go further to posit that if a project can remain
-continuously reproducible,
-it can be done more quickly and with higher quality.
-
-The benefit of CI comes from many small changes incorporated immediately.
-Applying this to a research project is also beneficial.
-
-"Incorporated" means committed to a version control system that allows us
-to revert changes or return to previous versions.
-
-In any case, practicing CI and CD are key to delivering
-higher quality products more quickly,
-and this is widely accepted as truth in the software
-development world.
-
 Many think their work is reproducible,
 though it probably isn't.
 I have personally attempted reproducing some results from
@@ -863,6 +840,10 @@ being true?
 Journal referees are definitely not replicating results as part of the
 review process,
 and I doubt they are reproducing results either.
+
+>It's not worth the extra effort
+
+It isn't until it is.
 
 ## Are you practicing continuous reproducibility: A test
 
