@@ -317,7 +317,7 @@ Offload that responsibility to a framework.
 ### Use a CI/CD service
 
 For example,
-run your pipeline on GitHub Actions.
+run your pipeline on GitHub Actions, which is free for public projects.
 See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
 for a Calkit project that runs automatically on every push to GitHub.
 
@@ -643,7 +643,13 @@ do it anyway.
 ## More small rules to follow
 
 1. Never share an artifact you couldn't easily regenerate.
-2. Don't email editable artifacts.
+   If there are uncommitted changes in the repo, it's considered "dirty."
+   Never share something created from a dirty repo.
+   Commit, run the pipeline, then share.
+2. Don't email editable artifacts. You will lose your single source of truth
+   quickly this way.
+   Instead, share artifacts that can be marked up, like PDFs,
+   and incorporate those comments into the main branch.
 3. Start your paper (or thesis) on day 1.
    It's going to be mostly boilerplate,
    but that's okay.
