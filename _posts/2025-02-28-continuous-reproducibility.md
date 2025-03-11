@@ -583,12 +583,6 @@ We don't need to be able to continuously recreate all of that data,
 but we need to ensure that data could be recreated with any
 version of the code.
 
-### Do run all processes as part of the pipeline
-
-Even if you've gotten things to run in an interactive way,
-and you think the results won't change if you run in batch mode,
-do it anyway.
-
 ## More small rules to follow
 
 1. Never share an artifact you couldn't easily regenerate.
