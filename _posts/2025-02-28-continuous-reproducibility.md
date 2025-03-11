@@ -538,25 +538,6 @@ but it fits the criteria:
 1. Version controlled
 2. Outputs are consistent with inputs and process definitions
 
-## An analogy: The journey and the destination
-
-The destination is the paper.
-
-CR is building a trail and saving GPS coordinates along the route,
-since you'll be going back and forth often.
-
-Non-CR, at best,
-is creating a map from memory at the destination.
-At worst,
-it's getting to the destination, taking a photo,
-and leaving it at that.
-
-It's actually really important for others to be able to get to where
-you got so they can go further.
-But if you don't even know how you got there...
-
-The less automated your workflow, the more likely it is to be wrong.
-
 ## Tactics for continuous reproducibility
 
 Many think their work is reproducible,
