@@ -667,25 +667,6 @@ In this case,
 our project now becomes a folder of files,
 and we shift our mindset to managing this folder instead of one file.
 
-This project folder should then contain everything.
-Yes, everything.
-And we're going to need a tool to "track changes" to the folder,
-instead of a single file.
-We're also going to need some way of updating outputs
-if inputs or process definitions change.
-
-```mermaid
-flowchart LR
-   A[input data cell] --> B[spreadsheet formula]
-   B --> C[output data cells]
-```
-
-ResOps like DevOps.
-
-Anything worth doing is usually difficult,
-and difficult things get easier if you do them in small steps.
-Finishing a small step should mean the project stays reproducible.
-
 Painful situations you can avoid by applying CR:
 
 1. Your advisor points back at an older slide deck and requests that you
