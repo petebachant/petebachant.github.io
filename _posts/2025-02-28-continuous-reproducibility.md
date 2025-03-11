@@ -527,17 +527,6 @@ but that the value uncovered by interactive work should be incorporated
 into a batch process as quickly as possible,
 which will manifest as small changes.
 
-## Examples of CR workflows
-
-Microsoft Excel.
-If you could do everything in Excel,
-that would count as a CR workflow.
-Now, there are many reasons you shouldn't do that,
-but it fits the criteria:
-
-1. Version controlled
-2. Outputs are consistent with inputs and process definitions
-
 ## Tactics for continuous reproducibility
 
 Many think their work is reproducible,
