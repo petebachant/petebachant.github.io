@@ -11,11 +11,9 @@ categories:
   - Software engineering
 ---
 
-In the 21st century,
-the principles of
-[lean startup](https://en.wikipedia.org/wiki/Lean_startup),
-[agile software development](https://en.wikipedia.org/wiki/Agile_software_development),
-and [DevOps](https://en.wikipedia.org/wiki/DevOps)
+In the 21st century, the
+[Agile software development](https://en.wikipedia.org/wiki/Agile_software_development),
+and [DevOps](https://en.wikipedia.org/wiki/DevOps) movements
 have significantly reduced waste, improved quality,
 enhanced innovation,
 and increased the speed of development of software products and related
@@ -756,7 +754,7 @@ It isn't until it is.
 
 ## Summary and conclusions
 
-Based on the learnings from the Agile, Lean, and DevOps movements,
+Based on the learnings from the Agile and DevOps movements,
 I believe scientists can boost their productivity and quality
 of their work
 by applying Continuous Reproducibility principles to their projects.
