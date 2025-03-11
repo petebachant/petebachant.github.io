@@ -678,7 +678,8 @@ do it anyway.
 
 ## More small rules to follow
 
-1. Never share an artifact you couldn't easily regenerate
+1. Never share an artifact you couldn't easily regenerate.
+2. Don't email editable artifacts.
 
 ## Anti-patterns to avoid
 
@@ -941,11 +942,6 @@ will mean we have to jump into module C in order to understand the scripts.
 This could reduce readability if not done properly.
 
 Any any case, prioritize a working pipeline over "clean code."
-
-## Don't email editable artifacts
-
-If you're trying to get feedback from a collaborator who is only
-tangentially involved...
 
 ## A real world example
 
