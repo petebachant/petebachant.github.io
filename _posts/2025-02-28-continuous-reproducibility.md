@@ -564,36 +564,6 @@ if that has not been tested,
 it's highly likely that the documentation is missing something,
 and your work will not be reproducible.
 
-The solution is to keep running your project every time you make a change.
-
-To make this easier, you should probably build your project in a framework
-that can detect change so expensive steps don't need to be rerun
-if their inputs or process definitions have not changed.
-
-Calkit uses DVC for this part.
-Then there's the other hard part that seems to be overlooked most often:
-environment management.
-The computation environment is the foundation that must be in place
-to run the processes.
-One simple way to solve this is to create instructions on how to get your
-computer ready to run the project.
-This is done in many different ways and there's lots of room for error.
-For instance,
-there may be a simple list of dependencies in the project's README.
-It is then up to the user to install these on their own,
-perhaps without even knowing which version may or may not work.
-
-Another step up is to document the environment for some sort of environment
-management tool, e.g., Python's `venv`,
-and provide instructions for the user to create that environment,
-install the dependencies from a file,
-then activate the environment before running a given process.
-Docker is another form of environment management.
-
-Calkit incorporates environment management to remove that step
-requiring the user to setup their own environment.
-It also easily allows for multiple environments in a single project.
-
 What this means is that we need to produce outputs as part of a
 batch process.
 However, developing the process is almost always more efficient
