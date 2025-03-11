@@ -19,7 +19,10 @@ and [DevOps](https://en.wikipedia.org/wiki/DevOps)
 have significantly reduced waste, improved quality,
 enhanced innovation,
 and increased the speed of development of software products and related
-technology.
+technology by breaking down silos,
+improving collaboration,
+and moving towards working in smaller batches with faster feedback loops
+to succeed in uncertain environments.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
 and many findings are failing to be replicated
@@ -27,34 +30,20 @@ and many findings are failing to be replicated
 or even reproduced
 (verified by rerunning the same computational processes
 on the same input data).
-A good deal of effort has been spent training researchers
-in software engineering (SWE) best practices, i.e.,
-how to write code,
-with positive results,
-and I believe DevOps in particular will bear similar fruit.
-Researchers already borrow plenty of tooling and practices from
-the software world,
-but I believe those mentioned above have not yet crossed over.
-Now that softwares are getting better at writing code,
-using version control, etc.,
-I believe the next step is to apply DevOps principles
-to research project management.
+Though the products of science only sometimes include software,
+I believe there is more science can learn from the software industry
+in these areas.
 
 Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
-([CI/CD](https://en.wikipedia.org/wiki/CI/CD))),
-which could manifest as something we might call
-_Continuous Reproducibility_ (CR) in the research world.
-Making it easier to adopt CR practices is one of the primary goals
-of [Calkit](https://calkit.org).
-
-At the core,
-the agile, lean, DevOps, and related movements are about breaking down silos
-and working in small batches with faster feedback loops.
-These are beneficial in scenarios where solutions,
-and sometimes even problems, are not fully understood, i.e.,
-they are about making decisions and taking action under high uncertainty.
-Does that sound like scientific research to you?
+([CI/CD](https://en.wikipedia.org/wiki/CI/CD))).
+There has been some discussion about adapting these
+and calling it
+[_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
+though I think the concept extends beyond analysis and into
+generating other artifacts like figures and publications.
+Therefore, here we will use the term
+_Continuous Reproducibility_ (CR).
 
 Software engineering principles have been making their way into
 scientific software development practices [3],
