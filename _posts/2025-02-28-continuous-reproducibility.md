@@ -800,16 +800,18 @@ and I doubt they are reproducing results either.
 
 It isn't until it is.
 
-## I will help you implement CR in your lab (for free)
+## Summary and conclusions
 
-I may need to edit this later,
-but if you want to implement these practices in your lab,
-firstly, I am building a toolset and platform to
-make it easier to do this without being a software engineer.
-And secondly,
-I currently have time to dedicate to "free consulting"
-if you'd like to implement these practices.
-For nearly a decade I have been implementing them in a software team.
+Based on the learnings from the Agile, Lean, and DevOps movements,
+I believe scientists can boost their productivity and quality
+of their work
+by applying Continuous Reproducibility principles to their projects.
+This essentially means automating dependency management and
+artifact generation to simplify reproducibility down to a single command.
+
+If you want help implementing CR practices in your lab,
+shoot me an [email](mailto:petebachant@gmail.com) and I will probably
+be willing to help you out (for free!)
 
 ## References
 
