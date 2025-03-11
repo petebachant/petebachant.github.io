@@ -25,13 +25,13 @@ and moving towards working in smaller batches with faster feedback loops
 to succeed in uncertain environments.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
-with many findings are failing to replicate
+with many findings failing to replicate
 (validated in an end-to-end sense, re-acquiring and reanalyzing raw data)
 or even to be reproduced
 (verified by rerunning the same computational processes
 on the same input data).
 Though the products of science only sometimes include software,
-I believe there is more science can learn from the software industry
+I believe there is more science can learn from the software field
 in these areas.
 
 Here I will focus on one set of practices in particular:
@@ -52,14 +52,15 @@ CI means that valuable changes are integrated or incorporated into the
 single source of truth, i.e., the main branch, as soon as they
 are produced,
 and CD means that the external world has access to these changes as
-soon as possible.
+quickly as possible.
 Silos are broken down as a single team then owns both development
 and operations (hence "DevOps").
 That is, the development team handles testing/QA and deployment,
 whereas in the past this might have been handled by multiple teams with
 heavy documentation handoffs between them in lieu of true collaboration.
 Work batch sizes shrink as developers start merging in frequent small
-changes to the codebase instead of large multi-month projects.
+changes to the codebase instead of larger, less frequent
+(sometimes taking months or years) updates.
 
 Automation makes CI/CD practical.
 As part of CI,
@@ -69,19 +70,44 @@ to ensure changes will not break the codebase in ways that are hard to predict.
 If the tests pass, the changes are merged.
 Then, an automated CD pipeline will run
 (also usually on an independent computer) to build
-any necessary artifacts and put them where they need to go
+any necessary artifacts and send them where they need to go
 (a web server, package download service, etc.).
 Whatever is released out into the world is then totally consistent
-with that single source of truth.
+with the single source of truth that is the main branch.
+If these processes were not automated,
+they would be more painful to carry out and would naturally be done less
+frequently,
+which reduces speed and quality.
 
-So how does this relate to research projects,
-and what would it mean for one to be "Continuously Reproducible?"
+This more agile way of working evolved in response to the failures of the
+waterfall project management style,
+which splits a project up into multiple phases or "stage gates,"
+often owned by different people and progressed through by handing off
+large amounts of documentation.
+For example, design, implementation, testing, and deployment all might
+be siloed in different teams.
+The source of inefficiency in this way of working is the
+
+We can see some waterfall aspects in research as well.
+Data collection might be treated as a distinct phase
+from data analysis,
+which might be siloed from writing.
+This would be fine if we never needed to return to earlier stages,
+but anyone who has ever been part of the review process for a journal
+article
+should know that it's very likely you'll to need to revisit data analysis
+and visualization to fulfill requested changes to the article.
+Beyond that,
+there are artifacts delivered only internally as the project moves along,
+e.g., slideshows shown to the principal investigator (PI) for feedback.
+
+So what would it mean for a research project to be "Continuously Reproducible?"
 We can extract a few core principles from the process above:
 
 1. There is a single source of truth for all input materials and process
    definitions.
 2. These processes can be run on multiple machines, i.e., they are not
-   dependent on some "hidden state" of the developer's machine.
+   dependent on some "hidden state" of one developer's machine.
 3. Whatever is delivered to the outside world is always
    consistent with the input
    materials and process definitions.
@@ -714,15 +740,6 @@ You can start working reproducibly from now.
 At least you can put everything you have right now into version control,
 then start adding to the pipeline for everything that needs to be
 created after.
-
-## 'Trunk-based' development
-
-Experimentation is necessary,
-and this doesn't just mean scientific experiments.
-Trying out a different way of processing or visualizing data could lead
-to a more effective approach.
-
-Instead of deploying different versions of the code...
 
 ## Anti-patterns to avoid
 
