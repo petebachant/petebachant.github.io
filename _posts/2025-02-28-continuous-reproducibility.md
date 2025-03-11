@@ -166,26 +166,9 @@ a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repr
 along with each scientific article.
 These are great, especially when published openly.
 However, the name sort of implies that curating the repro pack is a
-distinct phase in the project.
+distinct phase in the project that happens relatively later on.
 Continuous reproducibility would have us using a repro pack for the entire
 project, and it would follow a few important rules.
-
-## Signs that you could benefit from these ideas
-
-1. You dread the prospect of getting a new computer,
-   because getting everything setup to work would take days.
-2. You dread the prospect of changing a data processing script,
-   because you aren't sure what else would need to be updated to keep things
-   consistent.
-   For example, there could be figures that need to be updated,
-   or aggregate numbers listed in a paper that were entered manually.
-3. You dread the prospect of updating figures because you'll need to
-   manually copy files into a different project or tool to update the relevant
-   publication.
-4. You're the only person on your team who knows how to run the scripts in
-   your project, i.e., you're working in a silo.
-5. You feel like you're working on the edge of a cliff,
-   like one small change would send an entire house of cards toppling down.
 
 ## How to get there
 
@@ -364,12 +347,29 @@ the outputs are still valid.
 Caching is one of the hardest tasks in software engineering.
 Offload that responsibility to a framework.
 
-### Use a CI/CD service
+### Use a CI/CD service, or at least an independent computer
 
 For example,
 run your pipeline on GitHub Actions, which is free for public projects.
 See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
 for a Calkit project that runs automatically on every push to GitHub.
+
+## Signs that you could benefit from these ideas
+
+1. You dread the prospect of getting a new computer,
+   because getting everything setup to work would take days.
+2. You dread the prospect of changing a data processing script,
+   because you aren't sure what else would need to be updated to keep things
+   consistent.
+   For example, there could be figures that need to be updated,
+   or aggregate numbers listed in a paper that were entered manually.
+3. You dread the prospect of updating figures because you'll need to
+   manually copy files into a different project or tool to update the relevant
+   publication.
+4. You're the only person on your team who knows how to run the scripts in
+   your project, i.e., you're working in a silo.
+5. You feel like you're working on the edge of a cliff,
+   like one small change would send an entire house of cards toppling down.
 
 ## The role of interactive or non-automated workflows
 
