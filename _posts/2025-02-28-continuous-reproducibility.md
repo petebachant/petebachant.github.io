@@ -47,7 +47,9 @@ science creates.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
 
-First off, what is CI/CD and why has it become the norm for software teams?
+## Defining CI/CD
+
+What is CI/CD and why has it become the norm for software teams?
 CI means that valuable changes are integrated or incorporated into the
 single source of truth, i.e., the main branch, as soon as they
 are produced,
@@ -62,7 +64,39 @@ Work batch sizes shrink as developers start merging in frequent small
 changes to the codebase instead of larger, less frequent
 (sometimes taking months or years) updates.
 
-Automation makes CI/CD practical.
+## The end of the waterfall
+
+This more agile way of working evolved in response to the failures of the
+[waterfall project management](https://en.wikipedia.org/wiki/Waterfall_model)
+model,
+which splits a project up into multiple phases or "stage gates,"
+often owned by different people and moved through by handing off
+large amounts of documentation.
+For example, design, implementation, testing, and deployment all might
+be siloed in different teams.
+The source of inefficiency in this way of working is the high cost
+of returning to previous stages after moving forward.
+For example,
+if a problem shows up in testing,
+we may need to go back and redesign and reimplement parts of the software.
+Working in smaller chunks and testing each one
+allows us to discover issues earlier where
+they are cheaper to fix.
+
+We can see some waterfall aspects in research as well.
+Data collection might be treated as a distinct phase
+from data analysis,
+which might be siloed from writing.
+This would be fine if we never needed to return to earlier stages,
+but anyone who has ever been part of the review process for a journal
+article
+should know that it's very likely you'll to need to revisit data analysis
+and visualization to fulfill requested changes to the article.
+
+## The role of automation
+
+CI/CD is impractical without automation,
+and thus automation was and is a key enabler.
 As part of CI,
 a suite of automated tests will run,
 often on an independent computer,
@@ -78,42 +112,18 @@ If these processes were not automated,
 they would be more painful to carry out and would naturally be done less
 frequently,
 which reduces speed and quality.
+The sense of confidence and reduced anxiety that comes from having
+things automated makes it much easier to explore different ideas without
+the fear of destroying previous progress.
 
-This more agile way of working evolved in response to the failures of the
-[waterfall project management]((https://en.wikipedia.org/wiki/Waterfall_model))
-model,
-which splits a project up into multiple phases or "stage gates,"
-often owned by different people and moved through by handing off
-large amounts of documentation.
-For example, design, implementation, testing, and deployment all might
-be siloed in different teams.
-The source of inefficiency in this way of working is the high cost
-of returning to previous stages after moving forward.
-For example,
-if a problem shows up in testing,
-we may need to go back and redesign and reimplement parts of the software.
-Working in smaller chunks allows us to discover issues earlier where
-they are cheaper to fix.
-
-We can see some waterfall aspects in research as well.
-Data collection might be treated as a distinct phase
-from data analysis,
-which might be siloed from writing.
-This would be fine if we never needed to return to earlier stages,
-but anyone who has ever been part of the review process for a journal
-article
-should know that it's very likely you'll to need to revisit data analysis
-and visualization to fulfill requested changes to the article.
-Beyond that,
-there are artifacts delivered only internally as the project moves along,
-e.g., slideshows shown to the principal investigator (PI) for feedback.
+## General principles
 
 So what would it mean for a research project to be "Continuously Reproducible?"
-We can extract a few core principles from the process above:
+We can extract a few core principles from the CI/CD processes defined above:
 
 1. There is a single source of truth for all input materials and process
    definitions.
-2. These processes can be run on multiple machines, i.e., they are not
+2. These processes can be run on different computers, i.e., they are not
    dependent on some "hidden state" of one developer's machine.
 3. Whatever is delivered to the outside world is always
    consistent with the input
@@ -121,7 +131,10 @@ We can extract a few core principles from the process above:
    Through the use of version control, we can always go back in time to the
    input materials and process definitions that produced any given artifact
    and produce it again.
-4. Leverage automation to make iterations as lightweight as possible.
+4. Getting the project into a consistent state after making a change requires
+   very little effort from the team members.
+   Practically speaking, this would mean executing a single command
+   rather than a series of manual steps.
 
 ```mermaid
 flowchart LR
@@ -183,7 +196,8 @@ Storing a dataset somewhere far away from the
 Keep your project general at first.
 That is, dump all files into a single place.
 Don't split into a bunch of different projects,
-e.g., one for your proposal, one for the experiment,
+e.g., one for a lit review,
+one for your proposal, one for the experiment,
 one for the analysis code,
 one for the journal article,
 and one for the thesis.
@@ -231,37 +245,24 @@ Automate these concerns!
 
 >Do I need to rerun this script/notebook? It's kind of heavy.
 
-## Pain points that stifle CR
+## Signs that you could benefit from the ideas
 
-- In order to update a figure in publication,
-  a script needs to be run in a separate repo,
-  then manually copied into a writing tool.
+1. You dread the prospect of getting a new computer,
+   because getting everything setup to work would take days.
+2. You dread the prospect of changing a data processing script,
+   because you aren't sure what else would need to be updated to keep things
+   consistent.
+   For example, there could be figures that need to be updated,
+   or aggregate numbers listed in a paper that were entered manually.
+3. You dread the prospect of updating figures because you'll need to
+   manually copy files into a different project or tool to update the relevant
+   publication.
+3. You're the only person on your team who knows how to run the scripts in
+   your project, i.e., you're working in a silo.
 
-It's important to clarify that
-peer review and delivery happen inside a research
-group before publishing results to the larger world
-(though preprints do deliver externally earlier),
-very similar to what happens inside a software product team.
-A researcher may make some changes to simulation or data processing code,
-which in turn leads them to produce a figure,
-and perhaps write some text in a draft of an article.
-This draft may be delivered to the principal investigator (PI)
-for review.
-I am arguing that there are productivity gains to be had by shortening
-this feedback loop.
-It is here where Continuous Reproducibility practices can help speed things up
-with automation.
+## Signs that CR is being done effectively
 
-Graduate students may meet with their advisors weekly to give progress updates.
-As part of this ritual they may need to create new slide shows
-with the latest results.
-This is a significant effort, and these slideshows will often be thrown
-away.
-A CR workflow would advocate starting the writing process early,
-even from the very beginning of the project,
-and using that as the single source of truth for the project status,
-slowly evolving it into a publishable state.
-
+1. Multiple people on the team are making changes to the project materials.
 
 ## Tactics for automating CR workflows
 
@@ -530,12 +531,6 @@ in the pipeline that will tell the user they
 need to check that number
 any time a dependency has changed.
 
-## The biggest mindset shift
-
-Monorepo.
-Don't allow complexity to explode by letting your project turn into many
-projects.
-
 ## Reducing pain through automation
 
 The more painful a process is,
@@ -668,6 +663,14 @@ See [this example](https://github.com/calkit/example-basic/blob/main/.github/wor
 for a Calkit project that runs automatically.
 
 TODO: This should be an example of one that runs on every PR.
+
+## Is your project currently following CR?
+
+Besides installing foundational dependencies like Git and Docker,
+can someone setup all dependencies and run your pipeline with a single
+command?
+
+## Never share an artifact you couldn't regenerate
 
 ## But what if I'm already halfway done?
 
@@ -985,6 +988,11 @@ will mean we have to jump into module C in order to understand the scripts.
 This could reduce readability if not done properly.
 
 Any any case, prioritize a working pipeline over "clean code."
+
+## Don't email editable artifacts
+
+If you're trying to get feedback from a collaborator who is only
+tangentially involved...
 
 ## A real world example
 
