@@ -80,13 +80,20 @@ frequently,
 which reduces speed and quality.
 
 This more agile way of working evolved in response to the failures of the
-waterfall project management style,
+[waterfall project management]((https://en.wikipedia.org/wiki/Waterfall_model))
+model,
 which splits a project up into multiple phases or "stage gates,"
-often owned by different people and progressed through by handing off
+often owned by different people and moved through by handing off
 large amounts of documentation.
 For example, design, implementation, testing, and deployment all might
 be siloed in different teams.
-The source of inefficiency in this way of working is the
+The source of inefficiency in this way of working is the high cost
+of returning to previous stages after moving forward.
+For example,
+if a problem shows up in testing,
+we may need to go back and redesign and reimplement parts of the software.
+Working in smaller chunks allows us to discover issues earlier where
+they are cheaper to fix.
 
 We can see some waterfall aspects in research as well.
 Data collection might be treated as a distinct phase
@@ -224,89 +231,11 @@ Automate these concerns!
 
 >Do I need to rerun this script/notebook? It's kind of heavy.
 
-## The inefficiency of waterfall project management
+## Pain points that stifle CR
 
-Applying CR practices will improve so-called agility.
-This is beneficial when a project truly cannot be broken down into phases
-or "stage gates" that never require revisiting.
-
-
-
-You might argue that a PI needs to be siloed away from the grad students
-and postdocs because they have other roles.
-However, this siloing will produce inefficiency.
-
-The later in the process an error is found,
-the more expensive it is to fix.
-
-Silos and large batch flows show up in the process of software development
-when following a so-called
-["waterfall"](https://en.wikipedia.org/wiki/Waterfall_model)
-project management model,
-where the project moves through discrete stage gates.
-Each phase is often owned by a different (siloed) team,
-and involves a large batch of work that needs to be handed off for the next
-stage.
-These phases may be:
-
-1. Market research
-2. Requirements definition
-3. Design
-4. Implementation
-5. Testing
-6. Integration
-7. Delivery
-
-Software engineers learned that under conditions of high uncertainty,
-these large batches of work can often produce large amounts of waste,
-as full knowledge of the market's problem and ideal solution
-cannot be known up front.
-Thus, instead of one big waterfall,
-the project can be broken down into many small cycles
-where teams collaborate cross-functionally.
-That is, those with knowledge of the market work alongside designers,
-who work alongside engineers to iterate towards the optimal solution
-on timescales measured in days instead of months, quarters, or years.
-
-CI/CD turn the later stages (4--7) into one continuous process with
-many small steps, where implementation, testing, integration,
-and delivery are owned by the same team,
-and again, often done multiple times per day instead of once at the end.
-This is possible thanks to the use of automated testing and deployment
-pipelines.
-As developers create valuable changes,
-they are integrated into a single source of truth,
-a so-called "main branch,"
-right away.
-Confidence that nothing has broken comes from running a suite of
-automated tests.
-This single source of truth is then delivered to the users as quickly
-as possible,
-where the constant stream of small improvements provides much less
-disruption to their usage compared to infrequent "big bang" releases.
-
-But how does this relate to scientific research?
-Where do silos and large batch flows show up in science?
-One might model the modern scientific process as a waterfall,
-with stages like:
-
-1. Request for proposal
-1. Proposal
-1. Study design
-1. Study implementation
-1. Analysis
-1. Writing
-1. Peer review (testing)
-1. Publication (delivery)
-1. Reproduction
-1. Replication
-
-Now, turning this entire process into one with frequent feedback
-loops and cross-functional collaboration is outside the scope of this article,
-though one could imagine there is room for efficiency gains, e.g.,
-by eliminating the proposal phase and simply funding capable teams to
-work on the research gaps that they discover in a time-boxed manner.
-Instead, here we will focus on phases 4--9.
+- In order to update a figure in publication,
+  a script needs to be run in a separate repo,
+  then manually copied into a writing tool.
 
 It's important to clarify that
 peer review and delivery happen inside a research
