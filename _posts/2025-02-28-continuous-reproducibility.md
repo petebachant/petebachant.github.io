@@ -537,27 +537,6 @@ which will manifest as small changes.
 
 ## Tactics for continuous reproducibility
 
-Many think their work is reproducible,
-though it probably isn't.
-I have personally attempted reproducing some results from
-code and data archives cited in papers.
-Many times what is shared is incomplete.
-Sometimes it's just the code without the actually configuration
-used to generate the results.
-Sometimes it's just the data with an explanation on how to use it.
-
-Now, if these projects were setup to be CR,
-the entire thing could be shared.
-
-This shows up in software development as the
-"works on my machine" phenomenon.
-Is this a problem?
-Is it necessarily true that a failure to reproduce means the results
-are invalid?
-Probably not.
-Irreproducible does not mean irreplicable,
-but it certainly makes things much harder.
-
 Some processes are too heavy to be practical to rerun.
 For example,
 it is usually not feasible to rerun a large scale simulation on a
