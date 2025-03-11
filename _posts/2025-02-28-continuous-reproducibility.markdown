@@ -25,9 +25,9 @@ and moving towards working in smaller batches with faster feedback loops
 to succeed in uncertain environments.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
-and many findings are failing to be replicated
+with many findings are failing to replicate
 (validated in an end-to-end sense, re-acquiring and reanalyzing raw data)
-or even reproduced
+or even to be reproduced
 (verified by rerunning the same computational processes
 on the same input data).
 Though the products of science only sometimes include software,
@@ -53,7 +53,15 @@ single source of truth, i.e., the main branch, as soon as they
 are produced,
 and CD means that the external world has access to these changes as
 soon as possible.
-Automation makes these practical.
+Silos are broken down as a single team then owns both development
+and operations (hence "DevOps").
+That is, the development team handles testing/QA and deployment,
+whereas in the past this might have been handled by multiple teams with
+heavy documentation handoffs between them in lieu of true collaboration.
+Work batch sizes shrink as developers start merging in frequent small
+changes to the codebase instead of large multi-month projects.
+
+Automation makes CI/CD practical.
 As part of CI,
 a suite of automated tests will run,
 often on an independent computer,
@@ -80,6 +88,7 @@ We can extract a few core principles from the process above:
    Through the use of version control, we can always go back in time to the
    input materials and process definitions that produced any given artifact
    and produce it again.
+4. Leverage automation to make iterations as lightweight as possible.
 
 ```mermaid
 flowchart LR
@@ -116,10 +125,48 @@ How do we draw the boundaries?
 Always better to err on the side of too big and break it up later
 than start too small.
 
+Practically speaking,
+all work done throughout a master's or PhD program can go in a single
+project so long as the topic hasn't changed.
+
+That means we don't want to create a separate smaller project for a
+conference presentation,
+another separate project for a journal article,
+and yet another for our thesis.
+Start with one project, because all of these are inherently coupled to
+each other, i.e.,
+they will share input data and process definitions.
+
+We've already established that we want to move away from
+very small projects, but what's the limit?
+Should we draw the line at a single paper?
+What if we have a follow-on investigation on the same topic?
+
 If you want to be able to test and build artifacts,
 you'll want to keep everything in one place.
 This is the same for a research project.
 Storing a dataset somewhere far away from the
+
+Keep your project general at first.
+That is, dump all files into a single place.
+Don't split into a bunch of different projects,
+e.g., one for your proposal, one for the experiment,
+one for the analysis code,
+one for the journal article,
+and one for the thesis.
+
+It's almost always better to go from large to small than the other way
+around.
+In software development,
+this principle is known as premature abstraction,
+and it is well known that the wrong abstraction is much more expensive
+than no abstraction at all.
+
+A similar concept is that of a "monorepo,"
+or a single repository containing multiple sub-projects.
+This is much better than excessive fragmentation.
+In fact,
+Google uses a single monorepo for most of their code.
 
 ## Processes should be able to run on multiple machines
 
@@ -137,6 +184,19 @@ or even different computers to run.
 
 Full pipeline orchestration. Oftentimes the "pipeline" is a list of steps
 in the README file left to the reader to execute manually.
+
+## Leverage automation to make iterations lightweight
+
+Automating a pipeline with caching saves us the cognitive overhead of
+computing downstream consequences of a given change.
+For example,
+if we change our data processing script slightly,
+which plotting scripts need to be rerun?
+Which publications then need to be recompiled based on what
+figures have changed?
+Automate these concerns!
+
+>Do I need to rerun this script/notebook? It's kind of heavy.
 
 ## The inefficiency of waterfall project management
 
@@ -247,6 +307,19 @@ even from the very beginning of the project,
 and using that as the single source of truth for the project status,
 slowly evolving it into a publishable state.
 
+
+## Tactics for automating CR workflows
+
+Use a system that is as simple as possible.
+
+Don't fall prey to waterfall processes, e.g.,
+assuming that data analysis is done,
+and that writing a paper is a totally separate stage gate.
+Changing data analysis when moving into a different "silo"
+will be more expensive.
+
+## CR and open science
+
 One important missing principle is a holistic view.
 The project should be the important unit.
 Yes, there are modules and subcomponents,
@@ -255,6 +328,11 @@ Practically speaking,
 this means all files belong together in a single collection.
 This includes proposals, notes, drawings, data, code, figures, slideshows,
 articles, etc.
+
+Working in a continuously reproducible way will provide the confidence
+to share all materials associated with a research project openly.
+
+## The role of interactive or non-automated workflows
 
 I was looking back at my research materials from my master's thesis the other
 day, and I noticed how this holistic view was not taken.
@@ -637,33 +715,6 @@ At least you can put everything you have right now into version control,
 then start adding to the pipeline for everything that needs to be
 created after.
 
-## Problems CR avoids
-
-- Do I need to rerun this script/notebook? It's kind of heavy.
-
-## Premature abstraction and the curse of design
-
-Keep your project general at first.
-That is, dump all files into a single place.
-Don't split into a bunch of different projects,
-e.g., one for your proposal, one for the experiment,
-one for the analysis code,
-one for the journal article,
-and one for the thesis.
-
-It's almost always better to go from large to small than the other way
-around.
-In software development,
-this principle is known as premature abstraction,
-and it is well known that the wrong abstraction is much more expensive
-than no abstraction at all.
-
-A similar concept is that of a "monorepo,"
-or a single repository containing multiple sub-projects.
-This is much better than excessive fragmentation.
-In fact,
-Google uses a single monorepo for most of their code.
-
 ## 'Trunk-based' development
 
 Experimentation is necessary,
@@ -925,18 +976,6 @@ Painful situations you can avoid by applying CR:
    If you follow CR principles,
    that figure would never have been shared externally unless it could be
    generated by the pipeline.
-
-## Open science
-
-Working in a continuously reproducible way will provide the confidence
-to share all materials associated with a research project openly.
-
-## How big should a project be?
-
-We've already established that we want to move away from
-very small projects, but what's the limit?
-Should we draw the line at a single paper?
-What if we have a follow-on investigation on the same topic?
 
 ## Tooling
 
