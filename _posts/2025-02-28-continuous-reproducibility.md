@@ -352,36 +352,6 @@ Let's first start with some principles:
    You will probably not describe these instructions accurately enough,
    so automate them into a single pipeline.
 
-Continuous Reproducibility similarly will rely on automation.
-Every small change to a research project should trigger an automated
-CR process, so the single source of truth remains consistent at all times.
-
-The practitioners of research borrow many habits
-and tools from the software development world,
-which makes sense given that so much of work of researchers relies on computers,
-but I believe the DevOps strategies of continuous integration
-and continuous delivery (or deployment;
-[CI/CD](https://en.wikipedia.org/wiki/CI/CD))
-is the next important
-concept researchers can borrow from the software development community.
-This could be called _Continuous Reproducibility_ (CR).
-It has also been described as
-[_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
-though I think the concept extends beyond analysis and into
-generating other artifacts like figures and publications.
-
-Firstly,
-what is CI/CD and how does it relate to working habits and project
-management?
-CI means that valuable changes are integrated or incorporated into the
-single source of truth, i.e., the main branch, as soon as they
-are created,
-and CD means that the external world has access to these changes as
-soon as possible.
-An enabling practice for CI/CD is test automation.
-What test automation does is ensure that the behaviors of the
-software (outputs) match a set of defined inputs.
-
 Coincidentally,
 today I was setting up a CI pipeline for
 [Calkit](https://github.com/calkit/calkit).
