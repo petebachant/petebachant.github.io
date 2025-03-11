@@ -158,14 +158,9 @@ flowchart LR
     B --> C("artifacts<br>(figures, publication PDFs, slideshows, datasets)")
 ```
 
-Let's explore these more deeply and see how they can be followed or not.
-
-Note how if we're not following them,
-we're opening ourselves up to errors.
-We're creating silos where only certain people can do certain things, e.g.,
-if only one grad student has their machine setup to
-
 ## How to get there
+
+Let's explore these more deeply and see how they can be followed or not.
 
 This section is going to be slightly biased towards
 [Calkit](https://github.com/calkit/calkit),
@@ -333,9 +328,9 @@ for a Calkit project that runs automatically on every push to GitHub.
 3. You dread the prospect of updating figures because you'll need to
    manually copy files into a different project or tool to update the relevant
    publication.
-3. You're the only person on your team who knows how to run the scripts in
+4. You're the only person on your team who knows how to run the scripts in
    your project, i.e., you're working in a silo.
-4. You feel like you're working on the edge of a cliff,
+5. You feel like you're working on the edge of a cliff,
    like one small change would send an entire house of cards toppling down.
 
 ## Signs that CR is being done effectively
@@ -813,12 +808,13 @@ Could I have built this up from scratch?
 Start thesis from the beginning.
 
 Reproducibility flaws in this project:
+
 - Sandia Red Mesa
 
 ## Objections
 
->But the dataset/code is the only thing of value w.r.t. reusability from my
->project, so why share all the other stuff?
+> But the dataset/code is the only thing of value w.r.t. reusability from my
+> project, so why share all the other stuff?
 
 Does sharing all the other stuff prevent users from taking just what
 they want/need?
@@ -827,10 +823,10 @@ for how the datasets, etc., can be used,
 and if the project reproduces,
 that documentation will be _true_.
 
->Reproducing someone else's project isn't that important.
->As long as the equations
->in the paper are correct,
->I can just reimplement on my own.
+> Reproducing someone else's project isn't that important.
+> As long as the equations
+> in the paper are correct,
+> I can just reimplement on my own.
 
 If the computations don't reproduce,
 and the computations are supposed to be evidence of the equations being
@@ -841,7 +837,7 @@ Journal referees are definitely not replicating results as part of the
 review process,
 and I doubt they are reproducing results either.
 
->It's not worth the extra effort
+> It's not worth the extra effort
 
 It isn't until it is.
 
