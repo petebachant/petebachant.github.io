@@ -522,45 +522,6 @@ If an automated CR pipeline is not in place,
 the extra work from these iterations will accumulate.
 Put the CR pipeline in place from the very beginning!
 
-## But why can't we work in a waterfall way in research?
-
-You can, as long nothing will need to change.
-If the peer review process has no chance of necessitating any
-changes in data process or visualization,
-then sure,
-work in a waterfall.
-
-If you absolutely know your ideas are correct from the outset,
-and that your paper will be accepted without revisions on the first try,
-ignore this article.
-You are good!
-
-Software engineers will work on one small part of the code
-and run an automated test suite to ensure the entire project still works.
-
-This is the sort of mindset a research project should strive towards.
-
-We don't move through phases and stop allowing for change.
-
-For example,
-data filtering may have a mistake,
-and this has multiple downstream implications.
-It's very possible that this mistake is discovered after submission
-of a journal article.
-In a CR workflow,
-the filtering algorithm can be updated
-and the pipeline can be run all in a single command,
-ensuring all figures in the paper are up-to-date.
-
-What if there's an important aggregate number in the paper?
-Ensure that number is inserted as part of the pipeline.
-Or at the very least,
-include an explicit
-[manual step](https://docs.calkit.org/pipeline/manual-steps/)
-in the pipeline that will tell the user they
-need to check that number
-any time a dependency has changed.
-
 ## The interactive/batch dance
 
 Interactivity is the enemy of reproducibility.
