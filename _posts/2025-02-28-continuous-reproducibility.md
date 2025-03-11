@@ -159,6 +159,17 @@ flowchart LR
     B --> C("artifacts<br>(figures, publication PDFs, slideshows, datasets)")
 ```
 
+## 'Repro packs'
+
+One tactic practiced by the open science community is to publish
+a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
+along with each scientific article.
+These are great, especially when published openly.
+However, the name sort of implies that curating the repro pack is a
+distinct phase in the project.
+Continuous reproducibility would have us using a repro pack for the entire
+project, and it would follow a few important rules.
+
 ## Signs that you could benefit from these ideas
 
 1. You dread the prospect of getting a new computer,
@@ -193,6 +204,15 @@ You can start working reproducibly from now.
 At least you can put everything you have right now into version control,
 then start adding to the pipeline for everything that needs to be
 created after.
+
+One important missing principle is a holistic view.
+The project should be the important unit.
+Yes, there are modules and subcomponents,
+but these all exist in a larger picture.
+Practically speaking,
+this means all files belong together in a single collection.
+This includes proposals, notes, drawings, data, code, figures, slideshows,
+articles, etc.
 
 ### Create a single version-controlled repo for the entire project
 
@@ -264,6 +284,8 @@ Just keep them together in the same repo.
 If by change some sub-component, e.g., the software,
 becomes useful on its own,
 deal with that afterwards, not up front.
+
+Working in smaller batches does not mean working on many smaller projects.
 
 ### Minimize and automate dependencies
 
@@ -348,48 +370,6 @@ For example,
 run your pipeline on GitHub Actions, which is free for public projects.
 See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
 for a Calkit project that runs automatically on every push to GitHub.
-
-## CR and open science
-
-The open science movement encourages sharing code and data required to write
-a paper.
-Those who do this and aren't strictly required to are doing a great thing,
-but I have noticed that many times the materials shared do not follow
-CR principles,
-and consequently are not actually reproducible without a bunch of extra
-detective work.
-
-One important missing principle is a holistic view.
-The project should be the important unit.
-Yes, there are modules and subcomponents,
-but these all exist in a larger picture.
-Practically speaking,
-this means all files belong together in a single collection.
-This includes proposals, notes, drawings, data, code, figures, slideshows,
-articles, etc.
-
-Working in a continuously reproducible way will provide the confidence
-to share all materials associated with a research project openly.
-
-One tactic practiced by the open science community is to publish
-a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
-along with each scientific article.
-However, in my experience,
-these are often curated after the project is mostly finished, i.e.,
-as a distinct "phase" in the project,
-and therefore were not actually used throughout the process.
-They often only include a subset of the files,
-e.g., only the datasets, or only the code,
-but not the files used to generate the figures or manuscript.
-Further, they are usually missing some information that only the researcher
-knows since they are working with the files every day on a computer
-whose state (operating system, software installed, etc.)
-may have evolved over years.
-[I am guilty of this too](https://petebachant.me/failed-to-repro/).
-
-So instead of having a "create repro pack" phase,
-the entire project repo should be a repro pack from the very start.
-This is enabled by CR.
 
 ## The role of interactive or non-automated workflows
 
@@ -729,6 +709,9 @@ of their work
 by applying Continuous Reproducibility principles to their projects.
 This essentially means automating dependency management and
 artifact generation to simplify reproducibility down to a single command.
+
+Working in a continuously reproducible way will provide the confidence
+to share all materials associated with a research project openly.
 
 If you want help implementing CR practices in your lab,
 shoot me an [email](mailto:petebachant@gmail.com) and I will probably
