@@ -638,11 +638,6 @@ Discover a valuable change and integrate it back into the pipeline
 right away.
 Commit it to the version control system.
 
-You should probably never be showing anyone anything developed with
-an interactive workflow.
-Those "products" are temporary and only there for you to get feedback
-on your batch process definitions.
-
 ## Reusability
 
 Don't worry about reusability.
