@@ -336,6 +336,14 @@ for a Calkit project that runs automatically on every push to GitHub.
 
 ## CR and open science
 
+The open science movement encourages sharing code and data required to write
+a paper.
+Those who do this and aren't strictly required to are doing a great thing,
+but I have noticed that many times the materials shared do not follow
+CR principles,
+and consequently are not actually reproducible without a bunch of extra
+detective work.
+
 One important missing principle is a holistic view.
 The project should be the important unit.
 Yes, there are modules and subcomponents,
@@ -597,15 +605,6 @@ version of the code.
 
 Even if when using a VCS,
 it's possible to fall into a large batch mindset.
-
-Working for a long period of time with dirty repo,
-or even saving artifacts generated with a dirty repo.
-Commit first, then run, if you intend to save the outputs.
-Or at least commit changes to the code and outputs all at the same time.
-
-Never share results generated with uncommitted code.
-Or further,
-never share uncommitted results.
 
 What is it like to not work reproducibly?
 Well, it means that the path one took to produce an artifact can no longer
