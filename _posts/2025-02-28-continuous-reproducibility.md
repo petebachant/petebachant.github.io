@@ -169,7 +169,7 @@ These are great, especially when published openly.
 However, the name sort of implies that curating the repro pack is a
 distinct phase in the project that happens relatively later on.
 Continuous reproducibility would have us using a repro pack for the entire
-project, and it would follow a few important rules.
+project, and it would follow a few important rules we will discuss later.
 
 ## How to get there
 
