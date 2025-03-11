@@ -837,21 +837,6 @@ and I doubt they are reproducing results either.
 
 It isn't until it is.
 
-## Are you practicing continuous reproducibility: A test
-
-1. Can anyone on the team view a single source of truth for the project files
-   at any time?
-2. Can the project run on anyone's computer?
-3. Is there some objective and automated way to check if the project is in consistent state?
-
-PIs may say they're too busy to get involved in the lower level activities,
-that they need the grad students and postdocs to provide them with weekly
-summary reports.
-
-That may be the case.
-However, these reports should be generated automatically.
-And to do so, researchers should practice CR.
-
 ## I will help you implement CR in your lab (for free)
 
 I may need to edit this later,
