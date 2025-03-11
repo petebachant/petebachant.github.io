@@ -53,11 +53,11 @@ single source of truth, i.e., the main branch, as soon as they
 are produced,
 and CD means that the external world has access to these changes as
 quickly as possible.
+
 Silos are broken down as a single team then owns both development
 and operations (hence "DevOps").
 That is, the development team handles testing/QA and deployment,
-whereas in the past this might have been handled by multiple teams with
-heavy documentation handoffs between them in lieu of true collaboration.
+whereas in the past this might have been handled by multiple teams.
 Work batch sizes shrink as developers start merging in frequent small
 changes to the codebase instead of larger, less frequent
 (sometimes taking months or years) updates.
@@ -72,11 +72,14 @@ often owned by different people and moved through by handing off
 large amounts of documentation.
 For example, design, implementation, testing, and deployment all might
 be siloed in different teams.
+
 The source of inefficiency in this way of working is the high cost
 of returning to previous stages after moving forward.
 For example,
-if a problem shows up in testing,
+if a performance or user experience (UX) deficiency shows up in testing,
 we may need to go back and redesign and reimplement parts of the software.
+If each iteration requires similar amounts of documentation to be handed
+off, the process may be slow enough to allow competitors to gain an advantage.
 Working in smaller chunks and testing each one
 allows us to discover issues earlier where
 they are cheaper to fix.
@@ -322,6 +325,20 @@ VS Code that can edit/run both MATLAB and LaTeX files.
 
 ### Use caching, but try not to roll your own
 
+Some processes are too heavy to be practical to rerun.
+For example,
+it is usually not feasible to rerun a large scale simulation on a
+high performance computing (HPC) cluster to simply check its
+reproducibility.
+
+In these cases, we should cache results and come up with some way to determine
+when they've been invalidated.
+
+A DVC pipeline allows cache invalidation based on the content of files.
+You provide a list of input files,
+and if none of those have changed since the last run,
+the outputs are still valid.
+
 Caching is one of the hardest tasks in software engineering.
 Offload that responsibility to a framework.
 
@@ -532,30 +549,6 @@ CR says not that we should eliminate interactive work,
 but that the value uncovered by interactive work should be incorporated
 into a batch process as quickly as possible,
 which will manifest as small changes.
-
-## Tactics for continuous reproducibility
-
-Some processes are too heavy to be practical to rerun.
-For example,
-it is usually not feasible to rerun a large scale simulation on a
-high performance computing (HPC) cluster to simply check its
-reproducibility.
-In this case, some automated documentation of the version of the code,
-configuration files,
-and the computation environment(s) can be sufficient.
-The key word here is automated.
-Simply saying
-"we ran SimulationApp v1.2 on the University of Whatever's cluster"
-in the paper is too ambiguous.
-Luckily,
-a version control system is a convenient way to take a snapshot of all files.
-However, it is possible to "cheat."
-
-This is analogous to a software application with a large database
-of users?
-We don't need to be able to continuously recreate all of that data,
-but we need to ensure that data could be recreated with any
-version of the code.
 
 ## More small rules to follow
 
