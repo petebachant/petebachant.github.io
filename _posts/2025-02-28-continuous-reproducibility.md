@@ -126,6 +126,7 @@ We can extract a few core principles from the CI/CD processes defined above:
    definitions.
    Practically this means a shared version control repository or repo.
    Different team members can easily sync with this main repo.
+   No important files live on only one person's computer.
 2. These processes can be run on different computers, i.e., they are not
    dependent on some "hidden state" of one developer's machine.
 3. Whatever is delivered to the outside world is always
@@ -188,20 +189,17 @@ At least you can put everything you have right now into version control,
 then start adding to the pipeline for everything that needs to be
 created after.
 
-One important missing principle is a holistic view.
-The project should be the important unit.
-Yes, there are modules and subcomponents,
-but these all exist in a larger picture.
-Practically speaking,
-this means all files belong together in a single collection.
-This includes proposals, notes, drawings, data, code, figures, slideshows,
-articles, etc.
-
 ### Create a single version-controlled repo for the entire project
 
 To say that a research project has a "single source of truth"
 we probably need to define what constitutes a project.
 How do we draw the boundaries?
+
+This might be the most important concept.
+Any file necessary to produce anything that will be released to the external
+world belongs in this project.
+This includes proposals, notes, drawings, data, code, figures, slideshows,
+articles, etc.
 
 Always better to err on the side of too big and break it up later
 than start too small.
