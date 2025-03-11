@@ -293,6 +293,22 @@ it's not really a pipeline.
 There will almost certainly be information missing.
 This includes setting up dependencies as well.
 
+Use a system that is as simple as possible.
+
+Don't fall prey to waterfall processes, e.g.,
+assuming that data analysis is done,
+and that writing a paper is a totally separate stage gate.
+Changing data analysis when moving into a different "silo"
+will be more expensive.
+
+Don't fragment into multiple small pipelines.
+
+Avoid hopping back and forth between different tools.
+For example, instead of opening MATLAB to run data analysis scripts
+and uploading figures manually to Overleaf,
+use a more general tool like
+VS Code that can edit/run both MATLAB and LaTeX files.
+
 ### Use caching, but try not to roll your own
 
 Caching is one of the hardest tasks in software engineering.
@@ -326,22 +342,6 @@ for a Calkit project that runs automatically on every push to GitHub.
 
 1. Multiple people on the team are making changes to the project materials.
 2. A least a few small changes are being made to the main branch every day.
-
-## Tactics for automating CR workflows
-
-Use a system that is as simple as possible.
-
-Don't fall prey to waterfall processes, e.g.,
-assuming that data analysis is done,
-and that writing a paper is a totally separate stage gate.
-Changing data analysis when moving into a different "silo"
-will be more expensive.
-
-Avoid hopping back and forth between different tools.
-For example, instead of opening MATLAB to run data analysis scripts
-and uploading figures manually to Overleaf,
-use a more general tool like
-VS Code that can edit/run both MATLAB and LaTeX files.
 
 ## CR and open science
 
