@@ -36,12 +36,14 @@ in these areas.
 
 Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
-([CI/CD](https://en.wikipedia.org/wiki/CI/CD))).
+([CI/CD](https://en.wikipedia.org/wiki/CI/CD)).
 There has been some discussion about adapting these
 and calling it
 [_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
 though I think the concept extends beyond analysis and into
-generating other artifacts like figures and publications.
+generating other artifacts like figures and publications,
+which oftentimes serve as the primary interfaces to the knowledge
+science creates.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
 
@@ -55,7 +57,7 @@ Automation makes these practical.
 As part of CI,
 a suite of automated tests will run,
 often on an independent computer,
-to ensure changes will not break the project.
+to ensure changes will not break the codebase in ways that are hard to predict.
 If the tests pass, the changes are merged.
 Then, an automated CD pipeline will run
 (also usually on an independent computer) to build
@@ -65,7 +67,19 @@ Whatever is released out into the world is then totally consistent
 with that single source of truth.
 
 So how does this relate to research projects,
-and what would it mean to be "Continuously Reproducible?"
+and what would it mean for one to be "Continuously Reproducible?"
+We can extract a few core principles from the process above:
+
+1. There is a single source of truth for all input materials and process
+   definitions.
+2. These processes can be run on multiple machines, i.e., they are not
+   dependent on some "hidden state" of the developer's machine.
+3. Whatever is delivered to the outside world is always
+   consistent with the input
+   materials and process definitions.
+   Through the use of version control, we can always go back in time to the
+   input materials and process definitions that produced any given artifact
+   and produce it again.
 
 In my experience, two aspects that are rarely automated are:
 
