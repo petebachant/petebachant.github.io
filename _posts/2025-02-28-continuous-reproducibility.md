@@ -273,6 +273,12 @@ and that writing a paper is a totally separate stage gate.
 Changing data analysis when moving into a different "silo"
 will be more expensive.
 
+Avoid hopping back and forth between different tools.
+For example, instead of opening MATLAB to run data analysis scripts
+and uploading figures manually to Overleaf,
+use a more general tool like
+VS Code that can edit/run both MATLAB and LaTeX files.
+
 ## CR and open science
 
 One important missing principle is a holistic view.
@@ -286,6 +292,26 @@ articles, etc.
 
 Working in a continuously reproducible way will provide the confidence
 to share all materials associated with a research project openly.
+
+One tactic practiced by the open science community is to publish
+a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
+along with each scientific article.
+However, in my experience,
+these are often curated after the project is mostly finished, i.e.,
+as a distinct "phase" in the project,
+and therefore were not actually used throughout the process.
+They often only include a subset of the files,
+e.g., only the datasets, or only the code,
+but not the files used to generate the figures or manuscript.
+Further, they are usually missing some information that only the researcher
+knows since they are working with the files every day on a computer
+whose state (operating system, software installed, etc.)
+may have evolved over years.
+[I am guilty of this too](https://petebachant.me/failed-to-repro/).
+
+So instead of having a "create repro pack" phase,
+the entire project repo should be a repro pack from the very start.
+This is enabled by CR.
 
 ## The role of interactive or non-automated workflows
 
@@ -423,25 +449,6 @@ the full collection of project files
 (documents, datasets, code, figures, publications)
 despite evolving rapidly and in small increments,
 remains reproducible throughout the entire project lifecycle.
-
-One tactic practiced by the open science community is to publish
-a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
-along with each scientific article.
-However, in my experience,
-these are often curated after the project is mostly finished,
-and therefore were not actually used throughout the process.
-They often only include a subset of the files,
-e.g., only the datasets, or only the code,
-but not the files used to generate the figures or manuscript.
-Further, they are usually missing some information that only the researcher
-knows since they are working with the files every day on a computer
-whose state (operating system, software installed, etc.)
-may have evolved over years.
-[I am guilty of this too](https://petebachant.me/failed-to-repro/).
-
-So instead of having a "create repro pack" phase,
-the entire project repo should be a repro pack from the very start.
-This is enabled by CR.
 
 I believe there is a lot of value left on the table by taking this
 phased approach.
@@ -1043,8 +1050,6 @@ summary reports.
 That may be the case.
 However, these reports should be generated automatically.
 And to do so, researchers should practice CR.
-
-## Research projects are not (always) software projects, and researchers don't necessarily need to be software engineers
 
 ## I will help you implement CR in your lab (for free)
 
