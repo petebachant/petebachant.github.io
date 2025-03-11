@@ -123,6 +123,8 @@ We can extract a few core principles from the CI/CD processes defined above:
 
 1. There is a single source of truth for all input materials and process
    definitions.
+   Practically this means a shared version control repository or repo.
+   Different team members can easily sync with this main repo.
 2. These processes can be run on different computers, i.e., they are not
    dependent on some "hidden state" of one developer's machine.
 3. Whatever is delivered to the outside world is always
@@ -135,6 +137,7 @@ We can extract a few core principles from the CI/CD processes defined above:
    very little effort from the team members.
    Practically speaking, this would mean executing a single command
    rather than a series of manual steps.
+   It may require a good deal of work from a computer, but not a human.
 
 ```mermaid
 flowchart LR
@@ -162,7 +165,22 @@ we're opening ourselves up to errors.
 We're creating silos where only certain people can do certain things, e.g.,
 if only one grad student has their machine setup to
 
-## A single source of truth for all input materials and process definitions
+## How to get there
+
+This section is going to be slightly biased towards
+[Calkit](https://github.com/calkit/calkit),
+a project framework and toolset I've been working on to help
+enable continuous reproducibility,
+but it is by no means the only way to follow the principles,
+and I will try to provide other options.
+
+That's okay.
+You can start working reproducibly from now.
+At least you can put everything you have right now into version control,
+then start adding to the pipeline for everything that needs to be
+created after.
+
+### Create a single version-controlled repo for the entire project
 
 To say that a research project has a "single source of truth"
 we probably need to define what constitutes a project.
@@ -215,35 +233,74 @@ This is much better than excessive fragmentation.
 In fact,
 Google uses a single monorepo for most of their code.
 
-## Processes should be able to run on multiple machines
+You should keep literally everything in the project that matters,
+which includes raw data.
 
-Dependency management.
-The necessary dependencies to run a project are often listed,
-but often incompletely.
-Even if one is using some environment definition
-format, e.g., `requirements.txt`, the creation and usage of that
-environment are left to the reader.
-This gets even more complex if a project requires multiple environments
-with different dependencies,
-or even different computers to run.
+#### Avoid splintering into many small projects
 
-## Artifacts shared should always be consistent with inputs and processes
+This is analogous to the "distributed monolith" software architecture,
+where tightly coupled components are spread across multiple codebases
+and/or infrastructure groups.
+In research, this could take the form of one repo for the data collection,
+one repo for the data processing software,
+one repo for the paper.
+These are all inherently coupled in service of producing the paper.
+Just keep them together in the same repo.
+If by change some sub-component, e.g., the software,
+becomes useful on its own,
+deal with that afterwards, not up front.
 
-Full pipeline orchestration. Oftentimes the "pipeline" is a list of steps
-in the README file left to the reader to execute manually.
+### Minimize and automate dependencies
 
-## Leverage automation to make iterations lightweight
+Instead of a list in the README that says "install A, install B, install C..."
+use virtual environments and/or containers.
 
-Automating a pipeline with caching saves us the cognitive overhead of
-computing downstream consequences of a given change.
+If you define all of your environments with Calkit,
+you will not even need to instruct your users on how to create them.
+
+If you absolutely require things to be installed system-wide,
+try to keep them to a minimum and try to automate their installation with
+a script or something similar.
+
+### Allow reproducing everything with a single command
+
+This follows a similar principle as above:
+Avoid giving lists of steps to follow in the README,
+which is sort of like a manual pipeline in prose.
+
+If you're using Calkit,
+you can put all steps into a DVC pipeline.
+
+Alternatives include Make, Snakemake, or a shell script.
+If the project is super lightweight, e.g.,
+a pure writing project with no figure generation,
+the "pipeline" could be to save a Word document as a PDF.
+
+Coincidentally,
+the ["repro pack" attached to [1]](https://doi.org/10.3886/E111743V2)
+appears to have 10 separate pipelines,
+with no instructions on how to run them,
+if there is any inter-dependence, etc.
+
+It also doesn't contain the paper manuscript compilation.
+
+If a pipeline is written in English and can't be run all with a single
+command,
+it's not really a pipeline.
+There will almost certainly be information missing.
+This includes setting up dependencies as well.
+
+### Use caching, but try not to roll your own
+
+Caching is one of the hardest tasks in software engineering.
+Offload that responsibility to a framework.
+
+### Use a CI/CD service
+
 For example,
-if we change our data processing script slightly,
-which plotting scripts need to be rerun?
-Which publications then need to be recompiled based on what
-figures have changed?
-Automate these concerns!
-
->Do I need to rerun this script/notebook? It's kind of heavy.
+run your pipeline on GitHub Actions.
+See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
+for a Calkit project that runs automatically on every push to GitHub.
 
 ## Signs that you could benefit from the ideas
 
@@ -259,10 +316,13 @@ Automate these concerns!
    publication.
 3. You're the only person on your team who knows how to run the scripts in
    your project, i.e., you're working in a silo.
+4. You feel like you're working on the edge of a cliff,
+   like one small change would send an entire house of cards toppling down.
 
 ## Signs that CR is being done effectively
 
 1. Multiple people on the team are making changes to the project materials.
+2. A least a few small changes are being made to the main branch every day.
 
 ## Tactics for automating CR workflows
 
@@ -501,15 +561,6 @@ in the pipeline that will tell the user they
 need to check that number
 any time a dependency has changed.
 
-## Reducing pain through automation
-
-The more painful a process is,
-the less likely someone is to do it.
-If this process also leads to improved quality,
-quality will suffer.
-Therefore,
-it's important to automated things to reduce pain and uncertainty.
-
 ## The interactive/batch dance
 
 Interactivity is the enemy of reproducibility.
@@ -625,30 +676,9 @@ Even if you've gotten things to run in an interactive way,
 and you think the results won't change if you run in batch mode,
 do it anyway.
 
-### Do use a CI/CD service if possible
+## More small rules to follow
 
-For example,
-run your pipeline on GitHub Actions.
-See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
-for a Calkit project that runs automatically.
-
-TODO: This should be an example of one that runs on every PR.
-
-## Is your project currently following CR?
-
-Besides installing foundational dependencies like Git and Docker,
-can someone setup all dependencies and run your pipeline with a single
-command?
-
-## Never share an artifact you couldn't regenerate
-
-## But what if I'm already halfway done?
-
-That's okay.
-You can start working reproducibly from now.
-At least you can put everything you have right now into version control,
-then start adding to the pipeline for everything that needs to be
-created after.
+1. Never share an artifact you couldn't easily regenerate
 
 ## Anti-patterns to avoid
 
@@ -664,56 +694,9 @@ Never share results generated with uncommitted code.
 Or further,
 never share uncommitted results.
 
-### Not using version control
-
-### Manual or ad hoc version control
-
-### One project, many repos
-
-This is analogous to the "distributed monolith" software architecture,
-where tightly coupled components are spread across multiple codebases
-and/or infrastructure groups.
-In research, this could take the form of one repo for the data collection,
-one repo for the data processing software,
-one repo for the paper.
-These are all inherently coupled in service of producing the paper.
-Just keep them together in the same repo.
-If by change some sub-component, e.g., the software,
-becomes useful on its own,
-deal with that afterwards, not up front.
-
 ### Large batch version control practices
 
 Many small commits are generally preferable to fewer large commits.
-
-### Prose pipelines
-
-If a pipeline is written in English and can't be run all with a single
-command,
-it's not really a pipeline.
-There will almost certainly be information missing.
-This includes setting up dependencies as well.
-
-### Prose dependency management
-
-This isn't as bad as prose pipelines, but still should be avoided.
-
-### DIY caching logic
-
-Caching is one of the hardest tasks in software engineering.
-Offload that responsibility to a framework.
-
-### Multiple pipelines
-
-Coincidentally,
-the ["repro pack" attached to [1]](https://doi.org/10.3886/E111743V2)
-appears to have 10 separate pipelines,
-with no instructions on how to run them,
-if there is any inter-dependence, etc.
-
-It also doesn't contain the paper manuscript compilation.
-
-### Not using a framework
 
 ## The opposite of continuous delivery
 
