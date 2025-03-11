@@ -158,6 +158,23 @@ flowchart LR
     B --> C("artifacts<br>(figures, publication PDFs, slideshows, datasets)")
 ```
 
+## Signs that you could benefit from these ideas
+
+1. You dread the prospect of getting a new computer,
+   because getting everything setup to work would take days.
+2. You dread the prospect of changing a data processing script,
+   because you aren't sure what else would need to be updated to keep things
+   consistent.
+   For example, there could be figures that need to be updated,
+   or aggregate numbers listed in a paper that were entered manually.
+3. You dread the prospect of updating figures because you'll need to
+   manually copy files into a different project or tool to update the relevant
+   publication.
+4. You're the only person on your team who knows how to run the scripts in
+   your project, i.e., you're working in a silo.
+5. You feel like you're working on the edge of a cliff,
+   like one small change would send an entire house of cards toppling down.
+
 ## How to get there
 
 Let's explore these more deeply and see how they can be followed or not.
@@ -169,6 +186,7 @@ enable CR,
 but it is by no means the only way to follow the principles,
 and I will try to provide other options.
 
+But what if you're already halfway through the project?
 That's okay.
 You can start working reproducibly from now.
 At least you can put everything you have right now into version control,
@@ -315,28 +333,6 @@ For example,
 run your pipeline on GitHub Actions, which is free for public projects.
 See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
 for a Calkit project that runs automatically on every push to GitHub.
-
-## Signs that you could benefit from the ideas
-
-1. You dread the prospect of getting a new computer,
-   because getting everything setup to work would take days.
-2. You dread the prospect of changing a data processing script,
-   because you aren't sure what else would need to be updated to keep things
-   consistent.
-   For example, there could be figures that need to be updated,
-   or aggregate numbers listed in a paper that were entered manually.
-3. You dread the prospect of updating figures because you'll need to
-   manually copy files into a different project or tool to update the relevant
-   publication.
-4. You're the only person on your team who knows how to run the scripts in
-   your project, i.e., you're working in a silo.
-5. You feel like you're working on the edge of a cliff,
-   like one small change would send an entire house of cards toppling down.
-
-## Signs that CR is being done effectively
-
-1. Multiple people on the team are making changes to the project materials.
-2. A least a few small changes are being made to the main branch every day.
 
 ## CR and open science
 
