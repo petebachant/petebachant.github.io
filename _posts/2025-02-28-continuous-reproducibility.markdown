@@ -81,36 +81,70 @@ We can extract a few core principles from the process above:
    input materials and process definitions that produced any given artifact
    and produce it again.
 
-In my experience, two aspects that are rarely automated are:
+```mermaid
+flowchart LR
+    A(inputs) --> B[processes]
+    B --> C(artifacts)
+```
 
-1. Dependency management.
-   The necessary dependencies to run a project are often listed,
-   but often incompletely.
-   Even if one is using some environment definition
-   format, e.g., `requirements.txt`, the creation and usage of that
-   environment are left to the reader.
-   This gets even more complex if a project requires multiple environments
-   with different dependencies,
-   or even different computers to run.
-2. Full pipeline orchestration. Oftentimes the "pipeline" is a list of steps
-   in the README file left to the reader to execute manually.
+```mermaid
+flowchart LR
+    A("inputs<br>(code)") --> B["processes<br>(build scripts)"]
+    B --> C("artifacts<br>(executables, packages)")
+```
 
-If these two steps are automated and checked every time the project
-runs,
-perhaps even on a different computer than the author's,
-it will be much more likely to be reproducible.
+```mermaid
+flowchart LR
+    A("inputs<br>(raw data, LaTeX files)")
+    --> B["processes<br>(data reduction, visualization, document compilation)"]
+    B --> C("artifacts<br>(figures, publication PDFs, slideshows, datasets)")
+```
 
-These outcomes are achieved with automation.
-Code is automatically tested to ensure it can be safely incorporated.
-Code is automatically deployed to remove the pain of any manual procedures,
-so it can be done more frequently.
-Code is accessible to all team members and CI/CD operates on an
-independent computing system
-so the knowledge on how to test and deploy is not siloed in a subset
-of the team, or worse, a single individual.
+Let's explore these more deeply and see how they can be followed or not.
 
-Many research projects involve some sort of code,
-even if they're not seeking to build software products.
+Note how if we're not following them,
+we're opening ourselves up to errors.
+We're creating silos where only certain people can do certain things, e.g.,
+if only one grad student has their machine setup to
+
+## A single source of truth for all input materials and process definitions
+
+To say that a research project has a "single source of truth"
+we probably need to define what constitutes a project.
+How do we draw the boundaries?
+
+Always better to err on the side of too big and break it up later
+than start too small.
+
+If you want to be able to test and build artifacts,
+you'll want to keep everything in one place.
+This is the same for a research project.
+Storing a dataset somewhere far away from the
+
+## Processes should be able to run on multiple machines
+
+Dependency management.
+The necessary dependencies to run a project are often listed,
+but often incompletely.
+Even if one is using some environment definition
+format, e.g., `requirements.txt`, the creation and usage of that
+environment are left to the reader.
+This gets even more complex if a project requires multiple environments
+with different dependencies,
+or even different computers to run.
+
+## Artifacts shared should always be consistent with inputs and processes
+
+Full pipeline orchestration. Oftentimes the "pipeline" is a list of steps
+in the README file left to the reader to execute manually.
+
+## The inefficiency of waterfall project management
+
+Applying CR practices will improve so-called agility.
+This is beneficial when a project truly cannot be broken down into phases
+or "stage gates" that never require revisiting.
+
+
 
 You might argue that a PI needs to be siloed away from the grad students
 and postdocs because they have other roles.
@@ -758,11 +792,7 @@ So, our research project should have a single source of truth
 where its state is tracked with a version control system.
 This is the state of the inputs and processes.
 
-```mermaid
-flowchart LR
-    A[inputs] --> B[processes]
-    B --> C[outputs]
-```
+
 
 What is it like to not work reproducibly?
 Well, it means that the path one took to produce an artifact can no longer
