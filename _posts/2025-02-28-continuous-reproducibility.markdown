@@ -45,26 +45,27 @@ generating other artifacts like figures and publications.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
 
-Software engineering principles have been making their way into
-scientific software development practices [3],
-and this is very good thing.
-However, many research projects are not software projects,
-despite the fact that some software...
-Research projects often seek to produce knowledge,
-answering questions,
-producing artifacts as evidence to support the answers.
-These artifacts are almost always created by some sort of software.
-Here I will argue that we need to treat entire projects holistically,
-not just the software part.
+First off, what is CI/CD and why has it become the norm for software teams?
+CI means that valuable changes are integrated or incorporated into the
+single source of truth, i.e., the main branch, as soon as they
+are produced,
+and CD means that the external world has access to these changes as
+soon as possible.
+Automation makes these practical.
+As part of CI,
+a suite of automated tests will run,
+often on an independent computer,
+to ensure changes will not break the project.
+If the tests pass, the changes are merged.
+Then, an automated CD pipeline will run
+(also usually on an independent computer) to build
+any necessary artifacts and put them where they need to go
+(a web server, package download service, etc.).
+Whatever is released out into the world is then totally consistent
+with that single source of truth.
 
-```mermaid
-flowchart LR
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
-```
+So how does this relate to research projects,
+and what would it mean to be "Continuously Reproducible?"
 
 In my experience, two aspects that are rarely automated are:
 
