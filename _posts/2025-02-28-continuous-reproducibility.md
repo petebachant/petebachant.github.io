@@ -644,6 +644,12 @@ do it anyway.
 
 1. Never share an artifact you couldn't easily regenerate.
 2. Don't email editable artifacts.
+3. Start your paper (or thesis) on day 1.
+   It's going to be mostly boilerplate,
+   but that's okay.
+   As you go through your lit review, you'll be writing the introduction.
+   Again, instead of phases, make it into one continuous evolutionary process
+   until it's ready to release.
 
 ## Anti-patterns to avoid
 
@@ -770,14 +776,6 @@ You should probably never be showing anyone anything developed with
 an interactive workflow.
 Those "products" are temporary and only there for you to get feedback
 on your batch process definitions.
-
-## Start your paper (and thesis) on day 1
-
-It's going to be mostly boilerplate,
-but that's okay.
-As you go through your lit review, you'll be writing the introduction.
-Again, instead of phases, make it into one continuous evolutionary process
-until it's ready to release.
 
 ## Reusability
 
