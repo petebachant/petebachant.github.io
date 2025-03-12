@@ -136,8 +136,8 @@ project, and it would follow a few important rules we will discuss later.
 So what would it mean for a research project to be "Continuously Reproducible?"
 We can extract a few core principles from the CI/CD processes defined above:
 
-1. There is a single source of truth for all input materials and process
-   definitions.
+1. There is a single source of truth for all input materials (data)
+   and process definitions (code, configuration files).
    Practically this means a shared version control repository or repo.
    Different team members can easily sync with this main repo.
    No important files live on only one person's computer.
