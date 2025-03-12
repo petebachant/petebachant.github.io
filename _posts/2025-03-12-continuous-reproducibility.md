@@ -193,8 +193,9 @@ we probably need to define what constitutes a project.
 How do we draw the boundaries?
 
 This might be the most important concept to help prevent complexity
-from spiraling out of control.
-First realize that working in small batches does not mean working
+from spiraling out of control
+([complexity very, very bad](https://grugbrain.dev/#grug-on-complexity)).
+Realize that working in small batches does not mean working
 on small projects.
 My recommendation is to start with a single logical project for each
 general research topic.
@@ -222,7 +223,8 @@ If a sub-project later emerges as something that can be valuable
 on its own,
 we can always split it off later,
 e.g., into Git submodule.
-Always better to err on the side of too big and break it up later
+Always better to err on the side of too big and
+[break it up later](https://grugbrain.dev/#grug-on-factring-your-code)
 than start too small.
 
 That is not to say you shouldn't organize the project with subfolders---you
