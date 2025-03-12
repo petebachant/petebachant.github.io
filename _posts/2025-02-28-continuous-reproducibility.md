@@ -422,79 +422,14 @@ you probably should break it down into smaller testable chunks.
 In this case,
 automated unit tests can be very useful.
 
-If we agree with everything so far,
-that everything must be automated to the point that it only takes
-a single command to run,
-how do we go about building that pipeline?
-
-If we come up with a grand design that we think will take
-72 hours to run and kick if off blindly,
-obviously there's a good chance it will fail early on and will need
-to be reworked.
-
-These workflows can be distinguished by how long "throwaway" work
-lives without being incorporated into the single source of truth.
-
-The "throwaway" work should only exist for minutes instead of days.
-Again, to draw the analogy to software development,
-some interactive development (e.g., using a debugger)
-can be done for minutes to hours,
-a valuable change is discovered,
-and a "pull request" is submitted.
-Working on a potential change for many days, weeks, or even months
-is a bad practice.
-
-This is analogous to climbing a ladder one small step at a time
-instead of taking one big jump.
-
-A core mindset shift is from thinking of a bunch of disparate
-artifacts created in discrete phases to
-the project itself as a whole that evolves continuously.
-It may reach milestones along the way,
-but the project is the most important unit.
-
-In research,
-to shift from large batch to small batch flows,
-CR is an enabling practice that ensures the single source of truth,
-the full collection of project files
-(documents, datasets, code, figures, publications)
-despite evolving rapidly and in small increments,
-remains reproducible throughout the entire project lifecycle.
-
-The change in mindset is a move from focusing on individual files
-and artifacts to a focus on the project as a whole.
-For example,
-thinking that the data processing code is done
-and now the writing can start is not a CR mindset.
-The review process, internal or external,
-will undoubtedly uncover necessary changes.
-If an automated CR pipeline is not in place,
-the extra work from these iterations will accumulate.
-Put the CR pipeline in place from the very beginning!
-
-Interactivity is the enemy of reproducibility.
-Interactivity produces mostly throwaway work.
-Interactive work is converted into batch work if it is deemed valuable.
-
-CR says not that we should eliminate interactive work,
-but that the value uncovered by interactive work should be incorporated
-into a batch process as quickly as possible,
-which will manifest as small changes.
-
-What this means is that we need to produce outputs as part of a
-batch process.
-However, developing the process is almost always more efficient
-to do with an interactive workflow with fast feedback.
-We then need some way of taking what we discover in our interactive work
-and converting it into a batch process, i.e.,
-a pipeline.
-
 The frequency with which you flip back and forth between the workflow types
 is important.
 It should be as frequent as possible.
 Discover a valuable change and integrate it back into the pipeline
 right away.
 Commit it to the version control system.
+This is analogous to climbing a ladder one small step at a time
+instead of taking one big jump.
 
 ## More small rules to follow
 
