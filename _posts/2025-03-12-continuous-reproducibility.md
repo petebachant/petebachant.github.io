@@ -80,17 +80,14 @@ be siloed in different teams and done in a linear fashion,
 one after the other.
 
 The source of inefficiency in this way of working comes from
-the documentation burden, which hinders
-communication/collaboration, and the high cost
+the high cost
 of returning to previous stages after moving forward.
 For example,
 if a performance or user experience (UX) deficiency shows up in testing,
 we may need to go back and redesign and reimplement parts of the software.
-If each iteration incurs the same communication overhead,
-the process may be slow enough to allow competitors to gain an advantage.
-Working in smaller chunks and testing each one
-allows us to discover issues earlier where
-they are cheaper to fix.
+If each iteration incurs a relatively high cost,
+fewer iterations will be possible,
+and more iterations generally leads to a better product.
 
 We can see some waterfall tendencies in research as well.
 Data collection might be treated as a distinct phase
@@ -101,7 +98,8 @@ but anyone who has ever been part of the review process for a journal
 article
 should know that it's very likely you'll to need to revisit data analysis
 and visualization to fulfill requested changes to the article.
-CR argues that we should treat the overall project more holistically.
+CR argues that we should treat the overall project more holistically,
+making it cheaper to move between stages so we can iterate more.
 
 ## The role of automation
 
@@ -123,6 +121,8 @@ frequently,
 which encourages working in larger batches.
 Imagine if every time the developers made a change they had to submit
 a request to the QA team to test it.
+Automation makes iterations cheap,
+and more iterations makes for a better product.
 
 ## 'Repro packs'
 
