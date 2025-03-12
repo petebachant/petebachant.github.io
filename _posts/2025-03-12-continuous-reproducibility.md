@@ -45,13 +45,13 @@ science creates.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
 
-## Defining CI/CD
+## CI/CD: What is it?
 
 What is CI/CD and why has it become the norm for software teams?
 CI means that valuable changes are integrated or incorporated into the
 codebase's single source of truth, i.e., the main branch, as soon as they
-are created,
-and CD means that the external world has access to these changes as
+are created.
+CD means that the external world has access to these changes as
 quickly as possible.
 
 Silos are broken down as development
@@ -62,16 +62,22 @@ This way of working encourages frequent small changes (small batches)
 to the codebase instead of larger, less frequent
 updates, sometimes taking months or even years.
 
+It's important to note that despite changing frequently,
+the software stays working and available as it evolves.
+In CR, we then seek to keep our research project "working" or reproducible,
+as we evolve it in many small steps.
+
 ## The end of the waterfall
 
 This more agile way of working evolved in response to the failures of the
 [waterfall project management](https://en.wikipedia.org/wiki/Waterfall_model)
 model,
 which splits a project up into multiple phases or "stage gates,"
-often owned by different people and moved through by handing off
+often owned by different people or teams and moved along by handing off
 documentation.
 For example, design, implementation, testing, and deployment all might
-be siloed in different teams.
+be siloed in different teams and done in a linear fashion,
+one after the other.
 
 The source of inefficiency in this way of working comes from
 the documentation burden, which hinders
@@ -80,13 +86,13 @@ of returning to previous stages after moving forward.
 For example,
 if a performance or user experience (UX) deficiency shows up in testing,
 we may need to go back and redesign and reimplement parts of the software.
-If each iteration requires similar amounts of documentation to be handed
-off, the process may be slow enough to allow competitors to gain an advantage.
+If each iteration incurs the same communication overhead,
+the process may be slow enough to allow competitors to gain an advantage.
 Working in smaller chunks and testing each one
 allows us to discover issues earlier where
 they are cheaper to fix.
 
-We can see some waterfall aspects in research as well.
+We can see some waterfall tendencies in research as well.
 Data collection might be treated as a distinct phase
 from data analysis,
 which might be siloed from writing.
@@ -95,11 +101,11 @@ but anyone who has ever been part of the review process for a journal
 article
 should know that it's very likely you'll to need to revisit data analysis
 and visualization to fulfill requested changes to the article.
+CR argues that we should treat the overall project more holistically.
 
 ## The role of automation
 
-CI/CD is impractical without automation,
-and thus automation was and is a key enabler.
+CI/CD is impractical without automation.
 As part of CI,
 a suite of automated tests will run,
 often on an independent computer,
@@ -110,24 +116,17 @@ Then, an automated CD pipeline will run
 (also usually on an independent computer) to build
 any necessary artifacts and send them where they need to go
 (a web server, package download service, etc.).
-Whatever is released out into the world is then totally consistent
-with the single source of truth that is the main branch.
 
 If these processes were not automated,
 they would be more painful to carry out and would naturally be done less
 frequently,
-which reduces speed and quality.
-The sense of confidence and reduced anxiety that comes from having
-things automated makes it much easier to explore different ideas without
-the fear of destroying previous progress.
-
-Imagine if the process were not automated
-and every time the developers made any small change they had to submit
-a request to the QA team to test the code.
+which encourages working in larger batches.
+Imagine if every time the developers made a change they had to submit
+a request to the QA team to test it.
 
 ## 'Repro packs'
 
-One practice popularized by the open science community is to publish
+One practice sometimes used in the open science community is to publish
 a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
 along with each scientific article.
 These are great, and I applaud anyone who publishes one,
@@ -136,8 +135,9 @@ especially if they weren't required to do so.
 However, I want to emphasize that curating a repro pack
 should not be thought of as a stage that happens at the end of the project.
 Continuous reproducibility would have us using a repro pack for the entire
-project lifecycle, literally as the place to perform and keep all the work,
-and it would follow a few important rules we will discuss later.
+project lifecycle, literally as the sole place to perform and keep all the work,
+and our interactions with it
+would follow rules we will discuss later.
 
 ## General rules
 
@@ -167,9 +167,16 @@ We can extract a few core principles from the CI/CD processes defined above:
    rather than a series of manual steps.
    It may require a good deal of work from a computer, but not a human.
 
-## How to do CR: The specifics
+## Specifics
 
-Let's explore these more deeply and see how they can be followed or not.
+Let's explore these more deeply and see how they can be applied to your own
+project.
+But what if you're already halfway through the project?
+That's okay.
+You can start incrementally working towards CR starting now.
+For example,
+first, you can put everything you have created up until
+now into version control.
 
 This section is going to be slightly biased towards
 [Calkit](https://github.com/calkit/calkit),
@@ -177,13 +184,6 @@ a project framework and toolset I've been working on to help
 enable CR,
 but it is by no means the only way to follow the principles,
 and I will try to provide other options.
-
-But what if you're already halfway through the project?
-That's okay.
-You can start working reproducibly from now.
-At least you can put everything you have right now into version control,
-then start adding to the pipeline for everything that needs to be
-created after.
 
 ### Create a single version-controlled repo for the entire project
 
@@ -322,10 +322,10 @@ In these cases, we should cache results and come up with some way to determine
 when they've been invalidated.
 However, avoid writing your own caching logic, since:
 
->There are only two hard things in Computer Science:
->cache invalidation and naming things.
+> There are only two hard things in Computer Science:
+> cache invalidation and naming things.
 >
->-- Phil Karlton
+> -- Phil Karlton
 
 If you're using Calkit,
 the DVC pipeline allows cache invalidation based on the content of files.
