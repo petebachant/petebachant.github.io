@@ -554,7 +554,7 @@ You'll also feel more confident in your results and be willing to try
 out different ideas.
 
 If you want help implementing CR practices in your lab,
-or want to talk about the difficulties involved,
+or want to talk more about the details and difficulties involved,
 shoot me an [email](mailto:petebachant@gmail.com) and I will probably
 be willing to help you out (for free!)
 
