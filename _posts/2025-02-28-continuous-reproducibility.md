@@ -373,23 +373,6 @@ I've heard DevOps described as "turning collaborators into contributors"
 and this step makes sure the barrier to entry is as low as possible,
 or at least properly described.
 
-## Signs that you could benefit from these ideas
-
-1. You dread the prospect of getting a new computer,
-   because getting everything setup to work would take days.
-2. You dread the prospect of changing a data processing script,
-   because you aren't sure what else would need to be updated to keep things
-   consistent.
-   For example, there could be figures that need to be updated,
-   or aggregate numbers listed in a paper that were entered manually.
-3. You dread the prospect of updating figures because you'll need to
-   manually copy files into a different project or tool to update the relevant
-   publication.
-4. You're the only person on your team who knows how to run the scripts in
-   your project, i.e., you're working in a silo.
-5. You feel like you're working on the edge of a cliff,
-   like one small change would send an entire house of cards toppling down.
-
 ## The role of interactive or non-automated processes
 
 If we agree with everything so far,
@@ -519,6 +502,12 @@ and they can rerun and adapt it accordingly.
 If someone makes a copy of your project and changes something slightly,
 it will be very clear what has changed and what needs to be regenerated.
 
+I don't think it's important to, for example,
+create a separate project with just your datasets.
+Deliver the world a working project.
+They will be able to see how the data is used there and reuse it in their
+own case.
+
 Realistically,
 the next generation of grad students after you will be the ones reusing
 your work.
@@ -590,6 +579,23 @@ and I doubt they are reproducing results either.
 It isn't until it is.
 The earlier in the project you start,
 the more it will pay itself back.
+
+## Signs that you could benefit from these ideas
+
+1. You dread the prospect of getting a new computer,
+   because getting everything setup to work would take days.
+2. You dread the prospect of changing a data processing script,
+   because you aren't sure what else would need to be updated to keep things
+   consistent.
+   For example, there could be figures that need to be updated,
+   or aggregate numbers listed in a paper that were entered manually.
+3. You dread the prospect of updating figures because you'll need to
+   manually copy files into a different project or tool to update the relevant
+   publication.
+4. You're the only person on your team who knows how to run the scripts in
+   your project, i.e., you're working in a silo.
+5. You feel like you're working on the edge of a cliff,
+   like one small change would send an entire house of cards toppling down.
 
 ## Summary and conclusions
 
