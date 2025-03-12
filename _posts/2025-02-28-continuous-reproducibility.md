@@ -526,7 +526,7 @@ If your project runs because you've kept it continuously reproducible
 they are going to have a huge jump start,
 even if the details of their investigation will be different.
 
-From https://phdcomics.com/comics.php?f=1689
+![PhD comics 1689](/images/cr/phd-comics-1689.png)
 
 Now imagine their materials are spread all over the place---one project
 for the code,
