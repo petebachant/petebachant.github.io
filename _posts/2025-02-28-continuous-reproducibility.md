@@ -248,6 +248,8 @@ for this,
 but there are other tools like
 [Git LFS](https://git-lfs.com/) or
 [DataLad](https://www.datalad.org/).
+I recommend not building your own,
+which I have been guilty of in the past.
 
 ### Minimize and automate dependencies
 
@@ -333,60 +335,13 @@ run your pipeline on GitHub Actions, which is free for public projects.
 See [this example](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)
 for a Calkit project that runs automatically on every push to GitHub.
 
-## Signs that you could benefit from these ideas
-
-1. You dread the prospect of getting a new computer,
-   because getting everything setup to work would take days.
-2. You dread the prospect of changing a data processing script,
-   because you aren't sure what else would need to be updated to keep things
-   consistent.
-   For example, there could be figures that need to be updated,
-   or aggregate numbers listed in a paper that were entered manually.
-3. You dread the prospect of updating figures because you'll need to
-   manually copy files into a different project or tool to update the relevant
-   publication.
-4. You're the only person on your team who knows how to run the scripts in
-   your project, i.e., you're working in a silo.
-5. You feel like you're working on the edge of a cliff,
-   like one small change would send an entire house of cards toppling down.
-
-## The role of interactive or non-automated workflows
-
-I was looking back at my research materials from my master's thesis the other
-day, and I noticed how this holistic view was not taken.
-Every small task got its own folder,
-and these were interspersed with folders related to coursework
-and other administrative documents.
-I recommend that all files related to research on a given topic belong
-in one folder.
-Yes, there can be subfolders, but don't try to create silos between them
-up front.
-
-These workflows can be distinguished by how long "throwaway" work
-lives without being incorporated into the single source of truth.
-
-A non-CR workflow would be...
-
-The "throwaway" work should only exist for minutes instead of days.
-Again, to draw the analogy to software development,
-some interactive development (e.g., using a debugger)
-can be done for minutes to hours,
-a valuable change is discovered,
-and a "pull request" is submitted.
-Working on a potential change for many days, weeks, or even months
-is a bad practice.
-
-Let's first start with some principles:
-
-1. The research project itself should be thought of as a single unit.
-   It is not helpful to silo the data analysis phase from the writing phase.
-   These are inherently coupled, and treating them as if they are not will
-   be less efficient.
-2. A single command should kick off everything.
-   No lists of setup steps.
-   No "go into this folder and run ..., then go into this folder and run..."
-   You will probably not describe these instructions accurately enough,
-   so automate them into a single pipeline.
+This can be very helpful as a CI/CD service will typically give you access
+to a fresh virtual machine (VM) for every run,
+which means you need to automate the full setup and pipeline running
+process.
+This simulates what it would take for one of your collaborators to get
+started
+and helps catch dependencies or steps you've omitted or forgotten.
 
 Coincidentally,
 today I was setting up a CI pipeline for
@@ -415,30 +370,42 @@ You're going to want it to be easy for anyone on the team to contribute.
 In this case, CR will help you avoid the annoying
 "works on my machine" investigations.
 
-Automated testing then makes developers feel safe that the
-changes they're about to incorporate don't break anything.
-Similarly,
-automating research projects...
+I've heard DevOps described as "turning collaborators into contributors"
+and this step makes sure the barrier to entry is as low as possible,
+or at least properly described.
+
+## Signs that you could benefit from these ideas
+
+1. You dread the prospect of getting a new computer,
+   because getting everything setup to work would take days.
+2. You dread the prospect of changing a data processing script,
+   because you aren't sure what else would need to be updated to keep things
+   consistent.
+   For example, there could be figures that need to be updated,
+   or aggregate numbers listed in a paper that were entered manually.
+3. You dread the prospect of updating figures because you'll need to
+   manually copy files into a different project or tool to update the relevant
+   publication.
+4. You're the only person on your team who knows how to run the scripts in
+   your project, i.e., you're working in a silo.
+5. You feel like you're working on the edge of a cliff,
+   like one small change would send an entire house of cards toppling down.
+
+## The role of interactive or non-automated processes
+
+These workflows can be distinguished by how long "throwaway" work
+lives without being incorporated into the single source of truth.
+
+The "throwaway" work should only exist for minutes instead of days.
+Again, to draw the analogy to software development,
+some interactive development (e.g., using a debugger)
+can be done for minutes to hours,
+a valuable change is discovered,
+and a "pull request" is submitted.
+Working on a potential change for many days, weeks, or even months
+is a bad practice.
 
 From https://phdcomics.com/comics.php?f=1689
-
-The CR pipeline is like a CD pipeline.
-It is run every time a change is incorporated so there is a single
-source of truth for the project that includes everything.
-
-Research projects are not quite the same as software projects.
-For one, most software projects, if successful, don't end.
-
-Silos exist in research between funding organizations and PIs,
-PIs and grad students and postdocs,
-and authors and referees.
-There are sometimes silos between collaborators,
-where for example,
-only one team member knows how to run the code,
-or has their computer setup to do so.
-SWEs avoid this problem by setting up automated pipelines
-and running these on 3rd party machines,
-usually starting from no state.
 
 This is analogous to climbing a ladder one small step at a time
 instead of taking one big jump.
@@ -456,36 +423,6 @@ the full collection of project files
 (documents, datasets, code, figures, publications)
 despite evolving rapidly and in small increments,
 remains reproducible throughout the entire project lifecycle.
-
-I believe there is a lot of value left on the table by taking this
-phased approach.
-For one, it is more complex with higher cognitive overhead.
-When working this way,
-that insider information lives in the researcher's head,
-meaning every time they make a change to some file,
-they need to keep track of the downstream consequences
-and run the appropriate processes,
-perhaps doing something like manually copying and pasting artifacts into
-a different location.
-Secondly, it is error prone.
-Missing a step in a manual "pipeline" could result in out-of-date
-or even incorrect results making their way into the final publication.
-
-The scientific review process today is similar to the handoffs
-between software development and quality assurance (QA) teams.
-However, journal article referees are usually not rerunning analyses.
-
-The two most important tactics to achieving CR are:
-
-1. Keep all files in version control, in a single repository.
-1. Automate dependency management.
-1. Generate all artifacts with a single pipeline. The opposite of this would
-   be having one pipeline to run the simulation,
-   one to post-process, one to generate figures,
-   one to compile the publication,
-   all of which need to be executed separately by the researcher.
-   A pipeline system that can cache results is critical here if there are
-   expensive steps, but more on that later.
 
 The change in mindset is a move from focusing on individual files
 and artifacts to a focus on the project as a whole.
