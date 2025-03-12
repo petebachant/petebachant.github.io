@@ -127,10 +127,12 @@ a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repr
 along with each scientific article.
 These are great, and I applaud anyone who publishes one,
 especially if they weren't required to do so.
-However, the name sort of implies that curating the repro pack is a
-distinct phase in the project that happens relatively later on.
+
+However, I want to emphasize that curating a repro pack
+should not be a stage that happens at the end of the project.
 Continuous reproducibility would have us using a repro pack for the entire
-project, and it would follow a few important rules we will discuss later.
+project lifecycle, literally as the place to perform and keep all the work,
+and it would follow a few important rules we will discuss later.
 
 ## General rules
 
