@@ -3,7 +3,7 @@ comments: true
 date: 2025-02-28
 layout: post
 title: >
-  Continuous Reproducibility: How DevOps principles can help
+  Continuous Reproducibility: How DevOps ideas can help
   improve the speed and quality of scientific discovery
 categories:
   - Open science
@@ -344,9 +344,8 @@ started
 and helps catch dependencies or steps you've omitted or forgotten.
 
 Coincidentally,
-today I was setting up a CI pipeline for
-[Calkit](https://github.com/calkit/calkit).
-Even though the tests all run fine on my machine,
+I was recently setting up a CI pipeline for Calkit,
+and even though the tests all ran fine on my machine,
 it took me
 [15 iterations](https://github.com/calkit/calkit/pull/273)
 to get them running up on the GitHub Actions CI/CD service.
@@ -512,6 +511,13 @@ and they can rerun and adapt it accordingly.
 If someone makes a copy of your project and changes something slightly,
 it will be very clear what has changed and what needs to be regenerated.
 
+Realistically,
+the next generation of grad students after you will be the ones reusing
+your work.
+If your project runs because you've kept it continuously reproducible
+they are going to have a huge jump start,
+even if the details of their investigation will be different.
+
 ## Painful situations you can avoid
 
 1. Your advisor points back at an older slide deck and requests that you
@@ -576,6 +582,8 @@ of their work
 by applying Continuous Reproducibility principles to their projects.
 This essentially means automating dependency management and
 artifact generation to simplify reproducibility down to a single command.
+
+The litmus test for CR is that... TODO
 
 Working in a continuously reproducible way will provide the confidence
 to share all materials associated with a research project openly.
