@@ -320,9 +320,9 @@ and uploading figures manually to Overleaf,
 use a more general tool like
 VS Code that can edit/run both MATLAB and LaTeX files.
 
-### Use caching, but try not to roll your own
-
-Some processes are too heavy to be practical to rerun.
+You should be running your pipeline after every change.
+However,
+some processes are too heavy to be practical to rerun every single time.
 For example,
 it is usually not feasible to rerun a large scale simulation on a
 high performance computing (HPC) cluster to simply check its
@@ -330,14 +330,24 @@ reproducibility.
 
 In these cases, we should cache results and come up with some way to determine
 when they've been invalidated.
+However, avoid writing your own caching logic, since:
 
-A DVC pipeline allows cache invalidation based on the content of files.
+>There are only two hard things in Computer Science: cache invalidation and naming things.
+>
+>-- Phil Karlton
+
+If you're using Calkit,
+the DVC pipeline allows cache invalidation based on the content of files.
 You provide a list of input files,
 and if none of those have changed since the last run,
 the outputs are still valid.
-
-Caching is one of the hardest tasks in software engineering.
-Offload that responsibility to a framework.
+You can set the input files to be all of your simulation scripts and configs,
+run the pipeline,
+cache the outputs,
+and you can keep calling `calkit run` over and over and the heavy process
+will not rerun unless you edit the scripts or configs.
+Your collaborators can sync from the cache and work on later pipeline
+stages without missing a beat.
 
 ### Use a CI/CD service, or at least an independent computer
 
