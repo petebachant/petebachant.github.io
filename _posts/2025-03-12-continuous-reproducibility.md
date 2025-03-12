@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2025-02-28
+date: 2025-03-12
 layout: post
 title: >
   Continuous Reproducibility: How DevOps ideas can help
