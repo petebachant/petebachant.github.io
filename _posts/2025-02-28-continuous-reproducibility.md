@@ -452,13 +452,6 @@ instead of taking one big jump.
    Even if using version control and a pipeline system,
    it's possible to fall into a large batch mindset.
 
-## Complications: Big data and HPC
-
-Sometimes things will need to run on other machines.
-They should still be automated as part of the same pipeline.
-Define the outputs in the pipeline appropriately,
-and they will be cached automatically.
-
 ## Reusability
 
 One common misconception one might have about sharing project files
