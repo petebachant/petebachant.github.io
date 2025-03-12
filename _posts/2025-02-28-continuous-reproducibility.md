@@ -12,11 +12,11 @@ categories:
 ---
 
 In the 21st century, the
-[Agile software development](https://en.wikipedia.org/wiki/Agile_software_development)
+[Agile](https://en.wikipedia.org/wiki/Agile_software_development)
 and [DevOps](https://en.wikipedia.org/wiki/DevOps) movements
-have significantly reduced waste, improved quality,
-enhanced innovation,
-and increased the speed of development of software products and related
+helped to significantly reduce waste, improve quality,
+enhance innovation,
+and increase the speed of development of software products and related
 technology by breaking down silos,
 improving collaboration,
 and moving towards working in smaller batches with faster feedback loops.
@@ -475,6 +475,8 @@ Commit it to the version control system.
    It's going to be mostly boilerplate,
    but that's okay.
    As you go through your lit review, you'll be writing the introduction.
+   As you plan your experiment and write your data processing code
+   you can write the methods section.
    Again, instead of phases, make it into one continuous evolutionary process
    until it's ready to release.
 4. Create project update slideshows with the same pipeline used to create
