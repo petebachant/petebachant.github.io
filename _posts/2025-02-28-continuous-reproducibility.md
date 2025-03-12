@@ -300,7 +300,7 @@ It also doesn't contain the paper manuscript compilation.
 If you're using Calkit,
 you can put all steps into a DVC pipeline and execute them all with
 `calkit run`,
-which will also ensure all environments match their specification.
+which will also ensure all environments match their specifications.
 
 Alternatives include
 [Make](https://www.gnu.org/software/make/),
