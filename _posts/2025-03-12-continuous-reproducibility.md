@@ -260,12 +260,12 @@ have them use a Docker container.
 If you define all of your environments with Calkit,
 you will not even need to instruct your users on how to create them.
 
-### Allow reproducing everything with a single command
+### Run all processes with a single command
 
 This follows a similar principle as above:
 Avoid giving lists of steps to follow in the README,
 which is like a non-automated pipeline written in prose.
-Instead, automated it.
+Instead, automated it into one step.
 
 For example, you might have something like
 "to run the simulations...",
