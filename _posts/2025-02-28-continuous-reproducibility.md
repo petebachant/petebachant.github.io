@@ -392,6 +392,16 @@ or at least properly described.
 
 ## The role of interactive or non-automated processes
 
+If we agree with everything so far,
+that everything must be automated to the point that it only takes
+a single command to run,
+how do we go about building that pipeline?
+
+If we come up with a grand design that we think will take
+72 hours to run and kick if off blindly,
+obviously there's a good chance it will fail early on and will need
+to be reworked.
+
 These workflows can be distinguished by how long "throwaway" work
 lives without being incorporated into the single source of truth.
 
@@ -403,8 +413,6 @@ a valuable change is discovered,
 and a "pull request" is submitted.
 Working on a potential change for many days, weeks, or even months
 is a bad practice.
-
-From https://phdcomics.com/comics.php?f=1689
 
 This is analogous to climbing a ladder one small step at a time
 instead of taking one big jump.
@@ -517,6 +525,15 @@ your work.
 If your project runs because you've kept it continuously reproducible
 they are going to have a huge jump start,
 even if the details of their investigation will be different.
+
+From https://phdcomics.com/comics.php?f=1689
+
+Now imagine their materials are spread all over the place---one project
+for the code,
+another for the visualization,
+and another for writing the thesis.
+You are not going to go through the trouble to reproduce their work
+and will need to reinvent the wheel.
 
 ## Painful situations you can avoid
 
