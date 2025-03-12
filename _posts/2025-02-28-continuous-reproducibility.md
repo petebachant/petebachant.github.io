@@ -258,25 +258,49 @@ which I have been guilty of in the past.
 Instead of a list in the README that says "install A, install B, install C..."
 use virtual environments and/or containers.
 
-If you define all of your environments with Calkit,
-you will not even need to instruct your users on how to create them.
-
 If you absolutely require things to be installed system-wide,
 try to keep them to a minimum and try to automate their installation with
 a script or something similar.
+
+In general system-wide dependencies should be avoided,
+since typically multiple versions cannot be installed.
+So for example, instead of telling users to install Matplotlib,
+define a Conda environment and have them install Conda.
+Similarly, instead of telling users to install some version OpenFOAM,
+have them use a Docker container.
+
+If you define all of your environments with Calkit,
+you will not even need to instruct your users on how to create them.
 
 ### Allow reproducing everything with a single command
 
 This follows a similar principle as above:
 Avoid giving lists of steps to follow in the README,
-which is sort of like a manual pipeline in prose.
+which is sort of like a non-automated pipeline written in prose.
+For example, you might have something like
+"to run the simulations...",
+"to create the plots...",
+"to build the paper...".
+The problem with this is that users (including you) will not know which to do
+and when,
+or it may require lots of insider knowledge and cognitive overhead
+to figure this out.
+This is a manifestation of the waterfall mindset,
+assuming that once we've done one step we'll never need to return to it.
+Falling for that can bite you.
+Instead, make it simple and use a single pipeline or command.
+
+Coincidentally,
+the [repro pack cited in [1]](https://doi.org/10.3886/E111743V2)
+appears to have 10 separate pipelines,
+with no instructions on how to run them,
+if there is any inter-dependence, etc.
+It also doesn't contain the paper manuscript compilation.
 
 If you're using Calkit,
-you can put all steps into a DVC pipeline.
-
-If you don't follow this rule,
-you may have many different commands to run depending on what
-artifact you want to create.
+you can put all steps into a DVC pipeline and execute them all with
+`calkit run`,
+which will also ensure all environments match their specification.
 
 Alternatives include
 [Make](https://www.gnu.org/software/make/),
@@ -288,30 +312,7 @@ or even a simple shell script.
 If the project is super lightweight, e.g.,
 a pure writing project with no figure generation,
 the "pipeline" could be to save a Word document as a PDF.
-
-Coincidentally,
-the [repro pack cited in [1]](https://doi.org/10.3886/E111743V2)
-appears to have 10 separate pipelines,
-with no instructions on how to run them,
-if there is any inter-dependence, etc.
-
-It also doesn't contain the paper manuscript compilation.
-
-If a pipeline is written in English and can't be run all with a single
-command,
-it's not really a pipeline.
-There will almost certainly be information missing.
-This includes setting up dependencies as well.
-
-Use a system that is as simple as possible.
-
-Don't fall prey to waterfall processes, e.g.,
-assuming that data analysis is done,
-and that writing a paper is a totally separate stage gate.
-Changing data analysis when moving into a different "silo"
-will be more expensive.
-
-Don't fragment into multiple small pipelines.
+Keep it as simple as possible.
 
 Avoid hopping back and forth between different tools.
 For example, instead of opening MATLAB to run data analysis scripts
