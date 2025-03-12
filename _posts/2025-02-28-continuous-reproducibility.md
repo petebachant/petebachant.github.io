@@ -117,7 +117,18 @@ The sense of confidence and reduced anxiety that comes from having
 things automated makes it much easier to explore different ideas without
 the fear of destroying previous progress.
 
-## General principles
+## 'Repro packs'
+
+One tactic practiced by the open science community is to publish
+a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
+along with each scientific article.
+These are great, especially when published openly.
+However, the name sort of implies that curating the repro pack is a
+distinct phase in the project that happens relatively later on.
+Continuous reproducibility would have us using a repro pack for the entire
+project, and it would follow a few important rules we will discuss later.
+
+## General rules
 
 So what would it mean for a research project to be "Continuously Reproducible?"
 We can extract a few core principles from the CI/CD processes defined above:
@@ -160,18 +171,7 @@ flowchart LR
     B --> C("artifacts<br>(figures, publication PDFs, slideshows, datasets)")
 ```
 
-## 'Repro packs'
-
-One tactic practiced by the open science community is to publish
-a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
-along with each scientific article.
-These are great, especially when published openly.
-However, the name sort of implies that curating the repro pack is a
-distinct phase in the project that happens relatively later on.
-Continuous reproducibility would have us using a repro pack for the entire
-project, and it would follow a few important rules we will discuss later.
-
-## How to get there
+## How to do CR: The specifics
 
 Let's explore these more deeply and see how they can be followed or not.
 
@@ -528,6 +528,21 @@ but that the value uncovered by interactive work should be incorporated
 into a batch process as quickly as possible,
 which will manifest as small changes.
 
+What this means is that we need to produce outputs as part of a
+batch process.
+However, developing the process is almost always more efficient
+to do with an interactive workflow with fast feedback.
+We then need some way of taking what we discover in our interactive work
+and converting it into a batch process, i.e.,
+a pipeline.
+
+The frequency with which you flip back and forth between the workflow types
+is important.
+It should be as frequent as possible.
+Discover a valuable change and integrate it back into the pipeline
+right away.
+Commit it to the version control system.
+
 ## More small rules to follow
 
 1. Never share an artifact you couldn't easily regenerate.
@@ -548,45 +563,27 @@ which will manifest as small changes.
    everything else. Automate this so you're not manually copy/pasting
    things into slides each week for project updates.
 5. Prefer many small changes over fewer large changes.
+   Even if using version control and a pipeline system,
+   it's possible to fall into a large batch mindset.
 
-## Anti-patterns to avoid
+## Complications: Big data and HPC
 
-Even if when using a VCS,
-it's possible to fall into a large batch mindset.
-
-What is it like to not work reproducibly?
-Well, it means that the path one took to produce an artifact can no longer
-be reliably followed.
-Even if you think you've documented your work properly,
-if that has not been tested,
-it's highly likely that the documentation is missing something,
-and your work will not be reproducible.
-
-What this means is that we need to produce outputs as part of a
-batch process.
-However, developing the process is almost always more efficient
-to do with an interactive workflow with fast feedback.
-We then need some way of taking what we discover in our interactive work
-and converting it into a batch process, i.e.,
-a pipeline.
-
-## On collaboration
-
-Handing off a draft is not real collaboration.
-
-What are some tactics for managing the back-and-forth?
-
-The first is to never take any product produced with a interactive
-workflow as the final product.
-
-The frequency with which you flip back and forth between the workflow types
-is important.
-It should be as frequent as possible.
-Discover a valuable change and integrate it back into the pipeline
-right away.
-Commit it to the version control system.
+Sometimes things will need to run on other machines.
+They should still be automated as part of the same pipeline.
 
 ## Reusability
+
+One common misconception one might have about sharing project files
+is that they need to have some sort of broad usefulness besides
+producing the figures, paper, etc.
+
+This is not true.
+In fact,
+if you try to make your files more generally useful and they
+no longer can do the specific tasks to generate your artifacts,
+they might be even less useful.
+
+Delivering someone a working project is valuable.
 
 Don't worry about reusability.
 So long as your project is reproducible,
@@ -595,27 +592,7 @@ and they can rerun and adapt it accordingly.
 If someone makes a copy of your project and changes something slightly,
 it will be very clear what has changed and what needs to be regenerated.
 
-Excel mental model?
-Most projects are too complex to be fully managed in a spreadsheet,
-though many will try valiantly.
-Every time you make a change, the spreadsheet values all update.
-This means that their values are reproducible.
-If you like what you see, you save the file.
-If you have enabled track changes, or you use Google Sheets
-named version feature,
-you're then putting it in version control.
-Now, this would be okay if you could generate everything in a single
-spreadsheet,
-and by everything I mean all figures, publications, etc.
-Obviously spreadsheets don't do that,
-so you'd need to use some other software for those things.
-So when we expand from using a single file per project to multiple
-files and processes per project, we need to use a more sophisticated tool.
-In this case,
-our project now becomes a folder of files,
-and we shift our mindset to managing this folder instead of one file.
-
-Painful situations you can avoid by applying CR:
+## Painful situations you can avoid
 
 1. Your advisor points back at an older slide deck and requests that you
    include a certain figure in the paper you're preparing for submission,
@@ -668,6 +645,8 @@ and I doubt they are reproducing results either.
 > It's not worth the extra effort
 
 It isn't until it is.
+The earlier in the project you start,
+the more it will pay itself back.
 
 ## Summary and conclusions
 
