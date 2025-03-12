@@ -12,15 +12,14 @@ categories:
 ---
 
 In the 21st century, the
-[Agile software development](https://en.wikipedia.org/wiki/Agile_software_development),
+[Agile software development](https://en.wikipedia.org/wiki/Agile_software_development)
 and [DevOps](https://en.wikipedia.org/wiki/DevOps) movements
 have significantly reduced waste, improved quality,
 enhanced innovation,
 and increased the speed of development of software products and related
 technology by breaking down silos,
 improving collaboration,
-and moving towards working in smaller batches with faster feedback loops
-to succeed in uncertain environments.
+and moving towards working in smaller batches with faster feedback loops.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
 with many findings failing to replicate
@@ -36,7 +35,7 @@ Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
 ([CI/CD](https://en.wikipedia.org/wiki/CI/CD)).
 There has been some discussion about adapting these
-and calling it
+under the name
 [_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
 though I think the concept extends beyond analysis and into
 generating other artifacts like figures and publications,
@@ -49,18 +48,18 @@ _Continuous Reproducibility_ (CR).
 
 What is CI/CD and why has it become the norm for software teams?
 CI means that valuable changes are integrated or incorporated into the
-single source of truth, i.e., the main branch, as soon as they
-are produced,
+codebase's single source of truth, i.e., the main branch, as soon as they
+are created,
 and CD means that the external world has access to these changes as
 quickly as possible.
 
-Silos are broken down as a single team then owns both development
-and operations (hence "DevOps").
-That is, the development team handles testing/QA and deployment,
+Silos are broken down as development
+is combined with operations (hence "DevOps").
+That is, the same team writing the code handles testing/QA and deployment,
 whereas in the past this might have been handled by multiple teams.
-Work batch sizes shrink as developers start merging in frequent small
-changes to the codebase instead of larger, less frequent
-(sometimes taking months or years) updates.
+This way of working encourages frequent small changes (small batches)
+to the codebase instead of larger, less frequent
+updates, sometimes taking months or even years.
 
 ## The end of the waterfall
 
@@ -73,7 +72,9 @@ large amounts of documentation.
 For example, design, implementation, testing, and deployment all might
 be siloed in different teams.
 
-The source of inefficiency in this way of working is the high cost
+The source of inefficiency in this way of working comes from
+the documentation burden, which hinders
+communication/collaboration, and the high cost
 of returning to previous stages after moving forward.
 For example,
 if a performance or user experience (UX) deficiency shows up in testing,
@@ -109,6 +110,7 @@ any necessary artifacts and send them where they need to go
 (a web server, package download service, etc.).
 Whatever is released out into the world is then totally consistent
 with the single source of truth that is the main branch.
+
 If these processes were not automated,
 they would be more painful to carry out and would naturally be done less
 frequently,
@@ -119,10 +121,11 @@ the fear of destroying previous progress.
 
 ## 'Repro packs'
 
-One tactic practiced by the open science community is to publish
+One practice popularized by the open science community is to publish
 a ["reproducibility pack" or "repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)
 along with each scientific article.
-These are great, especially when published openly.
+These are great, and I applaud anyone who publishes one,
+especially if they weren't required to do so.
 However, the name sort of implies that curating the repro pack is a
 distinct phase in the project that happens relatively later on.
 Continuous reproducibility would have us using a repro pack for the entire
@@ -138,6 +141,10 @@ We can extract a few core principles from the CI/CD processes defined above:
    Practically this means a shared version control repository or repo.
    Different team members can easily sync with this main repo.
    No important files live on only one person's computer.
+   Git is the obvious tool of choice here, but for very simple projects
+   (e.g., ones that only involve a single file)
+   Microsoft Office and Google Workspace's built-in cloud storage and
+   version control may be sufficient.
 2. These processes can be run on different computers, i.e., they are not
    dependent on some "hidden state" of one developer's machine.
 3. Whatever is delivered to the outside world is always
