@@ -69,7 +69,7 @@ This more agile way of working evolved in response to the failures of the
 model,
 which splits a project up into multiple phases or "stage gates,"
 often owned by different people and moved through by handing off
-large amounts of documentation.
+documentation.
 For example, design, implementation, testing, and deployment all might
 be siloed in different teams.
 
@@ -308,19 +308,20 @@ and uploading figures manually to Overleaf,
 use a more general tool like
 VS Code that can edit/run both MATLAB and LaTeX files.
 
-You should be running your pipeline after every change.
+You should be running your pipeline after every change,
+which should mean dozens of times per day.
 However,
 some processes are too heavy to be practical to rerun every single time.
 For example,
 it is usually not feasible to rerun a large scale simulation on a
 high performance computing (HPC) cluster to simply check its
 reproducibility.
-
 In these cases, we should cache results and come up with some way to determine
 when they've been invalidated.
 However, avoid writing your own caching logic, since:
 
->There are only two hard things in Computer Science: cache invalidation and naming things.
+>There are only two hard things in Computer Science:
+>cache invalidation and naming things.
 >
 >-- Phil Karlton
 
