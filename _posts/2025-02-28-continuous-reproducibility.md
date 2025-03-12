@@ -278,15 +278,19 @@ If you don't follow this rule,
 you may have many different commands to run depending on what
 artifact you want to create.
 
-Alternatives include Make, Snakemake, or a shell script.
+Alternatives include
+[Make](https://www.gnu.org/software/make/),
+[Snakemake](https://snakemake.readthedocs.io/en/stable/),
+[showyourwork](https://show-your.work/en/latest/)
+(a project framework similar to Calkit but
+focused on building LaTeX PDF articles with Snakemake),
+or even a simple shell script.
 If the project is super lightweight, e.g.,
 a pure writing project with no figure generation,
 the "pipeline" could be to save a Word document as a PDF.
 
-showyourwork...
-
 Coincidentally,
-the ["repro pack" attached to [1]](https://doi.org/10.3886/E111743V2)
+the [repro pack cited in [1]](https://doi.org/10.3886/E111743V2)
 appears to have 10 separate pipelines,
 with no instructions on how to run them,
 if there is any inter-dependence, etc.
