@@ -28,6 +28,8 @@ or even to be reproduced
 (verified by rerunning the same computational processes
 on the same input data).
 Though the products of science only sometimes include software,
+and a good amount of progress has been made towards establishing
+and disseminating scientific computing best practices [3],
 I believe there is more science can learn from the software field
 in these areas.
 
