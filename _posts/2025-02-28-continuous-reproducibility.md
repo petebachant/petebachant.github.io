@@ -162,25 +162,6 @@ We can extract a few core principles from the CI/CD processes defined above:
    rather than a series of manual steps.
    It may require a good deal of work from a computer, but not a human.
 
-```mermaid
-flowchart LR
-    A(inputs) --> B[processes]
-    B --> C(artifacts)
-```
-
-```mermaid
-flowchart LR
-    A("inputs<br>(code)") --> B["processes<br>(build scripts)"]
-    B --> C("artifacts<br>(executables, packages)")
-```
-
-```mermaid
-flowchart LR
-    A("inputs<br>(raw data, LaTeX files)")
-    --> B["processes<br>(data reduction, visualization, document compilation)"]
-    B --> C("artifacts<br>(figures, publication PDFs, slideshows, datasets)")
-```
-
 ## How to do CR: The specifics
 
 Let's explore these more deeply and see how they can be followed or not.
