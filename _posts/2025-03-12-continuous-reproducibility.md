@@ -121,6 +121,10 @@ The sense of confidence and reduced anxiety that comes from having
 things automated makes it much easier to explore different ideas without
 the fear of destroying previous progress.
 
+Imagine if the process were not automated
+and every time the developers made any small change they had to submit
+a request to the QA team to test the code.
+
 ## 'Repro packs'
 
 One practice popularized by the open science community is to publish
@@ -130,7 +134,7 @@ These are great, and I applaud anyone who publishes one,
 especially if they weren't required to do so.
 
 However, I want to emphasize that curating a repro pack
-should not be a stage that happens at the end of the project.
+should not be thought of as a stage that happens at the end of the project.
 Continuous reproducibility would have us using a repro pack for the entire
 project lifecycle, literally as the place to perform and keep all the work,
 and it would follow a few important rules we will discuss later.
@@ -430,7 +434,7 @@ Commit it to the version control system.
 This is analogous to climbing a ladder one small step at a time
 instead of taking one big jump.
 
-## More small rules to follow
+## Some more small tips
 
 1. Never share an artifact you couldn't easily regenerate.
    If there are uncommitted changes in the repo, it's considered "dirty."
@@ -439,7 +443,7 @@ instead of taking one big jump.
 2. Don't email editable artifacts. You will lose your single source of truth
    quickly this way.
    Instead, share artifacts that can be marked up, like PDFs,
-   and incorporate those comments into the main branch.
+   and incorporate those comments into the version in the repo.
 3. Start your paper (or thesis) on day 1.
    It's going to be mostly boilerplate,
    but that's okay.
@@ -460,7 +464,6 @@ instead of taking one big jump.
 One common misconception one might have about sharing project files
 is that they need to have some sort of broad usefulness besides
 producing the figures, paper, etc.
-
 This is not true.
 In fact,
 if you try to make your files more generally useful and they
@@ -537,7 +540,9 @@ I believe scientists can boost their productivity and quality
 of their work
 by applying Continuous Reproducibility principles to their projects.
 This essentially means automating dependency management and
-artifact generation to simplify reproducibility down to a single command.
+artifact generation to simplify reproducibility down to a single command
+that can be run many times per day throughout the entire project
+lifecycle.
 
 Is it worth the extra effort?
 You may think it's not, but it almost certainly is.
@@ -545,11 +550,8 @@ The gains will continue adding up over time,
 so it's better to start now.
 If you use a framework it may take a few hours to get setup,
 and this will likely save you many hours throughout the life of the project.
-
-The litmus test for CR is that... TODO
-
-Working in a continuously reproducible way will provide the confidence
-to share all materials associated with a research project openly.
+You'll also feel more confident in your results and be willing to try
+out different ideas.
 
 If you want help implementing CR practices in your lab,
 or want to talk about the difficulties involved,
