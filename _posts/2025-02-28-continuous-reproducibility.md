@@ -234,9 +234,9 @@ but there are other tools like
 I recommend not building your own,
 which I have been guilty of in the past.
 
-### Minimize and automate dependencies
+### Minimize system-wide dependencies and automate their management
 
-Instead of a list in the README that says "install A, install B, install C..."
+Instead of a list in the README that says "install A, install B, install C...,"
 use virtual environments and/or containers.
 
 If you absolutely require things to be installed system-wide,
@@ -257,7 +257,9 @@ you will not even need to instruct your users on how to create them.
 
 This follows a similar principle as above:
 Avoid giving lists of steps to follow in the README,
-which is sort of like a non-automated pipeline written in prose.
+which is like a non-automated pipeline written in prose.
+Instead, automated it.
+
 For example, you might have something like
 "to run the simulations...",
 "to create the plots...",
@@ -295,7 +297,7 @@ a pure writing project with no figure generation,
 the "pipeline" could be to save a Word document as a PDF.
 Keep it as simple as possible.
 
-Avoid hopping back and forth between different tools.
+Following this rule will help limit the number of tools you use as well.
 For example, instead of opening MATLAB to run data analysis scripts
 and uploading figures manually to Overleaf,
 use a more general tool like
