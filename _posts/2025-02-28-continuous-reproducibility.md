@@ -379,7 +379,48 @@ I've heard DevOps described as "turning collaborators into contributors"
 and this step makes sure the barrier to entry is as low as possible,
 or at least properly described.
 
-## The role of interactive or non-automated processes
+## The role of interactive workflows
+
+If a given artifact you're producing requires an interactive workflow,
+e.g., to open up a GUI, point and click on some things, and export,
+that is a violation of CR,
+since we would not be able to reproduce our entire project with a single
+command.
+However, interactive workflows are very important for developing batch
+workflows.
+Some GUI applications allow recording "macros" from interactions
+that can in turn be executed in a pipeline.
+In these cases,
+the interactive workflow helps us develop the batch one.
+
+This happens while developing software too.
+Oftentimes one will make some small changes to some code
+and setup some way to get feedback on its effect.
+If automated tests are configured,
+it can be faster to just run one test that one is sure will be impacted
+by the code changes.
+Alternatively,
+a debugger can be used to step through the processes in the code and
+inspect the values of variables to better check things are correct.
+
+It's important to setup a "fixture" to get fast feedback while developing
+batch processes.
+However,
+even if we end up running a long interactive process and it succeeds,
+we should still commit the changes and run the pipeline to produce
+the "official" artifact.
+That is,
+do not settle for any artifacts created interactively.
+In other words,
+the output of interactive processes should be batch process definitions.
+Only batch processes should create artifacts.
+
+The speed of testing changes is ideally instantaneous.
+If it takes minutes or even hours to get feedback on if your change
+works,
+you probably should break it down into smaller testable chunks.
+In this case,
+automated unit tests can be very useful.
 
 If we agree with everything so far,
 that everything must be automated to the point that it only takes
@@ -430,8 +471,6 @@ will undoubtedly uncover necessary changes.
 If an automated CR pipeline is not in place,
 the extra work from these iterations will accumulate.
 Put the CR pipeline in place from the very beginning!
-
-## The interactive/batch dance
 
 Interactivity is the enemy of reproducibility.
 Interactivity produces mostly throwaway work.
