@@ -103,7 +103,8 @@ As part of CI,
 a suite of automated tests will run,
 often on an independent computer,
 to ensure changes will not break the codebase in ways that are hard to predict.
-If the tests pass, the changes are merged.
+If the tests pass and the team agrees on the value of the changes,
+they are merged.
 Then, an automated CD pipeline will run
 (also usually on an independent computer) to build
 any necessary artifacts and send them where they need to go
@@ -199,81 +200,54 @@ created after.
 ### Create a single version-controlled repo for the entire project
 
 To say that a research project has a "single source of truth"
+for all materials
 we probably need to define what constitutes a project.
 How do we draw the boundaries?
 
-This might be the most important concept.
+This might be the most important concept to help prevent complexity
+from spiraling out of control.
+First realize that working in small batches does not mean working
+on small projects.
+My recommendation is to start with a single logical project for each
+general research topic.
+If you're in the middle of a master's or PhD program everything
+research-related belongs in that one
+project so long as the topic hasn't radically changed.
+
 Any file necessary to produce anything that will be released to the external
-world belongs in this project.
+world belongs in here.
 This includes proposals, notes, drawings, data, code, figures, slideshows,
 articles, etc.
 
-Always better to err on the side of too big and break it up later
-than start too small.
-
-Practically speaking,
-all work done throughout a master's or PhD program can go in a single
-project so long as the topic hasn't changed.
-
-That means we don't want to create a separate smaller project for a
-conference presentation,
-another separate project for a journal article,
-and yet another for our thesis.
-Start with one project, because all of these are inherently coupled to
-each other, i.e.,
-they will share input data and process definitions.
-
-We've already established that we want to move away from
-very small projects, but what's the limit?
-Should we draw the line at a single paper?
-What if we have a follow-on investigation on the same topic?
-
-If you want to be able to test and build artifacts,
-you'll want to keep everything in one place.
-This is the same for a research project.
-Storing a dataset somewhere far away from the
-
-Keep your project general at first.
-That is, dump all files into a single place.
-Don't split into a bunch of different projects,
+The important point here is that we don't want to splinter our work
+off into a bunch of tiny projects,
 e.g., one for a lit review,
 one for your proposal, one for the experiment,
 one for the analysis code,
 one for the journal article,
-and one for the thesis.
+and one for the thesis,
+because they all will share content,
+and if we prematurely split them up,
+it will make some of the other CR rules harder to follow.
 
-It's almost always better to go from large to small than the other way
-around.
-In software development,
-this principle is known as premature abstraction,
-and it is well known that the wrong abstraction is much more expensive
-than no abstraction at all.
+If a sub-project later emerges as something that can be valuable
+on its own,
+we can always split it off later,
+e.g., into Git submodule.
+Always better to err on the side of too big and break it up later
+than start too small.
 
-A similar concept is that of a "monorepo,"
-or a single repository containing multiple sub-projects.
-This is much better than excessive fragmentation.
-In fact,
-Google uses a single monorepo for most of their code.
+That is not to say you shouldn't organize the project with subfolders---you
+absolutely should do that.
 
-You should keep literally everything in the project that matters,
-which includes raw data.
-Calkit leverages DVC for versioning larger data files and
-
-#### Avoid splintering into many small projects from the start
-
-This is analogous to the "distributed monolith" software architecture,
-where tightly coupled components are spread across multiple codebases
-and/or infrastructure groups.
-In research, this could take the form of one repo for the data collection,
-one repo for the data processing software,
-one repo for the paper.
-These are all inherently coupled in service of producing the paper.
-Just keep them together in the same repo.
-If by change some sub-component, e.g., the software,
-becomes useful on its own,
-deal with that afterwards, not up front.
-
-Working in smaller batches does not mean working on many smaller projects.
+If you're using Git you'll want to use a secondary system to version
+larger data files.
+The Calkit framework uses
+[DVC](https://dvc.org)
+for this,
+but there are other tools like
+[Git LFS](https://git-lfs.com/) or
+[DataLad](https://www.datalad.org/).
 
 ### Minimize and automate dependencies
 
@@ -668,6 +642,7 @@ Working in a continuously reproducible way will provide the confidence
 to share all materials associated with a research project openly.
 
 If you want help implementing CR practices in your lab,
+or want to talk about the difficulties involved,
 shoot me an [email](mailto:petebachant@gmail.com) and I will probably
 be willing to help you out (for free!)
 
