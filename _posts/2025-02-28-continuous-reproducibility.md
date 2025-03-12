@@ -274,6 +274,10 @@ which is sort of like a manual pipeline in prose.
 If you're using Calkit,
 you can put all steps into a DVC pipeline.
 
+If you don't follow this rule,
+you may have many different commands to run depending on what
+artifact you want to create.
+
 Alternatives include Make, Snakemake, or a shell script.
 If the project is super lightweight, e.g.,
 a pure writing project with no figure generation,
