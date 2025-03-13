@@ -3,8 +3,8 @@ comments: true
 date: 2025-03-12
 layout: post
 title: >
-  Continuous Reproducibility: How DevOps ideas can help
-  improve the speed and quality of scientific discovery
+  Continuous Reproducibility: Could DevOps principles significantly improve
+  the quality and speed of scientific discovery?
 categories:
   - Open science
   - Reproducibility
@@ -14,7 +14,7 @@ categories:
 In the 21st century, the
 [Agile](https://en.wikipedia.org/wiki/Agile_software_development)
 and [DevOps](https://en.wikipedia.org/wiki/DevOps) movements
-helped to significantly reduce waste, improve quality,
+helped to reduce waste, improve quality,
 enhance innovation,
 and increase the speed of development of software products and related
 technology by breaking down silos,
@@ -44,6 +44,37 @@ which oftentimes serve as the primary interfaces to the knowledge
 science creates.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
+
+In the software world, CI/CD enabled a radical shift away from
+waterfall development methods,
+where projects passed through distinct phases or "stage gates," e.g.,
+planning, design, implementation, testing, deployment,
+towards a more fluid process where
+small software changes were frequently integrated and delivered.
+
+Automation and reduced communication overhead
+made it possible to increase the number of iterations,
+and increasing the number of iterations leads to a better product.
+
+The main learning here is that we want to increase the number of
+iterations we can do by eliminating or automating any steps that
+don't provide value.
+For example,
+
+So how might these principles be applied to science?
+First we should look for painful processes that could be eliminated
+via automation.
+These might exist from treating a project like a waterfall process.
+For example,
+if we assume data analysis is totally finished then we start writing.
+
+Using
+
+One practice common even with researchers who share their code and data
+is to not fully automate their pipelines.
+Project READMEs will contain many steps for getting things setup
+and generating the artifacts.
+This should be condensed down to one.
 
 ## CI/CD: What is it?
 
@@ -142,6 +173,18 @@ would follow rules we will discuss later.
 ## General rules
 
 So what would it mean for a research project to be "Continuously Reproducible?"
+At a high level,
+were trying to blend the distinct phases of data collection,
+analysis, visualization, and publication into one continuous process
+with fast iteration times.
+To do this, we need to eliminate any wasteful activities from each
+iteration.
+For example,
+if it takes a significant amount of effort to update plotting routines after
+we started writing a paper because we need to manually import
+image files into the writing tool,
+there's efficiency to be gained by unifying those steps.
+
 We can extract a few core principles from the CI/CD processes defined above:
 
 1. There is a single source of truth for all input materials (data)
@@ -536,6 +579,12 @@ and they will follow the path of agility.
 5. You feel like you're working on the edge of a cliff,
    like one small change would send an entire house of cards toppling down.
 
+## When work is reproducible, its findings can be properly critiqued
+
+Or, a failure to reproduce could be due to technical issues,
+and that gets in the way of us actually critiquing the fundamentals
+of the analysis.
+
 ## Summary and conclusions
 
 Based on the learnings from the Agile and DevOps movements,
@@ -574,3 +623,5 @@ be willing to help you out (for free!)
    Best Practices for Scientific Computing.
    PLOS Biology 12(1): e1001745.
    https://doi.org/10.1371/journal.pbio.1001745
+4. Toward a Culture of Computational Reproducibility
+   https://www.youtube.com/watch?v=XjW3t-qXAiE
