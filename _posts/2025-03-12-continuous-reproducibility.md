@@ -28,8 +28,8 @@ or even reproduce
 on the same input data).
 The latter is often caused by technical problems
 rather than false conclusions,
-but I believe that if we can solve those technical problems,
-we'll be able to evaluate the conclusions more clearly.
+but I believe it is worth trying to solve these technical problems
+so that we'll be able to evaluate the conclusions more clearly.
 I also believe the software world has ideas that can help.
 
 Here I will focus on one set of practices in particular:
@@ -40,7 +40,7 @@ under the name
 [_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
 though I think the concept extends beyond analysis and into
 generating other artifacts like figures and publications.
-Therefore, here we will use the term
+Therefore, here I will use the term
 _Continuous Reproducibility_ (CR).
 
 In its less mature era,
@@ -65,7 +65,7 @@ The best teams are deploying new changes
 with each iteration typically involving a small number of changes.
 In general, the more iterations, the better the product.
 
-But it's only possible to do many iterations if cycle time can be shortened.
+But it's only possible to do many iterations if cycle times can be shortened.
 In the old waterfall style,
 full cycle times were on the order of months or even years.
 Large batches of work were thrown over the wall between
@@ -79,7 +79,8 @@ Removing the communication overhead by combining teams
 so they could simply talk to each other instead of handing off documentation
 and automating processes with CI/CD pipelines
 made it possible to do many more iterations per unit time.
-These smaller batches of work also made it easier to avoid mistakes.
+It also made it possible to incorporate fewer changes in
+each batch, which helped to avoid mistakes.
 
 So how does this relate to research projects?
 In some cases we might find ourselves thinking in a waterfall mindset,
@@ -104,17 +105,19 @@ an experiment.
 Basically, think of the project as one unit instead of bunch of decoupled
 sub-projects.
 
-We can build and deliver all project artifacts with each iteration.
+Similar to how software teams work,
+we can build and deliver all project artifacts with each iteration.
 Note that in this case "deliver" could mean to our internal team if we
-haven't yet submitted.
+haven't yet submitted to a journal.
 Similarly,
-software teams may deliver changes that aren't released to all users publicly.
+software teams may deliver changes that aren't released to all users publicly
+until they are deemed ready.
 By using automation we can ensure our project remains
 continuously reproducible.
 
 What are some examples of behaviors that might be hurting research
-project iteration cycle time,
-and how might we leverage automation to speed them up?
+project iteration cycle time and reproducibility,
+and how might we leverage automation to help?
 Here are a few I can think of:
 
 | Problem | Bad solution ❌ | Better solution ✅ |
