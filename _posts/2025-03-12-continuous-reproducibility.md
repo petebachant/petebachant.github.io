@@ -45,12 +45,142 @@ science creates.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
 
+The two fundamental changes agility and DevOps inspired were:
+
+1. Break down silos, between both people and processes
+2. Work in smaller batches
+
+## Breaking down silos
+
+Before the agile and DevOps movements,
+software was built using the traditional
+[waterfall]()
+project management methodology.
+This approach broke projects into distinct phases or "stage gates," e.g.,
+planning, design, implementation, testing, deployment,
+which were intended to be done just once.
+These were often done by different people who instead of collaborating,
+were handing off documentation to each other.
+The problem with this approach is that it only works for projects
+with low uncertainty, i.e.,
+those where the requirements can easily be defined up front
+and no new knowledge is acquired between phases.
+
+These days, design, implementation, testing, and deployment are all happening
+continuously.
+Each iteration involves a small change,
+and the best teams are deploying new changes many times per day.
+
+But this is only possible if iteration cycle time can be shortened.
+In the old waterfall style,
+cycle times were on the order of months or even years.
+Huge batches of work were thrown over the wall between
+different teams in the form of large documents.
+Further,
+the processes to test and release software were manual,
+which meant they could be expensive,
+which meant there was an incentive to do them less often.
+Removing the communication overhead by combining teams
+so they could simply talk to each other instead of handing off documentation
+and automating processes with CI/CD pipelines
+made it possible to do many more iterations per unit time.
+These iterations could also involve fewer changes,
+and this working in smaller batches made it easier to avoid quality problems.
+
+So how does this relate to research projects?
+In some cases we might find ourselves thinking in a waterfall mindset,
+where we want to do our work in distinct phases,
+e.g., planning, data collection, data analysis, figure generation,
+writing, peer review.
+Is this really a linear waterfall process where nothing is learned between
+phases?
+Do we never return to data analysis after starting the writing
+or peer review process?
+
+Alternatively, we can think of a research project as one continuous
+iterative process.
+Writing can be done the entire time.
+We can start writing the introduction to our first paper and thesis
+as we start our lit review.
+Data analysis and visualization code can be written and tested
+before data is collected.
+The methods section of a paper can be written as part of planning
+an experiment.
+Basically, think of the project as one unit instead of bunch of decoupled
+sub-projects.
+
+Where can we leverage automation?
+Some manual processes that could be causing us pain:
+- Ensuring everyone on the team has the latest version of a file.
+- Updating all necessary figures and publications after changing our data
+  processing algorithms.
+- Importing or updating figures in a writing tool
+- Compiling a document to show the latest progress of the project.
+
+| Problem | Bad solution | Better solution |
+|---------|--------------|-----------------|
+| Ensuring everyone on the team has the latest version of a file. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository. |
+| Updating all necessary figures and publications after changing our data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline tool that tracks inputs and outputs and uses caching to skip unnecessary expensive steps. |
+| Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/upload the file into a writing tool. | Edit the plotting scripts and manuscript files in the same tool. |
+| Compiling a document to show the latest status of the project. | Manually create a new slideshow for each update. | Update a single working copy of the manuscript and slides as the project progresses. |
+| Ensuring all collaborators are using the same software and library versions. | Send out an email when these change, telling the team what to install. | Use a tool that automatically manages computational environments. |
+
+Lastly, we want to make it easier to collaborate.
+I've heard DevOps described as "turning collaborators into contributors."
+
+To make this possible, we're going to need to eliminate any overhead
+from switching tools.
+For example,
+if we need to open one application/project to modify a figure,
+then import into another to update a publication,
+we should find a way to unify those with a single tool/project.
+I'll discuss some ways to achieve this later on.
+
+
+
+Besides the communication overhead,
+iteration cycle times were long because processes like testing
+and releasing were manual.
+Today, CI/CD pipelines automate these so they are less painful and can be done
+much more quickly.
+And since they're done by computers, the communication overhead is much
+lower.
+With CI/CD in place,
+the best teams are now deploying changes to their code many times per day.
+
+By removing the self-imposed walls between teams and phases and moving
+to more of a single team and continuous process
+
+This was in part only possible by removing communication overhead between
+teams by combining responsibilities of development and operations
+into a single group of people, hence "DevOps."
+
+So what sort of improvements can we make to research processes within
+a lab that will shorten our iteration cycle time?
+In other words,
+what are some causes of long cycle times?
+
+First off, we can stop thinking in phases.
+
+
+Then we can automate.
+From the example above,
+if you find yourself needing to think about which script
+
+We can also help break down silos by making it easier for others in the
+lab to contribute.
+
+If we can automate the setup
+
 In the software world, CI/CD enabled a radical shift away from
 waterfall development methods,
 where projects passed through distinct phases or "stage gates," e.g.,
 planning, design, implementation, testing, deployment,
 towards a more fluid process where
 small changes were frequently integrated and delivered.
+In fact, teams that deploy more frequently--many times per day--are
+significantly
+[more successful](https://www.atlassian.com/devops/frameworks/devops-metrics).
 These days, elite software teams are deploying changes TODO...
 
 This was beneficial because learnings that occurred as the project
@@ -58,6 +188,14 @@ went on could be applied rapidly.
 On the flip side,
 a project amenable to a waterfall process does not produce much learning
 along the way.
+
+Collaboration was improved since automated tests and builds could be run on
+an independent machine and therefore didn't depend on any
+single developer.
+Since these pipelines typically run on fresh or stateless virtual machines,
+dependency management had to be automated,
+which made it easy for developers to setup their machine to start
+working on the project.
 
 Automation and reduced communication overhead
 made it possible to increase the number of iterations per unit time,
@@ -107,10 +245,23 @@ Since it's easy for many people to run,
 new grad students will be able to pick it up quickly and evolve
 it into their own project.
 
+If we think about the most time consuming parts of the research process...
+- The feedback cycle between creating an artifact, getting comments,
+  then applying them?
+
+Release early and release often
+
+Eliminate the waste of needing to think about what process needs to be run
+as a consequence of what change.
+"What do I need to do to make my project consistent?"
+
 ## Tactics for Continuous Reproducibility
 
 Of course I can't write an article without pushing the stuff I've been
 building to solve these problems...
+
+To make it easier for your collaborators to get started, you can
+use a dev container.
 
 ## CI/CD: What is it?
 
