@@ -147,6 +147,27 @@ What do you think?
 Is it worth the effort to make a project continuously reproducible?
 I think it is, though I'm biased.
 
+One important consideration is how the benefits might compound
+beyond the initial project.
+Realistically,
+the next generation of grad students after you will be the ones reusing
+your work.
+If your project runs because you've kept it continuously reproducible
+they are going to have a huge jump start,
+even if the details of their investigation will be different.
+The same goes for other researchers elsewhere who would like to push
+the work forward.
+In my experience,
+having a working example,
+even if it doesn't do exactly what you want it to do,
+is a great way to accelerate a new project.
+In fact,
+that's how I built the Calkit Cloud,
+and I learned the React framework by observing the template I started with
+rather than by starting with the documentation.
+
+![PhD comics 1689](/images/cr/phd-comics-1689.png)
+
 Of course I can't write an article without pushing the stuff I've been
 building to solve these problems...
 
@@ -154,7 +175,7 @@ One of the main goals of Calkit is to lower the initial investment to
 adopt these sorts of practices by adapting
 software development focused tools to be more suited to research work.
 
-What to give it a try?
+Want to give it a try?
 I currently have
 If you want help setting up a system for your lab or project shoot
 me an email.
