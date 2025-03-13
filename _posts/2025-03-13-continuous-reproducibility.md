@@ -45,7 +45,7 @@ _Continuous Reproducibility_ (CR).
 
 In its less mature era,
 software was built using the traditional
-[waterfall]()
+[waterfall](https://en.wikipedia.org/wiki/Waterfall_model)
 project management methodology.
 This approach broke projects into distinct phases or "stage gates," e.g.,
 market research, requirements gathering,
