@@ -189,10 +189,11 @@ be willing to help you out (for free!)
 
 1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
    Are Ideas Getting Harder to Find?
-   _American Economic Review_. https://doi.org/10.1257/aer.20180338.
+   _American Economic Review_.
+   [https://doi.org/10.1257/aer.20180338](https://doi.org/10.1257/aer.20180338).
 2. Brett K Beaulieu-Jones and Casey S Greene.
    Reproducibility of computational workflows is automated using continuous
-   analysis
-   https://pmc.ncbi.nlm.nih.gov/articles/PMC6103790/
-3. Toward a Culture of Computational Reproducibility
-   https://www.youtube.com/watch?v=XjW3t-qXAiE
+   analysis.
+   [https://pmc.ncbi.nlm.nih.gov/articles/PMC6103790/](https://pmc.ncbi.nlm.nih.gov/articles/PMC6103790/)
+3. Toward a Culture of Computational Reproducibility.
+   [https://youtube.com/watch?v=XjW3t-qXAiE](https://youtube.com/watch?v=XjW3t-qXAiE)
