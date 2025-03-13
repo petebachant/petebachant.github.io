@@ -50,10 +50,17 @@ waterfall development methods,
 where projects passed through distinct phases or "stage gates," e.g.,
 planning, design, implementation, testing, deployment,
 towards a more fluid process where
-small software changes were frequently integrated and delivered.
+small changes were frequently integrated and delivered.
+These days, elite software teams are deploying changes TODO...
+
+This was beneficial because learnings that occurred as the project
+went on could be applied rapidly.
+On the flip side,
+a project amenable to a waterfall process does not produce much learning
+along the way.
 
 Automation and reduced communication overhead
-made it possible to increase the number of iterations,
+made it possible to increase the number of iterations per unit time,
 and increasing the number of iterations leads to a better product.
 
 The main learning here is that we want to increase the number of
@@ -64,17 +71,46 @@ For example,
 So how might these principles be applied to science?
 First we should look for painful processes that could be eliminated
 via automation.
+Ideally we should find ones that slow down iteration time.
 These might exist from treating a project like a waterfall process.
 For example,
-if we assume data analysis is totally finished then we start writing.
+if we assume data analysis is totally finished then we start writing,
+we might use two different tools or sets of files.
 
-Using
+CR would inspire us to keep all data, code, and manuscript text in the
+same version-controlled repository.
+This way, we're not jumping back and forth between tools if we want to make
+a quick change to a figure.
+We'd also likely start writing our paper or thesis before collecting any
+data.
+That way,
+instead of a separate document for the study design and planning,
+we can just write it into the methods section of the paper.
+The project can then evolve ahead as one unit.
+
+When we talk about delivery,
+this might mean more than just a journal article.
+For example, throughout a project we might have periodic updates.
+If new slideshows are created each time manually,
 
 One practice common even with researchers who share their code and data
 is to not fully automate their pipelines.
 Project READMEs will contain many steps for getting things setup
 and generating the artifacts.
 This should be condensed down to one.
+
+When it comes to collaboration,
+DevOps seeks to make it easy for anyone on the team to contribute
+to a single source of truth.
+This will also make the project easy to reproduce during peer review.
+Since it's easy for many people to run,
+new grad students will be able to pick it up quickly and evolve
+it into their own project.
+
+## Tactics for Continuous Reproducibility
+
+Of course I can't write an article without pushing the stuff I've been
+building to solve these problems...
 
 ## CI/CD: What is it?
 
