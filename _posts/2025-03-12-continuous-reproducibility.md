@@ -141,19 +141,27 @@ working on the project.
 
 These will be biased and opinionated...
 
+Use a project framework and toolset made for this sort of thing...
+
 Of course I can't write an article without pushing the stuff I've been
 building to solve these problems...
 Those doing CI/CD for their research projects are using
 tools built for software development,
 but software development isn't exactly the same thing.
 
-### Create a version control repository for your project
+### Create a single version-controlled repository for your project
 
 If you haven't been using one, do it now.
 Put everything in there.
+I mean everything---code, data, CAD files, whatever.
+Don't manually split your files up into different collections,
+e.g., some on GitHub and others in Google Drive.
 If you use Calkit,
 it will automatically decide which files should be kept out of Git/GitHub
 because they're too large, and will instead be versioned with DVC.
+There are some other features in there as well
+to help smooth the learning curve.
+Get on it!
 
 I recommend starting with one big project rather than many small ones.
 For example,
@@ -161,7 +169,7 @@ one for your all of your research work in grad school,
 so long as it stays on the same general topic.
 All of your experiments, simulations, papers, presentations, and thesis
 can go in that one project.
-Keep it simple.
+Keep it simple. Dump it all in there.
 
 ### Use VS Code
 
@@ -172,8 +180,9 @@ Run commands in the terminal.
 VS Code has built-in graphical tools for working with Git, too,
 which can make that easier.
 
-### Use computational environments to avoid system-wide installations
+Sure, you may need to jump into some other app to do some interactive work
 
+### Use computational environments to avoid system-wide installations
 
 
 
@@ -189,6 +198,8 @@ so they don't even need to use their own computer.
 If you're using Calkit, that's just `calkit run`.
 Calkit will also create/update any computational environments necessary,
 so your collaborators won't even need to perform those steps.
+
+Put everything in this pipeline and leverage caching.
 
 
 ### Use a CI/CD service
