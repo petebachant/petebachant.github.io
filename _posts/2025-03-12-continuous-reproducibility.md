@@ -20,7 +20,7 @@ enhancing innovation,
 and increasing the speed at which software products and related
 technology could be brought into the world.
 At the same time, the
-[pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
+[pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338) [1],
 with many findings failing to replicate
 (validated in an end-to-end sense, re-acquiring and reanalyzing raw data)
 or even reproduce
@@ -194,9 +194,5 @@ be willing to help you out (for free!)
    Reproducibility of computational workflows is automated using continuous
    analysis
    https://pmc.ncbi.nlm.nih.gov/articles/PMC6103790/
-3. Wilson G, Aruliah DA, Brown CT, Chue Hong NP, Davis M, et al. (2014)
-   Best Practices for Scientific Computing.
-   PLOS Biology 12(1): e1001745.
-   https://doi.org/10.1371/journal.pbio.1001745
-4. Toward a Culture of Computational Reproducibility
+3. Toward a Culture of Computational Reproducibility
    https://www.youtube.com/watch?v=XjW3t-qXAiE
