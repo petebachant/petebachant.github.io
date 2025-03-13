@@ -18,18 +18,19 @@ revolutionized software development,
 reducing waste, improving quality,
 enhancing innovation,
 and increasing the speed at which software products and related
-technology could be created.
+technology could be brought into the world.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
 with many findings failing to replicate
 (validated in an end-to-end sense, re-acquiring and reanalyzing raw data)
-or even to be reproduced
+or even reproduce
 (verified by rerunning the same computational processes
 on the same input data).
-Though the products of science only sometimes include software,
-and a good amount of progress has been made towards establishing
-and disseminating scientific computing best practices [3],
-I believe there is more science can learn from the software field.
+The latter is often caused by technical problems
+rather than false conclusions,
+but I believe that if we can solve those technical problems,
+we'll be able to evaluate the conclusions more clearly.
+I also believe the software world has ideas that can help.
 
 Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
@@ -38,57 +39,57 @@ There has been some discussion about adapting these
 under the name
 [_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
 though I think the concept extends beyond analysis and into
-generating other artifacts like figures and publications,
-which oftentimes serve as the primary interfaces to the knowledge
-science creates.
+generating other artifacts like figures and publications.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
 
-Before the agile and DevOps movements,
+In its less mature era,
 software was built using the traditional
 [waterfall]()
 project management methodology.
 This approach broke projects into distinct phases or "stage gates," e.g.,
 market research, requirements gathering,
 design, implementation, testing, deployment,
-which were intended to be done just once each in a linear sequence,
+which were intended to be done in a linear sequence,
 with each taking weeks or months to finish.
 The problem with this approach is that it only works for projects
 with low uncertainty, i.e.,
-those where the requirements can easily be defined up front
+those where the true requirements can easily be defined up front
 and no new knowledge is uncovered between phases.
+These situations are rare in both product development and science.
 
 These days, all of the phases are happening
 continuously and in parallel.
-Each iteration typically involves a small set of changes,
-and the best teams are deploying new changes
-[many times per day](https://www.atlassian.com/devops/frameworks/devops-metrics).
-Typically, the more iterations you can do, the better the product.
+The best teams are deploying new changes
+[many times per day](https://www.atlassian.com/devops/frameworks/devops-metrics),
+with each iteration typically involving a small number of changes.
+In general, the more iterations, the better the product.
 
-But this is only possible if iteration cycle time can be shortened.
+But it's only possible to do many iterations if cycle time can be shortened.
 In the old waterfall style,
-cycle times were on the order of months or even years.
+full cycle times were on the order of months or even years.
 Large batches of work were thrown over the wall between
 different teams in the form of documentation.
 Further,
 the processes to test and release software were manual,
-which meant they could be expensive,
+which meant they could be tedious and expensive,
 which meant there was an incentive to do them less often.
+
 Removing the communication overhead by combining teams
 so they could simply talk to each other instead of handing off documentation
 and automating processes with CI/CD pipelines
 made it possible to do many more iterations per unit time.
-These iterations could also involve fewer changes,
-and this working in smaller batches made it easier to avoid mistakes.
+These smaller batches of work also made it easier to avoid mistakes.
 
 So how does this relate to research projects?
 In some cases we might find ourselves thinking in a waterfall mindset,
 where we want to do our work in distinct phases,
 e.g., planning, data collection, data analysis, figure generation,
 writing, peer review.
-Is this really a linear waterfall process where nothing is learned between
+But is this really best modeled as
+a linear waterfall process where nothing is learned between
 phases?
-For example, do we never return to data analysis after starting the writing
+Do we never, for example, return to data analysis after starting the writing
 or peer review process?
 
 Alternatively, we can think of a research project as one continuous
@@ -103,9 +104,18 @@ an experiment.
 Basically, think of the project as one unit instead of bunch of decoupled
 sub-projects.
 
-We can also try to leverage automation to speed up
-behaviors that are hurting our iteration cycle time.
-Some examples might include:
+We can build and deliver all project artifacts with each iteration.
+Note that in this case "deliver" could mean to our internal team if we
+haven't yet submitted.
+Similarly,
+software teams may deliver changes that aren't released to all users publicly.
+By using automation we can ensure our project remains
+continuously reproducible.
+
+What are some examples of behaviors that might be hurting research
+project iteration cycle time,
+and how might we leverage automation to speed them up?
+Here are a few I can think of:
 
 | Problem | Bad solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
@@ -124,33 +134,68 @@ dependency management had to be automated,
 which made it easy for developers to setup their machine to start
 working on the project.
 
-## Recommendations
+## Specific recommendations
+
+These will be biased and opinionated...
 
 Of course I can't write an article without pushing the stuff I've been
 building to solve these problems...
+Those doing CI/CD for their research projects are using
+tools built for software development,
+but software development isn't exactly the same thing.
 
-If I were starting over again in grad school here's how I'd set things up.
+### Create a version control repository for your project
+
+If you haven't been using one, do it now.
+Put everything in there.
+If you use Calkit,
+it will automatically decide which files should be kept out of Git/GitHub
+because they're too large, and will instead be versioned with DVC.
+
+I recommend starting with one big project rather than many small ones.
+For example,
+one for your all of your research work in grad school,
+so long as it stays on the same general topic.
+All of your experiments, simulations, papers, presentations, and thesis
+can go in that one project.
+Keep it simple.
+
+### Use VS Code
+
+Avoid jumping back and forth between different apps to do your work.
+Use VS Code.
+Edit some text.
+Run commands in the terminal.
+VS Code has built-in graphical tools for working with Git, too,
+which can make that easier.
+
+### Use computational environments to avoid system-wide installations
+
+
+
+
+### Minimize manual setup steps and use computational environments
 
 To make it easier for your collaborators to get started, you can
 use a dev container.
+You can even have collaborators use that container on GitHub Codespaces
+so they don't even need to use their own computer.
 
-### Start with one big project instead of many small ones
+### Run all processes with a single command
 
->The main thing is to keep the main thing the main thing.
->
->--Stephen Covey, _The 7 Habits of Highly Effective People_
+If you're using Calkit, that's just `calkit run`.
+Calkit will also create/update any computational environments necessary,
+so your collaborators won't even need to perform those steps.
 
-When defining the boundaries of your project,
-and creating a version control repository for it,
-it's better to start general with one big project than it is
-to start with a bunch of tiny sub-projects.
 
-This will allow you to keep files close to each other.
-The experimental data can live in the same repo as the figures,
-the manuscripts,
-and the
+### Use a CI/CD service
 
-### Minimize manual installations
+
+
+## Paying dividends into the future
+
+If our project stays continuously reproducible...
+
 
 
 ## CI/CD: What is it?
