@@ -14,12 +14,11 @@ categories:
 In the 21st century, the
 [Agile](https://en.wikipedia.org/wiki/Agile_software_development)
 and [DevOps](https://en.wikipedia.org/wiki/DevOps) movements
-helped to reduce waste, improve quality,
-enhance innovation,
-and increase the speed of development of software products and related
-technology by breaking down silos,
-improving collaboration,
-and moving towards working in smaller batches with faster feedback loops.
+revolutionized software development,
+reducing waste, improving quality,
+enhancing innovation,
+and increasing the speed at which software products and related
+technology could be created.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338),
 with many findings failing to replicate
@@ -45,37 +44,31 @@ science creates.
 Therefore, here we will use the term
 _Continuous Reproducibility_ (CR).
 
-The two fundamental changes agility and DevOps inspired were:
-
-1. Break down silos, between both people and processes
-2. Work in smaller batches
-
-## Breaking down silos
-
 Before the agile and DevOps movements,
 software was built using the traditional
 [waterfall]()
 project management methodology.
 This approach broke projects into distinct phases or "stage gates," e.g.,
-planning, design, implementation, testing, deployment,
-which were intended to be done just once.
-These were often done by different people who instead of collaborating,
-were handing off documentation to each other.
+market research, requirements gathering,
+design, implementation, testing, deployment,
+which were intended to be done just once each in a linear sequence,
+with each taking weeks or months to finish.
 The problem with this approach is that it only works for projects
 with low uncertainty, i.e.,
 those where the requirements can easily be defined up front
-and no new knowledge is acquired between phases.
+and no new knowledge is uncovered between phases.
 
-These days, design, implementation, testing, and deployment are all happening
-continuously.
-Each iteration involves a small change,
-and the best teams are deploying new changes many times per day.
+These days, all of the phases are happening
+continuously and in parallel.
+Each iteration typically involves a small set of changes,
+and the best teams are deploying new changes
+[many times per day](https://www.atlassian.com/devops/frameworks/devops-metrics).
 
 But this is only possible if iteration cycle time can be shortened.
 In the old waterfall style,
 cycle times were on the order of months or even years.
-Huge batches of work were thrown over the wall between
-different teams in the form of large documents.
+Large batches of work were thrown over the wall between
+different teams in the form of documentation.
 Further,
 the processes to test and release software were manual,
 which meant they could be expensive,
@@ -85,7 +78,7 @@ so they could simply talk to each other instead of handing off documentation
 and automating processes with CI/CD pipelines
 made it possible to do many more iterations per unit time.
 These iterations could also involve fewer changes,
-and this working in smaller batches made it easier to avoid quality problems.
+and this working in smaller batches made it easier to avoid mistakes.
 
 So how does this relate to research projects?
 In some cases we might find ourselves thinking in a waterfall mindset,
@@ -94,7 +87,7 @@ e.g., planning, data collection, data analysis, figure generation,
 writing, peer review.
 Is this really a linear waterfall process where nothing is learned between
 phases?
-Do we never return to data analysis after starting the writing
+For example, do we never return to data analysis after starting the writing
 or peer review process?
 
 Alternatively, we can think of a research project as one continuous
@@ -254,6 +247,8 @@ as a consequence of what change.
 
 Of course I can't write an article without pushing the stuff I've been
 building to solve these problems...
+
+If I were starting over again in grad school here's how I'd set things up.
 
 To make it easier for your collaborators to get started, you can
 use a dev container.
