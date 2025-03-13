@@ -63,6 +63,7 @@ continuously and in parallel.
 Each iteration typically involves a small set of changes,
 and the best teams are deploying new changes
 [many times per day](https://www.atlassian.com/devops/frameworks/devops-metrics).
+Typically, the more iterations you can do, the better the product.
 
 But this is only possible if iteration cycle time can be shortened.
 In the old waterfall style,
@@ -94,7 +95,7 @@ Alternatively, we can think of a research project as one continuous
 iterative process.
 Writing can be done the entire time.
 We can start writing the introduction to our first paper and thesis
-as we start our lit review.
+right from the beginning as we start our lit review.
 Data analysis and visualization code can be written and tested
 before data is collected.
 The methods section of a paper can be written as part of planning
@@ -102,148 +103,28 @@ an experiment.
 Basically, think of the project as one unit instead of bunch of decoupled
 sub-projects.
 
-Where are some practices that might be slowing down iteration cycle time?
-I've listed some examples in the table below:
+We can also try to leverage automation to speed up
+behaviors that are hurting our iteration cycle time.
+Some examples might include:
 
-| Problem | Bad solution | Better solution |
+| Problem | Bad solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
-| Ensuring everyone on the team has the latest version of a file. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository for all files and treat this as the source of truth. |
-| Updating all necessary figures and publications after changing our data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
-| Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/upload the files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app and keep them in the same repository. Update both with a single command. |
+| Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository for all files and treat this as the source of truth. |
+| Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
+| Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app and keep them in the same repository. Update both with a single command. |
 | Compiling a document to show the latest status of the project. | Manually create a new slideshow for each update. | Update a single working copy of the manuscript and slides as the project progresses. |
 | Ensuring all collaborators are using the same software and library versions. | Send out an email when these change, telling the team what to install. | Use a tool that automatically manages computational environments. |
 
-Lastly, we want to make it easier to collaborate.
+Lastly, we want to make it easier to others involved so we can work together.
 I've heard DevOps described as "turning collaborators into contributors."
-
-To make this possible, we're going to need to eliminate any overhead
-from switching tools.
-For example,
-if we need to open one application/project to modify a figure,
-then import into another to update a publication,
-we should find a way to unify those with a single tool/project.
-I'll discuss some ways to achieve this later on.
-
-
-
-Besides the communication overhead,
-iteration cycle times were long because processes like testing
-and releasing were manual.
-Today, CI/CD pipelines automate these so they are less painful and can be done
-much more quickly.
-And since they're done by computers, the communication overhead is much
-lower.
-With CI/CD in place,
-the best teams are now deploying changes to their code many times per day.
-
-By removing the self-imposed walls between teams and phases and moving
-to more of a single team and continuous process
-
-This was in part only possible by removing communication overhead between
-teams by combining responsibilities of development and operations
-into a single group of people, hence "DevOps."
-
-So what sort of improvements can we make to research processes within
-a lab that will shorten our iteration cycle time?
-In other words,
-what are some causes of long cycle times?
-
-First off, we can stop thinking in phases.
-
-
-Then we can automate.
-From the example above,
-if you find yourself needing to think about which script
-
-We can also help break down silos by making it easier for others in the
-lab to contribute.
-
-If we can automate the setup
-
-In the software world, CI/CD enabled a radical shift away from
-waterfall development methods,
-where projects passed through distinct phases or "stage gates," e.g.,
-planning, design, implementation, testing, deployment,
-towards a more fluid process where
-small changes were frequently integrated and delivered.
-In fact, teams that deploy more frequently--many times per day--are
-significantly
-[more successful](https://www.atlassian.com/devops/frameworks/devops-metrics).
-These days, elite software teams are deploying changes TODO...
-
-This was beneficial because learnings that occurred as the project
-went on could be applied rapidly.
-On the flip side,
-a project amenable to a waterfall process does not produce much learning
-along the way.
-
-Collaboration was improved since automated tests and builds could be run on
-an independent machine and therefore didn't depend on any
-single developer.
-Since these pipelines typically run on fresh or stateless virtual machines,
+To do this, we want to minimize the amount of setup required
+to start working on a project.
+Since CI/CD pipelines typically run on fresh or stateless virtual machines,
 dependency management had to be automated,
 which made it easy for developers to setup their machine to start
 working on the project.
 
-Automation and reduced communication overhead
-made it possible to increase the number of iterations per unit time,
-and increasing the number of iterations leads to a better product.
-
-The main learning here is that we want to increase the number of
-iterations we can do by eliminating or automating any steps that
-don't provide value.
-For example,
-
-So how might these principles be applied to science?
-First we should look for painful processes that could be eliminated
-via automation.
-Ideally we should find ones that slow down iteration time.
-These might exist from treating a project like a waterfall process.
-For example,
-if we assume data analysis is totally finished then we start writing,
-we might use two different tools or sets of files.
-
-CR would inspire us to keep all data, code, and manuscript text in the
-same version-controlled repository.
-This way, we're not jumping back and forth between tools if we want to make
-a quick change to a figure.
-We'd also likely start writing our paper or thesis before collecting any
-data.
-That way,
-instead of a separate document for the study design and planning,
-we can just write it into the methods section of the paper.
-The project can then evolve ahead as one unit.
-
-When we talk about delivery,
-this might mean more than just a journal article.
-For example, throughout a project we might have periodic updates.
-If new slideshows are created each time manually,
-
-One practice common even with researchers who share their code and data
-is to not fully automate their pipelines.
-Project READMEs will contain many steps for getting things setup
-and generating the artifacts.
-This should be condensed down to one.
-
-When it comes to collaboration,
-DevOps seeks to make it easy for anyone on the team to contribute
-to a single source of truth.
-This will also make the project easy to reproduce during peer review.
-Since it's easy for many people to run,
-new grad students will be able to pick it up quickly and evolve
-it into their own project.
-
-If we think about the most time consuming parts of the research process...
-- The feedback cycle between creating an artifact, getting comments,
-  then applying them?
-
-Release early and release often
-
-Eliminate the waste of needing to think about what process needs to be run
-as a consequence of what change.
-"What do I need to do to make my project consistent?"
-
-## Tactics for Continuous Reproducibility
+## Recommendations
 
 Of course I can't write an article without pushing the stuff I've been
 building to solve these problems...
@@ -252,6 +133,25 @@ If I were starting over again in grad school here's how I'd set things up.
 
 To make it easier for your collaborators to get started, you can
 use a dev container.
+
+### Start with one big project instead of many small ones
+
+>The main thing is to keep the main thing the main thing.
+>
+>--Stephen Covey, _The 7 Habits of Highly Effective People_
+
+When defining the boundaries of your project,
+and creating a version control repository for it,
+it's better to start general with one big project than it is
+to start with a bunch of tiny sub-projects.
+
+This will allow you to keep files close to each other.
+The experimental data can live in the same repo as the figures,
+the manuscripts,
+and the
+
+### Minimize manual installations
+
 
 ## CI/CD: What is it?
 
