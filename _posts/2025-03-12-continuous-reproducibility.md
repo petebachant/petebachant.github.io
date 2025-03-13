@@ -109,19 +109,14 @@ an experiment.
 Basically, think of the project as one unit instead of bunch of decoupled
 sub-projects.
 
-Where can we leverage automation?
-Some manual processes that could be causing us pain:
-- Ensuring everyone on the team has the latest version of a file.
-- Updating all necessary figures and publications after changing our data
-  processing algorithms.
-- Importing or updating figures in a writing tool
-- Compiling a document to show the latest progress of the project.
+Where are some practices that might be slowing down iteration cycle time?
+I've listed some examples in the table below:
 
 | Problem | Bad solution | Better solution |
 |---------|--------------|-----------------|
-| Ensuring everyone on the team has the latest version of a file. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository. |
-| Updating all necessary figures and publications after changing our data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline tool that tracks inputs and outputs and uses caching to skip unnecessary expensive steps. |
-| Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/upload the file into a writing tool. | Edit the plotting scripts and manuscript files in the same tool. |
+| Ensuring everyone on the team has the latest version of a file. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository for all files and treat this as the source of truth. |
+| Updating all necessary figures and publications after changing our data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
+| Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/upload the files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app and keep them in the same repository. Update both with a single command. |
 | Compiling a document to show the latest status of the project. | Manually create a new slideshow for each update. | Update a single working copy of the manuscript and slides as the project progresses. |
 | Ensuring all collaborators are using the same software and library versions. | Send out an email when these change, telling the team what to install. | Use a tool that automatically manages computational environments. |
 
