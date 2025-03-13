@@ -82,7 +82,18 @@ made it possible to do many more iterations per unit time.
 It also made it possible to incorporate fewer changes in
 each batch, which helped to avoid mistakes.
 
-So how does this relate to research projects?
+Another bit of automation relates to collaboration.
+I've heard DevOps described as "turning collaborators into contributors."
+To do this, we want to minimize the amount of setup required
+to start working on a project.
+Since CI/CD pipelines typically run on fresh or stateless virtual machines,
+dependency management had to be automated,
+which made it easy for developers to setup their machine to start
+working on the project.
+
+So how does this relate to research projects, and are there potential
+efficiency gains if these practices were to be adopted?
+
 In some cases we might find ourselves thinking in a waterfall mindset,
 where we want to do our work in distinct phases,
 e.g., planning, data collection, data analysis, figure generation,
@@ -106,7 +117,8 @@ Basically, think of the project as one unit instead of bunch of decoupled
 sub-projects.
 
 Similar to how software teams work,
-we can build and deliver all project artifacts with each iteration.
+we can build and deliver all project artifacts with each iteration
+with an automated pipeline.
 Note that in this case "deliver" could mean to our internal team if we
 haven't yet submitted to a journal.
 Similarly,
@@ -115,27 +127,43 @@ until they are deemed ready.
 By using automation we can ensure our project remains
 continuously reproducible.
 
-What are some examples of behaviors that might be hurting research
-project iteration cycle time and reproducibility,
-and how might we leverage automation to help?
+In any case,
+the relationship between more iterations and a better outcome
+seems to be universal,
+so at the very least,
+we should look for behaviors that are hurting research
+project iteration cycle time.
 Here are a few I can think of:
 
 | Problem | Bad solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
-| Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository for all files and treat this as the source of truth. |
+| Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository for all files and treat this as the one source of truth. |
 | Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
-| Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app and keep them in the same repository. Update both with a single command. |
+| Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app (e.g., VS Code) and keep them in the same repository. Update both with a single command. |
 | Compiling a document to show the latest status of the project. | Manually create a new slideshow for each update. | Update a single working copy of the manuscript and slides as the project progresses. |
 | Ensuring all collaborators are using the same software and library versions. | Send out an email when these change, telling the team what to install. | Use a tool that automatically manages computational environments. |
 
-Lastly, we want to make it easier to others involved so we can work together.
-I've heard DevOps described as "turning collaborators into contributors."
-To do this, we want to minimize the amount of setup required
-to start working on a project.
-Since CI/CD pipelines typically run on fresh or stateless virtual machines,
-dependency management had to be automated,
-which made it easy for developers to setup their machine to start
-working on the project.
+What do you think?
+Is it worth the effort to make a project continuously reproducible?
+I think it is, though I'm biased.
+
+Of course I can't write an article without pushing the stuff I've been
+building to solve these problems...
+
+One of the main goals of Calkit is to lower the initial investment to
+adopt these sorts of practices by adapting
+software development focused tools to be more suited to research work.
+
+What to give it a try?
+I currently have
+If you want help setting up a system for your lab or project shoot
+me an email.
+
+If you want help implementing CR practices in your lab,
+or want to talk more about the details and difficulties involved,
+shoot me an [email](mailto:petebachant@gmail.com) and I will probably
+be willing to help you out (for free!)
+
 
 ## Specific recommendations
 
@@ -143,8 +171,7 @@ These will be biased and opinionated...
 
 Use a project framework and toolset made for this sort of thing...
 
-Of course I can't write an article without pushing the stuff I've been
-building to solve these problems...
+
 Those doing CI/CD for their research projects are using
 tools built for software development,
 but software development isn't exactly the same thing.
