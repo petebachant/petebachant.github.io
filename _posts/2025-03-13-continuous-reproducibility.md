@@ -3,8 +3,8 @@ comments: true
 date: 2025-03-13
 layout: post
 title: >
-  Continuous Reproducibility: How DevOps practices could significantly improve
-  the quality and speed of scientific discovery
+  Continuous Reproducibility: How DevOps practices could improve
+  the speed and quality of scientific discovery
 categories:
   - Open science
   - Reproducibility
