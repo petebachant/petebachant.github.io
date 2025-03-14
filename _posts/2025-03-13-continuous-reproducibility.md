@@ -229,11 +229,11 @@ but at a higher level---iterations between studies themselves.
 
 However, one could argue that delivering a fully reproducible
 project along with a paper provides a working
-template for the next study, effectively reducing that "outer-outer loop"
+template for the next study, effectively reducing that "outer outer loop"
 cycle time.
 If CR practices mean that it's easy to get setup
 and run, and again, the thing actually works,
-perhaps the next study can be done much more quickly.
+perhaps the next study can be done more quickly.
 Even if it's just one day per study saved,
 imagine how that compounds over time.
 I've heard quite a few stories of grad students being handed code
