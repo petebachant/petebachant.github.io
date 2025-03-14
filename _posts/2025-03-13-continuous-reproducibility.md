@@ -22,15 +22,16 @@ technology could be brought into the world.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338) [1],
 with many findings failing to replicate
-(validated in an end-to-end sense, re-acquiring and reanalyzing raw data)
+(validated in an end-to-end sense by re-acquiring and reanalyzing raw data)
 or even reproduce
-(verified by rerunning the same computational processes
+(obtaining the same results by rerunning the same computational processes
 on the same input data).
-The latter is often caused by technical problems
+Though the latter is often caused by technical problems
 rather than false conclusions,
-but I believe it is worth trying to solve these technical problems
+I believe it is worth trying to solve these technical problems
 so that we'll be able to evaluate the conclusions more clearly.
-I also believe the software world has ideas that can help.
+Towards this end I think there are some ideas we could borrow from the
+software world to help.
 
 Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
@@ -56,14 +57,14 @@ The problem with this approach is that it only works for projects
 with low uncertainty, i.e.,
 those where the true requirements can easily be defined up front
 and no new knowledge is uncovered between phases.
-These situations are rare in both product development and science.
+These situations are of course
+rare in both product development and science.
 
 These days, all of the phases are happening
 continuously and in parallel.
 The best teams are deploying new changes
 [many times per day](https://www.atlassian.com/devops/frameworks/devops-metrics),
-with each iteration typically involving a small number of changes.
-In general, the more iterations, the better the product.
+because generally, the more iterations, the more successful the product.
 
 But it's only possible to do many iterations if cycle times can be shortened.
 In the old waterfall style,
@@ -145,28 +146,40 @@ Here are a few I can think of:
 
 What do you think?
 Is it worth the effort to make a project continuously reproducible?
-I think it is, though I'm biased.
+I think it is, though I'm biased,
+since I've been working on things to make it easier to apply.
+It would be interesting to test, perhaps with some research.
 
-One important consideration is how the benefits might compound
-beyond the initial project.
-Realistically,
-the next generation of grad students after you will be the ones reusing
-your work.
-If your project runs because you've kept it continuously reproducible
-they are going to have a huge jump start,
-even if the details of their investigation will be different.
-The same goes for other researchers elsewhere who would like to push
-the work forward.
+On argument against applying CR to research projects
+is that software products are supposed to have long lives,
+whereas research project materials typically should have short lives,
+except for a long-lived publication.
+Maybe the important cycle time is not the iterations within a given study,
+but at a higher level---iterations between studies themselves.
+
+However, one could argue that delivering a fully reproducible
+project along with a paper provides a working
+template for the next study.
+If CR practices mean that it's easy to get setup
+and run,
+perhaps the next study can be done much more quickly.
+I've heard stories of grad students being handed code with no idea on
+how to run it,
+and apparently that's common enough to make a PhD Comic about it:
+
+![PhD comics 1689](/images/cr/phd-comics-1689.png)
+
 In my experience,
 having a working example,
 even if it doesn't do exactly what you want it to do,
 is a great way to accelerate a new project.
 In fact,
-that's how I built the Calkit Cloud,
-and I learned the React framework by observing the template I started with
-rather than by starting with the documentation.
-
-![PhD comics 1689](/images/cr/phd-comics-1689.png)
+that's how I built the
+[Calkit Cloud](https://github.com/calkit/calkit-cloud),
+and I learned the React front end framework by reading through
+the template I started with
+rather than by starting with the documentation and starting from scratch,
+even though the template was far from what I wanted the app to be.
 
 Of course I can't write an article without pushing the stuff I've been
 building to solve these problems...
