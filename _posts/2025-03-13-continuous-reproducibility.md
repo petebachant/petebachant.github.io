@@ -132,7 +132,7 @@ right from the beginning as we start our lit review.
 Data analysis and visualization code can be written and tested
 before data is collected.
 The methods section of a paper can be written as part of planning
-an experiment.
+an experiment, and updated while carrying it out.
 Essentially, we can think of the project as one unit
 instead of set of decoupled
 sub-projects.
