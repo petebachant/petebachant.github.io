@@ -147,7 +147,8 @@ Here are a few I can think of:
 What do you think?
 Is it worth the effort to make a project continuously reproducible?
 I think it is, though I'm biased,
-since I've been working on things to make it easier to apply.
+since I've been working on things to make it easier to apply
+([Calkit](https://calkit.org)).
 It would be interesting to test, perhaps with some research.
 
 On argument against applying CR to research projects
@@ -161,10 +162,11 @@ However, one could argue that delivering a fully reproducible
 project along with a paper provides a working
 template for the next study.
 If CR practices mean that it's easy to get setup
-and run,
+and run, and again, the thing actually works,
 perhaps the next study can be done much more quickly.
-I've heard stories of grad students being handed code with no idea on
-how to run it,
+I've heard quite a few stories of grad students being handed code
+from their predecessors with no instructions on how to run it,
+no version history, no test suite, etc.,
 and apparently that's common enough to make a PhD Comic about it:
 
 ![PhD comics 1689](/images/cr/phd-comics-1689.png)
@@ -172,31 +174,18 @@ and apparently that's common enough to make a PhD Comic about it:
 In my experience,
 having a working example,
 even if it doesn't do exactly what you want it to do,
-is a great way to accelerate a new project.
+is a great way to jump start a new project.
 In fact,
 that's how I built the
 [Calkit Cloud](https://github.com/calkit/calkit-cloud),
 and I learned the React front end framework by reading through
 the template I started with
-rather than by starting with the documentation and starting from scratch,
-even though the template was far from what I wanted the app to be.
+rather than by starting with the documentation and starting from scratch.
 
-Of course I can't write an article without pushing the stuff I've been
-building to solve these problems...
-
-One of the main goals of Calkit is to lower the initial investment to
-adopt these sorts of practices by adapting
-software development focused tools to be more suited to research work.
-
-Want to give it a try?
-I currently have
-If you want help setting up a system for your lab or project shoot
-me an email.
-
-If you want help implementing CR practices in your lab,
+If you want help implementing CI/CD/CR practices in your lab,
 or want to talk more about the details and difficulties involved,
 shoot me an [email](mailto:petebachant@gmail.com) and I will probably
-be willing to help you out (for free!)
+have time to help you out (for free!)
 
 ## References
 
