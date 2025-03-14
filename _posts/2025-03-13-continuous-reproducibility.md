@@ -170,8 +170,8 @@ Is it worth the effort to make a project continuously reproducible
 and check it many times per day?
 I think it is, though I'm biased,
 since I've been working on tools to make CR easier to do
-([Calkit](https://calkit.org)).
-It would be interesting to test though, perhaps with some research.
+([Calkit](https://calkit.org);
+cf. [this example CI/CD workflow](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)).
 
 One argument against setting up an automated CR framework for your
 project is that you do very few "outer loop" iterations.
