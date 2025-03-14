@@ -138,7 +138,7 @@ Here are a few I can think of:
 
 | Problem | Bad solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
-| Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single version-controlled repository for all files and treat this as the one source of truth. |
+| Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
 | Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
 | Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app (e.g., VS Code) and keep them in the same repository. Update both with a single command. |
 | Compiling a document to show the latest status of the project. | Manually create a new slideshow for each update. | Update a single working copy of the manuscript and slides as the project progresses. |
@@ -147,14 +147,16 @@ Here are a few I can think of:
 What do you think?
 Is it worth the effort to make a project continuously reproducible?
 I think it is, though I'm biased,
-since I've been working on things to make it easier to apply
+since I've been working on things to make CR easier to do
 ([Calkit](https://calkit.org)).
-It would be interesting to test, perhaps with some research.
+It would be interesting to test though, perhaps with some research.
 
 On argument against applying CR to research projects
 is that software products are supposed to have long lives,
-whereas research project materials typically should have short lives,
-except for a long-lived publication.
+whereas one could argue research project materials typically should have short
+lives,
+except for a long-lived publication, or in the case that the research
+is done to support a more generally useful software product.
 Maybe the important cycle time is not the iterations within a given study,
 but at a higher level---iterations between studies themselves.
 
@@ -165,7 +167,7 @@ If CR practices mean that it's easy to get setup
 and run, and again, the thing actually works,
 perhaps the next study can be done much more quickly.
 I've heard quite a few stories of grad students being handed code
-from their predecessors with no instructions on how to run it,
+from their departed predecessors with no instructions on how to run it,
 no version history, no test suite, etc.,
 and apparently that's common enough to make a PhD Comic about it:
 
