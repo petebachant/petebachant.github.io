@@ -89,11 +89,13 @@ Large batches of work were transferred between
 different teams in the form of documentation.
 Further,
 the processes to test and release software were manual,
-which meant they could be tedious and expensive,
+which meant they could be tedious, expensive, and/or error prone,
 which meant there was an incentive to do them less often.
 
-Removing the communication overhead by combining teams
-so they could simply talk to each other instead of handing off documentation
+Removing the communication overhead by combining development
+and operations teams (hence "DevOps")
+so the individuals
+could simply talk to each other instead of handing off documentation
 and automating processes with CI/CD pipelines
 made it possible to do many more iterations per unit time.
 It also made it possible to incorporate fewer changes in
@@ -148,7 +150,7 @@ software teams may deliver changes that aren't released to all users publicly
 until they are deemed ready.
 
 In any case,
-the correlation between more iterations and a better outcome
+the correlation between more iterations and better outcomes
 seems to be universal,
 so at the very least,
 we should look for behaviors that are hurting research
@@ -158,7 +160,7 @@ Here are a few I can think of:
 | Problem | Slower, more error-prone solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
 | Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
-| Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed, in a determining the sequence on a case-by-case basis. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
+| Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed, determining the sequence on a case-by-case basis. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
 | Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app (e.g., VS Code) and keep them in the same repository. Update both with a single command. |
 | Showing the latest status of the project to all collaborators. | Manually create a new slideshow for each update. | Update a single working copy of the figures, manuscripts, and slides as the project progresses so anyone can view asynchronously. |
 | Ensuring all collaborators can contribute to all aspects of the project. | Make certain tasks only possible by certain individuals on the team, and email each other feedback for updating these. | Use a tool that automatically manages computational environments so it's easy for anyone to get setup and run the pipeline. Or better, run the pipeline automatically with a CI/CD service like GitHub Actions. |
