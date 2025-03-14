@@ -87,10 +87,12 @@ Another bit of automation relates to collaboration.
 I've heard DevOps described as "turning collaborators into contributors."
 To do this, we want to minimize the amount of setup required
 to start working on a project.
-Since CI/CD pipelines typically run on fresh or stateless virtual machines,
-dependency management had to be automated,
-which made it easy for developers to setup their machine to start
-working on the project.
+Since CI/CD pipelines typically run on fresh or mostly
+stateless virtual machines,
+dependency management needs to be automated.
+These pipelines then serve as continuously tested documentation,
+which can be much more reliable than a list of steps thrown into a README
+by a human and never checked or updated.
 
 So how does this relate to research projects, and are there potential
 efficiency gains if these practices were to be adopted?
@@ -178,15 +180,17 @@ having a working example,
 even if it doesn't do exactly what you want it to do,
 is a great way to jump start a new project.
 In fact,
-that's how I built the
-[Calkit Cloud](https://github.com/calkit/calkit-cloud),
-and I learned the React front end framework by reading through
-the template I started with
-rather than by starting with the documentation and starting from scratch.
+that's how I started the
+[Calkit Cloud](https://github.com/calkit/calkit-cloud).
+I think having a working template was a faster way to
+learn the React front end framework than starting from scratch
+with the documentation,
+but I acknowledge different people have different preferred learning
+techniques.
 
 If you want help implementing CI/CD/CR practices in your lab,
 or want to talk more about the details and difficulties involved,
-shoot me an [email](mailto:petebachant@gmail.com) and I will probably
+shoot me an [email](mailto:petebachant@gmail.com) and I will hopefully
 have time to help you out (for free!)
 
 ## References
