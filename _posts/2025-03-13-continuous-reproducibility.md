@@ -85,7 +85,7 @@ because generally, the more iterations, the more successful the product.
 But it's only possible to do many iterations if cycle times can be shortened.
 In the old waterfall style,
 full cycle times were on the order of months or even years.
-Large batches of work were thrown over the wall between
+Large batches of work were transferred between
 different teams in the form of documentation.
 Further,
 the processes to test and release software were manual,
@@ -99,13 +99,14 @@ made it possible to do many more iterations per unit time.
 It also made it possible to incorporate fewer changes in
 each batch, which helped to avoid mistakes.
 
-Another bit of automation relates to collaboration.
+Another bit of valuable automation relates to collaboration.
 I've heard DevOps described as "turning collaborators into contributors."
-To do this, we want to minimize the amount of setup required
+To do this, we want to minimize the amount of effort required
 to start working on a project.
 Since CI/CD pipelines typically run on fresh or mostly
 stateless virtual machines,
-dependency management needs to be automated.
+dependency management needs to be automated, e.g.,
+with the help of containers and/or virtual environments.
 These pipelines then serve as continuously tested documentation,
 which can be much more reliable than a list of steps thrown into a README
 by a human and never checked or updated.
@@ -123,7 +124,7 @@ phases?
 Do we never, for example, return to data analysis after starting the writing
 or peer review process?
 
-Alternatively, we can think of a research project as one continuous
+Instead, we could think of a research project as one continuous
 iterative process.
 Writing can be done the entire time.
 We can start writing the introduction to our first paper and thesis
@@ -154,23 +155,69 @@ we should look for behaviors that are hurting research
 project iteration cycle time.
 Here are a few I can think of:
 
-| Problem | Bad solution ❌ | Better solution ✅ |
+| Problem | Slower, more error-prone solution ❌ | Faster solution ✅ |
 |---------|--------------|-----------------|
 | Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
-| Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
+| Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed, in a determining the sequence on a case-by-case basis. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
 | Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app (e.g., VS Code) and keep them in the same repository. Update both with a single command. |
-| Compiling a document to show the latest status of the project. | Manually create a new slideshow for each update. | Update a single working copy of the manuscript and slides as the project progresses. |
-| Ensuring all collaborators are using the same software and library versions. | Send out an email when these change, telling the team what to install. | Use a tool that automatically manages computational environments. |
+| Showing the latest status of the project to all collaborators. | Manually create a new slideshow for each update. | Update a single working copy of the figures, manuscripts, and slides as the project progresses so anyone can view asynchronously. |
+| Ensuring all collaborators can contribute to all aspects of the project. | Make certain tasks only possible by certain individuals on the team, and email each other feedback for updating these. | Use a tool that automatically manages computational environments so it's easy for anyone to get setup and run the pipeline. Or better, run the pipeline automatically with a CI/CD service like GitHub Actions. |
 
 What do you think?
 Is it worth the effort to make a project continuously reproducible
 and check it many times per day?
 I think it is, though I'm biased,
-since I've been working on things to make CR easier to do
+since I've been working on tools to make CR easier to do
 ([Calkit](https://calkit.org)).
 It would be interesting to test though, perhaps with some research.
 
-On argument against applying CR to research projects
+One argument against setting up an automated CR framework for your
+project is that you do very few "outer loop" iterations.
+That is, you are able to effectively work in phases so, e.g.,
+siloing the writing away from the data visualization is not slowing you down.
+I would argue, however, that analyzing and visualizing data
+concurrently while it's being collected is a great way to catch
+errors.
+If the paper is setup and ready to write during data collection,
+important details can make their way in directly,
+removing a potential source of error from transcribing lab notebooks.
+
+```mermaid
+---
+title: Outer loop(s)
+---
+flowchart LR
+    A[collect data] --> B[analyze data]
+    B --> C[visualize data]
+    C --> D[write paper]
+    D --> A
+    C --> A
+    D --> C
+    D --> B
+    C --> B
+    B --> D
+    B --> A
+```
+
+```mermaid
+---
+title: Inner loop
+---
+flowchart LR
+    A[write] --> B[build]
+    B --> C[review]
+    C --> A
+```
+
+Using Calkit, or a similar workflow like that of
+[showyourwork](https://show-your.work),
+outer and inner loop iterations can happen in the same tool.
+I assume there is some potential for efficiency gain there.
+Imagine the overhead of your current process if you want to perform
+a single outer loop iteration and how effectively you can predict
+when one will be required.
+
+Another argument against applying CR to research projects
 is that software products are supposed to have long lives,
 whereas one could argue research project materials typically should have short
 lives,
@@ -181,10 +228,12 @@ but at a higher level---iterations between studies themselves.
 
 However, one could argue that delivering a fully reproducible
 project along with a paper provides a working
-template for the next study, effectively reducing that iteration time.
+template for the next study, effectively reducing that outer cycle time.
 If CR practices mean that it's easy to get setup
 and run, and again, the thing actually works,
 perhaps the next study can be done much more quickly.
+Even if it's just one day per study saved,
+imagine how that compounds over time.
 I've heard quite a few stories of grad students being handed code
 from their departed predecessors with no instructions on how to run it,
 no version history, no test suite, etc.,
