@@ -243,8 +243,8 @@ and apparently that's common enough to make a PhD Comic about it:
 
 ![PhD comics 1689](/images/cr/phd-comics-1689.png)
 
-Nevertheless, if you're convinced of the value
-or are just curious enough and
+If you're convinced on the value of,
+or are just curious enough about Continuous Reproducibility and
 want help implementing CI/CD/CR practices in your lab,
 shoot me an [email](mailto:petebachant@gmail.com) and I will hopefully
 have time to help you out (for free!)
