@@ -147,7 +147,8 @@ Here are a few I can think of:
 | Ensuring all collaborators are using the same software and library versions. | Send out an email when these change, telling the team what to install. | Use a tool that automatically manages computational environments. |
 
 What do you think?
-Is it worth the effort to make a project continuously reproducible?
+Is it worth the effort to make a project continuously reproducible
+and check it many times per day?
 I think it is, though I'm biased,
 since I've been working on things to make CR easier to do
 ([Calkit](https://calkit.org)).
@@ -164,7 +165,7 @@ but at a higher level---iterations between studies themselves.
 
 However, one could argue that delivering a fully reproducible
 project along with a paper provides a working
-template for the next study.
+template for the next study, effectively reducing that iteration time.
 If CR practices mean that it's easy to get setup
 and run, and again, the thing actually works,
 perhaps the next study can be done much more quickly.
@@ -188,8 +189,9 @@ with the documentation,
 but I acknowledge different people have different preferred learning
 techniques.
 
-If you want help implementing CI/CD/CR practices in your lab,
-or want to talk more about the details and difficulties involved,
+Nevertheless, if you're convinced of the value
+or are just curious enough and
+want help implementing CI/CD/CR practices in your lab,
 shoot me an [email](mailto:petebachant@gmail.com) and I will hopefully
 have time to help you out (for free!)
 
