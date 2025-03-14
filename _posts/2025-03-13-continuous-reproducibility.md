@@ -29,7 +29,7 @@ on the same input data).
 Though the latter is often caused by technical problems
 rather than false conclusions,
 I believe it is worth trying to solve these technical problems
-so that we'll be able to evaluate the conclusions more clearly.
+in order to evaluate the conclusions more clearly.
 Towards this end I think there are some ideas we could borrow from the
 software world to help.
 
