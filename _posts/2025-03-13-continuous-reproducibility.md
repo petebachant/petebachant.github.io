@@ -243,19 +243,6 @@ and apparently that's common enough to make a PhD Comic about it:
 
 ![PhD comics 1689](/images/cr/phd-comics-1689.png)
 
-In my experience,
-having a working example,
-even if it doesn't do exactly what you want it to do,
-is a great way to jump start a new project.
-In fact,
-that's how I started the
-[Calkit Cloud](https://github.com/calkit/calkit-cloud).
-I think having a working template was a faster way to
-learn the React front end framework than starting from scratch
-with the documentation,
-but I acknowledge different people have different preferred learning
-techniques.
-
 Nevertheless, if you're convinced of the value
 or are just curious enough and
 want help implementing CI/CD/CR practices in your lab,
