@@ -44,6 +44,22 @@ generating other artifacts like figures and publications.
 Therefore, here I will use the term
 _Continuous Reproducibility_ (CR).
 
+CI means that valuable changes to code are incorporated into a single
+source of truth, or "main branch," as quickly as possible,
+resulting in a continuous flow of changes to the code rather than
+less frequent large batches of changes.
+CD means that these changes are accessible by the users as quickly as
+possible, though the frequencies don't need to match.
+
+CI/CD best practices ensure the code remains working and available
+while evolving,
+allowing the developers to feel safe about quickly making improvements.
+Similarly, CR would ensure the research project remains reproducible---its
+output artifacts like datasets, figures, slideshows, and publications,
+remain consistent with input data and process
+definitions---while allowing researchers to feel safe about making
+rapid improvements.
+
 In its less mature era,
 software was built using the traditional
 [waterfall](https://en.wikipedia.org/wiki/Waterfall_model)
