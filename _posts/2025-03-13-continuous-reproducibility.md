@@ -163,7 +163,7 @@ Here are a few I can think of:
 | Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed, determining the sequence on a case-by-case basis. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
 | Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app (e.g., VS Code) and keep them in the same repository. Update both with a single command. |
 | Showing the latest status of the project to all collaborators. | Manually create a new slideshow for each update. | Update a single working copy of the figures, manuscripts, and slides as the project progresses so anyone can view asynchronously. |
-| Ensuring all collaborators can contribute to all aspects of the project. | Make certain tasks only possible by certain individuals on the team, and email each other feedback for updating these. | Use a tool that automatically manages computational environments so it's easy for anyone to get setup and run the pipeline. Or better, run the pipeline automatically with a CI/CD service like GitHub Actions. |
+| Ensuring all collaborators can contribute to all aspects of the project. | Make certain tasks only possible by certain individuals on the team, and email each other feedback for updating these. | Use a tool that automatically manages computational environments so it's easy for anyone to get set up and run the pipeline. Or better, run the pipeline automatically with a CI/CD service like GitHub Actions. |
 
 What do you think?
 Is it worth the effort to make a project continuously reproducible
@@ -180,7 +180,7 @@ siloing the writing away from the data visualization is not slowing you down.
 I would argue, however, that analyzing and visualizing data
 concurrently while it's being collected is a great way to catch
 errors.
-If the paper is setup and ready to write during data collection,
+If the paper is set up and ready to write during data collection,
 important details can make their way in directly,
 removing a potential source of error from transcribing lab notebooks.
 
@@ -233,7 +233,7 @@ However, one could argue that delivering a fully reproducible
 project along with a paper provides a working
 template for the next study, effectively reducing that "outer outer loop"
 cycle time.
-If CR practices mean that it's easy to get setup
+If CR practices mean that it's easy to get set up
 and run, and again, the thing actually works,
 perhaps the next study can be done more quickly.
 Even if it's just one day per study saved,
@@ -249,7 +249,7 @@ If you're convinced on the value of,
 or are just curious enough about Continuous Reproducibility and
 want help implementing CI/CD/CR practices in your lab,
 shoot me an [email](mailto:petebachant@gmail.com) and I will hopefully
-have time to help you out (for free!)
+have time to help you out (for free!).
 
 ## References and recommended resources
 
