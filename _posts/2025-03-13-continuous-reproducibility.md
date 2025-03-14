@@ -251,7 +251,7 @@ want help implementing CI/CD/CR practices in your lab,
 shoot me an [email](mailto:petebachant@gmail.com) and I will hopefully
 have time to help you out (for free!)
 
-## References
+## References and recommended resources
 
 1. Nicholas Bloom, Charles I Jones, John Van Reenen, and Michael Web (2020).
    Are Ideas Getting Harder to Find?
@@ -263,3 +263,5 @@ have time to help you out (for free!)
    [10.1038/nbt.3780](https://pmc.ncbi.nlm.nih.gov/articles/PMC6103790/)
 3. Toward a Culture of Computational Reproducibility.
    [https://youtube.com/watch?v=XjW3t-qXAiE](https://youtube.com/watch?v=XjW3t-qXAiE)
+4. There is a better way to automate and manage your (fluid) simulations.
+   [https://www.youtube.com/watch?v=NGQlSScH97s](https://www.youtube.com/watch?v=NGQlSScH97s)
