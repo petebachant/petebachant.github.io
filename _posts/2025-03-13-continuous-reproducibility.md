@@ -3,8 +3,8 @@ comments: true
 date: 2025-03-13
 layout: post
 title: >
-  Continuous Reproducibility: Could DevOps principles significantly improve
-  the quality and speed of scientific discovery?
+  Continuous Reproducibility: How DevOps practices could significantly improve
+  the quality and speed of scientific discovery
 categories:
   - Open science
   - Reproducibility
@@ -22,7 +22,7 @@ technology could be brought into the world.
 At the same time, the
 [pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338) [1],
 with many findings failing to replicate
-(validated in an end-to-end sense by re-acquiring and reanalyzing raw data)
+(validated in an end-to-end sense by reacquiring and reanalyzing raw data)
 or even reproduce
 (obtaining the same results by rerunning the same computational processes
 on the same input data).
@@ -47,8 +47,8 @@ _Continuous Reproducibility_ (CR).
 CI means that valuable changes to code are incorporated into a single
 source of truth, or "main branch," as quickly as possible,
 resulting in a continuous flow of changes to the code rather than
-less frequent large batches of changes.
-CD means that these changes are accessible by the users as quickly as
+less frequent, larger batches of changes.
+CD means that these changes are accessible to the users as quickly as
 possible, though the frequencies don't need to match.
 
 CI/CD best practices ensure the code remains working and available
@@ -108,7 +108,7 @@ stateless virtual machines,
 dependency management needs to be automated, e.g.,
 with the help of containers and/or virtual environments.
 These pipelines then serve as continuously tested documentation,
-which can be much more reliable than a list of steps thrown into a README
+which can be much more reliable than a list of steps written in a README
 by a human and never checked or updated.
 
 So how does this relate to research projects, and are there potential
@@ -133,29 +133,29 @@ Data analysis and visualization code can be written and tested
 before data is collected.
 The methods section of a paper can be written as part of planning
 an experiment.
-Basically, think of the project as one unit instead of bunch of decoupled
+Essentially, we can think of the project as one unit
+instead of set of decoupled
 sub-projects.
 
 Similar to how software teams work,
-we can build and deliver all project artifacts with each iteration
-with an automated pipeline.
+we can build and deliver all project artifacts each iteration
+with an automated pipeline,
+keeping it continuously reproducible.
 Note that in this case "deliver" could mean to our internal team if we
 haven't yet submitted to a journal.
 Similarly,
 software teams may deliver changes that aren't released to all users publicly
 until they are deemed ready.
-By using automation we can ensure our project remains
-continuously reproducible.
 
 In any case,
-the relationship between more iterations and a better outcome
+the correlation between more iterations and a better outcome
 seems to be universal,
 so at the very least,
 we should look for behaviors that are hurting research
 project iteration cycle time.
 Here are a few I can think of:
 
-| Problem | Slower, more error-prone solution ❌ | Faster solution ✅ |
+| Problem | Slower, more error-prone solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
 | Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
 | Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed, in a determining the sequence on a case-by-case basis. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
@@ -209,7 +209,7 @@ flowchart LR
     C --> A
 ```
 
-Using Calkit, or a similar workflow like that of
+Using Calkit or a similar workflow like that of
 [showyourwork](https://show-your.work),
 outer and inner loop iterations can happen in the same tool.
 I assume there is some potential for efficiency gain there.
@@ -223,12 +223,14 @@ whereas one could argue research project materials typically should have short
 lives,
 except for a long-lived publication, or in the case that the research
 is done to support a more generally useful software product.
+This would lead us to believe that there should be few iterations.
 Maybe the important cycle time is not the iterations within a given study,
 but at a higher level---iterations between studies themselves.
 
 However, one could argue that delivering a fully reproducible
 project along with a paper provides a working
-template for the next study, effectively reducing that outer cycle time.
+template for the next study, effectively reducing that "outer-outer loop"
+cycle time.
 If CR practices mean that it's easy to get setup
 and run, and again, the thing actually works,
 perhaps the next study can be done much more quickly.
