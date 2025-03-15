@@ -42,10 +42,10 @@ _Continuous Reproducibility_ (CR).
 
 CI means that valuable changes to code are incorporated into a single
 source of truth, or "main branch," as quickly as possible,
-resulting in a continuous flow of small changes to the code rather than
+resulting in a continuous flow of small changes rather than
 less frequent, larger batches of changes.
-CD means that these changes are accessible to the users as soon as
-possible, e.g., with daily updates instead of quarterly or annual
+CD means that these updates are accessible to the users as soon as
+possible, e.g., daily instead of quarterly or annual
 "big bang" releases.
 
 CI/CD best practices ensure the software remains working and available
@@ -95,8 +95,9 @@ to reduce communication overhead by combining development
 and operations teams (hence "DevOps").
 This allowed individuals
 to simply talk to each other instead of handing off formal documentation.
-Another was to automate test and release processes with CI/CD pipelines.
-These made it practical to incorporate fewer changes in
+Another crucial tactic
+was the automation of test and release processes with CI/CD pipelines.
+Combined, these made it practical to incorporate fewer changes in
 each iteration, which helped to avoid mistakes.
 
 I've heard DevOps described as "turning collaborators into contributors."
