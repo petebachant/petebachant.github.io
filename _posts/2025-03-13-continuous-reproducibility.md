@@ -28,10 +28,10 @@ or even reproduce
 on the same input data).
 Though the latter is often caused by technical problems
 rather than false conclusions,
-I believe it is worth trying to solve these technical problems
+it is worth trying to solve these technical problems
 in order to evaluate the conclusions more clearly.
-Towards this end I think there are some ideas we could borrow from the
-software world to help.
+Towards this end there are some ideas we could borrow from the
+software world.
 
 Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
@@ -39,9 +39,9 @@ those of _Continuous Integration_ and _Continuous Delivery_
 There has been some discussion about adapting these
 under the name
 [_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
-though I think the concept extends beyond analysis and into
-generating other artifacts like figures and publications.
-Therefore, here I will use the term
+though since the concept extends beyond analysis and into
+generating other artifacts like figures and publications,
+here I will use the term
 _Continuous Reproducibility_ (CR).
 
 CI means that valuable changes to code are incorporated into a single
@@ -49,27 +49,29 @@ source of truth, or "main branch," as quickly as possible,
 resulting in a continuous flow of changes to the code rather than
 less frequent, larger batches of changes.
 CD means that these changes are accessible to the users as quickly as
-possible, though the frequencies don't need to match.
+possible, e.g., with daily updates instead of quarterly or annual
+"big bang" releases.
 
-CI/CD best practices ensure the code remains working and available
+CI/CD best practices ensure the software remains working and available
 while evolving,
 allowing the developers to feel safe about quickly making improvements.
-Similarly, CR would ensure the research project remains reproducible---its
+Similarly, CR would ensure the research
+project remains reproducible---its
 output artifacts like datasets, figures, slideshows, and publications,
 remain consistent with input data and process
-definitions---while allowing researchers to feel safe about making
-rapid improvements.
+definitions---hypothetically allowing researchers to make changes more
+quickly and in smaller batches.
 
 In its less mature era,
 software was built using the traditional
 [waterfall](https://en.wikipedia.org/wiki/Waterfall_model)
 project management methodology.
-This approach broke projects into distinct phases or "stage gates," e.g.,
+This approach broke projects down into distinct phases or "stage gates," e.g.,
 market research, requirements gathering,
 design, implementation, testing, deployment,
 which were intended to be done in a linear sequence,
 with each taking weeks or months to finish.
-The problem with this approach is that it only works for projects
+The problem with this approach is that it only works well for projects
 with low uncertainty, i.e.,
 those where the true requirements can easily be defined up front
 and no new knowledge is uncovered between phases.
@@ -89,35 +91,35 @@ Large batches of work were transferred between
 different teams in the form of documentation.
 Further,
 the processes to test and release software were manual,
-which meant they could be tedious, expensive, and/or error prone,
-which meant there was an incentive to do them less often.
+which meant they could be tedious, expensive, and/or error prone.
+Thus there was an incentive to do them less often.
 
-Removing the communication overhead by combining development
-and operations teams (hence "DevOps")
-so the individuals
-could simply talk to each other instead of handing off documentation
-and automating processes with CI/CD pipelines
-made it possible to do many more iterations per unit time.
-It also made it possible to incorporate fewer changes in
-each batch, which helped to avoid mistakes.
+One strategy that helped reduce iteration cycle time was
+to reduce communication overhead by combining development
+and operations teams (hence "DevOps").
+This allowed individuals
+to simply talk to each other instead of handing off documentation.
+Another was to automate processes with CI/CD pipelines,
+making them less painful.
+This made it practical to incorporate fewer changes in
+each iteration, which helped to avoid mistakes.
 
-Another bit of valuable automation relates to collaboration.
 I've heard DevOps described as "turning collaborators into contributors."
-To do this, we want to minimize the amount of effort required
+To achieve this, it's important to minimize the amount of effort required
 to start working on a project.
-Since CI/CD pipelines typically run on fresh or mostly
+Since automated CI/CD pipelines typically run on fresh or mostly
 stateless virtual machines,
 dependency management needs to be automated, e.g.,
 with the help of containers and/or virtual environments.
 These pipelines then serve as continuously tested documentation,
-which can be much more reliable than a list of steps written in a README
-by a human and never checked or updated.
+which can be much more reliable than a list of steps written in a README.
 
 So how does this relate to research projects, and are there potential
 efficiency gains if these practices were to be adopted?
 
-In some cases we might find ourselves thinking in a waterfall mindset,
-where we want to do our work in distinct phases,
+In research projects
+we might find ourselves thinking in a waterfall mindset,
+with a natural inclination to work in distinct phases,
 e.g., planning, data collection, data analysis, figure generation,
 writing, peer review.
 But is this really best modeled as
@@ -128,7 +130,7 @@ or peer review process?
 
 Instead, we could think of a research project as one continuous
 iterative process.
-Writing can be done the entire time.
+Writing can be done the entire time in small chunks.
 We can start writing the introduction to our first paper and thesis
 right from the beginning as we start our lit review.
 Data analysis and visualization code can be written and tested
@@ -136,18 +138,19 @@ before data is collected.
 The methods section of a paper can be written as part of planning
 an experiment, and updated while carrying it out.
 Essentially, we can think of the project as one unit
+that evolves in small steps
 instead of set of decoupled
-sub-projects.
+sub-projects, each of which a big step, done one after the other.
 
 Similar to how software teams work,
-we can build and deliver all project artifacts each iteration
+where an automated CD pipeline will build all artifacts, such as
+compiled binaries or minified web application code,
+and make them available to the users,
+we can build and deliver all of our research project artifacts each iteration
 with an automated pipeline,
-keeping it continuously reproducible.
+keeping them continuously reproducible.
 Note that in this case "deliver" could mean to our internal team if we
 haven't yet submitted to a journal.
-Similarly,
-software teams may deliver changes that aren't released to all users publicly
-until they are deemed ready.
 
 In any case,
 the correlation between more iterations and better outcomes
@@ -159,7 +162,7 @@ Here are a few I can think of:
 
 | Problem | Slower, more error-prone solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
-| Ensuring everyone on the team has the latest version of a file when it is updated. | Send an email with the file attached to everyone every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
+| Ensuring everyone on the team has access to the latest version of a file as soon as it is updated, and making them aware of the difference from the last version. | Send an email with the file and change summary attached to everyone every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
 | Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed, determining the sequence on a case-by-case basis. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
 | Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app (e.g., VS Code) and keep them in the same repository. Update both with a single command. |
 | Showing the latest status of the project to all collaborators. | Manually create a new slideshow for each update. | Update a single working copy of the figures, manuscripts, and slides as the project progresses so anyone can view asynchronously. |
@@ -167,7 +170,7 @@ Here are a few I can think of:
 
 What do you think?
 Is it worth the effort to make a project continuously reproducible
-and check it many times per day?
+and update it many times per day?
 I think it is, though I'm biased,
 since I've been working on tools to make CR easier to do
 ([Calkit](https://calkit.org);
@@ -213,29 +216,24 @@ flowchart LR
 
 Using Calkit or a similar workflow like that of
 [showyourwork](https://show-your.work),
-outer and inner loop iterations can happen in the same tool.
-I assume there is some potential for efficiency gain there.
-Imagine the overhead of your current process if you want to perform
-a single outer loop iteration and how effectively you can predict
-when one will be required.
+outer and inner loop iterations can be worked on in the same tool
+e.g., VS Code,
+reducing context switching costs.
 
-Another argument against applying CR to research projects
-is that software products are supposed to have long lives,
-whereas one could argue research project materials typically should have short
-lives,
-except for a long-lived publication, or in the case that the research
-is done to support a more generally useful software product.
-This would lead us to believe that there should be few iterations.
-Maybe the important cycle time is not the iterations within a given study,
+On the other hand,
+maybe the important cycle time(s) are not for iterations within a given study,
 but at a higher level---iterations between studies themselves.
-
 However, one could argue that delivering a fully reproducible
 project along with a paper provides a working
 template for the next study, effectively reducing that "outer outer loop"
 cycle time.
+
 If CR practices mean that it's easy to get set up
 and run, and again, the thing actually works,
 perhaps the next study can be done more quickly.
+At the very least,
+the new project owner will not need to reinvent the wheel in terms of
+project structure and tooling.
 Even if it's just one day per study saved,
 imagine how that compounds over time.
 I've heard quite a few stories of grad students being handed code
