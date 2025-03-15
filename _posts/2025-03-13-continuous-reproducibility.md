@@ -111,10 +111,10 @@ These pipelines then serve as continuously tested documentation,
 which can be much more reliable than a list of steps written in a README.
 
 So how does this relate to research projects, and are there potential
-efficiency gains if these practices were to be adopted?
+efficiency gains to be had if these practices were to be adopted?
 
 In research projects
-we might find ourselves thinking in a waterfall mindset,
+we certainly might find ourselves thinking in a waterfall mindset,
 with a natural inclination to work in distinct, siloed phases,
 e.g., planning, data collection, data analysis, figure generation,
 writing, peer review.
