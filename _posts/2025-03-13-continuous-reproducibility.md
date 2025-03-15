@@ -111,7 +111,7 @@ These pipelines then serve as continuously tested documentation,
 which can be much more reliable than a list of steps written in a README.
 
 So how does this relate to research projects, and are there potential
-efficiency gains to be had if these practices were to be adopted?
+efficiency gains to be had if these kinds of practices were to be adopted?
 
 In research projects
 we certainly might find ourselves thinking in a waterfall mindset,
@@ -121,7 +121,8 @@ writing, peer review.
 But is this really best modeled as
 a waterfall process where nothing is learned between
 phases?
-Do we never, for example, return to data analysis after starting the writing
+Do we never, for example, need to
+return to data analysis after starting the writing
 or peer review process?
 
 Instead, we could think of a research project as one continuous
@@ -129,7 +130,7 @@ iterative process.
 Writing can be done the entire time in small chunks.
 For example,
 we can start writing the introduction to our first paper and thesis
-right from the beginning as we start our lit review.
+from day one as we do our literature review.
 The methods section of a paper can be written as part of planning
 an experiment, and updated while carrying it out.
 Data analysis and visualization code can be written and tested
