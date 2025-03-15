@@ -20,17 +20,13 @@ enhancing innovation,
 and increasing the speed at which software products and related
 technology could be brought into the world.
 At the same time, the
-[pace of scientific innovation appears to be slowing](https://doi.org/10.1257/aer.20180338) [1],
+[pace of scientific innovation appears to have slowed](https://doi.org/10.1257/aer.20180338) [1],
 with many findings failing to replicate
 (validated in an end-to-end sense by reacquiring and reanalyzing raw data)
 or even reproduce
 (obtaining the same results by rerunning the same computational processes
 on the same input data).
-Though the latter is often caused by technical problems
-rather than false conclusions,
-it is worth trying to solve these technical problems
-in order to evaluate the conclusions more clearly.
-Towards this end there are some ideas we could borrow from the
+To help address these issues there are some ideas we could borrow from the
 software world.
 
 Here I will focus on one set of practices in particular:
@@ -38,7 +34,7 @@ those of _Continuous Integration_ and _Continuous Delivery_
 ([CI/CD](https://en.wikipedia.org/wiki/CI/CD)).
 There has been some discussion about adapting these
 under the name
-[_Continuous Analysis_](https://arxiv.org/abs/2411.02283),
+[_Continuous Analysis_](https://arxiv.org/abs/2411.02283) [2],
 though since the concept extends beyond analysis and into
 generating other artifacts like figures and publications,
 here I will use the term
@@ -46,15 +42,15 @@ _Continuous Reproducibility_ (CR).
 
 CI means that valuable changes to code are incorporated into a single
 source of truth, or "main branch," as quickly as possible,
-resulting in a continuous flow of changes to the code rather than
+resulting in a continuous flow of small changes to the code rather than
 less frequent, larger batches of changes.
-CD means that these changes are accessible to the users as quickly as
+CD means that these changes are accessible to the users as soon as
 possible, e.g., with daily updates instead of quarterly or annual
 "big bang" releases.
 
 CI/CD best practices ensure the software remains working and available
 while evolving,
-allowing the developers to feel safe about quickly making improvements.
+allowing the developers to feel safe and confident about their modifications.
 Similarly, CR would ensure the research
 project remains reproducible---its
 output artifacts like datasets, figures, slideshows, and publications,
@@ -70,7 +66,7 @@ This approach broke projects down into distinct phases or "stage gates," e.g.,
 market research, requirements gathering,
 design, implementation, testing, deployment,
 which were intended to be done in a linear sequence,
-with each taking weeks or months to finish.
+each taking weeks or months to finish.
 The problem with this approach is that it only works well for projects
 with low uncertainty, i.e.,
 those where the true requirements can easily be defined up front
@@ -78,14 +74,14 @@ and no new knowledge is uncovered between phases.
 These situations are of course
 rare in both product development and science.
 
-These days, all of the phases are happening
+These days, in the software product world, all of the phases are happening
 continuously and in parallel.
 The best teams are deploying new changes
 [many times per day](https://www.atlassian.com/devops/frameworks/devops-metrics),
 because generally, the more iterations, the more successful the product.
 
 But it's only possible to do many iterations if cycle times can be shortened.
-In the old waterfall style,
+In the old waterfall framework,
 full cycle times were on the order of months or even years.
 Large batches of work were transferred between
 different teams in the form of documentation.
@@ -98,10 +94,9 @@ One strategy that helped reduce iteration cycle time was
 to reduce communication overhead by combining development
 and operations teams (hence "DevOps").
 This allowed individuals
-to simply talk to each other instead of handing off documentation.
-Another was to automate processes with CI/CD pipelines,
-making them less painful.
-This made it practical to incorporate fewer changes in
+to simply talk to each other instead of handing off formal documentation.
+Another was to automate test and release processes with CI/CD pipelines.
+These made it practical to incorporate fewer changes in
 each iteration, which helped to avoid mistakes.
 
 I've heard DevOps described as "turning collaborators into contributors."
@@ -119,11 +114,11 @@ efficiency gains if these practices were to be adopted?
 
 In research projects
 we might find ourselves thinking in a waterfall mindset,
-with a natural inclination to work in distinct phases,
+with a natural inclination to work in distinct, siloed phases,
 e.g., planning, data collection, data analysis, figure generation,
 writing, peer review.
 But is this really best modeled as
-a linear waterfall process where nothing is learned between
+a waterfall process where nothing is learned between
 phases?
 Do we never, for example, return to data analysis after starting the writing
 or peer review process?
@@ -131,16 +126,17 @@ or peer review process?
 Instead, we could think of a research project as one continuous
 iterative process.
 Writing can be done the entire time in small chunks.
-We can start writing the introduction to our first paper and thesis
+For example,
+we can start writing the introduction to our first paper and thesis
 right from the beginning as we start our lit review.
-Data analysis and visualization code can be written and tested
-before data is collected.
 The methods section of a paper can be written as part of planning
 an experiment, and updated while carrying it out.
-Essentially, we can think of the project as one unit
-that evolves in small steps
-instead of set of decoupled
-sub-projects, each of which a big step, done one after the other.
+Data analysis and visualization code can be written and tested
+before data is collected.
+Instead of thinking of the project as a set of decoupled
+sub-projects, each a big step done one after the other,
+we could think of the whole thing as one unit
+that evolves in small steps.
 
 Similar to how software teams work,
 where an automated CD pipeline will build all artifacts, such as
@@ -154,7 +150,7 @@ haven't yet submitted to a journal.
 
 In any case,
 the correlation between more iterations and better outcomes
-seems to be universal,
+appears to be mostly universal,
 so at the very least,
 we should look for behaviors that are hurting research
 project iteration cycle time.
@@ -243,11 +239,11 @@ and apparently that's common enough to make a PhD Comic about it:
 
 ![PhD comics 1689](/images/cr/phd-comics-1689.png)
 
-If you're convinced on the value of,
-or are just curious enough about Continuous Reproducibility and
+If you're convinced of the value of
+Continuous Reproducibility---or just curious about it---and
 want help implementing CI/CD/CR practices in your lab,
-shoot me an [email](mailto:petebachant@gmail.com) and I will hopefully
-have time to help you out (for free!).
+shoot me an [email](mailto:petebachant@gmail.com), and I'd be happy
+to help you out.
 
 ## References and recommended resources
 
