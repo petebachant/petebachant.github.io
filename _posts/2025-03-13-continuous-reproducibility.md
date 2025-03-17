@@ -160,7 +160,7 @@ haven't yet submitted to a journal.)
 
 In any case,
 the correlation between more iterations and better outcomes
-appears to be mostly universal,
+appears to be mostly universal for all kinds of endeavors,
 so at the very least,
 we should look for behaviors that are hurting research
 project iteration cycle time.
