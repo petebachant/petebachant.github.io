@@ -157,11 +157,11 @@ appears to be mostly universal,
 so at the very least,
 we should look for behaviors that are hurting research
 project iteration cycle time.
-Here are a few I can think of:
+Here are a few DevOps-related ones I can think of:
 
-| Problem | Slower, more error-prone solution ❌ | Better solution ✅ |
+| Problem or task | Slower, more error-prone solution ❌ | Better solution ✅ |
 |---------|--------------|-----------------|
-| Ensuring everyone on the team has access to the latest version of a file as soon as it is updated, and making them aware of the difference from the last version. | Send an email with the file and change summary attached to everyone every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
+| Ensuring everyone on the team has access to the latest version of a file as soon as it is updated, and making them aware of the difference from the last version. | Send an email to the whole team with the file and change summary attached every time a file changes. | Use a single shared version-controlled repository for all files and treat this as the one source of truth. |
 | Updating all necessary figures and publications after changing data processing algorithms. | Run downstream processes manually as needed, determining the sequence on a case-by-case basis. | Use a pipeline system that tracks inputs and outputs and uses caching to skip unnecessary expensive steps, and can run them all with a single command. |
 | Ensuring the figures in a manuscript draft are up-to-date after changing a plotting script. | Manually copy/import the figure files from an analytics app into a writing app. | Edit the plotting scripts and manuscript files in the same app (e.g., VS Code) and keep them in the same repository. Update both with a single command. |
 | Showing the latest status of the project to all collaborators. | Manually create a new slideshow for each update. | Update a single working copy of the figures, manuscripts, and slides as the project progresses so anyone can view asynchronously. |
