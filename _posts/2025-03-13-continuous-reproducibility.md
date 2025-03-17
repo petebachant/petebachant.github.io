@@ -26,8 +26,10 @@ with many findings failing to replicate
 or even reproduce
 (obtaining the same results by rerunning the same computational processes
 on the same input data).
-To help address these issues there are some ideas we could borrow from the
-software world.
+Science already borrows much from the software world in terms of tooling
+and best practices,
+which makes sense since nearly every scientific study involves computation,
+but there are still more yet to cross over.
 
 Here I will focus on one set of practices in particular:
 those of _Continuous Integration_ and _Continuous Delivery_
@@ -57,6 +59,10 @@ output artifacts like datasets, figures, slideshows, and publications,
 remain consistent with input data and process
 definitions---hypothetically allowing researchers to make changes more
 quickly and in smaller batches without fear of breaking anything.
+
+But CI/CD did not crop up in isolation.
+It arose as part of a larger wave of changes in software development
+philosophy.
 
 In its less mature era,
 software was built using the traditional
@@ -98,20 +104,21 @@ to simply talk to each other instead of handing off formal documentation.
 Another crucial tactic
 was the automation of test and release processes with CI/CD pipelines.
 Combined, these made it practical to incorporate fewer changes in
-each iteration, which helped to avoid mistakes.
+each iteration, which helped to avoid mistakes and deliver value
+to the users with the shortest lead time.
 
 I've heard DevOps described as "turning collaborators into contributors."
 To achieve this, it's important to minimize the amount of effort required
 to get set up to start working on a project.
 Since automated CI/CD pipelines typically run on fresh or mostly
 stateless virtual machines,
-setting up dependencies needs to be automated, e.g.,
+setting up a development/test environment needs to be automated, e.g.,
 with the help of containers and/or virtual environments.
 These pipelines then serve as continuously tested documentation,
 which can be much more reliable than a list of steps written in a README.
 
 So how does this relate to research projects, and are there potential
-efficiency gains to be had if these kinds of practices were to be adopted?
+efficiency gains to be had if similar practices were to be adopted?
 
 In research projects
 we certainly might find ourselves thinking in a waterfall mindset,
