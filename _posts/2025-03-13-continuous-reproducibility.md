@@ -94,8 +94,8 @@ different teams in the form of
 documentation---a heavy and sometimes ineffective communication mechanism.
 Further,
 the processes to test and release software were manual,
-which meant they could be tedious, expensive, and/or error prone.
-Thus there was an incentive to do them less often.
+which meant they could be tedious, expensive, and/or error prone,
+providing an incentive to do them less often.
 
 One strategy that helped reduce iteration cycle time was
 to reduce communication overhead by combining development
@@ -106,7 +106,7 @@ Another crucial tactic
 was the automation of test and release processes with CI/CD pipelines.
 Combined, these made it practical to incorporate fewer changes in
 each iteration, which helped to avoid mistakes and deliver value
-to the users more quickly---a critical priority in a competitive marketplace.
+to users more quickly---a critical priority in a competitive marketplace.
 
 I've heard DevOps described as "turning collaborators into contributors."
 To achieve this, it's important to minimize the amount of effort required
@@ -127,8 +127,7 @@ with a natural inclination to work in distinct, siloed phases,
 e.g., planning, data collection, data analysis, figure generation,
 writing, peer review.
 But is a scientific study really best modeled as
-a waterfall process where nothing is learned between
-phases?
+a waterfall process?
 Do we never, for example, need to
 return to data analysis after starting the writing
 or peer review process?
