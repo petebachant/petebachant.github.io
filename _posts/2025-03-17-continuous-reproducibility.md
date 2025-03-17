@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2025-03-13
+date: 2025-03-17
 layout: post
 title: >
   Continuous Reproducibility: How DevOps principles could improve
