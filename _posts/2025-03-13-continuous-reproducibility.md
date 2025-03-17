@@ -82,7 +82,7 @@ rare in both product development and science.
 
 These days, in the software product world, all of the phases are happening
 continuously and in parallel.
-The best teams are deploying new changes
+The best teams are deploying new code
 [many times per day](https://www.atlassian.com/devops/frameworks/devops-metrics),
 because generally, the more iterations, the more successful the product.
 
@@ -90,7 +90,8 @@ But it's only possible to do many iterations if cycle times can be shortened.
 In the old waterfall framework,
 full cycle times were on the order of months or even years.
 Large batches of work were transferred between
-different teams in the form of documentation.
+different teams in the form of
+documentation---a heavy and sometimes ineffective communication mechanism.
 Further,
 the processes to test and release software were manual,
 which meant they could be tedious, expensive, and/or error prone.
