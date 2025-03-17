@@ -142,7 +142,7 @@ The methods section of a paper can be written as part of planning
 an experiment, and updated with important details while carrying it out.
 Data analysis and visualization code can be written and tested
 before data is collected,
-then run while it's being collected as a quality check.
+then run during data collection as a quality check.
 Instead of thinking of the project as a set of decoupled
 sub-projects, each a big step done one after the other,
 we could think of the whole thing as one unit
