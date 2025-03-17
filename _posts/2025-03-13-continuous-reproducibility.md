@@ -183,7 +183,7 @@ since I've been working on tools to make it easier
 ([Calkit](https://calkit.org);
 cf. [this example CI/CD workflow](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)).
 
-One argument against applying a CR framework to your
+One argument you might have against against adopting CR in your
 project is that you do very few "outer loop" iterations.
 That is, you are able to effectively work in phases so, e.g.,
 siloing the writing away from the data visualization is not slowing you down.
@@ -223,7 +223,7 @@ flowchart LR
 
 Using Calkit or a similar workflow like that of
 [showyourwork](https://show-your.work),
-outer and inner loop iterations can be worked on in the same tool
+one can work on both outer and inner loop iterations in a single interface,
 e.g., VS Code,
 reducing context switching costs.
 
@@ -255,7 +255,7 @@ If you're convinced of the value of
 Continuous Reproducibility---or just curious about it---and
 want help implementing CI/CD/CR practices in your lab,
 shoot me an [email](mailto:petebachant@gmail.com), and I'd be happy
-to help you out.
+to help.
 
 ## References and recommended resources
 
