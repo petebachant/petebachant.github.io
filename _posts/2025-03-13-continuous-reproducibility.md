@@ -44,8 +44,8 @@ _Continuous Reproducibility_ (CR).
 
 CI means that valuable changes to code are incorporated into a single
 source of truth, or "main branch," as quickly as possible,
-resulting in a continuous flow of small changes rather than
-less frequent, larger batches of changes.
+resulting in a continuous flow of small changes rather than in larger,
+less frequent batches.
 CD means that these updates are accessible to the users as soon as
 possible, e.g., daily instead of quarterly or annual
 "big bang" releases.
