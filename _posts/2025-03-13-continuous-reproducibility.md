@@ -60,8 +60,8 @@ remain consistent with input data and process
 definitions---hypothetically allowing researchers to make changes more
 quickly and in smaller batches without fear of breaking anything.
 
-But CI/CD did not crop up in isolation.
-It arose as part of a larger wave of changes in software development
+But CI and CD did not crop up in isolation.
+They arose as part of a larger wave of changes in software development
 philosophy.
 
 In its less mature era,
