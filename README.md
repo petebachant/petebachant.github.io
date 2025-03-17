@@ -4,7 +4,7 @@ My personal website.
 
 ## Notes
 
-- To serve and view locally, `run bundle exec jekyll serve --livereload`.
+- To serve and view locally, run `make serve`.
 - Using `redcarpet` for highlighting in fenced code blocks.
 - To create a post use
 
