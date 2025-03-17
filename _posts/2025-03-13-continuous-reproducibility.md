@@ -235,8 +235,8 @@ project along with a paper provides a working
 template for the next study, effectively reducing that "outer outer loop"
 cycle time.
 
-If CR practices mean that it's easy to get set up
-and run, and again, the thing actually works,
+If CR practices make it easy to get set up
+and run a project, and again, the thing actually works,
 perhaps the next study can be done more quickly.
 At the very least,
 the new project owner will not need to reinvent the wheel in terms of
