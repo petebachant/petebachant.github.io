@@ -17,8 +17,8 @@ and [DevOps](https://en.wikipedia.org/wiki/DevOps) movements
 revolutionized software development,
 reducing waste, improving quality,
 enhancing innovation,
-and increasing the speed at which software products and related
-technology could be brought into the world.
+and ultimately increasing the speed at which software products
+were brought into the world.
 At the same time, the
 [pace of scientific innovation appears to have slowed](https://doi.org/10.1257/aer.20180338) [1],
 with many findings failing to replicate
@@ -48,7 +48,7 @@ CD means that these updates are accessible to the users as soon as
 possible, e.g., daily instead of quarterly or annual
 "big bang" releases.
 
-CI/CD best practices ensure the software remains working and available
+CI/CD best practices ensure that software remains working and available
 while evolving,
 allowing the developers to feel safe and confident about their modifications.
 Similarly, CR would ensure the research
@@ -56,7 +56,7 @@ project remains reproducible---its
 output artifacts like datasets, figures, slideshows, and publications,
 remain consistent with input data and process
 definitions---hypothetically allowing researchers to make changes more
-quickly and in smaller batches.
+quickly and in smaller batches without fear of breaking anything.
 
 In its less mature era,
 software was built using the traditional
@@ -102,10 +102,10 @@ each iteration, which helped to avoid mistakes.
 
 I've heard DevOps described as "turning collaborators into contributors."
 To achieve this, it's important to minimize the amount of effort required
-to start working on a project.
+to get set up to start working on a project.
 Since automated CI/CD pipelines typically run on fresh or mostly
 stateless virtual machines,
-dependency management needs to be automated, e.g.,
+setting up dependencies needs to be automated, e.g.,
 with the help of containers and/or virtual environments.
 These pipelines then serve as continuously tested documentation,
 which can be much more reliable than a list of steps written in a README.
@@ -130,11 +130,12 @@ iterative process.
 Writing can be done the entire time in small chunks.
 For example,
 we can start writing the introduction to our first paper and thesis
-from day one as we do our literature review.
+from day one, as we do our literature review.
 The methods section of a paper can be written as part of planning
-an experiment, and updated while carrying it out.
+an experiment, and updated with important details while carrying it out.
 Data analysis and visualization code can be written and tested
-before data is collected.
+before data is collected,
+then run while it's being collected as a quality check.
 Instead of thinking of the project as a set of decoupled
 sub-projects, each a big step done one after the other,
 we could think of the whole thing as one unit
