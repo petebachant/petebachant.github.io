@@ -208,7 +208,7 @@ flowchart LR
 title: Inner loop
 ---
 flowchart LR
-    A[write] --> B[build]
+    A[write] --> B[run]
     B --> C[review]
     C --> A
 ```
