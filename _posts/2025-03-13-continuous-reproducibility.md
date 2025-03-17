@@ -175,20 +175,21 @@ Here are a few DevOps-related ones I can think of:
 | Ensuring all collaborators can contribute to all aspects of the project. | Make certain tasks only able to be done by certain individuals on the team, and email each other feedback for updating these. | Use a tool that automatically manages computational environments so it's easy for anyone to get set up and run the pipeline. Or better, run the pipeline automatically with a CI/CD service like GitHub Actions. |
 
 What do you think?
-Is it worth the effort to make a project continuously reproducible
-and update it many times per day?
+Are you encountering these sorts of context switching
+and communication overhead losses in your own projects?
+Is it worth the effort to make a project continuously reproducible?
 I think it is, though I'm biased,
-since I've been working on tools to make CR easier to do
+since I've been working on tools to make it easier
 ([Calkit](https://calkit.org);
 cf. [this example CI/CD workflow](https://github.com/calkit/example-basic/blob/main/.github/workflows/run.yml)).
 
-One argument against setting up an automated CR framework for your
+One argument against applying a CR framework to your
 project is that you do very few "outer loop" iterations.
 That is, you are able to effectively work in phases so, e.g.,
 siloing the writing away from the data visualization is not slowing you down.
 I would argue, however, that analyzing and visualizing data
 concurrently while it's being collected is a great way to catch
-errors.
+errors, and the earlier an error is caught, the cheaper it is to fix.
 If the paper is set up and ready to write during data collection,
 important details can make their way in directly,
 removing a potential source of error from transcribing lab notebooks.
