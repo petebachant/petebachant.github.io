@@ -130,7 +130,7 @@ But is a scientific study really best modeled as
 a waterfall process?
 Do we never, for example, need to
 return to data analysis after starting the writing
-or peer review process?
+or peer review?
 
 Instead, we could think of a research project as one continuous
 iterative process.
