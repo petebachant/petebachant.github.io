@@ -155,8 +155,8 @@ and make them available to the users,
 we can build and deliver all of our research project artifacts each iteration
 with an automated pipeline,
 keeping them continuously reproducible.
-Note that in this case "deliver" could mean to our internal team if we
-haven't yet submitted to a journal.
+(Note that in this case "deliver" could mean to our internal team if we
+haven't yet submitted to a journal.)
 
 In any case,
 the correlation between more iterations and better outcomes
