@@ -73,7 +73,7 @@ market research, requirements gathering,
 design, implementation, testing, deployment,
 which were intended to be done in a linear sequence,
 each taking weeks or months to finish.
-The problem with this approach is that it only works well for projects
+The industry eventually realized that this only works well for projects
 with low uncertainty, i.e.,
 those where the true requirements can easily be defined up front
 and no new knowledge is uncovered between phases.
@@ -105,7 +105,7 @@ Another crucial tactic
 was the automation of test and release processes with CI/CD pipelines.
 Combined, these made it practical to incorporate fewer changes in
 each iteration, which helped to avoid mistakes and deliver value
-to the users with the shortest lead time.
+to the users more quickly---a critical priority in a competitive marketplace.
 
 I've heard DevOps described as "turning collaborators into contributors."
 To achieve this, it's important to minimize the amount of effort required
@@ -113,7 +113,7 @@ to get set up to start working on a project.
 Since automated CI/CD pipelines typically run on fresh or mostly
 stateless virtual machines,
 setting up a development/test environment needs to be automated, e.g.,
-with the help of containers and/or virtual environments.
+with the help of containers and/or package managers.
 These pipelines then serve as continuously tested documentation,
 which can be much more reliable than a list of steps written in a README.
 
@@ -125,7 +125,7 @@ we certainly might find ourselves thinking in a waterfall mindset,
 with a natural inclination to work in distinct, siloed phases,
 e.g., planning, data collection, data analysis, figure generation,
 writing, peer review.
-But is this really best modeled as
+But is a scientific study really best modeled as
 a waterfall process where nothing is learned between
 phases?
 Do we never, for example, need to
@@ -242,11 +242,12 @@ At the very least,
 the new project owner will not need to reinvent the wheel in terms of
 project structure and tooling.
 Even if it's just one day per study saved,
-imagine how that compounds over time.
-I've heard quite a few stories of grad students being handed code
+imagine how that compounds over space and time.
+I'm sure you've either encountered or heard stories
+of grad students being handed code
 from their departed predecessors with no instructions on how to run it,
-no version history, no test suite, etc.,
-and apparently that's common enough to make a PhD Comic about it:
+no version history, no test suite, etc.
+Apparently that's common enough to make a PhD Comic about it:
 
 ![PhD comics 1689](/images/cr/phd-comics-1689.png)
 
