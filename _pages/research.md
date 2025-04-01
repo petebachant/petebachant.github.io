@@ -23,6 +23,10 @@ See more on [YouTube...](https://youtube.com/bachantp)
 
 ## Publications
 
+**Bachant, P.**, Ireland, P., Burrows, B., Qiao, C., Duncan, J., Zheng, D.,
+Dua, M. (2024)
+[Development and validation of a hybrid data-driven model-based wake steering controller and its application at a utility-scale wind plant](https://doi.org/10.5194/wes-9-2235-2024). _Wind Energy Science_ 9(11).
+
 Mendoza, V., **Bachant, P.**, Simão Ferreira, C., Goude, A. (2018)
 [Near-wake flow simulation of a vertical axis turbine using an actuator line model](https://www.researchgate.net/publication/327910876_Near-wake_flow_simulation_of_a_vertical_axis_turbine_using_an_actuator_line_model).
 _Wind Energy_ 22(1).
