@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2025-7-01
+date: 2025-07-02
 layout: post
 title: >
   3 simple rules to use Jupyter Notebooks in a less bad way
