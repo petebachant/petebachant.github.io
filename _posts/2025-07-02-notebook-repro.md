@@ -142,3 +142,8 @@ make sure it's created with the pipeline.
 This all of course assumes you're using Calkit,
 which you should be, since it's free and open source,
 though I am biased.
+
+## An example
+
+Here's a project that hopefully reflects a realistically
+complex scenario.
