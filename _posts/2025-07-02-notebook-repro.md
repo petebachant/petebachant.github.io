@@ -43,6 +43,17 @@ They should do one thing: Produce the evidence.
 If someone wants to modify a notebook to produce a different type of
 evidence, that's great, but at that point it's a different notebook.
 
+Similarly, research projects are not necessarily software projects.
+Research projects seek to produce evidence to help answer questions,
+and oftentimes tooling that was built for software development will be used.
+Software projects seek to build reusable tools.
+Research project may include software projects, however.
+For example, imagine a researcher wants to build a tool to help others
+answer questions or make predictions with the new knowledge they've
+discovered.
+They will create some software product,
+but they will still TODO.
+
 So, notebooks do one thing and should be able to keep doing that one thing
 no matter how many times they've been run.
 
