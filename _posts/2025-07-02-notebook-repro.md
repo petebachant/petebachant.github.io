@@ -66,10 +66,15 @@ It's not meant to be a work of art.
 
 Yes, you can use notebooks to build web apps,
 which is a great use case for marimo in my opinion.
-You can also use notebooks to write documentation.
+You can also use notebooks to write documentation or even entire books.
 Some would also argue you can use notebooks to develop software.
 These are interesting use cases, but they are not the most common ones,
 and they are not the ones causing reproducibility issues.
+Here we're talking about Jupyter Notebooks as used by scientists
+and other researchers.
+This might include data scientists and data engineers,
+though they are typically a little more software oriented,
+and their output products are a little bit more like tools than evidence.
 
 ## 1. Use version control
 
