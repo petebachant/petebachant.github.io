@@ -2,9 +2,7 @@
 comments: true
 date: 2025-07-02
 layout: post
-title: >
-  3 simple rules to use Jupyter Notebooks in a less bad way
-  to help stop abusing Jupyter Notebooks
+title: Stop abusing Jupyter Notebooks
 categories:
   - Open science
   - Reproducibility
