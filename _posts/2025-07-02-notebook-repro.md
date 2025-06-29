@@ -13,9 +13,9 @@ categories:
 ---
 
 I love Jupyter Notebooks and use them all the time.
-However, they have their own reproducibility crisis,
+However, they have their own reproducibility crisis (TODO: citation),
 and their abuse is probably contributing to the reproducibility
-crisis in science.
+crisis in science (TODO: citation).
 That is,
 people share notebooks they used in their research but they don't
 actually run.
