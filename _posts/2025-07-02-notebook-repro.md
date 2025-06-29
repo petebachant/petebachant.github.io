@@ -90,6 +90,24 @@ as you'll like to save many versions as checkpoints along the way,
 like tying off as you climb a mountain,
 since the outputs are intermingled with the code in a JSON format.
 
+I actually don't think committing outputs is the end of the world,
+and if you're collaborating heavily on a single notebook
+such that diffing and merging becomes a problem you might
+want to break down and decouple the problem you're working on so
+people on the team can work more independently.
+
+For example, if you are working on training a machine learning model,
+data filtering and feature generation can be done in a separate notebook
+from training,
+with datasets output to the file system in between stages.
+We'll show how to formally couple these into a real pipeline and version
+control these larger data outputs later,
+by the way.
+
+Sharing and deduplicating code can be a problem here, but this can be
+solved by creating a local Python package in the project repo and depending
+on that.
+
 Tools like `nbstripout` and `jupytext` are great here.
 
 ## 2. Declare your environment(s)
