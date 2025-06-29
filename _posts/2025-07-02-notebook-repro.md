@@ -94,12 +94,17 @@ Tools like `nbstripout` and `jupytext` are great here.
 Never use notebooks in your global system environment,
 e.g., Conda's `base` environment.
 Declare an environment in which the notebook should run and run it there.
+You may think declaring a few dependencies in a README is sufficient,
+but the problem with that approach is that it's not tested or verified
+each time you run the notebook,
+and it's very possible to forget any changes you made to the environment
+along the way.
 
 With Calkit, you can create any type of Python environment with a similar
 command:
 
 ```sh
-calkit new {env-type} --name {env-name} {package-1} {package-2} {package-3}
+calkit new {env-type} --name {env-name} {packages...}
 ```
 
 In this case, `env-type` can be `conda-env`, `uv-venv`, `venv`, `pixi-env`,
@@ -109,19 +114,17 @@ since it's so fast (though Pixi is a faster Conda-compatible manager),
 so I'll typically do something like:
 
 ```sh
-calkit new uv-venv --name py1 ipykernel jupyterlab polars plotly
+calkit new uv-venv --name py1 --python 3.13 ipykernel jupyterlab polars plotly
 ```
 
 The command above will create a new virtual environment with `uv`
 and include the dependencies listed.
-By default these will go into a `requirements.txt` file, but
-this path is selectable.
-
-The `py1` environment can then be checked that it matches spec with
-
-```sh
-calkit check env -n py1
-```
+By default these will go into a `requirements.txt` file and the environment
+will be created under a `.venv` prefix,
+but these are selectable with the `--path` and `--prefix` arguments,
+respectively.
+They can also be changed later by editing the `environments` section of
+the project's `calkit.yaml` file.
 
 We can then launch JupyterLab in this environment with:
 
@@ -131,6 +134,14 @@ calkit xenv -n py1 jupyter lab
 
 Calkit will always ensure the environment is up-to-date before executing
 any command in it.
+To add packages, simply put them in the requirements file and
+rerun a command in the environment.
+No need to activate and mutate it in place, as that can be another source
+of forgotten details.
+
+Calkit will also export a "lock file" for every environment type,
+which can be committed to the project repo for later inspection or
+rebuilding the exact environment used at a given time.
 
 ## 3. Never share anything generated interactively (use a pipeline)
 
