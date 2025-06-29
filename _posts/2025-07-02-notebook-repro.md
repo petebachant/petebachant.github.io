@@ -147,7 +147,7 @@ respectively.
 They can also be changed later by editing the `environments` section of
 the project's `calkit.yaml` file.
 
-We can then launch JupyterLab in this environment with:
+We can then launch JupyterLab in our `py1` environment with:
 
 ```sh
 calkit xenv -n py1 jupyter lab
@@ -168,10 +168,20 @@ rebuilding the exact environment used at a given time.
 
 Interactive work is the main benefit of using a notebook.
 You can see feedback right away.
-However, oftentimes this
+However, oftentimes this TODO
 
 Since caching is one of the hardest things in programming (TODO: source),
 you probably shouldn't write your own caching logic.
+
+Note that if an environment changes,
+the cache is invalidated and the notebook needs to be rerun.
+However, you can decouple the stages by
+giving each notebook its own environment.
+
+You can also mix in other types of stages.
+You could run a Python script, an R script,
+a command in a Docker container (Calkit will build your image for you
+automatically).
 
 This is the big one.
 If you can follow this rule,
@@ -185,6 +195,14 @@ make sure it's created with the pipeline.
 This all of course assumes you're using Calkit,
 which you should be, since it's free and open source,
 though I am biased.
+
+If you push your project to a Calkit Cloud instance
+(you can host your own or use calkit.io),
+the HTML outputs are viewable on the project's notebooks page.
+You can commit the executed `ipynb` files to the project repo as well
+and GitHub will render them,
+though they can't render interactive elements like Plotly figures,
+which work fine on a Calkit Cloud.
 
 ## An example
 
