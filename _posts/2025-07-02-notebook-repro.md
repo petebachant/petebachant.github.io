@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2025-07-02
+date: 2025-07-01
 layout: post
 title: How to stop abusing Jupyter Notebooks
 categories:
@@ -41,16 +41,38 @@ Surely it would be a lot easier if your code just ran.
 More than likely,
 if your code fails to reproduce,
 you probably just forgot to include some important information.
-Here we're going to discuss how to avoid that.
+Here we're going to discuss how to avoid that,
+while hopefully making you more productive through automation.
 
 So here we're going to talk about how to improve
 using some features I've recently built into Calkit,
 as I've been progressing along the journey trying to build a framework
 in which researchers can work reproducibly.
 
+## Examples of abuse
+
+- Shipping a half-executed notebook.
+- Manually saving a figure out of a notebook and copy/pasting it into a
+  research article.
+
 ## 0. Understand what notebooks are for
 
 Before we get into the how, let's talk about the why.
+
+Notebooks are useful for interactive work.
+However, they themselves become artifacts or evidence when executed.
+
+If you're building software,
+they can be evidence that your idea is going to work before you go through
+the effort of implementing it in a real codebase.
+If you're doing research,
+the notebook can produce evidence to support your answers to a research
+question.
+
+Notebooks are not meant to be reusable tools.
+They do one thing: Become evidence.
+They are convenient to develop in because there seems to be no work left
+to do after they look okay.
 
 Notebooks are for generating evidence or artifacts.
 If you're a software developer,
@@ -99,6 +121,14 @@ This might include data scientists and data engineers,
 though they are typically a little more software oriented,
 and their output products are a little bit more like tools than evidence.
 
+Notebooks can be used to build interactive tools,
+but Jupyter is not a great platform for that.
+
+It's best to think of a notebook like a directed acyclic graph (DAG).
+They are meant to run from top to bottom once.
+
+TODO: Notebooks for education.
+
 ## 1. Use version control
 
 If you're going to use a notebook to provide evidence to prove a point,
@@ -132,6 +162,11 @@ solved by creating a local Python package in the project repo and depending
 on that.
 
 Tools like `nbstripout` and `jupytext` are great here.
+
+You're probably already doing this, so I won't belabor the point.
+
+However, if you're keeping notebook outputs in version control,
+it's going to make diffing...
 
 ## 2. Declare your environment(s)
 
@@ -196,6 +231,24 @@ However, oftentimes this TODO
 Since caching is one of the hardest things in programming (TODO: source),
 you probably shouldn't write your own caching logic.
 
+So what is a pipeline?
+If you're using a collection of notebooks, starting and executing them
+manually,
+you are serving as a sort of manual pipeline.
+You are keeping track of what needs to be run in what order,
+and what needs to be rerun if something changes.
+
+Back to the definition of reproducibility:
+Everything must be generated with a single command.
+One option is to write a script that automatically checks and uses
+the correct virtual environment and executes the notebook with something
+like `nbconvert`, but what if you have a heterogeneous workflow?
+For example,
+maybe you have a notebook, a Python script, and a LaTeX document to compile.
+It could be cumbersome to track all of the environments,
+input dependencies, caching, etc.
+That's where Calkit comes in.
+
 Note that if an environment changes,
 the cache is invalidated and the notebook needs to be rerun.
 However, you can decouple the stages by
@@ -226,6 +279,8 @@ You can commit the executed `ipynb` files to the project repo as well
 and GitHub will render them,
 though they can't render interactive elements like Plotly figures,
 which work fine on a Calkit Cloud.
+
+## But what if part of my notebook is expensive and I don't want to run it again?
 
 ## An example
 
