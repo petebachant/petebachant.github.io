@@ -2,7 +2,7 @@
 comments: true
 date: 2025-07-02
 layout: post
-title: Stop abusing Jupyter Notebooks
+title: How to stop abusing Jupyter Notebooks
 categories:
   - Open science
   - Reproducibility
@@ -19,6 +19,29 @@ people share notebooks they used in their research but they don't
 actually run.
 They don't produce the outputs their author's say they did
 and included in a paper, for example.
+
+How does this happen?
+Well, someone works interactively in a notebook,
+somehow gets an output they like,
+they save it,
+but don't keep track of how it was generated.
+Something ends up missing: what libraries were installed,
+what order the cells were run in, etc.
+
+Why is this a problem?
+Well, in the methods section of your paper you describe how you generated
+the evidence that supports your conclusions.
+If you share your code and data,
+as you should,
+but it doesn't actually produce that evidence,
+how does the world know you didn't just make it up?
+
+Should the world reimplement all of your methods from scratch?
+Surely it would be a lot easier if your code just ran.
+More than likely,
+if your code fails to reproduce,
+you probably just forgot to include some important information.
+Here we're going to discuss how to avoid that.
 
 So here we're going to talk about how to improve
 using some features I've recently built into Calkit,
