@@ -129,6 +129,21 @@ They are meant to run from top to bottom once.
 
 TODO: Notebooks for education.
 
+It's okay to write code that only does one thing!
+That is, not all code needs to be a generalized, multi-purpose tool.
+And notebooks fall in this category.
+Many times, the code in the notebook is there to generate artifacts
+for a paper.
+
+If you need to start parameterizing things, get that out of the notebook.
+
+Don't go too crazy with DRY though.
+Make sure the things run reproducibly first.
+You can build tools after you prove the algorithms work,
+and can look back on the notebooks to develop test cases.
+
+Rule of 3.
+
 ## 1. Use version control
 
 If you're going to use a notebook to provide evidence to prove a point,
