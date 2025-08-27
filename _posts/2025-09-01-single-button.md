@@ -53,6 +53,19 @@ Can we do a simulation to show where the tipping point is with simpy?
 
 Reusability
 
+A nice reproducible research project serves as a platform for doing more
+science, not as a platform for developing software.
+
+I often see repro packs written in such a way that they attempt to
+deliver half-baked tools instead of the research project itself.
+This may be out of humility.
+Why would anyone want code that simply produces the results in my paper
+but nothing more?
+
+The thing is,
+in trying to make your code more reusable you broke its ability to achieve
+its original purpose!
+
 ## How we could improve
 
 Maybe don't need this section
