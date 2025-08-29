@@ -36,6 +36,8 @@ Cost/benefit
 
 Cost can be getting scooped
 
+Costs of manual workflows are not obvious
+
 ## Why we should improve
 
 Eliminating mistakes: Let's forget about that because in peer review it's
@@ -66,7 +68,7 @@ The thing is,
 in trying to make your code more reusable you broke its ability to achieve
 its original purpose!
 
-## How we could improve
+## How we could improve: Full stack research
 
 Maybe don't need this section
 
