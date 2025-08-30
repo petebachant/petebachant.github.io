@@ -9,6 +9,10 @@ categories:
   - Software engineering
 ---
 
+Why your research is probably not reproducible, and does that even matter?
+
+Your research is probably not reproducible: Why is that, and does it even matter?
+
 I left my job about a year ago to try to help with the reproducibility
 crisis.
 This article is a summary of what I've learned so far and my current outlook.
@@ -37,6 +41,12 @@ Cost/benefit
 Cost can be getting scooped
 
 Costs of manual workflows are not obvious
+
+Hidden or forgotten global state
+
+Interactivity causes this, but interactivity is key
+
+Fragmentation
 
 ## Why we should improve
 
@@ -68,7 +78,9 @@ The thing is,
 in trying to make your code more reusable you broke its ability to achieve
 its original purpose!
 
-## How we could improve: Full stack research
+## How we could improve: Full stack science
+
+Silos and handoffs are bad.
 
 Maybe don't need this section
 
@@ -80,3 +92,6 @@ computational tooling and infrastructure?
 
 If you look at the landscape, there are so many tools out there to use,
 but it's very rare to tie them all together.
+
+This is the direction we've been heading with Calkit,
+and we're going to keep driving down the cost of automation.
