@@ -36,22 +36,45 @@ anyone can get the same results.
 This is not to be confused with replicability,
 which involves collecting new data.
 
-If we create a simple model of the research process using a
+If we create a simple model of the research process as a
 directed acyclic graph (DAG),
 it might look like this:
 
 ```mermaid
+flowchart LR
+    A[Collect data] --> B[Process data]
+    B --> C[Visualize data]
+    C --> D[Compile paper]
 
+    style A fill:#90EE90
+    style B fill:#87CEEB
+    style C fill:#87CEEB
+    style D fill:#87CEEB
 ```
 
 In this model, reproducibility involves the latter three stages,
 which replicability includes them all.
 
+## How bad is the 'crisis'?
+
+## The gold standard
+
+In the original
+
 Single button
+
+Where do we draw the line?
+Some have said 15 minutes of labor max.
+Personally, I think we should shoot for the moon here.
 
 "Foundational" dependencies are an exception.
 Things like package managers, Docker, etc.
 Individual package installs must be automated though.
+
+From this standard, a study that takes an hour of human labor to reproduce
+would technically not be considered reproducible.
+It kind of is, but in my opinion we should be shooting for the gold standard.
+We'll discuss a bit more about why that's important later on.
 
 ## Relation to open science
 
@@ -73,6 +96,9 @@ and mathematical formulas---are no longer sufficient.
 Lists in a README
 
 A conflation of repro/reuse
+
+If one did truly want to make their work single-button reproducible,
+what would it take?
 
 ## Why reproducibility is rare
 
