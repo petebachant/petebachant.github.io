@@ -114,6 +114,10 @@ Interactivity causes this, but interactivity is key
 
 Fragmentation
 
+For software development, it is now taken for granted that automating
+testing and deployment is always worth the cost,
+but is that true for research work?
+
 ## The costs and gains to be had
 
 Scientists provide value by thinking up innovative ideas
@@ -126,6 +130,21 @@ Let's try to estimate that waste.
 TODO: Make some back of the envelope estimates and show that if
 reproducibility were free,
 science would advance X% faster.
+
+## The role of interactivity
+
+Interactivity is necessary for discovering the computations that work.
+
+However, interactive workflows need to be converted into batch workflows
+once they are deemed valuable.
+That is the costly part that often doesn't make immediate sense to do.
+
+We lose the breadcrumbs.
+
+Global system changes that now get us working.
+We could document them, but that's also costly.
+
+So how to we bridge the divide?
 
 ## Why we should improve
 
