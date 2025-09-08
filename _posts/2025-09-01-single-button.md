@@ -127,6 +127,14 @@ Any unnecessary work done along the way is waste.
 
 Let's try to estimate that waste.
 
+What are some examples of wasteful activities:
+
+- Determining which figures need to be regenerated after a change in data
+  processing logic.
+- Manually uploading new figures to Overleaf or re-importing into Microsoft
+  Word.
+- Manually copying data to and from an HPC cluster.
+
 TODO: Make some back of the envelope estimates and show that if
 reproducibility were free,
 science would advance X% faster.
