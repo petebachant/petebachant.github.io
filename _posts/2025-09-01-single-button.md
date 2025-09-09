@@ -205,3 +205,8 @@ but it's very rare to tie them all together.
 
 This is the direction we've been heading with Calkit,
 and we're going to keep driving down the cost of automation.
+
+Is literate programming the answer?
+I'm skeptical that it will be intuitive to people to declare a big
+computing job to be run on an HPC inside of a document,
+but maybe.
