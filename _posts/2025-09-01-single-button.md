@@ -76,6 +76,13 @@ would technically not be considered reproducible.
 It kind of is, but in my opinion we should be shooting for the gold standard.
 We'll discuss a bit more about why that's important later on.
 
+## A rule of thumb
+
+If you want to share something, e.g., a figure, dataset, or ML model,
+produce it as part of a version-controlled
+single button pipeline so there's never any question
+how it came to be.
+
 ## Relation to open science
 
 To be reproducible, it must be open.
@@ -151,6 +158,13 @@ We lose the breadcrumbs.
 
 Global system changes that now get us working.
 We could document them, but that's also costly.
+
+Let's to back to the rule of thumb with an example.
+Say you're playing around and stumble upon a way of visualizing the data
+the elucidates an answer to an important question.
+Before sending it off to your team on Slack,
+put the script or notebook or whatever into a pipeline, run it,
+and share the version created there.
 
 So how to we bridge the divide?
 
