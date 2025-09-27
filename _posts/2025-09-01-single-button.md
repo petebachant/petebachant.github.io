@@ -1,30 +1,83 @@
 ---
 comments: true
-date: 2025-09-01
+date: 2025-10-01
 layout: post
-title: "Why almost no science is reproducible, and should we even care?"
+title: "Single button reproducibility: The what, why, and how"
 categories:
   - Open science
   - Reproducibility
   - Software engineering
 ---
 
-Why your research is probably not reproducible, and does that even matter?
+The initial vision for computational reproducibility dates back to
+the early 90s with Claerbout and Karrenbach,
+in which they shared their dream that researchers would be able to
+reproduce their results a year or more later with a single button.
 
-Your research is probably not reproducible: Why is that, and does it even matter?
+These days, the open science movement has made code and data sharing more
+prevalent,
+but often what is shared---called a "repro pack"--is a far cry
+from single button reproducible.
+In fact, in many cases it's not reproducible at all,
+hence why it's referred to as a crisis.
+As a side note,
+I am not talking about replicability here,
+which is the ability to redo an entire study.
+Reproducibility refers to rerunning the analysis, visualization, etc.,
+on the same original data.
 
-Your research is probably not reproducible,
-and you probably don't care enough to change that.
-That's not a judgement of you,
-but of the system in which you're working.
+Log on to Figshare or Zenodo and download a random repro pack and
+you'll probably see long lists of manual steps explaining how to
+create and update environments, dependencies, and then maybe a numbered
+collection of scripts and/or notebooks.
+Sometimes, you'll see a collection of files with no instructions at all.
+In many cases, you'll need to manually modify the code to run on your
+system,
+either because you've been instructed to download some data and put it
+somewhere, or the original author used absolute paths.
 
-I left my job about a year ago to try to help with the reproducibility
-crisis.
-This article is a summary of what I've learned so far and my current outlook.
+To be clear,
+this level of transparency is laudable,
+but the lack of automation in workflows presents a huge opportunity
+to benefit both the community and the individuals.
+Here I'll explain why and how to get there.
 
-When I started on this journey I assumed this problem was well known and
-just about every researcher was eager for a solution.
-I learned it wasn't so simple.
+## The benefits
+
+### The benefits to society
+
+### Benefits to the individual
+
+Sadly, individuals are not going to be making decisions like whether
+or not to automate their research workflows based on the benefits to
+society alone.
+They'll need to get something out of it.
+Luckily, there is much to be gained for those who automate.
+
+Cal Newport's "Deep Work"...
+
+## But what about the cost?
+
+## Working towards a solution
+
+Of course I will need to talk about Calkit now.
+
+Concepts:
+
+1. The project is the most important entity and should contain all related
+   files.
+2. Any derived artifact, e.g., a figure, should not be shared outside the
+   project unless it was produced by its pipeline.
+
+Follow these two rules, and you'll be more efficient...
+
+### Challenge 1: Version control
+
+### Challenge 2: Tooling fragmentation
+
+### Challenge 3: Dependency management
+
+### Challenge 4: Bridging the interactive--batch chasm
 
 ## Reproducibility: What is it?
 
