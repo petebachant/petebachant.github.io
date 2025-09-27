@@ -79,6 +79,17 @@ Follow these two rules, and you'll be more efficient...
 
 ### Challenge 4: Bridging the interactive--batch chasm
 
+When someone creates, for example, a figure that they like.
+They will naturally assume they're done, i.e.,
+they won't have to do it again, or they won't
+need to iterate on it.
+So they won't think they need to automate its creation.
+
+What we need is a way to essentially create a replayable and editable
+history of what they did.
+
+## Where Calkit is heading
+
 ## Reproducibility: What is it?
 
 First off, what is reproducibility?
