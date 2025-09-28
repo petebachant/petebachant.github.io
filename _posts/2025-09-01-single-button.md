@@ -33,6 +33,7 @@ on the original data,
 checking that it's possible to regenerate the evidence (figures, tables, etc.)
 that back up the
 original conclusions.
+See The Turing Handbook for more information.
 
 Log on to Figshare or Zenodo and download a random repro pack and
 you'll probably see long lists of manual steps explaining how to
@@ -170,6 +171,9 @@ What we need is a way to essentially create a replayable and editable
 history of what they did.
 
 ## Where Calkit is heading
+
+
+
 
 ## Reproducibility: What is it?
 
