@@ -9,16 +9,16 @@ categories:
   - Software engineering
 ---
 
-The initial vision for computational reproducibility dates back to
+One of the initial visions for computational reproducibility dates back to
 the early 90s with Claerbout and Karrenbach,
 in which they shared their dream that researchers would be able to
 reproduce their results a year or more later with a single button.
 
 These days, the open science movement has made code and data sharing more
 prevalent,
-but often what is shared---called a "repro pack"--is a far cry
+but often what is shared---called a "repro pack"---is a far cry
 from single button reproducible.
-In fact, in many cases it's not reproducible at all,
+In fact, in most cases it's not reproducible at all,
 hence why it's referred to as a crisis.
 As a side note,
 I am not talking about replicability here,
@@ -38,15 +38,33 @@ somewhere, or the original author used absolute paths.
 
 To be clear,
 this level of transparency is laudable,
+and failure to reproduce does not necessarily indicate
+incorrect conclusions,
 but the lack of automation in workflows presents a huge opportunity
-to benefit both the community and the individuals.
-Here I'll explain why and how to get there.
+to benefit both the community and those who are currently publishing
+irreproducible work.
+Here I'll explain the what, why, and how to get there.
 
-## The benefits
+## What is single button reproducibility?
 
-### The benefits to society
+Basically, if you can go from raw data to research article with a single
+command (or button, but the command line is probably more realistic),
+your project is single button reproducible.
+This should include dependency management, e.g., installing Python or
+R packages.
+However, we can make exceptions for system-level
+foundational dependencies like Python,
+R, Julia, Docker, etc.
+The distinction here is that these are generally useful across many projects
+and do not vary like package versions might.
+So, Python is a foundational dependency but Pandas is not.
 
-### Benefits to the individual
+## Benefits to society
+
+It's not hard to imagine why it would be nice for every single study
+to ship with a single button reproducible archive.
+
+## Benefits to the individual
 
 Sadly, individuals are not going to be making decisions like whether
 or not to automate their research workflows based on the benefits to
