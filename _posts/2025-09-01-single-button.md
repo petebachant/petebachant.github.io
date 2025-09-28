@@ -1,8 +1,8 @@
 ---
 comments: true
-date: 2025-10-01
+date: 2025-09-28
 layout: post
-title: "Single button reproducibility: The what, why, and the how"
+title: "Single button reproducibility: The what, the why, and the how"
 categories:
   - Open science
   - Reproducibility
@@ -10,10 +10,10 @@ categories:
 ---
 
 One of the initial visions for computational reproducibility dates back to
-the early 90s where
+the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
 shared their goal that researchers would be able to
-reproduce their results a year or more later with a single button.
+reproduce their results "a year or more later with a single button.""
 
 These days, the open science movement has made code and data sharing more
 prevalent,
@@ -22,7 +22,7 @@ but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
 not really single button reproducible.
 In fact, in most case repro packs are
-[not actually reproducible](https://doi.org/10.1093/bib/bbad375),
+[not actually reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's referred to as a crisis.
 As a side note,
 I am not talking about replicability here,
@@ -61,14 +61,15 @@ Here I'll explain the what, why, and how to get there.
 Basically, if you can go from raw data to research article with a single
 command (or button, but the command line is probably more realistic),
 your project is single button reproducible.
-This should include dependency management, e.g., installing Python or
-R packages.
+This one command should include dependency management,
+e.g., installing Python or R packages.
 However, we can make exceptions for system-level
-foundational dependencies like Python,
-R, Julia, Docker, etc.
+foundational dependencies like Python distributions,
+R, Julia, Docker, etc., even MATLAB.
 The distinction here is that these are generally useful across many projects
 and do not vary like package versions might.
-So, Python is a foundational dependency but Pandas is not.
+So, a programming language like Python is a foundational dependency but a
+library like Pandas is not.
 
 ## The relationship to software products
 
@@ -104,10 +105,39 @@ However, given the cost, perhaps it's in the "nice to have" category.
 The papers need to get out the door,
 and you don't think the cost/benefit analysis justifies it right now.
 
-1. Subsidize the cost
-2. Build simpler tools and infrastructure to bring the cost down
+1. Subsidize the cost:
+    1. Of training
+    2. Of the software engineering work
+2. Build tools and infrastructure to bring the cost down
 
-## Subsidizing the cost
+Option 1.1 is effectively the strategy of
+[The Carpentries](https://carpentries.org/)
+and it's one I like.
+Computational literacy may not fit into most college curricula,
+but I believe it can improve the productivity of basically any knowledge
+worker.
+
+Option 1.2 is a bit newer,
+with research software engineering (RSE) becoming a more common job title
+in academia (my current one).
+Essentially the strategy is to pay for the expertise so scientists
+don't need to do so much on their own.
+I like this one as well,
+given that's currently how I make a living,
+and it's especially good when RSEs can help produce scientific
+software products that help reduce the computational expertise
+necessary for other scientists to do their work.
+
+I also believe that there is unnecessary complexity in some typical
+computational practices in research,
+which is worth building tooling infrastructure around to allow researchers
+to work at a higher level of abstraction.
+Is it really reasonable to expect scientists to become part time SWEs so
+their R and Python scripts can be reproducible?
+Or do we expect them all to hire experts in somewhat high demand for
+relatively simple computational workflows?
+This is where option 2 comes in,
+and I think we need to continue down that path.
 
 ## Simplified tooling and infrastructure
 
