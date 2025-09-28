@@ -28,7 +28,8 @@ on the same original data.
 
 Log on to Figshare or Zenodo and download a random repro pack and
 you'll probably see long lists of manual steps explaining how to
-create and update environments, dependencies, and then maybe a numbered
+create and update environments, install dependencies,
+and then maybe a numbered
 collection of scripts and/or notebooks.
 Sometimes, you'll see a collection of files with no instructions at all.
 In many cases, you'll need to manually modify the code to run on your
@@ -59,10 +60,19 @@ The distinction here is that these are generally useful across many projects
 and do not vary like package versions might.
 So, Python is a foundational dependency but Pandas is not.
 
+## The relationship to software products
+
+You may think your scripts will never have any use outside your
+project---so what?
+Almost all software products started out as some prototype that
+solved a very specific problem,
+hence the phrase "land and expand."
+Make your project at least run, worry about productization later.
+
 ## Benefits to society
 
 It's not hard to imagine why it would be nice for every single study
-to ship with a single button reproducible archive.
+to ship with a single button repro pack.
 
 ## Benefits to the individual
 
@@ -76,7 +86,20 @@ Cal Newport's "Deep Work"...
 
 ## But what about the cost?
 
-## Working towards a solution
+## So how do we get there?
+
+By now maybe you agree that single button reproducibility is a good
+thing.
+However, given the cost, perhaps it's in the "nice to have" category.
+The papers need to get out the door,
+and you don't think the cost/benefit analysis justifies it right now.
+
+1. Subsidize the cost
+2. Build simpler tools and infrastructure to bring the cost down
+
+## Subsidizing the cost
+
+## Simplified tooling and infrastructure
 
 Of course I will need to talk about Calkit now.
 
