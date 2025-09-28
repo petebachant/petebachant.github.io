@@ -2,7 +2,7 @@
 comments: true
 date: 2025-10-01
 layout: post
-title: "Single button reproducibility: The what, why, and how"
+title: "Single button reproducibility: The what, why, and the how"
 categories:
   - Open science
   - Reproducibility
@@ -10,21 +10,29 @@ categories:
 ---
 
 One of the initial visions for computational reproducibility dates back to
-the early 90s with Claerbout and Karrenbach,
-in which they shared their dream that researchers would be able to
+the early 90s where
+[Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
+shared their goal that researchers would be able to
 reproduce their results a year or more later with a single button.
 
 These days, the open science movement has made code and data sharing more
 prevalent,
-but often what is shared---called a "repro pack"---is a far cry
-from single button reproducible.
-In fact, in most cases it's not reproducible at all,
+which is a great achievement,
+but often what is shared---sometimes called a
+["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
+not really single button reproducible.
+In fact, in most case repro packs are
+[not actually reproducible](https://doi.org/10.1093/bib/bbad375),
 hence why it's referred to as a crisis.
 As a side note,
 I am not talking about replicability here,
-which is the ability to redo an entire study.
+which refers to collecting new raw data
+and checking the original study's conclusions.
 Reproducibility refers to rerunning the analysis, visualization, etc.,
-on the same original data.
+on the original data,
+checking that it's possible to regenerate the evidence (figures, tables, etc.)
+that back up the
+original conclusions.
 
 Log on to Figshare or Zenodo and download a random repro pack and
 you'll probably see long lists of manual steps explaining how to
@@ -35,10 +43,12 @@ Sometimes, you'll see a collection of files with no instructions at all.
 In many cases, you'll need to manually modify the code to run on your
 system,
 either because you've been instructed to download some data and put it
-somewhere, or the original author used absolute paths.
+somewhere of your choosing, or the original author used absolute paths
+that need to be adapted for a new instance of the project.
 
 To be clear,
-this level of transparency is laudable,
+this level of transparency and willingness to share messy research code
+is laudable,
 and failure to reproduce does not necessarily indicate
 incorrect conclusions,
 but the lack of automation in workflows presents a huge opportunity
