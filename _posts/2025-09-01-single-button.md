@@ -12,18 +12,19 @@ categories:
 One of the initial visions for computational reproducibility dates back to
 the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
-shared their goal that researchers would be able to
-reproduce their results "a year or more later with a single button.""
+shared that they hoped researchers would be able to
+reproduce their results "a year or more later with a single button."
 
 These days, the open science movement has made code and data sharing more
 prevalent,
 which is a great achievement,
 but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
-not really single button reproducible.
+not single button reproducible.
 In fact, in most case repro packs are
-[not actually reproducible at all](https://doi.org/10.1093/bib/bbad375),
-hence why it's referred to as a crisis.
+[not reproducible at all](https://doi.org/10.1093/bib/bbad375),
+hence why it's called a reproducibility crisis.
+
 As a side note,
 I am not talking about replicability here,
 which refers to collecting new raw data
@@ -33,7 +34,9 @@ on the original data,
 checking that it's possible to regenerate the evidence (figures, tables, etc.)
 that back up the
 original conclusions.
-See The Turing Handbook for more information.
+See
+[The Turing Way](https://book.the-turing-way.org/reproducible-research/overview/overview-definitions/)
+for more information.
 
 Log on to Figshare or Zenodo and download a random repro pack and
 you'll probably see long lists of manual steps explaining how to
@@ -95,6 +98,11 @@ They'll need to get something out of it.
 Luckily, there is much to be gained for those who automate.
 
 Cal Newport's "Deep Work"...
+
+Working reproducibly will get your paper out the door more quickly.
+Working openly will make it more impactful (and more cited).
+
+So why is open reproducibly research still so rare?
 
 ## But what about the cost?
 
