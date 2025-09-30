@@ -88,14 +88,37 @@ Make your project at least run, worry about productization later.
 
 It's not hard to imagine why it would be nice for every single study
 to ship with a single button repro pack.
+If we imagine each one building upon the last like floors of a skyscraper,
+needing to the last's code running is like having to rebuild part
+of the floor below, which is clearly inefficient.
 
-Even if the software isn't nicely generalized and modularized,
+{% include figure.html
+width="300px"
+src="/images/single-button/skyscraper.png"
+caption="When you ship a single button reproducible project with your paper
+others can build on top of it."
+%}
+
+Even if the software isn't nicely generalized and modularized
+as its own _software product_ like an application or library,
 it's still much more useful to have something that works
 than something that does not.
-With a working project, one can make small changes to move it towards
+With a working project, one can make small changes to evolve it towards
 doing something new.
 With a non-working project,
 it can be challenging to even know where to start to get back to zero.
+Furthermore,
+it's a lot easier to productize an algorithm when you have a working
+reference implementation, even if it's going to be rewritten.
+
+Imagine if we could shave a few weeks of work off of every research project
+from now onwards.
+
+{% include figure.html
+src="/images/single-button/matlab-fail.png"
+caption="Imagine if this student didn't need to waste their time reverse
+engineering a non-working repro pack."
+%}
 
 ## Benefits to the individual
 
