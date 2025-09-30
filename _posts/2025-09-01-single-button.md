@@ -21,7 +21,7 @@ which is a great achievement,
 but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
 not single button reproducible.
-In fact, in most case repro packs are
+In fact, in most cases repro packs are
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a reproducibility crisis.
 
@@ -74,6 +74,18 @@ The distinction here is that these are generally useful across many projects
 and do not vary like package versions might.
 So, a programming language like Python is a foundational dependency but a
 library like Pandas is not.
+
+```mermaid
+flowchart LR
+    A[Collect data] --> B[Process data]
+    B --> C[Visualize data]
+    C --> D[Compile paper]
+
+    style A fill:#90EE90
+    style B fill:#87CEEB
+    style C fill:#87CEEB
+    style D fill:#87CEEB
+```
 
 ## Benefits to society
 
