@@ -20,7 +20,7 @@ prevalent,
 which is a great achievement,
 but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
-not single button reproducible.
+very rarely single button reproducible.
 In fact, in most cases repro packs are
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a reproducibility crisis.
@@ -39,7 +39,7 @@ See
 for more information.
 
 Log on to Figshare or Zenodo and download a random repro pack and
-you'll probably see long lists of manual steps explaining how to
+you'll probably see lists of manual steps explaining how to
 create and update environments, install dependencies,
 and then maybe a numbered
 collection of scripts and/or notebooks.
@@ -280,6 +280,56 @@ This is where option 2 comes in,
 and I think we need to continue down that path.
 
 ## Simplified tooling and infrastructure
+
+```python
+# Project 1
+install_dependencies()
+create_figures()
+do_git()
+build_caching()
+cache_data()
+run_simulation()
+compile_paper()
+
+# Project 2
+install_dependencies()
+create_figures()
+do_git()
+build_caching()
+cache_data()
+run_simulation()
+compile_paper()
+
+# Project 3
+install_dependencies()
+create_figures()
+do_git()
+build_caching()
+cache_data()
+run_simulation()
+compile_paper()
+```
+
+```python
+def do_research():
+    """An abstraction around reproducible research."""
+    install_dependencies()
+    create_figures()
+    do_git()
+    build_caching()
+    cache_data()
+    run_simulation()
+    compile_paper()
+
+# Project 1
+do_research()
+
+# Project 2
+do_research()
+
+# Project 3
+do_research()
+```
 
 Of course I will need to talk about Calkit now.
 
