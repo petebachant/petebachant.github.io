@@ -231,6 +231,12 @@ as it might delay the time-to-paper.
 
 ![The cost of automation](/images/single-button/automation-cost.png)
 
+And so there's the challenge.
+In the absence of other incentives
+(like punishment for irreproducible publications)
+we can't expect researchers to publish single button reproducible projects
+without driving down the cost of automation.
+
 ## So how do we get there?
 
 By now maybe you agree that single button reproducibility is a good
