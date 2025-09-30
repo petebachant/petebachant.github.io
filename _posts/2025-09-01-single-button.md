@@ -222,7 +222,8 @@ An example "stack" would look something like:
 
 It's not surprising that single button reproducibility is rare given that
 the practices above amount to expecting scientists to become part time
-software engineers.
+software engineers, pick their tools, design bespoke frameworks for
+each project, etc.
 In other words, there is a very high cost to doing thing this way in
 terms of both skill and effort,
 and researchers are (probably rationally) perceiving that the cost is
