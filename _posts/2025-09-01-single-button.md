@@ -92,7 +92,8 @@ flowchart LR
 It's not hard to imagine why it would be nice for every single study
 to ship with a single button repro pack.
 If we imagine each one building upon the last like floors of a skyscraper,
-needing to the last's code running is like having to rebuild part
+spending time and effort
+to get the last's code running is like having to rebuild part
 of the floor below, which is clearly inefficient.
 
 {% include figure.html
@@ -102,7 +103,7 @@ caption="When you ship a single button reproducible project with your paper
 others can build on top of it."
 %}
 
-Even if the software isn't nicely generalized and modularized
+Even if the code isn't nicely generalized and modularized
 as its own _software product_ like an application or library,
 it's still much more useful to have something that works
 than something that does not.
@@ -113,6 +114,10 @@ it can be challenging to even know where to start to get back to zero.
 Furthermore,
 it's a lot easier to productize an algorithm when you have a working
 reference implementation, even if it's going to be rewritten.
+In fact,
+I'd much rather have a working project with niche, highly specific
+one-off scripts than one that has been shoddily converted into a
+half-baked tool.
 
 Imagine if we could shave a few weeks of work off of every research project
 from now onwards.
@@ -128,8 +133,46 @@ engineering a non-working repro pack."
 Sadly, individuals are not going to be making decisions like whether
 or not to automate their research workflows based on the benefits to
 society alone.
-They'll need to get something out of it.
+They'll need to get something out of it themselves.
 Luckily, there is much to be gained for those who automate.
+
+Imagine a computational workflow like the one below.
+It involves installing dependencies, downloading data,
+running scripts in different languages,
+running notebooks, saving and uploading figures to Overleaf,
+and then finally exporting a PDF to share with the outside world.
+When not automated, each line connecting the boxes represents
+"computational logistics," which takes a certain
+amount of cognitive overhead.
+
+```mermaid
+flowchart LR
+    A[Install Python packages] --> B[Run Python script 1]
+    AA[Download data] --> B
+    B --> C[Run notebook 1]
+    C --> E[Upload figure 1 to Overleaf]
+    E --> F[Export PDF]
+    G[Run Python script 2] --> C
+    A --> G
+
+    H[Install R packages] --> I[Run R script 1]
+    G --> I
+    I --> J[Run notebook 2]
+    J --> L[Upload figure 2 to Overleaf]
+    L --> F
+
+    style A fill:#87CEEB
+    style AA fill:#87CEEB
+    style B fill:#87CEEB
+    style C fill:#87CEEB
+    style E fill:#87CEEB
+    style F fill:#90EE90
+    style G fill:#87CEEB
+    style H fill:#87CEEB
+    style I fill:#87CEEB
+    style J fill:#87CEEB
+    style L fill:#87CEEB
+```
 
 Cal Newport's "Deep Work"...
 
