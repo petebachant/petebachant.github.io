@@ -89,6 +89,14 @@ Make your project at least run, worry about productization later.
 It's not hard to imagine why it would be nice for every single study
 to ship with a single button repro pack.
 
+Even if the software isn't nicely generalized and modularized,
+it's still much more useful to have something that works
+than something that does not.
+With a working project, one can make small changes to move it towards
+doing something new.
+With a non-working project,
+it can be challenging to even know where to start to get back to zero.
+
 ## Benefits to the individual
 
 Sadly, individuals are not going to be making decisions like whether
