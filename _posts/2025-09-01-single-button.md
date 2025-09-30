@@ -75,15 +75,6 @@ and do not vary like package versions might.
 So, a programming language like Python is a foundational dependency but a
 library like Pandas is not.
 
-## The relationship to software products
-
-You may think your scripts will never have any use outside your
-project---so what?
-Almost all software products started out as some prototype that
-solved a very specific problem,
-hence the phrase "land and expand."
-Make your project at least run, worry about productization later.
-
 ## Benefits to society
 
 It's not hard to imagine why it would be nice for every single study
