@@ -136,14 +136,25 @@ society alone.
 They'll need to get something out of it themselves.
 Luckily, there is much to be gained for those who automate.
 
+In
+[software engineering it's well known](https://dl.acm.org/doi/10.5555/3235404)
+that test, build, and deployment
+pipelines are worth automating because automation reduces waste and pain points,
+ultimately allowing for faster and more frequent iterations.
+And more iterations equals a higher quality product.
+Fully automated workflows are much less common in science,
+but their value comes from the same principles.
+
 Imagine a computational workflow like the one below.
 It involves installing dependencies, downloading data,
 running scripts in different languages,
 running notebooks, saving and uploading figures to Overleaf,
 and then finally exporting a PDF to share with the outside world.
 When not automated, each line connecting the boxes represents
-"computational logistics," which takes a certain
-amount of cognitive overhead.
+"computational logistics," which takes time.
+If any of these steps ever needs to be done more than once
+(almost guaranteed),
+that means time wasted.
 
 ```mermaid
 flowchart LR
@@ -174,14 +185,51 @@ flowchart LR
     style L fill:#87CEEB
 ```
 
-Cal Newport's "Deep Work"...
+Beyond time, each of these low-value-add tasks adds cognitive overhead.
+Imagine we need to change something about Python script 2.
+Keeping track of what other steps need to be done in response is going
+to cost brainpower that would be better spent on so-called
+["Deep Work"](https://calnewport.com/deep-work-rules-for-focused-success-in-a-distracted-world/).
+Scientists should be thinking up innovative ideas,
+not trying to remember if they need to regenerate and reupload a figure.
+
+TODO: Write about eliminating waste and the magic of more iterations.
 
 Working reproducibly will get your paper out the door more quickly.
 Working openly will make it more impactful (and more cited).
 
+### No more retrospective repro packs
+
+Now that more and more journals are requiring repro packs to be submitted
+and checked as part of the review process
+(none that I've submitted or reviewed for sadly),
+
 So why is open reproducibly research still so rare?
 
 ## But what about the cost?
+
+Let's say you're with me so far and you believe that there are enough
+iterations done in a research project to justify automating the workflow.
+With today's tools and best practices, what will it take and what will it
+look like to make a project single button reproducible?
+An example "stack" would look something like:
+
+1. Git/GitHub for version controlling code, LaTeX input files, etc.
+2. Data archived with a DOI thanks to Figshare, Zenodo, or OSF.
+3. Virtual environments and/or containers.
+4. Scripting and/or a workflow engine like Make, Snakemake, NextFlow to tie
+   everything together, move data around when necessary.
+
+It's not surprising that single button reproducibility is rare given that
+the practices above amount to expecting scientists to become part time
+software engineers.
+In other words, there is a very high cost to doing thing this way in
+terms of both skill and effort,
+and researchers are (probably rationally) perceiving that the cost is
+not worth the benefit,
+as it might delay the time-to-paper.
+
+![The cost of automation](/images/single-button/automation-cost.png)
 
 ## So how do we get there?
 
