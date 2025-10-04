@@ -129,31 +129,37 @@ engineering a non-working repro pack."
 
 ## Benefits to the individual
 
-Sadly, individuals are not going to be making decisions like whether
-or not to automate their research workflows based on the benefits to
-society alone.
-They'll need to get something out of it themselves.
-Luckily, there is much to be gained for those who automate.
+Shipping single button reproducible projects will surely benefit
+the next person looking to build on the work,
+but what about the original author themselves?
+If we want them to play along they're going to need to get something
+out of it, and for most this is going to mean things that tenure
+committees and funding organizations care about like more publications
+and citations.
+There's [evidence](https://arxiv.org/pdf/2508.20747)
+showing that working openly attracts more citations,
+and here I'll argue that automation will achieve faster time-to-publication.
 
 In
 [software engineering it's well known](https://dl.acm.org/doi/10.5555/3235404)
 that test, build, and deployment
 pipelines are worth automating because automation reduces waste and pain points,
 ultimately allowing for faster and more frequent iterations.
-And more iterations equals a higher quality product.
+With more iterations comes a higher quality product.
 Fully automated workflows are much less common in science,
-but their value comes from the same principles.
+but the value comes from the same principles.
 
 Imagine a computational workflow like the one below.
 It involves installing dependencies, downloading data,
 running scripts in different languages,
-running notebooks, saving and uploading figures to Overleaf,
+running notebooks, saving and uploading figures to
+a writing tool like Overleaf,
 and then finally exporting a PDF to share with the outside world.
 When not automated, each line connecting the boxes represents
 "computational logistics," which takes time.
 If any of these steps ever needs to be done more than once
-(almost guaranteed),
-that means time wasted.
+(which is almost guaranteed),
+that is time that could be shaved off the time-to-publication.
 
 ```mermaid
 flowchart LR
@@ -191,11 +197,9 @@ to cost brainpower that would be better spent on so-called
 ["Deep Work"](https://calnewport.com/deep-work-rules-for-focused-success-in-a-distracted-world/).
 Scientists should be thinking up innovative ideas,
 not trying to remember if they need to regenerate and reupload a figure.
-
-TODO: Write about eliminating waste and the magic of more iterations.
-
-Working reproducibly will get your paper out the door more quickly.
-Working openly will make it more impactful (and more cited).
+And again, when this process is tedious,
+there's an inclination to do fewer iterations,
+which diminishes the quality of the final product.
 
 ### No more retrospective repro packs
 
