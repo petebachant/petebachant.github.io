@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2025-09-28
+date: 2025-10-04
 layout: post
 title: "Single button reproducibility: The what, the why, and the how"
 categories:
@@ -15,48 +15,55 @@ the early 90s, where
 shared that they hoped researchers would be able to
 reproduce their results "a year or more later with a single button."
 
-These days, the open science movement has made code and data sharing more
+These days, the
+[open science movement](https://en.wikipedia.org/wiki/Open_science)
+has made code and data sharing more
 prevalent,
 which is a great achievement,
-but often what is shared---sometimes called a
-["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
+but often what is shared—sometimes called a
+["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)—is
 very rarely single button reproducible.
 In fact, in most cases repro packs are
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a reproducibility crisis.
 
-As a side note,
-I am not talking about replicability here,
+Not the I'm not talking about replicability here,
 which refers to collecting new raw data
-and checking the original study's conclusions.
-Reproducibility refers to rerunning the analysis, visualization, etc.,
-on the original data,
-checking that it's possible to regenerate the evidence (figures, tables, etc.)
+to validate the original study's conclusions.
+Reproducibility is a lower bar to clear:
+rerunning the analysis
+on the original data and
+verifying that it's possible to regenerate the evidence (figures, tables, etc.)
 that back up the
 original conclusions.
 See
 [The Turing Way](https://book.the-turing-way.org/reproducible-research/overview/overview-definitions/)
 for more information.
 
-Log on to Figshare or Zenodo and download a random repro pack and
-you'll probably see lists of manual steps explaining how to
-create and update environments, install dependencies,
-and then maybe a numbered
-collection of scripts and/or notebooks.
-Sometimes, you'll see a collection of files with no instructions at all.
-In many cases, you'll need to manually modify the code to run on your
+Download a random repro pack from
+[Figshare](https://figshare.com/browse) or
+[Zenodo](https://zenodo.org/search?q=&f=resource_type%3Asoftware&l=list&p=1&s=10&sort=newest)
+and if you're lucky you'll find a README with
+a list of manual steps explaining how to
+run the project's analyses.
+Often you'll see a collection of numbered scripts and/or notebooks
+with no instructions at all.
+Sometimes you'll need to manually modify the code to run on your
 system,
 either because you've been instructed to download some data and put it
 somewhere of your choosing, or the original author used absolute paths
 that need to be adapted for a new instance of the project.
+In other words,
+these are not even close to being single button reproducible.
 
 To be clear,
-this level of transparency and willingness to share messy research code
+this level of transparency and willingness to share messy code
 is laudable,
 and failure to reproduce does not necessarily indicate
 incorrect conclusions,
-but the lack of automation in workflows presents a huge opportunity
-to benefit both the community and those who are currently publishing
+but the lack of automation in research workflows presents a huge opportunity
+to benefit both the community and the individuals
+who are currently publishing
 irreproducible work.
 Here I'll explain the what, why, and how to get there.
 
@@ -224,6 +231,15 @@ It's not surprising that single button reproducibility is rare given that
 the practices above amount to expecting scientists to become part time
 software engineers, pick their tools, design bespoke frameworks for
 each project, etc.
+
+Essentially, we're asking scientists to choose a version control system,
+data archival system, dependency/environment manager(s),
+workflow manager,
+and tie them all together on their own.
+
+What's missing is a research project management tool—one for projects
+that answer questions, not necessarily produce software products.
+
 In other words, there is a very high cost to doing thing this way in
 terms of both skill and effort,
 and researchers are (probably rationally) perceiving that the cost is
@@ -334,6 +350,12 @@ do_research()
 
 Of course I will need to talk about Calkit now.
 
+Instead of a loose collection of scripts,
+notebooks, data, and documentation,
+a framework unifies them into a single coherent unit.
+There are analogous frameworks for building software.
+For example, Python packages use
+
 Concepts:
 
 1. The project is the most important entity and should contain all related
@@ -434,8 +456,8 @@ In fact, that's very common.
 
 Accurate description of methods is an integral part of any scientific study.
 However, the computational tools available to researchers
-these days are so complex that traditional ways of describing methods---prose
-and mathematical formulas---are no longer sufficient.
+these days are so complex that traditional ways of describing methods—prose
+and mathematical formulas—are no longer sufficient.
 
 ## The state of the art in open reproducible science
 
