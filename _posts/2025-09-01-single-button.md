@@ -20,8 +20,8 @@ These days, the
 has made code and data sharing more
 prevalent,
 which is a great achievement,
-but often what is shared—sometimes called a
-["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)—is
+but often what is shared---sometimes called a
+["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
 very rarely single button reproducible.
 In fact, in most cases repro packs are
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
@@ -270,7 +270,7 @@ data archival system, dependency/environment manager(s),
 workflow manager,
 and tie them all together on their own.
 
-What's missing is a research project management tool—one for projects
+What's missing is a research project management tool---one for projects
 that answer questions, not necessarily produce software products.
 
 In other words, there is a very high cost to doing thing this way in
@@ -407,9 +407,13 @@ Follow these two rules, and you'll be more efficient...
 
 ### Challenge 2: Tooling fragmentation
 
+It's important to use the right tool for the job,
+but in order to achieve single button reproducibility all tools
+need to somehow be tied together.
+
 ### Challenge 3: Dependency management
 
-### Challenge 4: Bridging the interactive--batch chasm
+### Challenge 4: Bridging the interactive--batch divide
 
 When someone creates, for example, a figure that they like.
 They will naturally assume they're done, i.e.,
@@ -440,8 +444,8 @@ Sometimes I even played some guitar.
 
 Accurate description of methods is an integral part of any scientific study.
 However, the computational tools available to researchers
-these days are so complex that traditional ways of describing methods—prose
-and mathematical formulas—are no longer sufficient.
+these days are so complex that traditional ways of describing methods---prose
+and mathematical formulas---are no longer sufficient.
 
 ## The state of the art in open reproducible science
 
