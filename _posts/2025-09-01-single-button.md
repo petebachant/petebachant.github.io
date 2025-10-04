@@ -218,7 +218,7 @@ which diminishes the quality of the final product.
 
 If you take a look at some repro packs you'll get the feeling that they
 were curated after the fact, not used during the work.
-Some journals are even requiring repro packs to be submitted
+Some journals require repro packs to be submitted
 and checked as part of the review process,
 but most of the time authors are putting these together for the sake
 of doing open science,
@@ -240,10 +240,11 @@ Just change the script or notebook and rerun the project.
 ## But what about the cost?
 
 Let's say you're with me so far and you believe that there are enough
-iterations done in a research project to justify automating the workflow.
-With today's tools and best practices, what will it take and what will it
-look like to make a project single button reproducible?
-An example "stack" would look something like:
+iterations done and enough waste to eliminate
+to justify fully automating research project workflows.
+With today's tools and best practices, what does it take
+to make a project single button reproducible?
+The typical "stack" following current best practices would look something like:
 
 1. Git/GitHub for version controlling code, LaTeX input files, etc.
 2. Data backed up in cloud storage, Google Drive, Dropbox, etc., then
@@ -251,6 +252,13 @@ An example "stack" would look something like:
 3. Dependencies managed with virtual environments and/or containers.
 4. Scripting and/or a workflow engine like Make, Snakemake, NextFlow to tie
    everything together, move data around when necessary.
+
+Take a step back and imagine you're a scientist without software engineering
+skills who is not interested in becoming a part time software engineer.
+
+TODO: Get UMich survey data
+
+The level of computational competence required is quite high.
 
 It's not surprising that single button reproducibility is rare given that
 the practices above amount to expecting scientists to become part time
@@ -300,7 +308,7 @@ but I believe it can improve the productivity of basically any knowledge
 worker.
 
 Option 1.2 is a bit newer,
-with research software engineering (RSE) becoming a more common job title
+with research software engineer (RSE) becoming a more common job title
 in academia (my current one).
 Essentially the strategy is to pay for the expertise so scientists
 don't need to do so much on their own.
@@ -309,6 +317,9 @@ given that's currently how I make a living,
 and it's especially good when RSEs can help produce scientific
 software products that help reduce the computational expertise
 necessary for other scientists to do their work.
+
+However,
+looking at the current reproducible research stack I think it's obvious
 
 I also believe that there is unnecessary complexity in some typical
 computational practices in research,
