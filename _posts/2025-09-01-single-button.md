@@ -82,6 +82,18 @@ and do not vary like package versions might.
 So, a programming language like Python is a foundational dependency but a
 library like Pandas is not.
 
+```mermaid
+flowchart LR
+    A[Collect data] --> B[Process data]
+    B --> C[Visualize data]
+    C --> D[Compile paper]
+
+    style A fill:#90EE90
+    style B fill:#87CEEB
+    style C fill:#87CEEB
+    style D fill:#87CEEB
+```
+
 ## Benefits to society
 
 It's not hard to imagine why it would be nice for every single study
@@ -92,7 +104,8 @@ to get the last's code running is like having to rebuild part
 of the floor below, which is clearly inefficient.
 And yet this is the story for many grad students who inherit code.
 In [this example](https://www.nature.com/articles/d41586-022-01901-x),
-getting software from a previous student took about half a year.
+getting software from a previous student back to a runnable state
+took about half a year.
 Imagine if that time were spent creating new things rather than
 getting back to square one,
 and then imagine scaling those gains across all researchers.
@@ -101,7 +114,7 @@ and then imagine scaling those gains across all researchers.
 width="300px"
 src="/images/single-button/skyscraper.png"
 caption="When you ship a single button reproducible project with your paper
-others can build on top of it."
+others can build on top of it and the whole building gets built more quickly."
 %}
 
 Even if the code isn't nicely generalized and modularized,
@@ -140,9 +153,9 @@ There's [evidence](https://arxiv.org/pdf/2508.20747)
 showing that working openly attracts more citations,
 and here I'll argue that automation will achieve faster time-to-publication.
 
-In
-[software engineering it's well known](https://dl.acm.org/doi/10.5555/3235404)
-that test, build, and deployment
+In software engineering
+[it's well known](https://dl.acm.org/doi/10.5555/3235404)
+that build, test, and deployment
 pipelines are worth automating because automation reduces waste and pain points,
 ultimately allowing for faster and more frequent iterations.
 With more iterations comes a higher quality product.
@@ -207,7 +220,13 @@ Now that more and more journals are requiring repro packs to be submitted
 and checked as part of the review process
 (none that I've submitted or reviewed for sadly),
 
-So why is open reproducibly research still so rare?
+![Retrospective repro packs](/images/single-button/retro-repro.png)
+
+Imagine the project being continuously reproducible
+
+No more "review anxiety" worrying about if you'll be asked to
+change something, either by the PI, a team member, or a referee.
+Just change the script or notebook and rerun the project.
 
 ## But what about the cost?
 
@@ -218,8 +237,9 @@ look like to make a project single button reproducible?
 An example "stack" would look something like:
 
 1. Git/GitHub for version controlling code, LaTeX input files, etc.
-2. Data archived with a DOI thanks to Figshare, Zenodo, or OSF.
-3. Virtual environments and/or containers.
+2. Data backed up in cloud storage, Google Drive, Dropbox, etc., then
+   archived on Figshare, Zenodo, or OSF.
+3. Dependencies managed with virtual environments and/or containers.
 4. Scripting and/or a workflow engine like Make, Snakemake, NextFlow to tie
    everything together, move data around when necessary.
 
