@@ -334,6 +334,8 @@ and I think we need to continue down that path.
 
 ## Simplified tooling and infrastructure
 
+TODO: Maybe these are better as classes?
+
 ```python
 # Project 1
 install_dependencies()
@@ -420,6 +422,18 @@ history of what they did.
 
 ## Where Calkit is heading
 
+## Conclusions
+
+Fully automated single button reproducible workflows are good
+but they are expensive.
+Bringing down the cost will involve subsidizing training,
+providing software engineering support,
+and building tooling and infrastructure.
+
+When I automated my experimental setup in grad school the productivity
+of experiments shot up literally 100x.
+While the experiments were running I could work on other things.
+Sometimes I even played some guitar.
 
 
 
