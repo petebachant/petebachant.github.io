@@ -90,6 +90,12 @@ If we imagine each one building upon the last like floors of a skyscraper,
 spending time and effort
 to get the last's code running is like having to rebuild part
 of the floor below, which is clearly inefficient.
+And yet this is the story for many grad students who inherit code.
+In [this example](https://www.nature.com/articles/d41586-022-01901-x),
+getting software from a previous student took about half a year.
+Imagine if that time were spent creating new things rather than
+getting back to square one,
+and then imagine scaling those gains across all researchers.
 
 {% include figure.html
 width="300px"
@@ -98,24 +104,22 @@ caption="When you ship a single button reproducible project with your paper
 others can build on top of it."
 %}
 
-Even if the code isn't nicely generalized and modularized
-as its own _software product_ like an application or library,
-it's still much more useful to have something that works
+Even if the code isn't nicely generalized and modularized,
+i.e., it's a collection of highly specific scripts and notebooks
+rather than a _software product_ like an application or library,
+it's still much more useful to have something that easily works
 than something that does not.
 With a working project, one can make small changes to evolve it towards
 doing something new.
 With a non-working project,
-it can be challenging to even know where to start to get back to zero.
+it can be challenging to even know where to start,
+and many will choose to start from scratch.
 Furthermore,
 it's a lot easier to productize an algorithm when you have a working
 reference implementation, even if it's going to be rewritten.
 In fact,
-I'd much rather have a working project with niche, highly specific
-one-off scripts than one that has been shoddily converted into a
-half-baked tool.
-
-Imagine if we could shave a few weeks of work off of every research project
-from now onwards.
+I'd much rather start with a working collection of
+one-off scripts than a half-baked general purpose tool.
 
 {% include figure.html
 src="/images/single-button/matlab-fail.png"
