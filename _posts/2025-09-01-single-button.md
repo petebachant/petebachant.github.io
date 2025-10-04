@@ -216,15 +216,24 @@ which diminishes the quality of the final product.
 
 ### No more retrospective repro packs
 
-Now that more and more journals are requiring repro packs to be submitted
-and checked as part of the review process
-(none that I've submitted or reviewed for sadly),
+If you take a look at some repro packs you'll get the feeling that they
+were curated after the fact, not used during the work.
+Some journals are even requiring repro packs to be submitted
+and checked as part of the review process,
+but most of the time authors are putting these together for the sake
+of doing open science,
+which is great.
+However, doing all that work at the end is another source of waste,
+never mind the fact it usually doesn't result in a reproducible project.
 
 ![Retrospective repro packs](/images/single-button/retro-repro.png)
 
-Imagine the project being continuously reproducible
-
-No more "review anxiety" worrying about if you'll be asked to
+Imagine instead that the project was automated from the start
+to be ["continuously reproducible"](/continuous-reproducibility),
+which is sometimes called practicing continuous analysis, continuous science,
+or continuous validation.
+In addition to faster iteration cycle time,
+there would be no more "review anxiety," worrying about if you'll be asked to
 change something, either by the PI, a team member, or a referee.
 Just change the script or notebook and rerun the project.
 
