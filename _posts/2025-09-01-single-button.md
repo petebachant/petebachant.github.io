@@ -70,7 +70,7 @@ Here I'll explain the what, why, and how to get there.
 ## What is single button reproducibility?
 
 Basically, if you can go from raw data to research article with a single
-command (or button, but the command line is probably more realistic),
+command (or button, but the command line is probably more realistic for now),
 your project is single button reproducible.
 This one command should include dependency management,
 e.g., installing Python or R packages.
@@ -81,18 +81,6 @@ The distinction here is that these are generally useful across many projects
 and do not vary like package versions might.
 So, a programming language like Python is a foundational dependency but a
 library like Pandas is not.
-
-```mermaid
-flowchart LR
-    A[Collect data] --> B[Process data]
-    B --> C[Visualize data]
-    C --> D[Compile paper]
-
-    style A fill:#90EE90
-    style B fill:#87CEEB
-    style C fill:#87CEEB
-    style D fill:#87CEEB
-```
 
 ## Benefits to society
 
