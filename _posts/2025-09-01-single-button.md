@@ -140,6 +140,11 @@ caption="Imagine if this student didn't need to waste their time reverse
 engineering a non-working repro pack."
 %}
 
+{% include figure.html
+src="/images/single-button/code-value.png"
+caption="Messy code that runs is better than 'clean' code that doesn't."
+%}
+
 ## Benefits to the individual
 
 Shipping single button reproducible projects will surely benefit
@@ -216,7 +221,7 @@ And again, when this process is tedious,
 there's an inclination to do fewer iterations,
 which diminishes the quality of the final product.
 
-### No more retrospective repro packs
+### Retrospective repro packs
 
 If you take a look at some repro packs you'll get the feeling that they
 were curated after the fact, not used during the work.
@@ -255,29 +260,20 @@ The typical "stack" following current best practices would look something like:
 4. Scripting and/or a workflow engine like Make, Snakemake, NextFlow to tie
    everything together, move data around when necessary.
 
-Take a step back and imagine you're a scientist without software engineering
-skills who is not interested in becoming a part time software engineer.
+When we ask scientists to work this way we are essentially asking them
+to become part-time software engineers: surveying and picking tools,
+designing workflows and project layouts, writing code to tie everything
+together.
+Some will like that and find the tools and processes exciting.
+Others will not.
+They will want to focus on the science and not want to get bogged down
+in what feels like a lot of work (even torture?)
+just to do some computation as part of
+their research.
 
-TODO: Get UMich survey data
-
-The level of computational competence required is quite high.
-
-It's not surprising that single button reproducibility is rare given that
-the practices above amount to expecting scientists to become part time
-software engineers, pick their tools, design bespoke frameworks for
-each project, etc.
-
-Essentially, we're asking scientists to choose a version control system,
-data archival system, dependency/environment manager(s),
-workflow manager,
-and tie them all together on their own.
-
-What's missing is a research project management tool---one for projects
-that answer questions, not necessarily produce software products.
-
-In other words, there is a very high cost to doing thing this way in
+In other words, there is a very high cost to doing things this way in
 terms of both skill and effort,
-and researchers are (probably rationally) perceiving that the cost is
+and researchers are (fairly, in my opinion) perceiving that the cost is
 not worth the benefit,
 as it might delay the time-to-paper.
 
@@ -299,13 +295,13 @@ and you don't think the cost/benefit analysis justifies it right now.
 
 1. Subsidize the cost:
     1. Of training
-    2. Of the software engineering work
+    2. Of the software engineering and development
 2. Build tools and infrastructure to bring the cost down
 
 Option 1.1 is effectively the strategy of
 [The Carpentries](https://carpentries.org/)
 and it's one I like.
-Computational literacy may not fit into most college curricula,
+Computational literacy may not fit into most curricula,
 but I believe it can improve the productivity of basically any knowledge
 worker.
 
@@ -322,6 +318,9 @@ necessary for other scientists to do their work.
 
 However,
 looking at the current reproducible research stack I think it's obvious
+that
+what's missing is a research project management tool---one for projects
+that answer questions, not necessarily produce software products.
 
 I also believe that there is unnecessary complexity in some typical
 computational practices in research,
@@ -427,6 +426,11 @@ change over time, and those outputs will be delivered at different
 times along the life of the project,
 it's important to keep a history of changes.
 
+Open source and easily self-hosted unlike GitHub,
+which is a bit of a ticking time bomb.
+
+Version control is also critical for collaboration.
+
 ### Challenge 2: Tooling fragmentation
 
 It's important to use the right tool for the job,
@@ -462,7 +466,13 @@ history of what they did.
 
 ## Where Calkit is heading
 
+There will always be a need to integrate and simplify the latest and greatest
+tools so they can be used by the widest audience possible.
+
 ## Conclusions
+
+Reproducibility is rare because it's hard.
+Even so, our standards are still too low.
 
 Fully automated single button reproducible workflows are good
 but they are expensive.
