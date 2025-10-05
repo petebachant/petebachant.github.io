@@ -294,16 +294,16 @@ strategies:
     2. Of the software engineering and development
 2. Build tools and infrastructure to bring the cost down
 
-Option 1.1 is effectively the strategy of
+Option 1.1 is effectively the strategy of groups like
 [The Carpentries](https://carpentries.org/)
 and it's one I like.
-Computational literacy may not fit into most curricula,
+Computational competency may not fit into most curricula,
 but I believe it can improve the productivity of basically any knowledge
-worker.
+worker, so is worth pursuing.
 
 Option 1.2 is a bit newer,
 with research software engineer (RSE) becoming a more common job title
-in academia (my current one).
+in academia (my current one, as a matter of fact).
 Essentially the strategy is to pay for the expertise so scientists
 don't need to do so much on their own.
 I like this one as well,
@@ -313,8 +313,21 @@ software products that help reduce the computational expertise
 necessary for other scientists to do their work.
 
 However,
-looking at the current reproducible research stack I think it's obvious
-that
+looking at the current reproducible research stack I think it's clear
+that we're missing a higher level abstraction.
+Instead of each project ...
+
+Here's swath of great open source tools for different aspects of
+the research process,
+some of which are designed for software development.
+It's your responsibility to integrate them into your own bespoke
+workflow.
+
+or a more vertically-integrated experience for the research process
+that hides some of the unnecessary complexity.
+In other words,
+instead of each project tying together software engineering tools,
+they could be using one
 what's missing is a research project management tool---one for projects
 that answer questions, not necessarily produce software products.
 
