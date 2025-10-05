@@ -388,6 +388,21 @@ do_research()
 do_research()
 ```
 
+I believe we need a vertically integrated and streamlined way of
+doing research that allows the use of all of the amazing open source
+software engineering and data science tools available but in a more
+simplified and unified way.
+That is the vision for [Calkit](https://calkit.org):
+a way to do research in a self-contained "calculation kit" that is
+single button reproducible and can be easily shared and rerun at any time
+on any computer.
+
+The folks at PLOS have been using the phrase
+["knowledge stack"](https://plos.org/redefining-publishing/)
+and that describes it well too.
+A Calkit project is the entire knowledge stack from a given study in
+one neat reproducible package.
+
 Of course I will need to talk about Calkit now.
 
 Instead of a loose collection of scripts,
