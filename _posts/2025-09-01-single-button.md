@@ -405,6 +405,11 @@ Follow these two rules, and you'll be more efficient...
 
 ### Challenge 1: Version control
 
+Because a project's inputs, process definitions, and outputs will
+change over time, and those outputs will be delivered at different
+times along the life of the project,
+it's important to keep a history of changes.
+
 ### Challenge 2: Tooling fragmentation
 
 It's important to use the right tool for the job,
@@ -414,6 +419,20 @@ need to somehow be tied together.
 ### Challenge 3: Dependency management
 
 ### Challenge 4: Bridging the interactive--batch divide
+
+In order to write great music,
+you can sit at the instrument and keep playing until something sounds right,
+or you can spend a long time writing out sheet music imagining what
+it will sound like.
+The former---an interactive workflow---is much more intuitive,
+with faster feedback and shorter iteration cycle time.
+Interactive workflows are great ways to discover ideas,
+but once a great creation has been discovered,
+it needs to be written down or recorded so it can be reproduced.
+The same is true for a figure or data transformation.
+
+And so this is the challenge.
+We need to make it easy to record the music of research.
 
 When someone creates, for example, a figure that they like.
 They will naturally assume they're done, i.e.,
