@@ -170,6 +170,8 @@ a writing tool like Overleaf,
 and then finally exporting a PDF to share with the outside world.
 When not automated, each line connecting the boxes represents
 "computational logistics," which takes time.
+Jumping between different apps and platforms for different tasks creates
+["digital tool fatigue"](https://www.forbes.com/sites/bryanrobinson/2025/10/04/digital-tool-fatigue-eroding-mental-health-and-career-productivity/)''
 If any of these steps ever needs to be done more than once
 (which is almost guaranteed),
 that is time that could be shaved off the time-to-publication.
