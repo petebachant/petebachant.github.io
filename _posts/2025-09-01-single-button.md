@@ -276,22 +276,18 @@ terms of both skill and effort,
 and researchers are (fairly, in my opinion) perceiving that the cost is
 not worth the benefit,
 as it might delay the time-to-paper.
-
-![The cost of automation](/images/single-button/automation-cost.png)
-
 And so there's the challenge.
 In the absence of other incentives
 (like punishment for irreproducible publications)
 we can't expect researchers to publish single button reproducible projects
 without driving down the cost of automation.
 
-## So how do we get there?
+![The cost of automation](/images/single-button/automation-cost.png)
 
-By now maybe you agree that single button reproducibility is a good
-thing.
-However, given the cost, perhaps it's in the "nice to have" category.
-The papers need to get out the door,
-and you don't think the cost/benefit analysis justifies it right now.
+## Driving down the cost
+
+In order to get to a favorable cost/benefit ratio there are a few
+strategies:
 
 1. Subsidize the cost:
     1. Of training
