@@ -453,6 +453,15 @@ of experiments shot up literally 100x.
 While the experiments were running I could work on other things.
 Sometimes I even played some guitar.
 
+If you're a researcher wanting to fully automate your workflow,
+reach out and I'd be happy to help.
+Any ideas we discover can feed back into the development of Calkit so
+others can make use of them.
+If you're a software developer and this vision resonates you,
+consider joining the project.
+It's still early and there's lots to be done so you have an opportunity
+to make a big impact on the project's direction and outcomes.
+
 
 
 
