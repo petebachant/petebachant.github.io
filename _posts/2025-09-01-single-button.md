@@ -37,6 +37,9 @@ verifying that it's possible to regenerate the evidence (figures, tables, etc.)
 that back up the
 original conclusions.
 See
+The National Academy's
+["Reproducibility and Replicability in Science"](https://nap.nationalacademies.org/read/25303/chapter/1)
+and
 [The Turing Way](https://book.the-turing-way.org/reproducible-research/overview/overview-definitions/)
 for more information.
 
