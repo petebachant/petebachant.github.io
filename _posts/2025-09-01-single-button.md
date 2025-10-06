@@ -145,6 +145,7 @@ engineering a non-working repro pack."
 
 {% include figure.html
 src="/images/single-button/code-value.png"
+width="700px"
 caption="Messy code that runs is better than 'clean' code that doesn't."
 %}
 
