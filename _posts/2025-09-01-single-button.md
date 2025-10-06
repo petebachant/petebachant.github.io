@@ -287,7 +287,7 @@ without driving down the cost of automation.
 ## Driving down the cost
 
 In order to get to a favorable cost/benefit ratio there are a few
-strategies:
+strategic angles:
 
 1. Subsidize the cost:
     1. Of training
@@ -313,15 +313,18 @@ software products that help reduce the computational expertise
 necessary for other scientists to do their work.
 
 However,
-looking at the current reproducible research stack I think it's clear
-that we're missing a higher level abstraction.
-Instead of each project ...
-
-Here's swath of great open source tools for different aspects of
-the research process,
-some of which are designed for software development.
-It's your responsibility to integrate them into your own bespoke
-workflow.
+looking at the current reproducible research stack and best practices
+it's clear we're missing a higher level abstraction (option 2).
+There must be a way to allow researchers to take advantage of the
+latest and greatest computational tools without needing to be experts
+in software engineering.
+We should have tools and infrastructure that reduce the
+incidental complexity and eliminate unimportant decisions
+and other cognitive overhead
+while retaining the ability to use state-of-the art libraries
+and applications---and of course naturally integrate them all into a
+single button reproducible workflow.
+This is the vision for [Calkit](https://calkit.org).
 
 or a more vertically-integrated experience for the research process
 that hides some of the unnecessary complexity.
@@ -422,7 +425,8 @@ For example, Python packages use
 Concepts:
 
 1. The project is the most important entity and should contain all related
-   files.
+   files. This is also known as the
+   ["full compendium of artifacts."](https://nap.nationalacademies.org/read/25303/chapter/7#67)
 2. Any derived artifact, e.g., a figure, should not be shared outside the
    project unless it was produced by its pipeline.
 
