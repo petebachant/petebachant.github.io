@@ -432,6 +432,12 @@ Calkit is not a literate programming tool,
 though there is no reason one like Quarto
 can't be used in part of the pipeline.
 
+I don't think literate programming is the right choice for every
+computation in a project.
+For example, a large scale simulation on a high performance computing
+cluster---does it really make sense to define this along with everything
+else in a single document?
+
 ### Challenge 1: Version control
 
 Because a project's inputs, process definitions, and outputs will
