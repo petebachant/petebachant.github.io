@@ -347,38 +347,41 @@ This is the vision for [Calkit](https://calkit.org).
 
 ## _Calkit_: Simplified tooling and infrastructure for single button reproducibility
 
-I believe we need a vertically integrated and streamlined way of
-doing research that allows the use of all of the amazing open source
-software engineering and data science tools available but in a more
-simplified and unified way.
-That is the vision for [Calkit](https://calkit.org):
-a way to do research in a self-contained "calculation kit" that is
-single button reproducible and can be easily shared and rerun at any time
-on any computer.
-
+Calkit is a thin but opinionated wrapper around the "software expert"
+tooling and best practices to vertically integrate them into
+a simpler research project management experience.
+Instead of a loose collection of scripts,
+notebooks, data, and documentation,
+the framework unifies them into a single coherent unit---a
+"calculation kit" if you will.
 The folks at PLOS have been using the phrase
 ["knowledge stack"](https://plos.org/redefining-publishing/)
 and that describes it well too.
 A Calkit project is the entire knowledge stack from a given study in
 one neat reproducible package.
 
-Of course I will need to talk about Calkit now.
+The goal is not to replace complex tools like Git,
+but to provide a simpler onramp towards its use in a research context.
+If and when researchers want to interact at a lower level,
+there is nothing preventing them from doing so.
+We just want to get their foot in the door.
 
-Instead of a loose collection of scripts,
-notebooks, data, and documentation,
-a framework unifies them into a single coherent unit.
-There are analogous frameworks for building software.
-For example, Python packages use
-
-Concepts:
+Key concepts:
 
 1. The project is the most important entity and should contain all related
    files. This is also known as the
-   ["full compendium of artifacts."](https://nap.nationalacademies.org/read/25303/chapter/7#67)
+   ["full compendium of artifacts"](https://nap.nationalacademies.org/read/25303/chapter/7#67)
+   and includes things like code, data, notes, config files, CAD files,
+   figures, tables,
+   and of course the research article itself.
 2. Any derived artifact, e.g., a figure, should not be shared outside the
    project unless it was produced by its pipeline.
 
-Follow these two rules, and you'll be more efficient...
+I'd also note that if researchers can follow the two rules above without
+using Calkit, that's great.
+I simply want a future where most, if not all, studies ship with a
+single button repro pack.
+How we get there I'm less concerned about.
 
 Calkit is not a literate programming tool,
 though there is no reason one like Quarto
@@ -408,6 +411,10 @@ It's important to use the right tool for the job,
 but in order to achieve single button reproducibility all tools
 need to somehow be tied together.
 
+This will be a continued effort as new tools are developed,
+but as long as they provide APIs,
+the problem is tractable.
+
 ### Challenge 3: Dependency management
 
 ### Challenge 4: Bridging the interactive--batch divide
@@ -435,10 +442,14 @@ So they won't think they need to automate its creation.
 What we need is a way to essentially create a replayable and editable
 history of what they did.
 
-## Where Calkit is heading
+## Where to go next
 
 There will always be a need to integrate and simplify the latest and greatest
 tools so they can be used by the widest audience possible.
+
+At this point, the Calkit CLI is a bit of a back end,
+but in the spirit of driving down complexity,
+more front end
 
 ## Conclusions
 
