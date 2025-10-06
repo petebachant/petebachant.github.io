@@ -236,7 +236,7 @@ which is great.
 However, doing all that work at the end is another source of waste,
 never mind the fact it usually doesn't result in a reproducible project.
 All the instructions that end up in the README---install this,
-run that, then upload here---those are the
+run that, upload here---those are the
 low-value-add tasks
 that were taking up space in the researcher's mind the whole time.
 
@@ -349,7 +349,7 @@ and applications---and of course naturally integrate them all into a
 single button reproducible workflow.
 This is the vision for [Calkit](https://calkit.org).
 
-## _Calkit_: Simplified tooling and infrastructure for single button reproducibility
+## Calkit: Simplified tooling and infrastructure for single button reproducibility
 
 Calkit is a thin but opinionated wrapper around the "software expert"
 tooling and best practices to vertically integrate them into
