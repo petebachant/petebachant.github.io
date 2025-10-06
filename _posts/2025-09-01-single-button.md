@@ -262,8 +262,8 @@ The typical "stack" following current best practices would look something like:
 
 When we ask scientists to work this way we are essentially asking them
 to become part-time software engineers: surveying and picking tools,
-designing workflows and project layouts, writing code to tie everything
-together.
+designing workflows and project layouts, and writing sophisticated
+code to tie everything together.
 Some will like that and find the tools and processes exciting.
 Others will not.
 They will want to focus on the science and not want to get bogged down
@@ -427,6 +427,10 @@ Concepts:
    project unless it was produced by its pipeline.
 
 Follow these two rules, and you'll be more efficient...
+
+Calkit is not a literate programming tool,
+though there is no reason one like Quarto
+can't be used in part of the pipeline.
 
 ### Challenge 1: Version control
 
