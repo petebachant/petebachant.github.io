@@ -318,8 +318,9 @@ it's worth building a higher level abstraction for it so it can be
 done even more (scaled) more efficiently.
 Looking at the current reproducible research stack and best practices
 it's clear we're asking researchers to do things the hard way
-over and over again, and missing a higher level abstraction.
-This (option 2) is another strategy for bringing down the cost of
+over and over again, and therefore missing a higher level abstraction.
+Building this abstraction (option 2)
+is another strategy for bringing down the cost of
 single button reproducibility.
 
 The hypothesis is that
