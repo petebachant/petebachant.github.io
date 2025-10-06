@@ -336,58 +336,6 @@ This is the vision for [Calkit](https://calkit.org).
 
 ## Calkit: Simplified tooling and infrastructure
 
-TODO: Maybe these are better as classes?
-
-```python
-# Project 1
-install_dependencies()
-create_figures()
-do_git()
-build_caching()
-cache_data()
-run_simulation()
-compile_paper()
-
-# Project 2
-install_dependencies()
-create_figures()
-do_git()
-build_caching()
-cache_data()
-run_simulation()
-compile_paper()
-
-# Project 3
-install_dependencies()
-create_figures()
-do_git()
-build_caching()
-cache_data()
-run_simulation()
-compile_paper()
-```
-
-```python
-def do_research():
-    """An abstraction around reproducible research."""
-    install_dependencies()
-    create_figures()
-    do_git()
-    build_caching()
-    cache_data()
-    run_simulation()
-    compile_paper()
-
-# Project 1
-do_research()
-
-# Project 2
-do_research()
-
-# Project 3
-do_research()
-```
-
 I believe we need a vertically integrated and streamlined way of
 doing research that allows the use of all of the amazing open source
 software engineering and data science tools available but in a more
