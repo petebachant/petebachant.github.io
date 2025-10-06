@@ -296,7 +296,7 @@ without driving down the cost of automation.
 
 {% include figure.html
 src="/images/single-button/automation-cost.png"
-caption="Is automation is too costly, it might take longer to complete."
+caption="Is automation is too costly, it might not be worth it."
 %}
 
 ## Driving down the cost
@@ -366,7 +366,7 @@ A Calkit project is the entire knowledge stack from a given study in
 one neat reproducible package.
 
 The goal is not to replace complex tools like Git,
-but to provide a simpler onramp towards its use in a research context.
+but to provide a simpler onramp facilitating its use in a research context.
 If and when researchers want to interact at a lower level,
 there is nothing preventing them from doing so.
 We just want to get their foot in the door.
@@ -374,7 +374,7 @@ We just want to get their foot in the door.
 Key concepts:
 
 1. The project is the most important entity and should contain all related
-   files. This is also known as the
+   files. This is sometimes called the
    ["full compendium of artifacts"](https://nap.nationalacademies.org/read/25303/chapter/7#67)
    and includes things like code, data, notes, config files, CAD files,
    figures, tables,
@@ -382,11 +382,11 @@ Key concepts:
 2. Any derived artifact, e.g., a figure, should not be shared outside the
    project unless it was produced by its pipeline.
 
-I'd also note that if researchers can follow the two rules above without
+If a project can follow the two rules above without
 using Calkit, that's great.
 I simply want a future where most, if not all, studies ship with a
 single button repro pack.
-How we get there I'm less concerned about.
+How we get there doesn't matter as much.
 
 Calkit is not a literate programming tool,
 though there is no reason one like Quarto
