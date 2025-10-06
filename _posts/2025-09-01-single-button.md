@@ -326,26 +326,7 @@ and applications---and of course naturally integrate them all into a
 single button reproducible workflow.
 This is the vision for [Calkit](https://calkit.org).
 
-or a more vertically-integrated experience for the research process
-that hides some of the unnecessary complexity.
-In other words,
-instead of each project tying together software engineering tools,
-they could be using one
-what's missing is a research project management tool---one for projects
-that answer questions, not necessarily produce software products.
-
-I also believe that there is unnecessary complexity in some typical
-computational practices in research,
-which is worth building tooling infrastructure around to allow researchers
-to work at a higher level of abstraction.
-Is it really reasonable to expect scientists to become part time SWEs so
-their R and Python scripts can be reproducible?
-Or do we expect them all to hire experts in somewhat high demand for
-relatively simple computational workflows?
-This is where option 2 comes in,
-and I think we need to continue down that path.
-
-## Simplified tooling and infrastructure
+## Calkit: Simplified tooling and infrastructure
 
 TODO: Maybe these are better as classes?
 
