@@ -312,10 +312,18 @@ and it's especially good when RSEs can help produce scientific
 software products that help reduce the computational expertise
 necessary for other scientists to do their work.
 
-However,
-looking at the current reproducible research stack and best practices
-it's clear we're missing a higher level abstraction (option 2).
-There must be a way to allow researchers to take advantage of the
+There's a principle in software engineering where once you've done
+something the hard way in a similar way a few times,
+it's worth building a higher level abstraction for it so it can be
+done even more (scaled) more efficiently.
+Looking at the current reproducible research stack and best practices
+it's clear we're asking researchers to do things the hard way
+over and over again, and missing a higher level abstraction.
+This (option 2) is another strategy for bringing down the cost of
+single button reproducibility.
+
+The hypothesis is that
+there must be a way to allow researchers to take advantage of the
 latest and greatest computational tools without needing to be experts
 in software engineering.
 We should have tools and infrastructure that reduce the
