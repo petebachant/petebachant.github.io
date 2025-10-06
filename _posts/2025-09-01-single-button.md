@@ -235,6 +235,10 @@ of doing open science,
 which is great.
 However, doing all that work at the end is another source of waste,
 never mind the fact it usually doesn't result in a reproducible project.
+All the instructions that end up in the README---install this,
+run that, then upload here---those are the
+low-value-add tasks
+that were taking up space in the researcher's mind the whole time.
 
 {% include figure.html
 src="/images/single-button/retro-repro.png"
