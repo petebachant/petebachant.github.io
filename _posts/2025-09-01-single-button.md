@@ -176,7 +176,7 @@ and then finally exporting a PDF to share with the outside world.
 When not automated, each line connecting the boxes represents
 "computational logistics," which takes time.
 Jumping between different apps and platforms for different tasks creates
-["digital tool fatigue"](https://www.forbes.com/sites/bryanrobinson/2025/10/04/digital-tool-fatigue-eroding-mental-health-and-career-productivity/)''
+["digital tool fatigue."](https://www.forbes.com/sites/bryanrobinson/2025/10/04/digital-tool-fatigue-eroding-mental-health-and-career-productivity/)
 If any of these steps ever needs to be done more than once
 (which is almost guaranteed),
 that is time that could be shaved off the time-to-publication.
@@ -233,7 +233,11 @@ which is great.
 However, doing all that work at the end is another source of waste,
 never mind the fact it usually doesn't result in a reproducible project.
 
-![Retrospective repro packs](/images/single-button/retro-repro.png)
+{% include figure.html
+src="/images/single-button/retro-repro.png"
+caption="Why assemble a repro pack at the end of a project when it could be
+used throughout?"
+%}
 
 Imagine instead that the project was automated from the start
 to be ["continuously reproducible"](/continuous-reproducibility),
@@ -282,7 +286,10 @@ In the absence of other incentives
 we can't expect researchers to publish single button reproducible projects
 without driving down the cost of automation.
 
-![The cost of automation](/images/single-button/automation-cost.png)
+{% include figure.html
+src="/images/single-button/automation-cost.png"
+caption="Is automation is too costly, it might take longer to complete."
+%}
 
 ## Driving down the cost
 
@@ -335,7 +342,7 @@ and applications---and of course naturally integrate them all into a
 single button reproducible workflow.
 This is the vision for [Calkit](https://calkit.org).
 
-## Calkit: Simplified tooling and infrastructure
+## _Calkit_: Simplified tooling and infrastructure for single button reproducibility
 
 I believe we need a vertically integrated and streamlined way of
 doing research that allows the use of all of the amazing open source
