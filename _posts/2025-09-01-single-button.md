@@ -578,16 +578,30 @@ meaning users can keep running the pipeline and expensive unchanged
 steps will be skipped, eliminating the need for them to keep
 track in their head.
 
-## Where to go next
+## Where to next?
 
-There will always be a need to integrate and simplify the latest and greatest
-tools so they can be used by the widest audience possible.
+There is still a ways to go to make single button reproducibility
+the default for all research.
+Calkit's CLI is a start at a simpler back end and the cloud system
+is a start at a more purpose-built front end and collaboration hub,
+but the user experience is still certainly geared more towards
+software engineer types.
+
+I do strongly believe in the benefits of automation,
+but the cost is still too high.
+To keep bringing it down more graphical tools are needed.
+This will likely take the form of a VS Code or JupyterLab extension,
+with the goal of making one of those the single place from which most,
+if not all research computation can be done or at least initiated.
+We'll also need integrations with more user friendly services like
+Google Docs, Slides, Sheets, and Colab.
 
 At this point, the Calkit CLI is a bit of a back end,
 but in the spirit of driving down complexity,
 more front end
 
-## Conclusions
+There will always be a need to integrate and simplify the latest and greatest
+tools so they can be used by the widest audience possible.
 
 Reproducibility is rare because it's hard.
 Even so, our standards are still too low.
