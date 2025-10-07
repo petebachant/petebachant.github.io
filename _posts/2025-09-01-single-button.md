@@ -602,8 +602,9 @@ We'll also need integrations with more user friendly services like
 Google Docs, Slides, Sheets, and Colab.
 
 If you're a researcher excited by the prospect of simpler
-fully automated workflows, consider joining the Calkit project as a
-design partner.
+fully automated workflows,
+[give Calkit a try](https://github.com/calkit/calkit?tab=readme-ov-file#installation)
+and consider joining the project as a design partner.
 You'll get free "reproducibility consulting" and
 any ideas we discover will be fed back into the development so
 others can benefit.
