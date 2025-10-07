@@ -609,5 +609,6 @@ any ideas we discover will be fed back into the development so
 others can benefit.
 Similarly, if you're a software developer and this vision resonates with you,
 consider joining the project.
-It's still early so you have an opportunity
-to make a large impact on the project's direction and outcomes.
+There's lots to build, training materials to create,
+and it's still early so you have an opportunity
+to make a significant impact on the project's direction and outcomes.
