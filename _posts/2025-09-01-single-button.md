@@ -545,13 +545,13 @@ it will sound like.
 The former---an interactive workflow---is more intuitive,
 with faster feedback and shorter iteration cycle time.
 Interactive workflows are great ways to discover ideas,
-but once a great creation has been discovered,
+but once a valuable creation has been discovered,
 it needs to be written down or recorded so it can be reproduced.
 The same is true for a figure or data transformation.
 
 And so here's the challenge.
 How do you allow researchers to experiment with different ideas
-for data processing or visualization
+for data processing or visualization in an interactive way
 but also get them to "record" what they did so it can be edited
 and replayed later?
 We need to get them to follow rule 2:
@@ -560,10 +560,21 @@ created with the pipeline.
 
 Calkit's strategy is to make it easy to add interactive tools like
 Jupyter notebooks to the pipeline.
-So a user can run the notebook interactively to explore
+A user can run the notebook interactively to explore
 how it might work best,
 add it to the pipeline, and run the project to see if it properly
 produces the thing they'd like to share.
+Each stage in the pipeline needs to define the environment in which
+it runs,
+so there's no need for the user to ensure it's up-to-date,
+and outputs can be declared for saving in the project and uploading
+to the cloud for sharing.
+The cached outputs are invalidated (with DVC)
+in response to changes in their
+declared inputs or environments,
+meaning users can keep running the pipeline and expensive unchanged
+steps will be skipped, eliminating the need for them to keep
+track in their head.
 
 ## Where to go next
 
