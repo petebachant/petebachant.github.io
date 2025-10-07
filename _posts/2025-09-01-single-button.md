@@ -358,7 +358,7 @@ a simpler research project management experience.
 Instead of a loose collection of scripts,
 notebooks, data, and documentation,
 the framework unifies them into a single coherent unit---a
-"calculation kit" if you will.
+"calculation kit" if you will, runnable with a single command.
 The folks at PLOS have been using the phrase
 ["knowledge stack"](https://plos.org/redefining-publishing/)
 and that describes it well too.
@@ -405,17 +405,56 @@ Besides being notoriously difficult to learn,
 Git is also not ideal for large files or binary files that change
 often, which will almost certainly be present in a research project.
 There are solutions out there that make up for this shortcoming,
-e.g., Large File Storage (LFS), git-annex, and DVC,
+e.g., Large File Storage (LFS), git-annex, and [DVC](https://dvc.org),
 but all of these require some level of configuration and in some cases
 some infrastructure such as S3 buckets or web servers.
 Our goal is to not require scientists to be software engineers,
 and so naturally
 we also don't want to require them to be cloud computing administrators.
 
-Open source and easily self-hosted unlike GitHub,
-which is a bit of a ticking time bomb.
+Calkit unifies interaction with both Git (for smaller/text files)
+and DVC (for larger/binary files) under a single
+command line interface (CLI).
+As a "gateway drug" to version control,
+the CLI has a simple `save` command,
+which decides automatically which files belong in which category,
+and can generate a commit message for the user.
+The actions being taken and an explanation for why are printed to the
+terminal.
+Users can learn what a staging area is later.
+The most important thing is to get them saving each version
+of their project.
 
-TODO: Show Calkit save image
+{% include figure.html
+src="/images/single-button/save.png"
+caption="Users can save their project now and learn the inner workings
+of Git later if they're into type 2 fun."
+%}
+
+Calkit also has a complementary cloud system (https://calkit.io)
+that acts as a default DVC remote,
+meaning histories of users' data files will be uploaded there
+automatically instead of bloating
+their Git repositories.
+The Calkit Cloud also acts as a wrapper on top of GitHub to provide a
+more research-oriented experience.
+Instead of interacting with repos, forks, and commits,
+users deal with figures, datasets, and publications.
+Unlike GitHub, the
+[Calkit Cloud software](https://github.com/calkit/calkit-cloud)
+is fully open source and
+can be self-hosted.
+Unlike other data sharing platforms,
+it's meant to be used during the work,
+as a means of backup and collaboration,
+not just as a way to share files at the end.
+It can serve as a showcase for the work too,
+like how software developers will show off their code on GitHub.
+
+{% include figure.html
+src="/images/single-button/cloud.png"
+caption="The Calkit Cloud is like GitHub for research."
+%}
 
 ### Challenge 2: Tooling fragmentation
 
