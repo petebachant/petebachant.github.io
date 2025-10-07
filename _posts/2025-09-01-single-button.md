@@ -538,28 +538,32 @@ but they don't necessarily need to be known to work reproducibly.
 
 ### Challenge 4: Bridging the interactive--batch divide
 
-In order to write great music,
+When writing music,
 you can sit at the instrument and keep playing until something sounds right,
 or you can spend a long time writing out sheet music imagining what
 it will sound like.
-The former---an interactive workflow---is much more intuitive,
+The former---an interactive workflow---is more intuitive,
 with faster feedback and shorter iteration cycle time.
 Interactive workflows are great ways to discover ideas,
 but once a great creation has been discovered,
 it needs to be written down or recorded so it can be reproduced.
 The same is true for a figure or data transformation.
 
-And so this is the challenge.
-We need to make it easy to record the music of research.
+And so here's the challenge.
+How do you allow researchers to experiment with different ideas
+for data processing or visualization
+but also get them to "record" what they did so it can be edited
+and replayed later?
+We need to get them to follow rule 2:
+do not share a derived artifact outside the project unless it was
+created with the pipeline.
 
-When someone creates, for example, a figure that they like.
-They will naturally assume they're done, i.e.,
-they won't have to do it again, or they won't
-need to iterate on it.
-So they won't think they need to automate its creation.
-
-What we need is a way to essentially create a replayable and editable
-history of what they did.
+Calkit's strategy is to make it easy to add interactive tools like
+Jupyter notebooks to the pipeline.
+So a user can run the notebook interactively to explore
+how it might work best,
+add it to the pipeline, and run the project to see if it properly
+produces the thing they'd like to share.
 
 ## Where to go next
 
