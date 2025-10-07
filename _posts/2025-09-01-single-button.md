@@ -514,14 +514,13 @@ exact state, not what the user thought it was.
 However,
 since these tools are designed for software projects,
 they typically assume you'll be working in a single programming language.
-
 For research projects, this assumption is often invalid.
 For example,
 a user may want to do some statistical calculations in R,
 some machine learning in Python,
 then compile a paper with LaTeX.
 
-Calkit's solution is to make an environment a first class entity in
+Calkit's solution is to make environments a first class entity in
 the project,
 allowing users to define as many as they need,
 choosing from many different types, e.g.,
@@ -533,6 +532,9 @@ doesn't do that on its own.
 This way,
 users no longer need to create-and-mutate.
 They simply define-and-run.
+Similar to with version control systems,
+the workings of the environment managers aren't necessarily hidden,
+but they don't necessarily need to be known to work reproducibly.
 
 ### Challenge 4: Bridging the interactive--batch divide
 
