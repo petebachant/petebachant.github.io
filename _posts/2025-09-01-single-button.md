@@ -14,6 +14,7 @@ the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
 shared that they hoped researchers would be able to
 reproduce their results "a year or more later with a single button."
+We never got there, but we should keep trying.
 
 These days, the
 [open science movement](https://en.wikipedia.org/wiki/Open_science)
@@ -27,7 +28,7 @@ In fact, in most cases what's shared is
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a reproducibility crisis.
 
-Not the I'm not talking about replicability here,
+Note that I'm not talking about replicability here,
 which refers to collecting new raw data
 to validate the original study's conclusions.
 Reproducibility is a lower bar to clear:
@@ -72,7 +73,7 @@ Here I'll explain the what, why, and how to get there.
 
 ## What is single button reproducibility?
 
-Basically, if you can go from raw data to research article with a single
+If you can go from raw data to research article with a single
 command (or button, but the command line is probably more realistic for now),
 your project is single button reproducible.
 This one command should include dependency management,
@@ -296,7 +297,7 @@ without driving down the cost of automation.
 
 {% include figure.html
 src="/images/single-button/automation-cost.png"
-caption="Is automation is too costly, it might not be worth it."
+caption="If automation is too costly, it might not be worth it."
 %}
 
 ## Driving down the cost
@@ -352,7 +353,7 @@ This is the vision for [Calkit](https://calkit.org).
 
 ## Calkit: Simplified tooling and infrastructure for single button reproducibility
 
-Calkit is a thin but opinionated wrapper around the "software expert"
+Calkit is a transparent but opinionated wrapper around the "software expert"
 tooling and best practices to vertically integrate them into
 a simpler research project management experience.
 Instead of a loose collection of scripts,
