@@ -588,51 +588,29 @@ but the cost is still too high for most researchers,
 who don't necessarily have the time or motivation to become
 de facto software engineers.
 
-Calkit's CLI is a start at a simpler back end and the cloud system
+Calkit is a start at a simpler back end and the cloud system
 is a start at a more purpose-built front end and collaboration hub,
 but the user experience is still certainly geared more towards
-software engineer types.
+software engineer types and the problem is certainly not yet solved.
 To keep bringing down the complexity more graphical interactions must
 be supported.
-This will likely take the form of a VS Code or JupyterLab extension,
-with the goal of making one of those the single place from which most,
+This will likely take the form of a VS Code extension,
+with the goal of making that the single place from which most,
 if not all research computation can be done or at least initiated.
 Users will need a guided way to create environments and assemble a pipeline.
 We'll also need integrations with more user friendly services like
 Google Docs, Slides, Sheets, and Colab.
 
-At this point, the Calkit CLI is a bit of a back end,
-but in the spirit of driving down complexity,
-more front end
-
-There will always be a need to integrate and simplify the latest and greatest
-tools so they can be used by the widest audience possible.
-
-Reproducibility is rare because it's hard.
-Even so, our standards are still too low.
-
-Fully automated single button reproducible workflows are good
-but they are expensive.
-Bringing down the cost will involve subsidizing training,
-providing software engineering support,
-and building tooling and infrastructure.
-
-When I automated my experimental setup in grad school the productivity
-of experiments shot up literally 100x.
-While the experiments were running I could work on other things.
-Sometimes I even played some guitar.
-
-If you're a researcher wanting to fully automate your workflow,
-reach out and I'd be happy to help.
-Any ideas we discover can feed back into the development of Calkit so
-others can make use of them.
-If you're a software developer and this vision resonates you,
+If you're a researcher excited by the prospect of simpler
+fully automated workflows, consider joining the Calkit project as a
+design partner.
+You'll get free "reproducibility consulting" and
+any ideas we discover will be fed back into the development so
+others can benefit.
+Similarly, if you're a software developer and this vision resonates with you,
 consider joining the project.
-It's still early and there's lots to be done so you have an opportunity
-to make a big impact on the project's direction and outcomes.
-
-There's still much to be done,
-but I believe we'll get there.
+It's still early so you have an opportunity
+to make a large impact on the project's direction and outcomes.
 
 
 
