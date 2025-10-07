@@ -560,7 +560,7 @@ created with the pipeline.
 It therefore needs to be easier to automate the creation of a figure than it is
 to simply copy and paste it into some slides and email them out.
 
-Calkit's strategy is to make it easy to add interactive tools like
+Calkit's strategy is to make it quick and simple to add interactive tools like
 Jupyter notebooks to the pipeline.
 A user can run the notebook interactively to explore
 how it might work best,
