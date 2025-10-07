@@ -226,7 +226,7 @@ And again, when this process is tedious,
 there's an inclination to do fewer iterations,
 which diminishes the quality of the final product.
 
-### Retrospective repro packs
+### The problem with post-hoc repro packs
 
 If you take a look at some repro packs you'll get the feeling that they
 were curated after the fact, not used during the work.
