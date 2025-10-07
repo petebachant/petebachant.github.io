@@ -23,7 +23,7 @@ which is a great achievement,
 but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
 very rarely single button reproducible.
-In fact, in most cases repro packs are
+In fact, in most cases what's shared is
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a reproducibility crisis.
 
@@ -431,7 +431,7 @@ caption="Users can save their project now and learn the inner workings
 of Git later if they're into type 2 fun."
 %}
 
-Calkit also has a complementary cloud system (https://calkit.io)
+Calkit also has a complementary cloud system ([calkit.io](https://calkit.io))
 that acts as a default DVC remote,
 meaning histories of users' data files will be uploaded there
 automatically instead of bloating
