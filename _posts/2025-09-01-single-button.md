@@ -557,6 +557,8 @@ and replayed later?
 We need to get them to follow rule 2:
 do not share a derived artifact outside the project unless it was
 created with the pipeline.
+It therefore needs to be easier to automate the creation of a figure than it is
+to simply copy and paste it into some slides and email them out.
 
 Calkit's strategy is to make it easy to add interactive tools like
 Jupyter notebooks to the pipeline.
