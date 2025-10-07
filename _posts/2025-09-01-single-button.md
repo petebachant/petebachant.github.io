@@ -487,6 +487,53 @@ the problem is tractable.
 
 ### Challenge 3: Dependency management
 
+One of the biggest causes of irreproducibility is mutation of the
+user's global system environment without properly keeping track of it.
+For example,
+they may run `pip install ...` to install a package in their system
+Python environment and forget about it,
+or loosely document it in the project's README.
+All of their scripts and notebooks may run just fine on their machine
+but fail on others'.
+
+The solution, e.g., for Python projects, is to use a virtual environment.
+However, even these can be problematic with common tools promoting a
+create-and-mutate kind of workflow.
+That is, a virtual environment is created, activated,
+then mutated by installing some packages in it.
+It's quite easy to add or update packages without documenting them
+e.g., in a `requirements.txt`.
+It requires discipline (cognitive overhead) from the user to ensure
+they properly document the virtual environment.
+It even requires discipline to ensure it's activated before running something!
+
+More modern environment managers like uv and Pixi automate
+some of this, making it easy to run a command in a virtual environment
+and automatically exporting a so-called "lock file" to describe its
+exact state, not what the user thought it was.
+However,
+since these tools are designed for software projects,
+they typically assume you'll be working in a single programming language.
+
+For research projects, this assumption is often invalid.
+For example,
+a user may want to do some statistical calculations in R,
+some machine learning in Python,
+then compile a paper with LaTeX.
+
+Calkit's solution is to make an environment a first class entity in
+the project,
+allowing users to define as many as they need,
+choosing from many different types, e.g.,
+Conda, Docker, uv, Pixi, Renv, Julia, or even MATLAB.
+When a project is run, relevant environments are checked against their
+definitions and lock files are exported,
+even if the environment manager in question, e.g., Python's `venv`,
+doesn't do that on its own.
+This way,
+users no longer need to create-and-mutate.
+They simply define-and-run.
+
 ### Challenge 4: Bridging the interactive--batch divide
 
 In order to write great music,
