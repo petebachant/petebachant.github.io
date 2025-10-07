@@ -580,12 +580,11 @@ track in their head.
 
 ## Where to next?
 
-There is still a ways to go to make single button reproducibility
-the default for all research.
 Automation presents a huge potential for increasing the pace of
 scientific discovery,
-but the cost is still too high for most researchers,
-who don't necessarily have the time or motivation to become
+but the cost of single button reproducibility is
+still too high for most researchers.
+Many simply don't have the time or motivation to become
 de facto software engineers.
 
 Calkit is a start at a simpler back end and the cloud system
