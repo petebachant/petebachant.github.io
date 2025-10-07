@@ -582,17 +582,22 @@ track in their head.
 
 There is still a ways to go to make single button reproducibility
 the default for all research.
+Automation presents a huge potential for increasing the pace of
+scientific discovery,
+but the cost is still too high for most researchers,
+who don't necessarily have the time or motivation to become
+de facto software engineers.
+
 Calkit's CLI is a start at a simpler back end and the cloud system
 is a start at a more purpose-built front end and collaboration hub,
 but the user experience is still certainly geared more towards
 software engineer types.
-
-I do strongly believe in the benefits of automation,
-but the cost is still too high.
-To keep bringing it down more graphical tools are needed.
+To keep bringing down the complexity more graphical interactions must
+be supported.
 This will likely take the form of a VS Code or JupyterLab extension,
 with the goal of making one of those the single place from which most,
 if not all research computation can be done or at least initiated.
+Users will need a guided way to create environments and assemble a pipeline.
 We'll also need integrations with more user friendly services like
 Google Docs, Slides, Sheets, and Colab.
 
