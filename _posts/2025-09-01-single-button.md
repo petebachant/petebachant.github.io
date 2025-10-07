@@ -379,6 +379,7 @@ Key concepts:
    and includes things like code, data, notes, config files, CAD files,
    figures, tables,
    and of course the research article itself.
+   The project is the single source of truth.
 2. Any derived artifact, e.g., a figure, should not be shared outside the
    project unless it was produced by its pipeline.
 
@@ -387,6 +388,8 @@ using Calkit, that's great.
 The goal is simply a future where most, if not all, studies ship with a
 single button repro pack.
 How we get there doesn't matter as much.
+Let's now take a look at some of the more specific challenges and
+strategies for overcoming them.
 
 ### Challenge 1: Version control
 
@@ -394,11 +397,25 @@ Because a project's inputs, process definitions, and outputs will
 change over time, and those outputs will be delivered at different
 times along the life of the project,
 it's important to keep a history of changes.
+Version control is also critical for collaboration,
+allowing people to work concurrently on the same files, i.e.,
+not needing to wait for each other like an assembly line.
+
+Besides being notoriously difficult to learn,
+Git is also not ideal for large files or binary files that change
+often, which will almost certainly be present in a research project.
+There are solutions out there that make up for this shortcoming,
+e.g., Large File Storage (LFS), git-annex, and DVC,
+but all of these require some level of configuration and in some cases
+some infrastructure such as S3 buckets or web servers.
+Our goal is to not require scientists to be software engineers,
+and so naturally
+we also don't want to require them to be cloud computing administrators.
 
 Open source and easily self-hosted unlike GitHub,
 which is a bit of a ticking time bomb.
 
-Version control is also critical for collaboration.
+TODO: Show Calkit save image
 
 ### Challenge 2: Tooling fragmentation
 
