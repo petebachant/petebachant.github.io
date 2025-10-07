@@ -381,7 +381,7 @@ Key concepts:
    and of course the research article itself.
    The project is the single source of truth.
 2. Any derived artifact, e.g., a figure, should not be shared outside the
-   project unless it was produced by its pipeline.
+   project unless it was produced by its _pipeline_.
 
 If a project can follow the two rules above without
 using Calkit, that's great.
@@ -461,8 +461,27 @@ caption="The Calkit Cloud is like GitHub for research."
 It's important to use the right tool for the job,
 but in order to achieve single button reproducibility all tools
 need to somehow be tied together.
+Researchers may want to use different tools for different tasks,
+but also may need to run different processes in different locations.
+For example, a simulation may be run on a high performance
+computing (HPC) cluster,
+the results post-processed and visualized on a laptop,
+then written about on a cloud platform like Overleaf.
+In a single button reproducible workflow a change to the simulation
+parameters results in updated figures and tables on Overleaf without
+manually moving files around and picking which script to run.
 
-This will be a continued effort as new tools are developed,
+Calkit's strategy here is simple: Connect these different
+systems from the project itself, keeping that as the single
+source of truth.
+An Overleaf project can be linked to a subdirectory in the project
+and synced bidirectionally (without Git submodules).
+Stages in the project's pipeline can be run on a SLURM job scheduler
+and their results (or a subset) automatically kept in version control,
+uploaded to the cloud and ready to pull onto any of the team members'
+laptops.
+Integration will be a continued effort as new tools and platforms are
+introduced,
 but as long as they provide APIs,
 the problem is tractable.
 
@@ -527,6 +546,8 @@ consider joining the project.
 It's still early and there's lots to be done so you have an opportunity
 to make a big impact on the project's direction and outcomes.
 
+There's still much to be done,
+but I believe we'll get there.
 
 
 
