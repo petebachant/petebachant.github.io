@@ -193,7 +193,8 @@ flowchart LR
     A[Install Python packages] --> B[Run Python script 1]
     AA[Download data] --> B
     B --> C[Run notebook 1]
-    C --> E[Upload figure 1 to Overleaf]
+    C --> D[Edit figure 1 in Photoshop]
+    D --> E[Upload figure 1 to Overleaf]
     E --> F[Export PDF]
     G[Run Python script 2] --> C
     A --> G
@@ -208,6 +209,7 @@ flowchart LR
     style AA fill:#87CEEB
     style B fill:#87CEEB
     style C fill:#87CEEB
+    style D fill:#87CEEB
     style E fill:#87CEEB
     style F fill:#90EE90
     style G fill:#87CEEB
