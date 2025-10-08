@@ -99,7 +99,7 @@ flowchart LR
     style D fill:#87CEEB
 ```
 
-## Benefits to society
+## Benefits to the community
 
 It's not hard to imagine why it would be nice for every single study
 to ship with a single button repro pack.
