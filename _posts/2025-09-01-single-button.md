@@ -561,9 +561,9 @@ a user may want to do some statistical calculations in R,
 some machine learning in Python,
 then compile a paper with LaTeX.
 
-Calkit's solution is to make environments a first class entity in
-the project,
-allowing users to define as many as they need,
+Calkit's solution is to make environments essential entities in
+the project.
+Users can define as many as they need,
 choosing from many different types, e.g.,
 Conda, Docker, uv, Pixi, Renv, Julia, or even MATLAB.
 When a project is run, relevant environments are checked against their
@@ -576,6 +576,14 @@ They simply define-and-run.
 Similar to with version control systems,
 the workings of the environment managers aren't necessarily hidden,
 but they don't necessarily need to be known to work reproducibly.
+
+Furthermore,
+when new and improved environment managers are inevitably created,
+they can be integrated into this common interface,
+lowering the amount of training necessary to use them.
+For example, I found the steps to create multiple environments in
+a single project with Pixi confusing,
+so Calkit now can create these with a call to `calkit new pixi-env`.
 
 ### Challenge 4: Bridging the interactive--batch divide
 
