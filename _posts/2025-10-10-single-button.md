@@ -14,7 +14,7 @@ the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
 hoped researchers would be able to
 reproduce their results "a year or more later with a single button."
-We never quite got there, but we could, and should.
+We never quite got there, but we could, and we should.
 
 These days, the
 [open science movement](https://en.wikipedia.org/wiki/Open_science)
@@ -475,6 +475,10 @@ exploration, analysis, and writing,
 with an easy way to build and run the project's pipeline
 and keep track of version history.
 
+This tool might need to integrate, not replace,
+things like Google Docs, Sheets, Slides, Microsoft Office,
+and Google Colab into a single logical project.
+
 ### Challenge 3: Dependency management
 
 One of the biggest causes of irreproducibility is mutation of
@@ -566,6 +570,11 @@ how it might work best,
 add it to the pipeline, and run the project to see if it properly
 produces the thing they'd like to share.
 
+Is it literate programming?
+Will it be intuitive for scientists to define and run, for example,
+a large simulation on an HPC cluster inside of a document?
+I'm not so sure.
+
 The pipeline also needs to be able to run quickly so users don't need to think
 about which stages need to be run---that would be a multi-button
 workflow.
@@ -573,7 +582,7 @@ In other words,
 it will need to cache outputs and only rerun stages when the cache becomes
 invalidated.
 
-## Where to next?
+## Let's build
 
 Automation presents a huge potential for increasing the pace of
 scientific discovery,
@@ -585,35 +594,12 @@ In addition to providing training and support,
 we need to meet them in the middle with a less software-oriented,
 more research-oriented and user friendly set of tools and infrastructure.
 
-Calkit is a start down that path.
-Though perhaps best labeled an "MVP" or prototype at the
-moment,
-it provides a CLI and collaboration hub purpose-built for research,
-tying together powerful software development tools
-while making deep knowledge of them less necessary.
-In its current state
-the user experience is still geared at little more towards
-software engineer types so there is much left to do.
-
-One major initiative
-towards reduced complexity and a gentler learning curve
-is to support more graphical interactions or interfaces.
-This will likely take the form of a VS Code extension,
-with the goal of making that the one app from which most,
-if not all research computation can be done or at least initiated.
-Users will need a guided way to create environments and assemble a pipeline.
-We'll also need integrations with more user friendly services like
-Google Docs, Slides, Sheets, and Colab.
-
+[Calkit](https://calkit.org) is a start down this path.
 If you're a researcher excited by the prospect of simpler
 fully automated workflows,
-[give Calkit a try](https://github.com/calkit/calkit?tab=readme-ov-file#installation)
 and consider joining the project as a design partner.
 You'll get free "reproducibility consulting" and
 any ideas we discover will be fed back into the development so
 others can benefit.
 Similarly, if you're a software developer and this vision resonates with you,
-consider [contributing](https://github.com/calkit).
-There's lots to build, training materials to create,
-and it's still early so you have an opportunity
-to make a significant impact on the project's direction and outcomes.
+consider [getting involved](https://github.com/calkit).
