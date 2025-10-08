@@ -83,7 +83,7 @@ However, we can make exceptions for system-level
 foundational dependencies like Python distributions,
 R, Julia, Docker, etc., even MATLAB.
 The distinction here is that these are generally useful across many projects
-and do not vary like package versions might.
+and required versions do not vary like package versions might.
 So, a programming language like Python is a foundational dependency but a
 library like Pandas is not.
 
@@ -110,7 +110,7 @@ of the floor below, which is clearly inefficient.
 And yet this is the story for many grad students who inherit code.
 In [this example](https://www.nature.com/articles/d41586-022-01901-x),
 getting software from a previous student back to a runnable state
-took about half a year.
+took half a year.
 Imagine if that time were spent creating new things rather than
 getting back to square one,
 and then imagine scaling those gains across all researchers.
@@ -162,14 +162,16 @@ committees and funding organizations care about like more publications
 and citations.
 There's [evidence](https://arxiv.org/pdf/2508.20747)
 showing that working openly attracts more citations,
-and here I'll argue that automation will achieve faster time-to-publication.
+and here I'll argue that automation will achieve faster time-to-publication
+with improved quality.
 
 In software engineering
 [it's well known](https://dl.acm.org/doi/10.5555/3235404)
 that build, test, and deployment
 pipelines are worth automating because automation reduces waste and pain points,
 ultimately allowing for faster and more frequent iterations.
-With more iterations comes a higher quality product.
+With more iterations comes a higher quality product and more positive impact
+on customers and the business.
 Fully automated workflows are much less common in science,
 but the value comes from the same principles.
 
@@ -180,9 +182,8 @@ running notebooks, saving and uploading figures to
 a writing tool like Overleaf,
 and then finally exporting a PDF to share with the outside world.
 When not automated, each line connecting the boxes represents
-"computational logistics," which takes time.
-Jumping between different apps and platforms for different tasks creates
-["digital tool fatigue."](https://www.forbes.com/sites/bryanrobinson/2025/10/04/digital-tool-fatigue-eroding-mental-health-and-career-productivity/)
+"computational logistics," which take time and don't add value
+to the final product.
 If any of these steps ever needs to be done more than once
 (which is almost guaranteed),
 that is time that could be shaved off the time-to-publication.
@@ -216,32 +217,36 @@ flowchart LR
     style L fill:#87CEEB
 ```
 
-Beyond time, each of these low-value-add tasks adds cognitive overhead.
+Beyond time, each of these low-value-add tasks adds cognitive overhead,
+and switching between different apps and platforms for different tasks creates
+["digital tool fatigue."](https://www.forbes.com/sites/bryanrobinson/2025/10/04/digital-tool-fatigue-eroding-mental-health-and-career-productivity/)
 Imagine we need to change something about Python script 2.
 Keeping track of what other steps need to be done in response is going
 to cost brainpower that would be better spent on so-called
 ["Deep Work"](https://calnewport.com/deep-work-rules-for-focused-success-in-a-distracted-world/).
 Scientists should be thinking up innovative ideas,
-not trying to remember if they need to regenerate and reupload a figure.
-And again, when this process is tedious,
+not trying to remember if they need to regenerate and reupload a figure
+and which script created it.
+Again, when this process is tedious because it's manual,
 there's an inclination to do fewer iterations,
-which diminishes the quality of the final product.
+which diminishes quality.
 
 ### The problem with post-hoc repro packs
 
-If you take a look at some repro packs you'll get the feeling that they
+If you take a look at some published repro packs
+you'll get the feeling that they
 were curated after the fact, not used during the work.
 Some journals require repro packs to be submitted
 and checked as part of the review process,
 but most of the time authors are putting these together for the sake
 of doing open science,
-which is great.
+which is much better than not doing it.
 However, doing all that work at the end is another source of waste,
 never mind the fact it usually doesn't result in a reproducible project.
 All the instructions that end up in the README---install this,
 run that, upload here---those are the
 low-value-add tasks
-that were taking up space in the researcher's mind the whole time.
+that were taking up space in the researcher's brain the whole time.
 
 {% include figure.html
 src="/images/single-button/retro-repro.png"
@@ -264,12 +269,13 @@ and releasing artifacts like slideshows, conference papers,
 then journal articles when ready.
 In addition to faster iteration cycle time,
 there would be no more "review anxiety," worrying about if you'll be asked to
-change something, either by the PI, a team member, or a referee.
+change something, either by the principal investigator (PI),
+a team member, or a referee.
 Just change the script or notebook and rerun the project.
 
 ## But what about the cost?
 
-Let's say you're with me so far and you believe that there are enough
+Let's say you're with me so far---you believe that there are enough
 iterations done and enough waste to eliminate
 to justify fully automating research project workflows.
 With today's tools and best practices, what does it take
@@ -281,7 +287,7 @@ The typical "stack" following current best practices would look something like:
    archived on Figshare, Zenodo, or OSF.
 3. Dependencies managed with virtual environments and/or containers.
 4. Scripting and/or a workflow engine like Make, Snakemake, NextFlow to tie
-   everything together, move data around when necessary.
+   everything together and move data around when necessary.
 
 When we ask scientists to work this way we are essentially asking them
 to become part-time software engineers: surveying and picking tools,
@@ -290,15 +296,15 @@ code to tie everything together.
 Some will like that and find the tools and processes exciting.
 Others will not.
 They will want to focus on the science and not want to get bogged down
-in what feels like a lot of work (even torture?)
+with what feels like a lot of extra work
 just to do some computation as part of
 their research.
 
-In other words, there is a very high cost to doing things this way in
+In other words, there is a very high cost to single button reproducibility in
 terms of both skill and effort,
 and researchers are (fairly, in my opinion) perceiving that the cost is
 not worth the benefit,
-as it might delay the time-to-paper.
+as it might delay time-to-publication.
 And so there's the challenge.
 In the absence of other incentives
 (like punishment for irreproducible publications)
@@ -325,12 +331,12 @@ Option 1.1 is effectively the strategy of groups like
 and it's one I like.
 Computational competency may not fit into most curricula,
 but I believe it can improve the productivity of basically any knowledge
-worker, so is worth pursuing.
+worker, and is therefore worth pursuing.
 
 Option 1.2 is a bit newer,
 with research software engineer (RSE) becoming a more common job title
 in academia (my current one, as a matter of fact).
-Essentially the strategy is to pay for the expertise so scientists
+The idea is to pay for the expertise so scientists
 don't need to do so much on their own.
 I like this one as well,
 given that's currently how I make a living,
@@ -338,10 +344,12 @@ and it's especially good when RSEs can help produce scientific
 software products that help reduce the computational expertise
 necessary for other scientists to do their work.
 
+But what about tooling and infrastructure?
+
 There's a principle in software engineering where once you've done
 something the hard way in a similar way a few times,
 it's worth building a higher level abstraction for it so it can be
-done even more (scaled) more efficiently.
+duplicated (scaled) more easily.
 Looking at the current reproducible research stack and best practices
 it's clear we're asking researchers to do things the hard way
 over and over again, and therefore missing a higher level abstraction.
@@ -368,7 +376,7 @@ tooling and best practices to vertically integrate them into
 a simpler research project management experience.
 Instead of a loose collection of scripts,
 notebooks, data, and documentation,
-the framework unifies them into a single coherent unit---a
+Calkit unifies them into a single coherent unit---a
 "calculation kit" if you will, runnable with a single command.
 The folks at PLOS have been using the phrase
 ["knowledge stack"](https://plos.org/redefining-publishing/)
@@ -376,13 +384,16 @@ and that describes it well too.
 A Calkit project is the entire knowledge stack from a given study in
 one neat reproducible package.
 
-The goal is not to replace complex tools like Git,
-but to provide a simpler onramp facilitating its use in a research context.
+The goal is not to replace powerful yet complex tools like Git,
+but to provide a simpler onramp and guardrails
+facilitating their use in a research context.
 If and when researchers want to interact at a lower level,
 there is nothing preventing them from doing so.
 We just want to get their foot in the door.
 
-Key concepts:
+### Key concepts
+
+Achieving single button reproducibility boils down to two important rules:
 
 1. The project is the most important entity and should contain all related
    files. This is sometimes called the
@@ -426,13 +437,13 @@ we also don't want to require them to be cloud computing administrators.
 Calkit unifies interaction with both Git (for smaller/text files)
 and DVC (for larger/binary files) under a single
 command line interface (CLI).
-As a "gateway drug" to version control,
+As a gentler onramp to version control,
 the CLI has a simple `save` command,
 which decides automatically which files belong in which category,
 and can generate a commit message for the user.
 The actions being taken and an explanation for why are printed to the
 terminal.
-Users can learn what a staging area is later.
+Users can learn what a Git staging area is later if they want.
 The most important thing is to get them saving each version
 of their project.
 
@@ -449,18 +460,28 @@ automatically instead of bloating
 their Git repositories.
 The Calkit Cloud also acts as a wrapper on top of GitHub to provide a
 more research-oriented experience.
+Again the logic is that many researchers see GitHub as a place to
+store code,
+but not as a place for collaborating on all stages of a project, e.g.,
+analysis or writing,
+since GitHub is primarily designed for software development.
+Asking them to move to GitHub is asking them to act like software
+developers, which we're trying to avoid, at least to start.
+
 Instead of interacting with repos, forks, and commits,
-users deal with figures, datasets, and publications.
+Calkit users deal with figures, datasets, and publications.
 Unlike GitHub, the
 [Calkit Cloud software](https://github.com/calkit/calkit-cloud)
 is fully open source and
 can be self-hosted.
 Unlike other data sharing platforms,
-it's meant to be used during the work,
+it's meant to be used during the work
 as a means of backup and collaboration,
 not just as a way to share files at the end.
 It can serve as a showcase for the work too,
 like how software developers will show off their code on GitHub.
+And since Calkit integrates with GitHub on behalf of users,
+the project is viewable there as well.
 
 {% include figure.html
 src="/images/single-button/cloud.png"
@@ -472,18 +493,18 @@ caption="The Calkit Cloud is like GitHub for research."
 It's important to use the right tool for the job,
 but in order to achieve single button reproducibility all tools
 need to somehow be tied together.
-Researchers may want to use different tools for different tasks,
-but also may need to run different processes in different locations.
+Researchers may also need
+to run different processes in different locations.
 For example, a simulation may be run on a high performance
 computing (HPC) cluster,
 the results post-processed and visualized on a laptop,
 then written about on a cloud platform like Overleaf.
 In a single button reproducible workflow a change to the simulation
-parameters results in updated figures and tables on Overleaf without
-manually moving files around and picking which script to run.
+parameters results in updated figures and tables in the paper without
+manually moving files around and picking which scripts to run.
 
 Calkit's strategy here is simple: Connect these different
-systems from the project itself, keeping that as the single
+systems to the project itself, keeping that as the single
 source of truth.
 An Overleaf project can be linked to a subdirectory in the project
 and synced bidirectionally (without Git submodules).
@@ -491,24 +512,22 @@ Stages in the project's pipeline can be run on a SLURM job scheduler
 and their results (or a subset) automatically kept in version control,
 uploaded to the cloud and ready to pull onto any of the team members'
 laptops.
-Integration will be a continued effort as new tools and platforms are
-introduced,
-but as long as they provide APIs,
-the problem is tractable.
 
 ### Challenge 3: Dependency management
 
-One of the biggest causes of irreproducibility is mutation of the
-user's global system environment without properly keeping track of it.
+One of the biggest causes of irreproducibility is mutation of
+(read: installing things in) the
+user's global system environment without proper tracking.
 For example,
 they may run `pip install ...` to install a package in their system
 Python environment and forget about it,
-or loosely document it in the project's README.
+or loosely document that in the project's README.
 All of their scripts and notebooks may run just fine on their machine
 but fail on others'.
 
 The solution, e.g., for Python projects, is to use a virtual environment.
-However, even these can be problematic with common tools promoting a
+However, even these can be problematic and confusing
+with common tools promoting a
 create-and-mutate kind of workflow.
 That is, a virtual environment is created, activated,
 then mutated by installing some packages in it.
@@ -517,6 +536,17 @@ e.g., in a `requirements.txt`.
 It requires discipline (cognitive overhead) from the user to ensure
 they properly document the virtual environment.
 It even requires discipline to ensure it's activated before running something!
+
+```sh
+# Create a virtual environment
+python -m venv .venv
+# Activate it, and remember to activate it every time!
+source .venv/bin/activate
+# Now mutate the environment
+pip install -r requirements.txt
+# Now what if I mutate further?
+pip install something-else
+```
 
 More modern environment managers like uv and Pixi automate
 some of this, making it easy to run a command in a virtual environment
@@ -595,8 +625,11 @@ Automation presents a huge potential for increasing the pace of
 scientific discovery,
 but the cost of single button reproducibility is
 still too high for most researchers.
-Many simply don't have the time or motivation to become
-de facto software engineers.
+Many simply don't have the time or desire to become
+de facto software engineers, and that's okay.
+In addition to providing training and support,
+we need to meet them in the middle with a less software-oriented,
+more research-oriented and user friendly set of tools and infrastructure.
 
 Calkit is a start---perhaps best called an "MVP" or prototype at the
 moment---at a simpler back end and the cloud system
