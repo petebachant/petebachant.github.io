@@ -544,7 +544,7 @@ python -m venv .venv
 source .venv/bin/activate
 # Now mutate the environment
 pip install -r requirements.txt
-# Now what if I mutate further?
+# Now what if I mutate further and forget to document?
 pip install something-else
 ```
 
