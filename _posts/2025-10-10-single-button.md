@@ -559,27 +559,19 @@ created with the project's pipeline.
 It therefore needs to be easier to automate the creation of a figure than it is
 to simply copy and paste it into some slides and email them out.
 
-Calkit's strategy is to make it quick and simple to integrate
-interactive tools like
-Jupyter notebooks to the pipeline.
-A user can run the notebook interactively to explore
+What we need is a pipeline that is easy to create, update, and understand.
+Users need to be able to run something like
+a Jupyter notebook interactively to explore
 how it might work best,
 add it to the pipeline, and run the project to see if it properly
 produces the thing they'd like to share.
 
-Each stage in the pipeline needs to specify
-the environment in which it runs,
-so there's no need for the user to ensure it's up-to-date,
-and outputs can be declared for saving in the project and uploading
-to the cloud for sharing.
-The cached outputs are invalidated (thanks to DVC)
-in response to changes in their
-declared inputs or environments,
-meaning users can keep running the pipeline and expensive unchanged
-steps will be skipped, eliminating the need for them to keep
-track in their head,
-or to only run certain steps manually---just keep calling `calkit run`,
-or even `calkit run --save` to run and save in one step.
+The pipeline also needs to be able to run quickly so users don't need to think
+about which stages need to be run---that would be a multi-button
+workflow.
+In other words,
+it will need to cache outputs and only rerun stages when the cache becomes
+invalidated.
 
 ## Where to next?
 
