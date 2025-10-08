@@ -347,7 +347,7 @@ necessary for other scientists to do their work.
 But what about tooling and infrastructure?
 
 There's a principle in software engineering where once you've done
-something the hard way in a similar way a few times,
+something the hard or verbose way a few times,
 it's worth building a higher level abstraction for it so it can be
 duplicated (scaled) more easily.
 Looking at the current reproducible research stack and best practices
@@ -370,23 +370,27 @@ single button reproducible workflow.
 
 ## Simplified tooling and infrastructure for single button reproducibility
 
+### Key concepts
+
 Achieving single button reproducibility boils down to two important rules:
 
-1. The project is the most important entity and should contain all related
+1. The _project_ is the most important entity,
+   the single source of truth, and should contain all related
    files. This is sometimes called the
    ["full compendium of artifacts"](https://nap.nationalacademies.org/read/25303/chapter/7#67)
+   or the ["full knowledge stack"](https://plos.org/redefining-publishing/)
    and includes things like code, data, notes, config files, CAD files,
    figures, tables,
-   and of course the research article itself.
-   The project is the single source of truth.
-   The folks at PLOS have been using the phrase
-   ["knowledge stack"](https://plos.org/redefining-publishing/)
-   and that describes it well too.
+   and of course the research article.
+   For very large artifacts like datasets, uniquely identifiable pointers
+   can be included in the project.
 2. Any derived artifact, e.g., a figure, should not be shared outside the
    project unless it was produced by its _pipeline_
    (the thing that runs with that single button).
 
-The goal is simply a future where most, if not all, studies ship with a
+If researchers can follow these rules without becoming de facto
+software engineers,
+we might see a future where most, if not all, studies ship with a
 single button repro pack.
 Let's now take a look at some of the more specific challenges and
 strategies for overcoming them.
@@ -412,12 +416,20 @@ Our goal is to not require scientists to be software engineers,
 and so naturally
 we also don't want to require them to be cloud computing administrators.
 
-GitHub is typical place to share
+GitHub is typical place to share Git repositories,
+and researchers will typically use this to share code,
+siloing it from the rest of the project materials.
 
 There are archival services out there,
 but they're not designed to be used during the project.
 
 What we need is Git/GitHub more purpose-built for research.
+It needs to be just as easy to keep track of the history of a large
+dataset as it is to keep track of a script.
+
+Instead of interacting with repos, forks, and commits,
+we need an app with a data model that deals with
+figures, datasets, and publications.
 
 Hugging Face Hub is similar for machine learning.
 
@@ -427,50 +439,16 @@ use, so they can all be kept in the same single repository.
 We also need a place to store and collaborate on all of these files
 that is not primarily designed for software development.
 
-It should probably also be fully open source,
-since GitHub is not, and its centralization represents a risk
-of "enshittification".
-
-{% include figure.html
-src="/images/single-button/save.png"
-caption="Users can save their project now and learn the inner workings
-of Git later if they're into type 2 fun."
-%}
-
-Calkit also has a complementary cloud system ([calkit.io](https://calkit.io))
-that acts as a default DVC remote,
-meaning histories of users' data files will be uploaded there
-automatically instead of bloating
-their Git repositories.
-The Calkit Cloud also acts as a wrapper on top of GitHub to provide a
-more research-oriented experience.
-Again the logic is that many researchers see GitHub as a place to
-store code,
-but not as a place for collaborating on all stages of a project, e.g.,
-analysis or writing,
-since GitHub is primarily designed for software development.
-Asking them to move to GitHub is asking them to act like software
-developers, which we're trying to avoid, at least to start.
-
-Instead of interacting with repos, forks, and commits,
-Calkit users deal with figures, datasets, and publications.
-Unlike GitHub, the
-[Calkit Cloud software](https://github.com/calkit/calkit-cloud)
-is fully open source and
-can be self-hosted.
 Unlike other data sharing platforms,
 it's meant to be used during the work
 as a means of backup and collaboration,
 not just as a way to share files at the end.
 It can serve as a showcase for the work too,
 like how software developers will show off their code on GitHub.
-And since Calkit integrates with GitHub on behalf of users,
-the project is viewable there as well.
 
-{% include figure.html
-src="/images/single-button/cloud.png"
-caption="The Calkit Cloud is like GitHub for research."
-%}
+It should also be fully open source,
+since GitHub is not, and its centralization represents a risk
+of "enshittification".
 
 ### Challenge 2: Tooling fragmentation
 
