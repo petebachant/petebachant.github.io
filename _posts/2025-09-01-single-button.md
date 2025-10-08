@@ -403,7 +403,8 @@ Achieving single button reproducibility boils down to two important rules:
    and of course the research article itself.
    The project is the single source of truth.
 2. Any derived artifact, e.g., a figure, should not be shared outside the
-   project unless it was produced by its _pipeline_.
+   project unless it was produced by its _pipeline_
+   (the thing that runs with that single button).
 
 If a project can follow the two rules above without
 using Calkit, that's great.
