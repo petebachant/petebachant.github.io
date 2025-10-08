@@ -372,7 +372,7 @@ single button reproducible workflow.
 
 ### Key concepts
 
-Achieving single button reproducibility boils down to two important rules:
+Achieving single button reproducibility can be achieved by following two rules:
 
 1. The _project_ is the most important entity,
    the single source of truth, and should contain all related
@@ -383,7 +383,7 @@ Achieving single button reproducibility boils down to two important rules:
    figures, tables,
    and of course the research article.
    For very large artifacts like datasets, uniquely identifiable pointers
-   can be included in the project.
+   can be included in the project to reference remote storage.
 2. Any derived artifact, e.g., a figure, should not be shared outside the
    project unless it was produced by its _pipeline_
    (the thing that runs with the single button).
@@ -405,7 +405,7 @@ Version control is also critical for collaboration,
 allowing people to work concurrently on the same files, i.e.,
 not needing to wait for each other like an assembly line.
 
-Besides being notoriously difficult to learn,
+Besides being notoriously complex and difficult to learn,
 Git is also not ideal for large files or binary files that change
 often, which will almost certainly be present in a research project.
 There are solutions out there that make up for this shortcoming,
