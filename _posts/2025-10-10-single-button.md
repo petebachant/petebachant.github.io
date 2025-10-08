@@ -465,15 +465,15 @@ In a single button reproducible workflow a change to the simulation
 parameters results in updated figures and tables in the paper without
 manually moving files around and picking which scripts to run.
 
-Calkit's strategy here is simple: Connect these different
-systems to the project itself, keeping that as the single
-source of truth.
-An Overleaf project can be linked to a subdirectory in the project
-and synced bidirectionally (without Git submodules).
-Stages in the project's pipeline can be run on a SLURM job scheduler
-and their results (or a subset) automatically kept in version control,
-uploaded to the cloud and ready to pull onto any of the team members'
-laptops.
+We need a way to connect all of these different tools together
+so researchers don't need to hop around and manually transfer data
+between them.
+We need the project to remain the single source of truth
+but be able to sync out to these more specialized tools.
+We need a graphical user interface (GUI) that enables data collection,
+exploration, analysis, and writing,
+with an easy way to build and run the project's pipeline
+and keep track of version history.
 
 ### Challenge 3: Dependency management
 
@@ -524,29 +524,14 @@ a user may want to do some statistical calculations in R,
 some machine learning in Python,
 then compile a paper with LaTeX.
 
-Calkit's solution is to make environments essential entities in
-the project.
-Users can define as many as they need,
-choosing from many different types, e.g.,
-Conda, Docker, uv, Pixi, Renv, Julia, or even MATLAB.
-When a project is run, relevant environments are checked against their
-definitions and lock files are exported,
-even if the environment manager in question, e.g., Python's `venv`,
-doesn't do that on its own.
-This way,
-users no longer need to create-and-mutate.
-They simply define-and-run.
-Similar to with version control systems,
-the workings of the environment managers aren't necessarily hidden,
-but they don't necessarily need to be known to work reproducibly.
-
-Furthermore,
-when new and improved environment managers are inevitably created,
-they can be integrated into this common interface,
-lowering the amount of training necessary to use them.
-For example, I found the steps to create multiple environments in
-a single project with Pixi confusing,
-so Calkit now can create these with a call to `calkit new pixi-env`.
+What we need is a project format and manager that allows different
+environment types,
+e.g., Python, Docker, R, Julia, or even MATLAB,
+to be used for different parts of the workflow,
+and provides a similar interface to create, update, and use each.
+Users should not be forced to check if environments match
+their specification, nor should they be expected to document them manually.
+They should be able to simply define and run.
 
 ### Challenge 4: Bridging the interactive--batch divide
 
