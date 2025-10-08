@@ -525,7 +525,8 @@ or loosely document that in the project's README.
 All of their scripts and notebooks may run just fine on their machine
 but fail on others'.
 
-The solution, e.g., for Python projects, is to use a virtual environment.
+The status quo solution, e.g., for Python projects,
+is to use a virtual environment.
 However, even these can be problematic and confusing
 with common tools promoting a
 create-and-mutate kind of workflow.
