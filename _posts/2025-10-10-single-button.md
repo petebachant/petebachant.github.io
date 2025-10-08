@@ -594,7 +594,8 @@ In addition to providing training and support,
 we need to meet them in the middle with a less software-oriented,
 more research-oriented and user friendly set of tools and infrastructure.
 
-[Calkit](https://calkit.org) is a start down this path.
+[Calkit](https://calkit.org) is a start down this path,
+but I certainly won't claim we've yet solved all of these problems.
 If you're a researcher excited by the prospect of simpler
 fully automated workflows,
 and consider joining the project as a design partner.
