@@ -584,7 +584,7 @@ In other words,
 it will need to cache outputs and only rerun stages when the cache becomes
 invalidated.
 
-## Let's build
+## Let's build it
 
 Automation presents a huge potential for increasing the pace of
 scientific discovery,
