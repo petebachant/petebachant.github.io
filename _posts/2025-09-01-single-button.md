@@ -588,44 +588,50 @@ so Calkit now can create these with a call to `calkit new pixi-env`.
 ### Challenge 4: Bridging the interactive--batch divide
 
 When writing music,
-you can sit at the instrument and keep playing until something sounds right,
-or you can spend a long time writing out sheet music imagining what
-it will sound like.
-The former---an interactive workflow---is more intuitive,
+you can spend a long time writing out sheet music,
+imagining what it will sound like,
+then have someone play it at the end,
+or you can sit at the instrument and keep playing until it sounds right.
+The latter---an interactive workflow---is more intuitive,
 with faster feedback and shorter iteration cycle time.
 Interactive workflows are great ways to discover ideas,
 but once a valuable creation has been discovered,
 it needs to be written down or recorded so it can be reproduced.
-The same is true for a figure or data transformation.
+The same is true for creating a figure or data transformation.
 
-And so here's the challenge.
+And so here's the challenge:
 How do you allow researchers to experiment with different ideas
 for data processing or visualization in an interactive way
 but also get them to "record" what they did so it can be edited
 and replayed later?
-We need to get them to follow rule 2:
-do not share a derived artifact outside the project unless it was
-created with the pipeline.
+We need to get them to follow the second rule of single button
+reproducibility:
+Do not share a derived artifact outside the project unless it was
+created with the project's pipeline.
 It therefore needs to be easier to automate the creation of a figure than it is
 to simply copy and paste it into some slides and email them out.
 
-Calkit's strategy is to make it quick and simple to add interactive tools like
+Calkit's strategy is to make it quick and simple to integrate
+interactive tools like
 Jupyter notebooks to the pipeline.
 A user can run the notebook interactively to explore
 how it might work best,
 add it to the pipeline, and run the project to see if it properly
 produces the thing they'd like to share.
-Each stage in the pipeline needs to define the environment in which
-it runs,
+
+Each stage in the pipeline needs to specify
+the environment in which it runs,
 so there's no need for the user to ensure it's up-to-date,
 and outputs can be declared for saving in the project and uploading
 to the cloud for sharing.
-The cached outputs are invalidated (with DVC)
+The cached outputs are invalidated (thanks to DVC)
 in response to changes in their
 declared inputs or environments,
 meaning users can keep running the pipeline and expensive unchanged
 steps will be skipped, eliminating the need for them to keep
-track in their head.
+track in their head,
+or to only run certain steps manually---just keep calling `calkit run`,
+or even `calkit run --save` to run and save in one step.
 
 ## Where to next?
 
@@ -639,15 +645,21 @@ In addition to providing training and support,
 we need to meet them in the middle with a less software-oriented,
 more research-oriented and user friendly set of tools and infrastructure.
 
-Calkit is a start---perhaps best called an "MVP" or prototype at the
-moment---at a simpler back end and the cloud system
-is a start at a more purpose-built front end and collaboration hub,
-but the user experience is still certainly geared more towards
-software engineer types and the problem is certainly not yet solved.
-To keep bringing down the complexity more graphical interactions must
-be supported.
+Calkit is a start down that path.
+Though perhaps best labeled an "MVP" or prototype at the
+moment,
+it provides a CLI and collaboration hub purpose-built for research,
+tying together powerful software development tools
+while making deep knowledge of them less necessary.
+In its current state
+the user experience is still geared at little more towards
+software engineer types so there is much left to do.
+
+One major initiative
+towards reduced complexity and a gentler learning curve
+is to support more graphical interactions or interfaces.
 This will likely take the form of a VS Code extension,
-with the goal of making that the single place from which most,
+with the goal of making that the one app from which most,
 if not all research computation can be done or at least initiated.
 Users will need a guided way to create environments and assemble a pipeline.
 We'll also need integrations with more user friendly services like
@@ -661,7 +673,7 @@ You'll get free "reproducibility consulting" and
 any ideas we discover will be fed back into the development so
 others can benefit.
 Similarly, if you're a software developer and this vision resonates with you,
-consider joining the project.
+consider [contributing](https://github.com/calkit).
 There's lots to build, training materials to create,
 and it's still early so you have an opportunity
 to make a significant impact on the project's direction and outcomes.
