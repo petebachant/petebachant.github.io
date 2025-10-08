@@ -367,31 +367,8 @@ and other cognitive overhead
 while retaining the ability to use state-of-the art libraries
 and applications---and of course naturally integrate them all into a
 single button reproducible workflow.
-This is the vision for [Calkit](https://calkit.org).
 
-## Calkit: Simplified tooling and infrastructure for single button reproducibility
-
-Calkit is a transparent but opinionated wrapper around the "software expert"
-tooling and best practices to vertically integrate them into
-a simpler research project management experience.
-Instead of a loose collection of scripts,
-notebooks, data, and documentation,
-Calkit unifies them into a single coherent unit---a
-"calculation kit" if you will, runnable with a single command.
-The folks at PLOS have been using the phrase
-["knowledge stack"](https://plos.org/redefining-publishing/)
-and that describes it well too.
-A Calkit project is the entire knowledge stack from a given study in
-one neat reproducible package.
-
-The goal is not to replace powerful yet complex tools like Git,
-but to provide a simpler onramp and guardrails
-facilitating their use in a research context.
-If and when researchers want to interact at a lower level,
-there is nothing preventing them from doing so.
-We just want to get their foot in the door.
-
-### Key concepts
+## Simplified tooling and infrastructure for single button reproducibility
 
 Achieving single button reproducibility boils down to two important rules:
 
@@ -402,15 +379,15 @@ Achieving single button reproducibility boils down to two important rules:
    figures, tables,
    and of course the research article itself.
    The project is the single source of truth.
+   The folks at PLOS have been using the phrase
+   ["knowledge stack"](https://plos.org/redefining-publishing/)
+   and that describes it well too.
 2. Any derived artifact, e.g., a figure, should not be shared outside the
    project unless it was produced by its _pipeline_
    (the thing that runs with that single button).
 
-If a project can follow the two rules above without
-using Calkit, that's great.
 The goal is simply a future where most, if not all, studies ship with a
 single button repro pack.
-How we get there doesn't matter as much.
 Let's now take a look at some of the more specific challenges and
 strategies for overcoming them.
 
@@ -430,23 +407,29 @@ often, which will almost certainly be present in a research project.
 There are solutions out there that make up for this shortcoming,
 e.g., Large File Storage (LFS), git-annex, and [DVC](https://dvc.org),
 but all of these require some level of configuration and in some cases
-some infrastructure such as S3 buckets or web servers.
+additional infrastructure such as S3 buckets or web servers.
 Our goal is to not require scientists to be software engineers,
 and so naturally
 we also don't want to require them to be cloud computing administrators.
 
-Calkit unifies interaction with both Git (for smaller/text files)
-and DVC (for larger/binary files) under a single
-command line interface (CLI).
-As a gentler onramp to version control,
-the CLI has a simple `save` command,
-which decides automatically which files belong in which category,
-and can generate a commit message for the user.
-The actions being taken and an explanation for why are printed to the
-terminal.
-Users can learn what a Git staging area is later if they want.
-The most important thing is to get them saving each version
-of their project.
+GitHub is typical place to share
+
+There are archival services out there,
+but they're not designed to be used during the project.
+
+What we need is Git/GitHub more purpose-built for research.
+
+Hugging Face Hub is similar for machine learning.
+
+What we need is a simpler version control solution geared towards
+research that works for all the different file types researchers
+use, so they can all be kept in the same single repository.
+We also need a place to store and collaborate on all of these files
+that is not primarily designed for software development.
+
+It should probably also be fully open source,
+since GitHub is not, and its centralization represents a risk
+of "enshittification".
 
 {% include figure.html
 src="/images/single-button/save.png"
