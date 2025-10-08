@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2025-10-04
+date: 2025-10-08
 layout: post
 title: "Single button reproducibility: The what, the why, and the how"
 categories:
@@ -12,18 +12,18 @@ categories:
 One of the initial visions for computational reproducibility dates back to
 the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
-shared that they hoped researchers would be able to
+hoped researchers would be able to
 reproduce their results "a year or more later with a single button."
-We never got there, but we should keep trying.
+We never quite got there, but we could, and should.
 
 These days, the
 [open science movement](https://en.wikipedia.org/wiki/Open_science)
 has made code and data sharing more
-prevalent,
+common,
 which is a great achievement,
 but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
-very rarely single button reproducible.
+not single button reproducible.
 In fact, in most cases what's shared is
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a reproducibility crisis.
@@ -31,12 +31,13 @@ hence why it's called a reproducibility crisis.
 Note that I'm not talking about replicability here,
 which refers to collecting new raw data
 to validate the original study's conclusions.
-Reproducibility is a lower bar to clear:
+Reproducibility is a somewhat lower bar to clear:
 rerunning the analysis
 on the original data and
 verifying that it's possible to regenerate the evidence (figures, tables, etc.)
 that back up the
-original conclusions.
+original conclusions,
+which is more of a test of a study's claimed computational methods.
 See
 The National Academy's
 ["Reproducibility and Replicability in Science"](https://nap.nationalacademies.org/read/25303/chapter/1)
@@ -56,7 +57,7 @@ Sometimes you'll need to manually modify the code to run on your
 system,
 either because you've been instructed to download some data and put it
 somewhere of your choosing, or the original author used absolute paths
-that need to be adapted for a new instance of the project.
+that need to be adapted for a new copy of the project.
 In other words,
 these are not even close to being single button reproducible.
 
@@ -250,8 +251,17 @@ used throughout?"
 
 Imagine instead that the project was automated from the start
 to be ["continuously reproducible"](/continuous-reproducibility),
-which is sometimes called practicing continuous analysis, continuous science,
-or continuous validation.
+which is sometimes called practicing
+[continuous analysis](https://arxiv.org/abs/2411.02283),
+[continuous science](https://curvenote.com/blog/open-source-software-powers-open-access),
+or
+[continuous validation](https://doi.org/10.1093/bib/bbad375).
+The point is that we should not divide our project into long stages
+and do them in sequence like collect, analyze, visualize, write,
+create repro pack.
+Instead we should be doing all of those as part of an ongoing process
+and releasing artifacts like slideshows, conference papers,
+then journal articles when ready.
 In addition to faster iteration cycle time,
 there would be no more "review anxiety," worrying about if you'll be asked to
 change something, either by the PI, a team member, or a referee.
@@ -588,7 +598,8 @@ still too high for most researchers.
 Many simply don't have the time or motivation to become
 de facto software engineers.
 
-Calkit is a start at a simpler back end and the cloud system
+Calkit is a start---perhaps best called an "MVP" or prototype at the
+moment---at a simpler back end and the cloud system
 is a start at a more purpose-built front end and collaboration hub,
 but the user experience is still certainly geared more towards
 software engineer types and the problem is certainly not yet solved.
