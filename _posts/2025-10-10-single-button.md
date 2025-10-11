@@ -9,7 +9,7 @@ categories:
   - Software engineering
 ---
 
-One of the initial visions for computational reproducibility dates back to
+One of the first visions for computational reproducibility dates back to
 the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
 hoped researchers would be able to
@@ -19,14 +19,14 @@ We never quite got there, but we could, and we should.
 These days, the
 [open science movement](https://en.wikipedia.org/wiki/Open_science)
 has made code and data sharing more
-common,
+appreciated and more common,
 which is a great achievement,
 but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
 not single button reproducible.
 In fact, in most cases what's shared is
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
-hence why it's called a reproducibility crisis.
+hence why it's called a _reproducibility crisis_.
 
 Note that I'm not talking about replicability here,
 which refers to collecting new raw data
@@ -112,7 +112,7 @@ In [this example](https://www.nature.com/articles/d41586-022-01901-x),
 getting software from a previous student back to a runnable state
 took half a year.
 Imagine if that time were spent creating new things rather than
-getting back to square one,
+reproducing old ones to get back to square one,
 and then imagine scaling those gains across all researchers.
 
 {% include figure.html
@@ -154,7 +154,7 @@ caption="Messy code that runs is better than 'clean' code that doesn't."
 ## Benefits to the individual
 
 Shipping single button reproducible projects will surely benefit
-the next person looking to build on the work,
+those looking to build on the work,
 but what about the original author themselves?
 If we want them to play along they're going to need to get something
 out of it, and for most this is going to mean things that tenure
@@ -168,7 +168,8 @@ with improved quality.
 In software engineering
 [it's well known](https://dl.acm.org/doi/10.5555/3235404)
 that build, test, and deployment
-pipelines are worth automating because automation reduces waste and pain points,
+pipelines are worth automating because automation reduces waste and
+eliminates pain points,
 ultimately allowing for faster and more frequent iterations.
 With more iterations comes a higher quality product and more positive impact
 on customers and the business.
@@ -219,7 +220,8 @@ flowchart LR
     style L fill:#87CEEB
 ```
 
-Beyond time, each of these low-value-add tasks adds cognitive overhead,
+Beyond time wasted,
+each of these low-value-add tasks adds cognitive overhead,
 and switching between different apps and platforms for different tasks creates
 ["digital tool fatigue."](https://www.forbes.com/sites/bryanrobinson/2025/10/04/digital-tool-fatigue-eroding-mental-health-and-career-productivity/)
 Imagine we need to change something about Python script 2.
@@ -374,7 +376,7 @@ single button reproducible workflow.
 
 ### Key concepts
 
-Achieving single button reproducibility can be achieved by following two rules:
+Single button reproducibility can be achieved by following two rules:
 
 1. The _project_ is the most important entity,
    the single source of truth, and should contain all related
@@ -595,6 +597,8 @@ de facto software engineers, and that's okay.
 In addition to providing training and support,
 we need to meet them in the middle with a less software-oriented,
 more research-oriented and user friendly set of tools and infrastructure.
+Nevertheless, we should strive for this higher standard of
+reproducibility.
 
 [Calkit](https://calkit.org) is a start down this path,
 but I certainly won't claim we've yet solved all of these problems.
