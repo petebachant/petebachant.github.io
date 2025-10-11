@@ -374,6 +374,10 @@ single button reproducible workflow.
 
 ## Simplified tooling and infrastructure for single button reproducibility
 
+TODO: Strategy to not replace, but instead expand and tie together
+existing open source tools into a coherent vertically-integrated
+experience.
+
 ### Key concepts
 
 Single button reproducibility can be achieved by following two rules:
