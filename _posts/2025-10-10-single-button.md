@@ -45,6 +45,8 @@ and
 [The Turing Way](https://book.the-turing-way.org/reproducible-research/overview/overview-definitions/)
 for more information.
 
+TODO: Discuss the fragility of our evidence generation.
+
 Download a random repro pack from
 [Figshare](https://figshare.com/browse) or
 [Zenodo](https://zenodo.org/search?q=&f=resource_type%3Asoftware&l=list&p=1&s=10&sort=newest)
@@ -458,7 +460,7 @@ It should also be fully open source,
 since GitHub is not, and its centralization represents a risk
 of "enshittification".
 
-### Challenge 2: Tooling fragmentation
+### Challenge 2: Tooling fragmentation and silos
 
 It's important to use the right tool for the job,
 but in order to achieve single button reproducibility all tools
