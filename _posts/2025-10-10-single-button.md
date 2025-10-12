@@ -28,23 +28,6 @@ In fact, in most cases what's shared is
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a _reproducibility crisis_.
 
-Note that I'm not talking about replicability here,
-which refers to collecting new raw data
-to validate the original study's conclusions.
-Reproducibility is a somewhat lower bar to clear:
-rerunning the analysis
-on the original data and
-verifying that it's possible to regenerate the evidence (figures, tables, etc.)
-that back up the
-original conclusions,
-which is more of a test of a study's claimed computational methods.
-See
-The National Academy's
-["Reproducibility and Replicability in Science"](https://nap.nationalacademies.org/read/25303/chapter/1)
-and
-[The Turing Way](https://book.the-turing-way.org/reproducible-research/overview/overview-definitions/)
-for more information.
-
 TODO: Discuss the fragility of our evidence generation.
 
 "Here are my conclusions and here's the evidence to back them up,
@@ -337,7 +320,8 @@ strategic angles:
 
 Option 1.1 is effectively the strategy of groups like
 [The Carpentries](https://carpentries.org/)
-and it's one I like.
+and [The Turing Way](https://book.the-turing-way.org)
+and it's a good one.
 Computational competency may not fit into most curricula,
 but I believe it can improve the productivity of basically any knowledge
 worker, and is therefore worth pursuing.
