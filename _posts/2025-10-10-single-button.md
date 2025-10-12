@@ -14,7 +14,22 @@ the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
 imagine researchers able to
 reproduce their results "a year or more later with a single button."
+Another way to think of this would be running a single command to
+transform raw data into figures, tables, and finally
+a compiled research article.
 We never quite got there, but we could, and we should.
+
+```mermaid
+flowchart LR
+    A[Collect data] --> B[Process data]
+    B --> C[Visualize data]
+    C --> D[Compile paper]
+
+    style A fill:#90EE90
+    style B fill:#87CEEB
+    style C fill:#87CEEB
+    style D fill:#87CEEB
+```
 
 These days, the
 [open science movement](https://en.wikipedia.org/wiki/Open_science)
@@ -28,16 +43,12 @@ In fact, in most cases what's shared is
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a _reproducibility crisis_.
 
-TODO: Discuss the fragility of our evidence generation.
-
-"Here are my conclusions and here's the evidence to back them up,
-but don't expect to be able to create the evidence yourself."
-
 Download a random repro pack from
 [Figshare](https://figshare.com/browse) or
 [Zenodo](https://zenodo.org/search?q=&f=resource_type%3Asoftware&l=list&p=1&s=10&sort=newest)
 and if you're lucky you'll find a README with
-a list of manual steps explaining how to
+a list of manual steps explaining how to install necessary
+packages and
 run the project's analyses.
 Often you'll see a collection of numbered scripts and/or notebooks
 with no instructions at all.
@@ -51,41 +62,12 @@ these are not even close to being single button reproducible.
 
 To be clear,
 this level of transparency and willingness to share messy code
-is laudable,
-and failure to reproduce does not necessarily indicate
-incorrect conclusions,
-but the lack of automation in research workflows presents a huge opportunity
-to benefit both the community and the individuals
-who are currently publishing
-irreproducible work.
-Here I'll explain the what, why, and how to get there.
-
-## What is single button reproducibility?
-
-If you can go from raw data to research article with a single
-command (or button, but the command line is probably more realistic for now),
-your project is single button reproducible.
-This one command should include dependency management,
-e.g., installing Python or R packages.
-However, we can make exceptions for system-level
-foundational dependencies like Python distributions,
-R, Julia, Docker, etc., even MATLAB.
-The distinction here is that these are generally useful across many projects
-and required versions do not vary like package versions might.
-So, a programming language like Python is a foundational dependency but a
-library like Pandas is not.
-
-```mermaid
-flowchart LR
-    A[Collect data] --> B[Process data]
-    B --> C[Visualize data]
-    C --> D[Compile paper]
-
-    style A fill:#90EE90
-    style B fill:#87CEEB
-    style C fill:#87CEEB
-    style D fill:#87CEEB
-```
+is laudable.
+Fragility in evidence generation does not necessarily indicate
+incorrect conclusions or misconduct.
+Nevertheless, that fragility
+and the lack of automation in research workflows present a huge opportunity
+to benefit both the community and the individuals involved.
 
 ## Benefits to the community
 
