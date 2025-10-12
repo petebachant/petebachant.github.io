@@ -47,6 +47,9 @@ for more information.
 
 TODO: Discuss the fragility of our evidence generation.
 
+"Here are my conclusions and here's the evidence to back them up,
+but don't expect to be able to create the evidence yourself."
+
 Download a random repro pack from
 [Figshare](https://figshare.com/browse) or
 [Zenodo](https://zenodo.org/search?q=&f=resource_type%3Asoftware&l=list&p=1&s=10&sort=newest)
