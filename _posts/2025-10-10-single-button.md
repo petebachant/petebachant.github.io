@@ -12,11 +12,11 @@ categories:
 One of the first visions for computational reproducibility dates back to
 the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
-imagine researchers able to
+imagined researchers able to
 reproduce their results "a year or more later with a single button."
 Another way to think of this would be running a single command to
 transform raw data into figures, tables, and finally
-a compiled research article.
+a complete research article.
 We never quite got there, but we could, and we should.
 
 ```mermaid
@@ -64,7 +64,7 @@ To be clear,
 this level of transparency and willingness to share messy code
 is laudable.
 Fragility in evidence generation does not necessarily indicate
-incorrect conclusions or misconduct.
+incorrect conclusions, laziness, or misconduct.
 Nevertheless, that fragility
 and the lack of automation in research workflows present a huge opportunity
 to benefit both the community and the individuals involved.
