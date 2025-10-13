@@ -450,14 +450,14 @@ so researchers don't need to hop around and manually transfer data
 between them.
 We need the project to remain the single source of truth
 but be able to sync out to these more specialized tools.
-We need a graphical user interface (GUI) that enables data collection,
-exploration, analysis, and writing,
+We'll likely need to integrate, not necessarily replace,
+things like Google Docs, Sheets, Slides, Microsoft Office,
+and Google Colab.
+Importantly, in order to be beginner friendly,
+we need a graphical user interface (GUI) that enables data collection,
+exploration, analysis, and writing all in one place,
 with an easy way to build and run the project's pipeline
 and keep track of version history.
-
-This tool might need to integrate, not replace,
-things like Google Docs, Sheets, Slides, Microsoft Office,
-and Google Colab into a single logical project.
 
 ### Challenge 3: Dependency management
 
