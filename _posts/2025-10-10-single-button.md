@@ -95,7 +95,7 @@ others can build on top of it and the whole building gets built more quickly."
 Even if the code isn't nicely generalized and modularized,
 i.e., it's a collection of highly specific scripts and notebooks
 rather than a _software product_ like an application or library,
-it's still much more useful to have something that easily works
+it's still much more useful to have something that works
 than something that does not.
 With a working project, one can make small changes to evolve it towards
 doing something new.
