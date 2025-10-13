@@ -430,7 +430,7 @@ fully open source (GitHub is not, by the way).
 Centralization of control is antithetical to the principles of open science
 and represents a significant risk.
 
-### Challenge 2: Tooling fragmentation and silos
+### Challenge 2: Tooling fragmentation
 
 It's important to use the right tool for the job,
 but in order to achieve single button reproducibility all tools
