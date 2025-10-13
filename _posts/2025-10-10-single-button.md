@@ -14,7 +14,7 @@ the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
 imagined researchers able to
 reproduce their results "a year or more later with a single button."
-In other words, it should be possible to run a single command to
+In other words, they hoped it would be possible to run a single command to
 transform raw data into figures, tables, and finally
 a complete research article.
 We never quite got there, but we could, and we should.
