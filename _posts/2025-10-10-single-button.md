@@ -569,7 +569,7 @@ Lastly, the platform they're working in should
 also make it easy to share artifacts
 there so it's less tempting to export the interactively created version.
 
-## So let's build it
+## If we build it...
 
 Automation presents a huge potential for increasing the pace of
 scientific discovery,
@@ -578,7 +578,7 @@ still too high for most researchers.
 Many simply don't have the time or desire to become
 de facto software engineers, and that's okay.
 In addition to providing training and support,
-we need to meet them in the middle with a less software-oriented,
+we need to meet them in the middle with a less software development-oriented,
 more research-oriented and user friendly set of tools and infrastructure.
 Nevertheless, we should strive for this higher standard of
 reproducibility.
@@ -587,7 +587,7 @@ reproducibility.
 but I certainly won't claim we've yet solved all of these problems.
 If you're a researcher excited by the prospect of simpler
 fully automated workflows,
-and consider joining the project as a design partner.
+consider joining the project as a design partner.
 You'll get free "reproducibility consulting" and
 any ideas we discover will be fed back into the development so
 others can benefit.
