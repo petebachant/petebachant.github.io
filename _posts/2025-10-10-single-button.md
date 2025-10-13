@@ -346,10 +346,11 @@ single button reproducible workflow.
 ## Simplified tooling and infrastructure for single button reproducibility
 
 Many of the components to build a single button reproducible workflow
-exist.
+exist, mostly from the software development world.
 We don't need to replace them with some new monolith.
-We just need something to tie them all together into a simpler
-vertically-integrated experience with a gentler learning curve.
+We just need something to tie them all together into a simpler,
+vertically-integrated research-focused
+experience with a gentler learning curve.
 Let's now talk about what such a solution would look like.
 
 ### Key concepts
@@ -370,11 +371,13 @@ Single button reproducibility can be achieved by following two rules:
    project unless it was produced by its _pipeline_
    (the thing that runs with the single button).
 
-If researchers can follow these rules without becoming de facto
+Our goal is to make it easy for researchers to
+follow these rules without becoming de facto
 software engineers,
-we might see a future where most, if not all, studies ship with a
+so we might see a future where most, if not all,
+studies ship with a
 single button repro pack.
-Let's now take a look at some of the more specific challenges and
+Now let's discuss some of the more specific challenges and
 strategies for overcoming them.
 
 ### Challenge 1: Version control
@@ -387,11 +390,8 @@ Version control is also critical for collaboration,
 allowing people to work concurrently on the same files, i.e.,
 not needing to wait for each other like an assembly line.
 
->Let them use Git.
->
->-- Elitist Hackers
-
-Besides being notoriously complex and difficult to learn,
+Seasoned and somewhat elitist software engineers will say "let them use Git!"
+However, besides being notoriously complex and difficult to learn,
 Git is also not ideal for large files or binary files that change
 often, which will almost certainly be present in a research project.
 There are solutions out there that make up for this shortcoming,
@@ -402,29 +402,28 @@ Our goal is to not require scientists to be software engineers,
 and so naturally
 we also don't want to require them to be cloud computing administrators.
 
-GitHub is typical place to share Git repositories,
+What I propose is something akin to training wheels for Git
+with support for large files built in.
+Git provides a solid and performant back end.
+It just needs a transparent but opinionated wrapper on top to provide
+an onramp with clear guardrails to get beginners used to
+saving the full histories of their projects.
+Once users feel comfortable using it in easy mode,
+they can start doing more advanced things if desired.
+
+GitHub is the typical place to share Git repositories,
 and researchers will typically use GitHub to host their code
 (because GitHub is designed software development),
 siloing it from the rest of the project materials.
-What we need is a GitHub for science---a place to store, collaborate on,
+What we need is a GitHub for research---a place to store, collaborate on,
 and share research projects (all files, not just code)
 throughout their entire lifecycle.
-[Hugging Face](https://huggingface.co/) is a similar platform
-for machine learning.
-We have plenty of options for sharing artifacts once they're complete,
-but not many that facilitate work in progress.
-
-This new platform needs to be built for research, not just
-software.
+Further, the platform's data model needs to be tailored to science.
 Instead of interacting with repos, forks, and commits,
 we need an app with a data model that deals with
 figures, datasets, and publications.
-
-What we need is a simpler version control solution geared towards
-research that works for all the different file types researchers
-use, so they can all be kept in the same single repository.
-We also need a place to store and collaborate on all of these files
-that is not primarily designed for software development.
+[Hugging Face](https://huggingface.co/) has done something similar
+for machine learning.
 
 It should also be fully open source,
 since GitHub is not, and its centralization represents a risk
