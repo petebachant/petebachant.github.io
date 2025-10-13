@@ -9,12 +9,12 @@ categories:
   - Software engineering
 ---
 
-One of the first visions for computational reproducibility dates back to
+One of the initial visions for computational reproducibility dates back to
 the early 90s, where
 [Claerbout and Karrenbach](https://doi.org/10.1190/1.1822162)
 imagined researchers able to
 reproduce their results "a year or more later with a single button."
-Another way to think of this would be running a single command to
+In other words, it should be possible to run a single command to
 transform raw data into figures, tables, and finally
 a complete research article.
 We never quite got there, but we could, and we should.
@@ -49,7 +49,7 @@ Download a random repro pack from
 and if you're lucky you'll find a README with
 a list of manual steps explaining how to install necessary
 packages and
-run the project's analyses.
+run the project's analyses and visualizations.
 Often you'll see a collection of numbered scripts and/or notebooks
 with no instructions at all.
 Sometimes you'll need to manually modify the code to run on your
@@ -71,13 +71,13 @@ to benefit both the community and the individuals involved.
 
 ## Benefits to the community
 
-It's not hard to imagine why it would be nice for every single study
+It's not hard to imagine why it would be helpful for every single study
 to ship with a single button repro pack.
-If we imagine each one building upon the last like floors of a skyscraper,
+If we think of each building upon the last like floors of a skyscraper,
 spending time and effort
-to get the last's code running is like having to rebuild part
+to get a predecessor's code running is like having to rebuild part
 of the floor below, which is clearly inefficient.
-And yet this is the story for many grad students who inherit code.
+Yet this is the story for many grad students and postdocs.
 In [this example](https://www.nature.com/articles/d41586-022-01901-x),
 getting software from a previous student back to a runnable state
 took half a year.
@@ -125,7 +125,7 @@ caption="Messy code that runs is better than 'clean' code that doesn't."
 
 Shipping single button reproducible projects will surely benefit
 those looking to build on the work,
-but what about the original author themselves?
+but what about the original authors themselves?
 If we want them to play along they're going to need to get something
 out of it, and for most this is going to mean things that tenure
 committees and funding organizations care about like more publications
@@ -213,9 +213,9 @@ were curated after the fact, not used during the work.
 Some journals require repro packs to be submitted
 and checked as part of the review process,
 but most of the time authors are putting these together for the sake
-of doing open science,
-which is much better than not doing it.
-However, doing all that work at the end is another source of waste,
+of doing open science.
+This is much better than not sharing,
+but doing all that work at the end is another source of waste,
 never mind the fact it usually doesn't result in a reproducible project.
 All the instructions that end up in the README---install this,
 run that, upload here---those are the
@@ -352,6 +352,9 @@ experience.
 We have the components available for researchers to do it themselves,
 but why don't we assemble them into something for them to make it
 easier?
+
+Something that ties together version control,
+analytics, writing, and workflow management.
 
 ### Key concepts
 
