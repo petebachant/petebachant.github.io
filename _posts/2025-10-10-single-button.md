@@ -349,6 +349,10 @@ TODO: Strategy to not replace, but instead expand and tie together
 existing open source tools into a coherent vertically-integrated
 experience.
 
+We have the components available for researchers to do it themselves,
+but why don't we assemble them into something for them to make it
+easier?
+
 ### Key concepts
 
 Single button reproducibility can be achieved by following two rules:
