@@ -418,16 +418,17 @@ siloing it from the rest of the project materials.
 What we need is a GitHub for research---a place to store, collaborate on,
 and share research projects (all files, not just code)
 throughout their entire lifecycle.
-Further, the platform's data model needs to be tailored to science.
+Further, the platform's data model needs to be tailored to the domain.
 Instead of interacting with repos, forks, and commits,
-we need an app with a data model that deals with
+we need an app that deals with
 figures, datasets, and publications.
 [Hugging Face](https://huggingface.co/) has done something similar
 for machine learning.
 
-It should also be fully open source,
-since GitHub is not, and its centralization represents a risk
-of "enshittification".
+Lastly, it's important that this new platform be
+fully open source (GitHub is not, by the way).
+Centralization of control is antithetical to the principles of open science
+and represents a significant risk.
 
 ### Challenge 2: Tooling fragmentation and silos
 
