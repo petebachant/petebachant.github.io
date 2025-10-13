@@ -465,7 +465,8 @@ One of the biggest causes of irreproducibility is mutation of
 (read: installing things in) the
 user's global system environment without proper tracking.
 In other words,
-they get something working but can't explain how to do it again.
+they make a bunch of changes to get something working but
+can't remember or explain how to do it again.
 For example,
 they may run `pip install ...` to install a package in their system
 Python environment and forget about it,
@@ -476,7 +477,7 @@ but fail on others'.
 The status quo solution, e.g., for Python projects,
 is to use a virtual environment.
 However, even these can be problematic and confusing
-with common tools promoting a
+with typical tools promoting a
 create-and-mutate kind of workflow.
 That is, a virtual environment is created, activated,
 then mutated by installing some packages in it.
@@ -508,7 +509,8 @@ For research projects, this assumption is often invalid.
 For example,
 a user may want to do some statistical calculations in R,
 some machine learning in Python,
-then compile a paper with LaTeX.
+then compile a paper with LaTeX,
+all within the scope of a single project.
 
 What we need is a project format and manager that allows different
 environment types,
@@ -522,7 +524,7 @@ They should be able to simply define and run.
 ### Challenge 4: Bridging the interactive--batch divide
 
 When writing music,
-you can spend a long time writing out sheet music,
+you can spend a long time writing it all out on paper,
 imagining what it will sound like,
 then have someone play it at the end,
 or you can sit at the instrument and keep playing until it sounds right.
@@ -530,26 +532,25 @@ The latter---an interactive workflow---is more intuitive,
 with faster feedback and shorter iteration cycle time.
 Interactive workflows are great ways to discover ideas,
 but once a valuable creation has been discovered,
-it needs to be written down or recorded so it can be reproduced.
+it needs to be written down or recorded so it can be reproduced
+in a batch process.
 The same is true for creating a figure or data transformation.
 
 This problem is similar to dependency management.
-When following an interactive workflow,
+When working interactively,
 it's possible to arrive at an output you like while losing track
 of how you got there.
-
 And so here's the challenge:
-How do you allow researchers to experiment with different ideas
+How do we allow researchers to experiment with different ideas
 for data processing or visualization in an interactive way
 but also get them to "record" what they did so it can be edited
 and replayed later?
-We need to get them to follow the second rule of single button
-reproducibility:
-Do not share a derived artifact outside the project unless it was
-created with the project's pipeline.
+
+Following the second rule of single button reproducibility,
+we need to get researchers to produce derived artifacts with a project's
+pipeline before sharing.
 It therefore needs to be easier to automate the creation of a figure than it is
 to simply copy and paste it into some slides and email them out.
-
 What we need is a pipeline that is easy to create, update, and understand.
 Users need to be able to run something like
 a Jupyter notebook interactively to explore
@@ -557,17 +558,16 @@ how it might work best,
 add it to the pipeline, and run the project to see if it properly
 produces the thing they'd like to share.
 
-Is it literate programming?
-Will it be intuitive for scientists to define and run, for example,
-a large simulation on an HPC cluster inside of a document?
-I'm not so sure.
-
 The pipeline also needs to be able to run quickly so users don't need to think
 about which stages need to be run---that would be a multi-button
 workflow.
 In other words,
 it will need to cache outputs and only rerun stages when the cache becomes
 invalidated.
+
+Lastly, the platform they're working in should
+also make it easy to share artifacts
+there so it's less tempting to export the interactively created version.
 
 ## So let's build it
 
