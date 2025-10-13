@@ -345,16 +345,12 @@ single button reproducible workflow.
 
 ## Simplified tooling and infrastructure for single button reproducibility
 
-TODO: Strategy to not replace, but instead expand and tie together
-existing open source tools into a coherent vertically-integrated
-experience.
-
-We have the components available for researchers to do it themselves,
-but why don't we assemble them into something for them to make it
-easier?
-
-Something that ties together version control,
-analytics, writing, and workflow management.
+Many of the components to build a single button reproducible workflow
+exist.
+We don't need to replace them with some new monolith.
+We just need something to tie them all together into a simpler
+vertically-integrated experience with a gentler learning curve.
+Let's now talk about what such a solution would look like.
 
 ### Key concepts
 
