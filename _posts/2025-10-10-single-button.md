@@ -71,7 +71,7 @@ to benefit both the community and the individuals involved.
 
 ## Benefits to the community
 
-It's not hard to imagine why it would be helpful for every single study
+It's not hard to imagine why it would be helpful for every study
 to ship with a single button repro pack.
 If we think of each building upon the last like floors of a skyscraper,
 spending time and effort
