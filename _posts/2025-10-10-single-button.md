@@ -378,11 +378,15 @@ strategies for overcoming them.
 
 Because a project's inputs, process definitions, and outputs will
 change over time, and those outputs will be delivered at different
-times along the life of the project,
+point along the life of the project,
 it's important to keep a history of changes.
 Version control is also critical for collaboration,
 allowing people to work concurrently on the same files, i.e.,
 not needing to wait for each other like an assembly line.
+
+>Let them use Git.
+>
+>-- Elitist Hackers
 
 Besides being notoriously complex and difficult to learn,
 Git is also not ideal for large files or binary files that change
@@ -396,34 +400,28 @@ and so naturally
 we also don't want to require them to be cloud computing administrators.
 
 GitHub is typical place to share Git repositories,
-and researchers will typically use this to share code,
+and researchers will typically use GitHub to host their code
+(because GitHub is designed software development),
 siloing it from the rest of the project materials.
+What we need is a GitHub for science---a place to store, collaborate on,
+and share research projects (all files, not just code)
+throughout their entire lifecycle.
+[Hugging Face](https://huggingface.co/) is a similar platform
+for machine learning.
+We have plenty of options for sharing artifacts once they're complete,
+but not many that facilitate work in progress.
 
-There are archival services out there,
-but they're not designed to be used during the project.
-
-What we need is Git/GitHub more purpose-built for research.
-It needs to be just as easy to keep track of the history of a large
-dataset as it is to keep track of a script.
-
+This new platform needs to be built for research, not just
+software.
 Instead of interacting with repos, forks, and commits,
 we need an app with a data model that deals with
 figures, datasets, and publications.
-
-Hugging Face Hub is similar for machine learning.
 
 What we need is a simpler version control solution geared towards
 research that works for all the different file types researchers
 use, so they can all be kept in the same single repository.
 We also need a place to store and collaborate on all of these files
 that is not primarily designed for software development.
-
-Unlike other data sharing platforms,
-it's meant to be used during the work
-as a means of backup and collaboration,
-not just as a way to share files at the end.
-It can serve as a showcase for the work too,
-like how software developers will show off their code on GitHub.
 
 It should also be fully open source,
 since GitHub is not, and its centralization represents a risk
@@ -463,6 +461,8 @@ and Google Colab into a single logical project.
 One of the biggest causes of irreproducibility is mutation of
 (read: installing things in) the
 user's global system environment without proper tracking.
+In other words,
+they get something working but can't explain how to do it again.
 For example,
 they may run `pip install ...` to install a package in their system
 Python environment and forget about it,
@@ -530,6 +530,11 @@ but once a valuable creation has been discovered,
 it needs to be written down or recorded so it can be reproduced.
 The same is true for creating a figure or data transformation.
 
+This problem is similar to dependency management.
+When following an interactive workflow,
+it's possible to arrive at an output you like while losing track
+of how you got there.
+
 And so here's the challenge:
 How do you allow researchers to experiment with different ideas
 for data processing or visualization in an interactive way
@@ -561,7 +566,7 @@ In other words,
 it will need to cache outputs and only rerun stages when the cache becomes
 invalidated.
 
-## Let's build it
+## So let's build it
 
 Automation presents a huge potential for increasing the pace of
 scientific discovery,
