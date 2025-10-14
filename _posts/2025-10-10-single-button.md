@@ -71,7 +71,7 @@ to benefit both the community and the individuals involved.
 
 It's not hard to imagine why it would be helpful for every study
 to ship with a single button repro pack.
-If we think of each building upon the last like floors of a skyscraper,
+If we think of each new one building upon the last like floors of a skyscraper,
 spending time and effort
 to get a predecessor's code running is like having to rebuild part
 of the floor below, which is clearly inefficient.
@@ -103,9 +103,10 @@ and many will choose to start from scratch.
 Furthermore,
 it's a lot easier to productize an algorithm when you have a working
 reference implementation, even if it's going to be rewritten.
-In fact,
+Personally,
 I'd much rather start with a working collection of
-one-off scripts than a half-baked general purpose tool.
+one-off scripts wrapped up into a single command
+than a half-baked general purpose tool.
 
 {% include figure.html
 src="/images/single-button/matlab-fail.png"
@@ -126,10 +127,10 @@ those looking to build on the work,
 but what about the original authors themselves?
 If we want them to play along they're going to need to get something
 out of it, and for most this is going to mean things that tenure
-committees and funding organizations care about like more publications
+committees and funding organizations care about like publications
 and citations.
 There's [evidence](https://arxiv.org/pdf/2508.20747)
-showing that working openly attracts more citations,
+that working openly attracts more citations,
 and here I'll argue that automation will achieve faster time-to-publication
 with improved quality.
 
@@ -139,7 +140,8 @@ that build, test, and deployment
 pipelines are worth automating because automation reduces waste and
 eliminates pain points,
 ultimately allowing for faster and more frequent iterations.
-With more iterations comes a higher quality product and more positive impact
+With more iterations---more times at bat---comes a higher
+quality product and more positive impact
 on customers and the business.
 Fully automated workflows are much less common in science,
 but the value comes from the same principles.
@@ -149,13 +151,13 @@ It involves installing dependencies, downloading data,
 running scripts in different languages,
 running notebooks, saving and uploading figures to
 a writing tool like Overleaf,
-and then finally exporting a PDF to share with the outside world.
+and then finally exporting a PDF to share with the world.
 When not automated, each line connecting the boxes represents
 "computational logistics," which take time and don't add value
 to the final product.
-If any of these steps ever needs to be done more than once
+If any of these steps needs to be done more than once
 (which is almost guaranteed),
-that is time that could be shaved off the time-to-publication.
+their automation would speed up time-to-publication.
 
 ```mermaid
 flowchart LR
