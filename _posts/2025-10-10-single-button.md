@@ -15,7 +15,7 @@ the early 90s, where
 imagined researchers able to
 reproduce their results "a year or more later with a single button."
 In other words, they hoped it would be possible to run a single command to
-transform raw data into figures, tables, and finally
+transform any study's raw data into figures, tables, and finally
 a complete research article.
 We never quite got there, but we could, and we should.
 
@@ -48,21 +48,19 @@ Download a random repro pack from
 [Zenodo](https://zenodo.org/search?q=&f=resource_type%3Asoftware&l=list&p=1&s=10&sort=newest)
 and if you're lucky you'll find a README with
 a list of manual steps explaining how to install necessary
-packages and
+packages, download data to certain locations, and
 run the project's analyses and visualizations.
 Often you'll see a collection of numbered scripts and/or notebooks
 with no instructions at all.
 Sometimes you'll need to manually modify the code to run on your
-system,
-either because you've been instructed to download some data and put it
-somewhere of your choosing, or the original author used absolute paths
-that need to be adapted for a new copy of the project.
+system because the original author used absolute paths
+or it depends on credentials for some external web service.
 In other words,
 these are not even close to being single button reproducible.
 
 To be clear,
 this level of transparency and willingness to share messy code
-is laudable.
+is admirable and should be rewarded.
 Fragility in evidence generation does not necessarily indicate
 incorrect conclusions, laziness, or misconduct.
 Nevertheless, that fragility
