@@ -310,23 +310,21 @@ in academia (my current one, as a matter of fact).
 The idea is to formalize and pay for the expertise so scientists
 don't need to do so much on their own.
 I like this one as well,
-never mind that it's currently how I make a living.
-It's especially valuable when RSEs help produce scientific
-software products that reduce the computational expertise
-necessary for other scientists to do their work.
+and not just because it's currently how I make a living.
+Besides teaching and promoting software engineering best practices,
+RSEs can help scientists turn their newly discovered
+knowledge into software products to maximize value and impact.
 
-But what about tooling and infrastructure?
+But what about more general tooling and infrastructure to bring
+down the cost of reproducibility?
 
 There's a principle in software engineering where once you've done
 something the hard or verbose way a few times,
 it's worth building a higher level abstraction for it so it can be
-duplicated (scaled) more easily.
+used in additional contexts (scaled) more easily.
 Looking at the current reproducible research stack and best practices
 it's clear we're asking researchers to do things the hard way
-over and over again, and therefore missing a higher level abstraction.
-Building this abstraction (option 2)
-is another strategy for bringing down the cost of
-single button reproducibility.
+over and over again, and therefore missing such an abstraction.
 
 The hypothesis is that
 there must be a way to allow researchers to take advantage of the
