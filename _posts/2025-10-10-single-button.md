@@ -207,14 +207,14 @@ which diminishes quality.
 
 ### The problem with post-hoc repro packs
 
-If you take a look at some published repro packs
-you'll get the feeling that they
-were curated after the fact, not used during the work.
+Sometimes you'll take a look at a repro pack
+and get the feeling it
+was curated after the fact, not used during the work.
 Some journals require repro packs to be submitted
 and checked as part of the review process,
 but most of the time authors are putting these together for the sake
 of doing open science.
-This is much better than not sharing,
+Again, this is much better than not sharing,
 but doing all that work at the end is another source of waste,
 never mind the fact it usually doesn't result in a reproducible project.
 All the instructions that end up in the README---install this,
@@ -235,17 +235,13 @@ which is sometimes called practicing
 [continuous science](https://curvenote.com/blog/open-source-software-powers-open-access),
 or
 [continuous validation](https://doi.org/10.1093/bib/bbad375).
-The point is that we should not divide our project into long siloed stages
-and do them in sequence, e.g., collect, analyze, visualize, write,
-create repro pack.
-Instead we should be doing all of those as part of an ongoing process
-and releasing artifacts like slideshows, conference papers,
-then journal articles when ready.
+The researcher would do some work on one aspect of the project,
+save it, push the button to get it into a reproducible state,
+and then work on the next task.
 In addition to faster iteration cycle time,
-there would be no more "review anxiety," worrying about if you'll be asked to
+there would be no more "review anxiety," worrying if you'll be asked to
 change something, either by the principal investigator (PI),
 a team member, or a referee.
-Just change the script or notebook and rerun the project.
 
 ## But what about the cost?
 
@@ -351,7 +347,6 @@ We don't need to replace them with some new monolith.
 We just need something to tie them all together into a simpler,
 vertically-integrated research-focused
 experience with a gentler learning curve.
-Let's now talk about what such a solution would look like.
 
 ### Key concepts
 
