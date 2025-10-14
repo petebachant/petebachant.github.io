@@ -48,7 +48,7 @@ Download a random repro pack from
 [Zenodo](https://zenodo.org/search?q=&f=resource_type%3Asoftware&l=list&p=1&s=10&sort=newest)
 and if you're lucky you'll find a README with
 a list of manual steps explaining how to install necessary
-packages, download data to certain locations, and
+packages, download data to specific locations, and
 run the project's analyses and visualizations.
 Often you'll see a collection of numbered scripts and/or notebooks
 with no instructions at all.
