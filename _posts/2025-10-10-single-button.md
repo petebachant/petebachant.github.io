@@ -247,7 +247,7 @@ a team member, or a referee.
 
 Let's say you're with me so far---you believe that there are enough
 iterations done and enough waste to eliminate
-to justify fully automating research project workflows.
+to justify automating research project workflows end-to-end.
 With today's tools and best practices, what does it take?
 The typical "stack" following current best practices would look something like:
 
