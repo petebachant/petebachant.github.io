@@ -235,7 +235,7 @@ which is sometimes called practicing
 [continuous science](https://curvenote.com/blog/open-source-software-powers-open-access),
 or
 [continuous validation](https://doi.org/10.1093/bib/bbad375).
-The point is that we should not divide our project into long stages
+The point is that we should not divide our project into long siloed stages
 and do them in sequence, e.g., collect, analyze, visualize, write,
 create repro pack.
 Instead we should be doing all of those as part of an ongoing process
