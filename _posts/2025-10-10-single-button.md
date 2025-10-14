@@ -565,7 +565,8 @@ there so it's less tempting to export the interactively created version.
 
 Automation presents a huge potential for increasing the pace (and fun) of
 scientific discovery,
-but the cost of single button reproducibility is
+but the cost of single button
+reproducibility---the standard we should strive for---is
 still too high for most researchers.
 Many simply don't have the time or desire to become
 de facto software engineers, and that's okay.
@@ -573,8 +574,6 @@ We need to include them too.
 In addition to providing training and support,
 we need to meet them in the middle with a less software development-oriented,
 more research-oriented and user friendly set of tools and infrastructure.
-Nevertheless, we should strive for this higher standard of
-reproducibility.
 
 [Calkit](https://calkit.org) is a start down this path,
 but there is still much to do.
