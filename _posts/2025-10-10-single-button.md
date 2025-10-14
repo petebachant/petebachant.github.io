@@ -191,7 +191,7 @@ flowchart LR
 ```
 
 Beyond time wasted,
-each of these low-value-add tasks adds cognitive overhead,
+each of these low-value-add tasks increases cognitive overhead,
 and switching between different apps and platforms for different tasks creates
 ["digital tool fatigue."](https://www.forbes.com/sites/bryanrobinson/2025/10/04/digital-tool-fatigue-eroding-mental-health-and-career-productivity/)
 Imagine we need to change something about Python script 2.
@@ -236,7 +236,7 @@ which is sometimes called practicing
 or
 [continuous validation](https://doi.org/10.1093/bib/bbad375).
 The point is that we should not divide our project into long stages
-and do them in sequence like collect, analyze, visualize, write,
+and do them in sequence, e.g., collect, analyze, visualize, write,
 create repro pack.
 Instead we should be doing all of those as part of an ongoing process
 and releasing artifacts like slideshows, conference papers,
@@ -252,8 +252,7 @@ Just change the script or notebook and rerun the project.
 Let's say you're with me so far---you believe that there are enough
 iterations done and enough waste to eliminate
 to justify fully automating research project workflows.
-With today's tools and best practices, what does it take
-to make a project single button reproducible?
+With today's tools and best practices, what does it take?
 The typical "stack" following current best practices would look something like:
 
 1. Git/GitHub for version controlling code, LaTeX input files, etc.
@@ -263,8 +262,8 @@ The typical "stack" following current best practices would look something like:
 4. Scripting and/or a workflow engine like Make, Snakemake, NextFlow to tie
    everything together and move data around when necessary.
 
-When we ask scientists to work this way we are essentially asking them
-to become part-time software engineers: surveying and picking tools,
+When we ask scientists to work this way we are essentially requesting
+they become part-time software engineers: surveying and picking tools,
 designing workflows and project layouts, and writing sophisticated
 code to tie everything together.
 Some will like that and find the tools and processes exciting.
@@ -282,7 +281,8 @@ as it might delay time-to-publication.
 And so there's the challenge.
 In the absence of other incentives
 (like punishment for irreproducible publications)
-we can't expect researchers to publish single button reproducible projects
+we can't expect all,
+or even most researchers to publish single button reproducible projects
 without driving down the cost of automation.
 
 {% include figure.html
@@ -305,18 +305,18 @@ Option 1.1 is effectively the strategy of groups like
 and [The Turing Way](https://book.the-turing-way.org)
 and it's a good one.
 Computational competency may not fit into most curricula,
-but I believe it can improve the productivity of basically any knowledge
+but it can improve the productivity of virtually any knowledge
 worker, and is therefore worth pursuing.
 
 Option 1.2 is a bit newer,
 with research software engineer (RSE) becoming a more common job title
 in academia (my current one, as a matter of fact).
-The idea is to pay for the expertise so scientists
+The idea is to formalize and pay for the expertise so scientists
 don't need to do so much on their own.
 I like this one as well,
-given that's currently how I make a living,
-and it's especially good when RSEs can help produce scientific
-software products that help reduce the computational expertise
+never mind that it's currently how I make a living.
+It's especially valuable when RSEs help produce scientific
+software products that reduce the computational expertise
 necessary for other scientists to do their work.
 
 But what about tooling and infrastructure?
