@@ -345,6 +345,8 @@ We don't need to replace them with some new monolith.
 We just need something to tie them all together into a simpler,
 vertically-integrated research-focused
 experience with a gentler learning curve.
+Basically, assemble all of the components so researchers don't have
+to do it themselves.
 
 ### Key concepts
 
@@ -365,11 +367,8 @@ Single button reproducibility can be achieved by following two rules:
    (the thing that runs with the single button).
 
 Our goal is to make it easy for researchers to
-follow these rules without becoming de facto
-software engineers,
-so we might see a future where most, if not all,
-studies ship with a
-single button repro pack.
+create and manage their project and pipeline without becoming de facto
+software engineers.
 Now let's discuss some of the more specific challenges and
 strategies for overcoming them.
 
@@ -564,12 +563,13 @@ there so it's less tempting to export the interactively created version.
 
 ## If we build it...
 
-Automation presents a huge potential for increasing the pace of
+Automation presents a huge potential for increasing the pace (and fun) of
 scientific discovery,
 but the cost of single button reproducibility is
 still too high for most researchers.
 Many simply don't have the time or desire to become
 de facto software engineers, and that's okay.
+We need to include them too.
 In addition to providing training and support,
 we need to meet them in the middle with a less software development-oriented,
 more research-oriented and user friendly set of tools and infrastructure.
@@ -577,12 +577,13 @@ Nevertheless, we should strive for this higher standard of
 reproducibility.
 
 [Calkit](https://calkit.org) is a start down this path,
-but I certainly won't claim we've yet solved all of these problems.
-If you're a researcher excited by the prospect of simpler
-fully automated workflows,
-consider joining the project as a design partner.
+but there is still much to do.
+If you're a researcher excited by the prospect of
+fully automated workflows and the peace of mind they bring,
+consider
+[joining the project as a design partner](mailto:pete@calkit.org?subject=Automation+help).
 You'll get free "reproducibility consulting" and
-any ideas we discover will be fed back into the development so
+any ideas we discover will be fed back into the software so
 others can benefit.
 Similarly, if you're a software developer and this vision resonates with you,
 consider [getting involved](https://github.com/calkit).
