@@ -96,8 +96,10 @@ i.e., it's a collection of highly specific scripts and notebooks
 rather than a _software product_ like an application or library,
 it's still much more useful to have something that works
 than something that does not.
-With a working project, one can make small changes to evolve it towards
+With a working project, one can take small steps to evolve it towards
 doing something new.
+A working project is worth studying and learning from.
+
 With a non-working project,
 it can be challenging to even know where to start,
 and many will choose to start from scratch.
@@ -105,9 +107,10 @@ Furthermore,
 it's a lot easier to productize an algorithm when you have a working
 reference implementation, even if it's going to be rewritten.
 Personally,
-I'd much rather start with a working collection of
-one-off scripts wrapped up into a single command
-than a half-baked general purpose tool.
+I'd much rather start with a functioning and well-orchestrated collection of
+one-off scripts
+than a half-baked general purpose tool, even if the latter is thoroughly
+documented.
 
 {% include figure.html
 src="/images/single-button/matlab-fail.png"
