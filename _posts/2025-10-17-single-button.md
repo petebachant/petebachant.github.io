@@ -87,7 +87,8 @@ and then imagine scaling those gains across all researchers.
 width="300px"
 src="/images/single-button/skyscraper.png"
 caption="When you ship a single-button reproducible project with your paper
-others can build on top of it and the whole building gets built more quickly."
+others can build on top of it and the whole building
+(our collective knowledge) gets built more quickly."
 %}
 
 Even if the code isn't nicely generalized and modularized,
