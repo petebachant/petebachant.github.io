@@ -458,10 +458,10 @@ but be able to sync with these more specialized tools.
 We'll likely need to integrate, not necessarily replace,
 things like Google Docs, Sheets, Slides, Microsoft Office,
 and Google Colab.
-Importantly, in order to be beginner friendly,
+Importantly, in order to be beginner-friendly,
 we need a graphical user interface (GUI) that enables data collection,
 exploration, analysis, and writing all in one place,
-with an easy way to build and run the project's pipeline
+with an intuitive way to build and run the project's pipeline
 and keep track of version history.
 
 ### Challenge 3: Dependency management
