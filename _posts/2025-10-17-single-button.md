@@ -86,7 +86,7 @@ and then imagine scaling those gains across all researchers.
 {% include figure.html
 width="300px"
 src="/images/single-button/skyscraper.png"
-caption="When you ship a single button reproducible project with your paper
+caption="When you ship a single-button reproducible project with your paper
 others can build on top of it and the whole building gets built more quickly."
 %}
 
