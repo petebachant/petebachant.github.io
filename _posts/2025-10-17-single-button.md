@@ -150,7 +150,7 @@ on customers and the business.
 Fully-automated workflows are much less common in science,
 but the value comes from the same principles.
 
-Imagine a computational workflow like the one below.
+Imagine a workflow like the one below.
 It involves installing dependencies, downloading data,
 running scripts in different languages,
 running notebooks, saving and uploading figures to
