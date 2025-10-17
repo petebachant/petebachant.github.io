@@ -2,7 +2,7 @@
 comments: true
 date: 2025-10-08
 layout: post
-title: "Single button reproducibility: The what, the why, and the how"
+title: "Single-button reproducibility: The what, the why, and the how"
 categories:
   - Open science
   - Reproducibility
@@ -38,7 +38,7 @@ appreciated and more common,
 which is a great achievement,
 but often what is shared---sometimes called a
 ["repro pack"](https://lorenabarba.com/blog/how-repro-packs-can-save-your-future-self/)---is
-not single button reproducible.
+not single-button reproducible.
 In fact, in most cases what's shared is
 [not reproducible at all](https://doi.org/10.1093/bib/bbad375),
 hence why it's called a _reproducibility crisis_.
@@ -56,7 +56,7 @@ Sometimes you'll need to manually modify the code to run on your
 system because the original author used absolute paths
 or it depends on credentials for some external web service.
 In other words,
-these are not even close to being single button reproducible.
+these are not even close to being single-button reproducible.
 
 To be clear,
 this level of transparency and willingness to share messy code
@@ -70,7 +70,7 @@ to benefit both the community and the individuals involved.
 ## Benefits to the community
 
 It's not hard to imagine why it would be helpful for every study
-to ship with a single button repro pack.
+to ship with a single-button repro pack.
 If we think of each new one building upon the last like floors of a skyscraper,
 spending time and effort
 to get a predecessor's code running is like having to rebuild part
@@ -122,7 +122,7 @@ caption="Messy code that runs is better than 'clean' code that doesn't."
 
 ## Benefits to the individual
 
-Shipping single button reproducible projects will surely benefit
+Shipping single-button reproducible projects will surely benefit
 those looking to build on the work,
 but what about the original authors themselves?
 If we want them to play along they're going to need to get something
@@ -143,7 +143,7 @@ ultimately allowing for faster and more frequent iterations.
 With more iterations---more times at bat---comes a higher
 quality product and more positive impact
 on customers and the business.
-Fully automated workflows are much less common in science,
+Fully-automated workflows are much less common in science,
 but the value comes from the same principles.
 
 Imagine a computational workflow like the one below.
@@ -212,15 +212,18 @@ and get the feeling it
 was curated after the fact, not used during the work.
 Some journals require repro packs to be submitted
 and checked as part of the review process,
-but most of the time authors are putting these together for the sake
+but most of the time authors are only putting these together for the sake
 of doing open science.
 Again, this is much better than not sharing,
 but doing all that work at the end is another source of waste,
 never mind the fact it usually doesn't result in a reproducible project.
 All the instructions that end up in the README---install this,
-run that, upload here---those are the
+run that, download here---those are the
 low-value-add tasks
 that were taking up space in the researcher's brain the whole time.
+They were also making it difficult for collaborators to contribute,
+since likely only one person could run the entire project given how
+scattered around it all was.
 
 {% include figure.html
 src="/images/single-button/retro-repro.png"
@@ -235,9 +238,12 @@ which is sometimes called practicing
 [continuous science](https://curvenote.com/blog/open-source-software-powers-open-access),
 or
 [continuous validation](https://doi.org/10.1093/bib/bbad375).
-The researcher would do some work on one aspect of the project,
+The researcher could do some work on one aspect of the project,
 save it, push the button to get it into a reproducible state,
 and then work on the next task.
+They could quickly and confidently
+integrate changes from someone else on the team,
+who could run the project on their own just as easily.
 In addition to faster iteration cycle time,
 there would be no more "review anxiety," worrying if you'll be asked to
 change something, either by the principal investigator (PI),
@@ -269,16 +275,17 @@ with what feels like a lot of extra work
 just to do some computation as part of
 their research.
 
-In other words, there is a very high cost to single button reproducibility in
+In other words, today there is a very high cost to
+single-button reproducibility in
 terms of both skill and effort,
 and researchers are (fairly, in my opinion) perceiving that the cost is
 not worth the benefit,
-as it might delay time-to-publication.
+as it might even delay, not speed up time-to-publication.
 And so there's the challenge.
 In the absence of other incentives
 (like punishment for irreproducible publications)
 we can't expect all,
-or even most researchers to publish single button reproducible projects
+or even most researchers to publish single-button reproducible projects
 without driving down the cost of automation.
 
 {% include figure.html
@@ -296,7 +303,7 @@ strategic angles:
     2. Of the software engineering and development
 2. Build tools and infrastructure to bring the cost down
 
-Option 1.1 is effectively the strategy of groups like
+Option 1.1 is the approach of groups like
 [The Carpentries](https://carpentries.org/)
 and [The Turing Way](https://book.the-turing-way.org)
 and it's a good one.
@@ -330,27 +337,29 @@ The hypothesis is that
 there must be a way to allow researchers to take advantage of the
 latest and greatest computational tools without needing to be experts
 in software engineering.
-We should have tools and infrastructure that reduce the
-incidental complexity and eliminate unimportant decisions
+There should be a solution that reduces the
+[accidental complexity](https://curtclifton.net/papers/MoseleyMarks06a.pdf)
+and eliminates unimportant decisions
 and other cognitive overhead
 while retaining the ability to use state-of-the art libraries
-and applications---and of course naturally integrate them all into a
-single button reproducible workflow.
+and applications---and of course naturally integrates them all into a
+single-button reproducible workflow.
 
-## Simplified tooling and infrastructure for single button reproducibility
+## Simplified tooling and infrastructure for single-button reproducibility
 
-Many of the components to build a single button reproducible workflow
+Many of the components to build single-button reproducible workflows
 exist, mostly from the software development world.
 We don't need to replace them with some new monolith.
 We just need something to tie them all together into a simpler,
-vertically-integrated research-focused
+vertically-integrated, research-focused
 experience with a gentler learning curve.
-Basically, assemble all of the components so researchers don't have
+Basically, assemble all of the components and add some guardrails
+so researchers don't have
 to do it themselves.
 
 ### Key concepts
 
-Single button reproducibility can be achieved by following two rules:
+Single-button reproducibility can be achieved by following two rules:
 
 1. The _project_ is the most important entity,
    the single source of truth, and should contain all related
@@ -366,8 +375,9 @@ Single button reproducibility can be achieved by following two rules:
    project unless it was produced by its _pipeline_
    (the thing that runs with the single button).
 
-Our goal is to make it easy for researchers to
-create and manage their project and pipeline without becoming de facto
+Our goal is then to make it easy for researchers to
+follow these two rules---to create and manage their
+project and pipeline without becoming de facto
 software engineers.
 Now let's discuss some of the more specific challenges and
 strategies for overcoming them.
@@ -376,13 +386,14 @@ strategies for overcoming them.
 
 Because a project's inputs, process definitions, and outputs will
 change over time, and those outputs will be delivered at different
-point along the life of the project,
+point along the project lifecycle,
 it's important to keep a history of changes.
-Version control is also critical for collaboration,
+This history is managed by doing _version control_,
+which is also critical for collaboration,
 allowing people to work concurrently on the same files, i.e.,
 not needing to wait for each other like an assembly line.
 
-Seasoned and somewhat elitist software engineers will say "let them use Git!"
+Seasoned (and probably elitist) software engineers will say "let them use Git!"
 However, besides being notoriously complex and difficult to learn,
 Git is also not ideal for large files or binary files that change
 often, which will almost certainly be present in a research project.
@@ -398,12 +409,13 @@ What I propose is something akin to training wheels for Git
 with support for large files built in.
 Git provides a solid and performant back end.
 It just needs a transparent but opinionated wrapper on top to provide
-an onramp with clear guardrails to get beginners used to
+an onramp with a simpler interface to get beginners used to
 saving the full histories of their projects.
 Once users feel comfortable using it in easy mode,
 they can start doing more advanced things if desired.
 
-GitHub is the typical place to share Git repositories,
+These days, [GitHub](https://github.com)
+is the most common place to share Git repositories,
 and researchers will typically use GitHub to host their code
 (because GitHub is designed software development),
 siloing it from the rest of the project materials.
@@ -418,14 +430,14 @@ figures, datasets, and publications.
 for machine learning.
 
 Lastly, it's important that this new platform be
-fully open source (GitHub is not, by the way).
+fully open source (GitHub is not, unfortunately).
 Centralization of control is antithetical to the principles of open science
-and represents a significant risk.
+and presents a significant sustainability risk.
 
 ### Challenge 2: Tooling fragmentation
 
 It's important to use the right tool for the job,
-but in order to achieve single button reproducibility all tools
+but in order to achieve single-button reproducibility all tools
 need to somehow be tied together.
 Researchers may also need
 to run different processes in different locations.
@@ -433,7 +445,7 @@ For example, a simulation may be run on a high performance
 computing (HPC) cluster,
 the results post-processed and visualized on a laptop,
 then written about on a cloud platform like Overleaf.
-In a single button reproducible workflow a change to the simulation
+In a single-button reproducible workflow a change to the simulation
 parameters results in updated figures and tables in the paper without
 manually moving files around and picking which scripts to run.
 
@@ -441,7 +453,7 @@ We need a way to connect all of these different tools together
 so researchers don't need to hop around and manually transfer data
 between them.
 We need the project to remain the single source of truth
-but be able to sync out to these more specialized tools.
+but be able to sync with these more specialized tools.
 We'll likely need to integrate, not necessarily replace,
 things like Google Docs, Sheets, Slides, Microsoft Office,
 and Google Colab.
@@ -457,7 +469,7 @@ One of the biggest causes of irreproducibility is mutation of
 (read: installing things in) the
 user's global system environment without proper tracking.
 In other words,
-they make a bunch of changes to get something working but
+they install a variety of apps and libraries to get something working but
 can't remember or explain how to do it again.
 For example,
 they may run `pip install ...` to install a package in their system
@@ -490,13 +502,15 @@ pip install -r requirements.txt
 pip install something-else
 ```
 
-More modern environment managers like uv and Pixi automate
+More modern environment managers like
+[uv](https://docs.astral.sh/uv/) and [Pixi](https://pixi.sh/latest/) automate
 some of this, making it easy to run a command in a virtual environment
 and automatically exporting a so-called "lock file" to describe its
 exact state, not what the user thought it was.
 However,
 since these tools are designed for software projects,
-they typically assume you'll be working in a single programming language.
+they typically assume you'll be working in a single programming language
+or at least using a single package repository.
 For research projects, this assumption is often invalid.
 For example,
 a user may want to do some statistical calculations in R,
@@ -504,7 +518,8 @@ some machine learning in Python,
 then compile a paper with LaTeX,
 all within the scope of a single project.
 
-What we need is a project format and manager that allows different
+Instead of locking users in to a single ecosystem,
+there should be a project format and manager that allows different
 environment types,
 e.g., Python, Docker, R, Julia, or even MATLAB,
 to be used for different parts of the workflow,
@@ -526,7 +541,7 @@ Interactive workflows are great ways to discover ideas,
 but once a valuable creation has been discovered,
 it needs to be written down or recorded so it can be reproduced
 in a batch process.
-The same is true for creating a figure or data transformation.
+The same is true for creating a figure or transforming some data.
 
 This problem is similar to dependency management.
 When working interactively,
@@ -538,7 +553,7 @@ for data processing or visualization in an interactive way
 but also get them to "record" what they did so it can be edited
 and replayed later?
 
-Following the second rule of single button reproducibility,
+Following our second rule of single-button reproducibility,
 we need to get researchers to produce derived artifacts with a project's
 pipeline before sharing.
 It therefore needs to be easier to automate the creation of a figure than it is
@@ -557,15 +572,17 @@ In other words,
 it will need to cache outputs and only rerun stages when the cache becomes
 invalidated.
 
-Lastly, the platform they're working in should
-also make it easy to share artifacts
-there so it's less tempting to export the interactively created version.
+Lastly, the collaboration platform on which they're working
+(the "GitHub for science")
+should make it easy to share artifacts from the pipeline
+so it's less tempting to export an interactively created version.
 
 ## If we build it...
 
-Automation presents a huge potential for increasing the pace (and fun) of
+Automation presents a huge potential for increasing the pace
+(and reducing the stress) of
 scientific discovery,
-but the cost of single button
+but the cost of single-button
 reproducibility---the standard we should strive for---is
 still too high for most researchers.
 Many simply don't have the time or desire to become
@@ -573,7 +590,7 @@ de facto software engineers, and that's okay.
 We need to include them too.
 In addition to providing training and support,
 we need to meet them in the middle with a less software development-oriented,
-more research-oriented and user friendly set of tools and infrastructure.
+more research-oriented and user-friendly set of tools and infrastructure.
 
 [Calkit](https://calkit.org) is a start down this path,
 but there is still much to do.
@@ -581,7 +598,7 @@ If you're a researcher excited by the prospect of
 fully automated workflows and the peace of mind they bring,
 consider
 [joining the project as a design partner](mailto:pete@calkit.org?subject=Automation+help).
-You'll get free "reproducibility consulting" and
+You'll get free "reproducibility support" and
 any ideas we discover will be fed back into the software so
 others can benefit.
 Similarly, if you're a software developer and this vision resonates with you,
