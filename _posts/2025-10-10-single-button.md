@@ -575,7 +575,7 @@ invalidated.
 Lastly, the collaboration platform on which they're working
 (the "GitHub for science")
 should make it easy to share artifacts from the pipeline
-so it's less tempting to export an interactively created version.
+so it's less tempting to export one generated interactively.
 
 ## If we build it...
 
