@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2025-10-08
+date: 2025-10-17
 layout: post
 title: "Single-button reproducibility: The what, the why, and the how"
 categories:
