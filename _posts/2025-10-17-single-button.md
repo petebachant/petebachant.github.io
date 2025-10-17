@@ -135,8 +135,8 @@ committees and funding organizations care about like publications
 and citations.
 There's [evidence](https://arxiv.org/pdf/2508.20747)
 that working openly attracts more citations,
-and here I'll argue that automation will achieve faster time-to-publication
-with improved quality.
+and here I'll argue that automation will also achieve
+faster time-to-publication with improved quality.
 
 In software engineering
 [it's well known](https://dl.acm.org/doi/10.5555/3235404)
