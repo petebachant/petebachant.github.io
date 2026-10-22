@@ -26,8 +26,6 @@ navigation:
    url: /posts
  - title: Research
    url: /research
- - title: Wiki
-   url: https://github.com/petebachant/petebachant.github.io/wiki
 
 social:
    github: petebachant
