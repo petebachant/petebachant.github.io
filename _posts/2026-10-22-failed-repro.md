@@ -56,8 +56,8 @@ which was done by most others on the team in Overleaf.
 
 We were changing the code and iterating on how the test was
 run dozens of times, and I didn't want the
-"reproducibility anxiety"
-or tedium of manually copying and pasting figures and results into Overleaf.
+["reproducibility anxiety"](https://docs.calkit.org/testimonials/#becca-mccabe)
+or the tedium of manually copying and pasting figures and results into Overleaf.
 I wanted to focus on getting the whole pipeline working cleanly,
 correctly, and automatically, so my limited brainpower could be directed
 towards its validity, not remembering what files need to be shuffled
