@@ -10,9 +10,12 @@ categories:
 ---
 
 Ever since starting my PhD back in 2012,
-I was totally on board with the
-FAIR principles espoused by the Open Science movement.
-Every paper I published (unless there were some commercial restrictions)
+I was totally on board with the the Open Science movement,
+whose principles got the name
+["FAIR"](https://en.wikipedia.org/wiki/FAIR_data)
+(findable, accessible, interoperable, reusable)
+in 2016.
+Every paper I published (barring commercial restrictions)
 included open code, data, simulation configs, even computer aided design (CAD)
 files.
 And yet, throughout all those rounds of peer review,
