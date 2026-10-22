@@ -72,7 +72,7 @@ I fixed that bug and we made some adjustments to the benchmarking pipeline
 to make it more realistic per the reviewers' recommendations.
 I also added a step during the release process where the archive is extracted
 to a temporary directory and `calkit run` is called on it to verify
-everything is consistent.
+everything is complete and consistent.
 The reviewer successfully ran (and even extended) the next release
 of the project, and the article was accepted for
 [publication](https://doi.org/10.1088/1538-3873/ae6fef).
