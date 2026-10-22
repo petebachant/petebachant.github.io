@@ -71,7 +71,7 @@ the entire project to an archival service like Figshare,
 Zenodo, or our own CaltechDATA, then adding it as a reference (with a DOI)
 to the project's BibTeX file (also synced with Overleaf),
 so it can be cited in the paper.
-However, this feature had a bug while creating our initial submission,
+However, this feature had a bug while we were creating our initial submission,
 and to my surprise, one of the reviewers downloaded the project
 and tried to run it, but certain critical files were excluded.
 They tried some workarounds but ultimately gave up and let us know.
