@@ -4,15 +4,13 @@ title: Pete Bachant
 ---
 
 <div class="home" id="home">
-  <ul class="posts noList">
-    {% for post in paginator.posts %}
-      <li>
-        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-        <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
-        {{ post.content }}
-      </li>
-    {% endfor %}
-  </ul>
+  {% for post in paginator.posts %}
+    <article class="post post-preview">
+      <h1 class="postTitle"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+      {% include post_meta.html post=post %}
+      {{ post.content }}
+    </article>
+  {% endfor %}
   <!-- Pagination links -->
   <div class="pagination">
     {% if paginator.previous_page %}

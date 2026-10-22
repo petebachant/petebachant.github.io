@@ -180,18 +180,23 @@ pre {
 }
 
 code,kbd,pre,samp {
-	font-family:monospace, monospace;
+	font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
 	font-size:1em
 }
 
 .content code, .content tt {
-    padding: 0.1em;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
+    padding: .15em .35em;
     margin: 0;
-    font-size: 95%;
-    background-color: rgba(0,0,0,0.04);
-    border-radius: 3px;
+    font-size: .85em;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 4px;
+}
+
+.content pre code, .content .highlight code {
+    padding: 0;
+    font-size: inherit;
+    background: none;
+    border-radius: 0;
 }
 
 form {
@@ -450,18 +455,25 @@ th:last-child {
 }
 
 .highlight {
-	white-space:pre;
 	overflow:auto;
-	word-wrap:normal;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
-	padding:10px;
-	padding-top: 2px;
-	padding-bottom: 0;
-	margin-bottom: 1rem;
+	border-radius:6px;
+	margin:0 0 1.5rem;
 	background:#343642;
 	color:#C1C2C3
+}
+
+.highlight pre, pre.highlight {
+	margin:0;
+	padding:1em 1.25em;
+	font-size:.8em;
+	line-height:1.6;
+	white-space:pre;
+	word-wrap:normal;
+	background:none
+}
+
+.highlight .highlight {
+	margin:0
 }
 
 .highlight .hll {
@@ -658,8 +670,12 @@ body {
 	overflow-x:hidden
 }
 
-body p,body ul {
-	margin:0 0 2rem
+body p,body ul,body ol {
+	margin:0 0 1.25rem
+}
+
+.post li {
+	margin-bottom:.25rem
 }
 
 ::-moz-selection {
@@ -676,6 +692,16 @@ img,video,audio,iframe,object {
 	max-width:100%
 }
 
+img {
+	height:auto
+}
+
+iframe[src*="youtube.com"] {
+	width:560px;
+	height:auto;
+	aspect-ratio:16 / 9
+}
+
 .container {
 	max-width:610px;
 	margin-left:auto;
@@ -690,7 +716,9 @@ img,video,audio,iframe,object {
 }
 
 a {
-	color:#2e8b57
+	color:#2e8b57;
+	text-decoration-thickness:1px;
+	text-underline-offset:.15em
 }
 
 a:hover {
@@ -868,7 +896,8 @@ dd {
 }
 
 .post .meta {
-	text-align:center;
+	text-align:left;
+	margin-bottom:2rem;
 	color:gray;
 	font-family:"Open Sans",Helvetica,Arial,sans-serif;
 	font-weight:300
@@ -906,6 +935,10 @@ dd {
 
 .post .featuredImage img {
 	margin-bottom:0
+}
+
+.comments {
+	margin:2.5rem 0 2rem
 }
 
 .postNav {
@@ -1044,38 +1077,19 @@ dd {
 	float:right
 }
 
-.posts li {
-	margin-bottom:4rem;
-	position:relative
+.post-preview {
+	padding-bottom:2.5rem;
+	margin-bottom:3rem;
+	border-bottom:1px solid #e6e6e6
 }
 
-.posts li:before {
-	content:"";
-	position:absolute;
-	bottom:-2rem;
-	left:0;
-	background:#e6e6e6;
-	height:2px;
-	width:60px
-}
-
-.posts li a {
+.post-preview .postTitle a {
+	color:inherit;
 	text-decoration:none
 }
 
-.posts li a:hover {
-	text-decoration:underline
-}
-
-.posts li .date {
-	color:gray;
-	font-family:"Open Sans",Helvetica,Arial,sans-serif;
-	font-weight:300;
-	font-size:.8em
-}
-
-.posts li h3 {
-	margin:0 0 .5em
+.post-preview .postTitle a:hover {
+	color:#2e8b57
 }
 
 @media only screen and (min-width: 800px) {
@@ -1193,10 +1207,13 @@ dd {
 		float:left;
 		margin-right:2.12766%;
 		float:none;
-		margin:0 auto 1rem
+		margin:0 auto 1.25rem
 	}
 	.post h1,.post .h1,.post h2,.post .h2,.post h3,.post .h3,.post h4,.post .h4,.post h5,.post .h5,.post h6,.post .h6 {
-		margin:1rem auto
+		margin:2.5rem auto 1rem
+	}
+	.post .postTitle {
+		margin:2rem auto 1rem
 	}
 	.post .pageTitle {
 		margin:2rem auto 1em
