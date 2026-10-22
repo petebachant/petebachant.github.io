@@ -71,7 +71,7 @@ They tried some workarounds but ultimately gave up and let us know.
 I fixed that bug and we made some adjustments to the benchmarking pipeline
 to make it more realistic per the reviewers' recommendations.
 The reviewer successfully ran (and even extended) the next release
-of the full Calkit project, and the article was accepted for
+of the project, and the article was accepted for
 [publication](https://doi.org/10.1088/1538-3873/ae6fef).
 
 Looking back, we could probably have made it easier on ourselves
