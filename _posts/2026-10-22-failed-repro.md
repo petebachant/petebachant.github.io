@@ -48,7 +48,7 @@ We wrote a paper to announce this new broker,
 which included a scaling test to show that indeed,
 this new system could meet the increased load much
 better than the previous one.
-I used this as an opportunity to "dogfood"
+I used this as an opportunity to dogfood
 [Calkit](https://github.com/calkit/calkit) a bit
 and integrate this scaling
 test and its results with the writing,
