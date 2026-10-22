@@ -47,3 +47,19 @@ churned,
 and you may be able to find a faster response metric.
 One obvious one would be that they stopped using the product after half
 an hour.
+
+Optimizing delivery, since it's more like a white box, is more comfortable.
+
+Do story points correlate with revenue?
+
+PD is black box optimization. Every sprint is one sample. KR measure response. Many of your current KR measure input. Sometimes we can only measure intermediate inputs like error rate or speed.
+
+Waterfall is white box assumption. Implementation for nonlinearity and system decomposition as well. Pareto front.
+
+Prototyping is surrogate model training.
+
+CEO can serve as low order model for customer response function, but you should seek other evaluators too.
+
+Sometimes you can be certain of the map from one delivery output to customer response. Those can be OKRs. Sometimes you need a faster approximation too.
+
+Even customer response is an input for the funding response function.
