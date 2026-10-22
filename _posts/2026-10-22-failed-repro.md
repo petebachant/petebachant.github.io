@@ -46,7 +46,7 @@ and astronomy.
 We wrote a paper to announce this new broker,
 [_BOOM_](https://github.com/boom-astro/boom),
 which included a scaling test to show that indeed,
-this new system could scale to meet the increased load much
+this new system could meet the increased load much
 better than the previous one.
 I used this as an opportunity to "dogfood"
 [Calkit](https://github.com/calkit/calkit) a bit
@@ -88,7 +88,6 @@ of the project, and the article was accepted for
 Looking back, we could probably have made it easier on ourselves
 by not sharing a compendium that claimed to be
 ["single-button reproducible."]({% post_url 2025-10-17-single-button %})
-Our software's scalability was not a groundbreaking scientific discovery.
 Pointing to some open code and data is usually considered enough of a signal
 that the authors can be trusted.
 That is changing, however, with more and more research output
