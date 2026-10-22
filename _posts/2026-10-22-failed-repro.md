@@ -10,11 +10,7 @@ categories:
 ---
 
 Ever since starting my PhD back in 2012,
-I was totally on board with the the Open Science movement,
-whose principles got the name
-["FAIR"](https://en.wikipedia.org/wiki/FAIR_data)
-(findable, accessible, interoperable, reusable)
-in 2016.
+I was totally on board with the Open Science movement.
 Every paper I published (barring commercial restrictions)
 included open code, data, simulation configs, even computer aided design (CAD)
 files.
@@ -32,11 +28,11 @@ not just supplementary---were
 not checked, as far as I could tell.
 
 Fast forward to 2025 and I'm working with a team at Caltech,
-University of Minnesota, and more,
+the University of Minnesota, and more,
 to scale up an astronomical alert broker to accommodate
 the much heavier data stream from the
-Vera C. Rubin observatory, or Legacy Survey of Space and Time (LSST),
-an instrument that will facilitate countless discoveries in astrophysics
+Vera C. Rubin Observatory's Legacy Survey of Space and Time (LSST),
+a survey that will facilitate countless discoveries in astrophysics
 and astronomy.
 
 We wrote a paper to announce this new broker,
@@ -44,7 +40,7 @@ We wrote a paper to announce this new broker,
 which included a scaling test to show that indeed,
 this new system could scale to meet the increased load much
 better than the previous one.
-I used this as an opportunity to "dog food"
+I used this as an opportunity to "dogfood"
 [Calkit](https://github.com/calkit/calkit) a bit
 and integrate this scaling
 test and its results with the writing,
@@ -73,14 +69,15 @@ and tried to run it, but certain critical files were excluded.
 They tried some workarounds but ultimately gave up and let us know.
 
 I fixed that bug and we made some adjustments to the benchmarking pipeline
-to make it more realistic as recommended.
-The next release of the full Calkit project was able to be successfully
-run (and even extended) by the reviewer and the article was accepted for
-[publication](https://doi/org/10.1088/1538-3873/ae6fef).
+to make it more realistic per the reviewers' recommendations.
+The reviewer successfully ran (and even extended) the next release
+of the full Calkit project, and the article was accepted for
+[publication](https://doi.org/10.1088/1538-3873/ae6fef).
 
 Looking back, we could probably have made it easier on ourselves
-by not sharing a compendium that claimed to be "single-button reproducible."
-It's not like it was some groundbreaking scientific result.
+by not sharing a compendium that claimed to be
+["single-button reproducible."]({% post_url 2025-10-17-single-button %})
+Our software's scalability was not a groundbreaking scientific discovery.
 The code and data simply being available is usually enough of a signal
 that the authors deserve some trust.
 That is changing, however, with more and more research output
