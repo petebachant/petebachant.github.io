@@ -1,0 +1,2 @@
+{% assign minutes = include.post.content | number_of_words | divided_by: 238 | at_least: 1 %}
+<p class="meta">{{ include.post.date | date: '%B %-d, %Y' }} &middot; {{ minutes }} min read</p>
