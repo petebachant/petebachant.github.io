@@ -77,7 +77,7 @@ and tried to run it, but certain critical files were excluded.
 They tried some workarounds but ultimately gave up and let us know.
 
 I fixed that bug and we made some adjustments to the benchmarking pipeline
-to make it more realistic per the reviewers' recommendations.
+to make it more realistic per the reviewer's recommendations.
 I also added a step during the release process where the archive is extracted
 to a temporary directory and `calkit run` is called on it to verify
 everything is complete and consistent.
