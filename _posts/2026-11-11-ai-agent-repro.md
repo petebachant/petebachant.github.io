@@ -34,7 +34,8 @@ Their work was evaluated based on whether or not they followed
 these computational reproducibility best practices:
 
 1. Use version control to keep a history of all file changes.
-2. Use an environment manager to record the exact package versions used.
+2. Use an environment manager to record the exact package versions used,
+   i.e., save a "lock file."
 3. Use a pipeline or build system that tracks the content in
    (i.e., hashes) input and output files.
 4. Define the provenance (or source) for any data imported or created by hand.
@@ -46,21 +47,51 @@ The goal is to have something runnable, but not need to actually
 run it to be able to understand how the outputs were created.
 Note that validation that the methods were correct was not a priority.
 We just want to be able to know if these results came from these files,
-i.e., that the agent described its work with no ambiguity,
+i.e., that the agent fully documented its work with no ambiguity,
 as you'd hope for in science.
 
-Maybe this won't be surprising,
-but by default, if you ask an AI agent to analyze some data,
-they'll just give you the outputs.
-This was true in
+I'm not sure if I found the results surprising,
+but when not asked to work reproducibly, the agents basically never did.
+All saved their source code with the exception of one Codex run,
+which sent raw text directly into R.
+Only one OpenCode agent saved an environment spec file (requirements.txt),
+but it didn't include exact versions, so it doesn't count as passing
+rule 2.
 
 Of course I can't get through a blog on my own website without
-shilling some free software, so here we go.
-As part of the experiment I ran a second set of trials that simply added
-"Use Calkit." to the prompt. That's it---just two extra words.
-This bumped reproducibility rates up to
-<!-- TODO: numbers -->
+shilling some free software, so I repeated the same experiment
+with "Use Calkit." added to the prompt. That's it---just two extra words
+and everything else left as is.
+This (also maybe not surprisingly) bumped reproducibility rates up
+significantly.
+All agents saved their source code and used an I/O hashing pipeline.
+Nearly all used good environment management practices.
+One interesting outlier was Codex,
+which never used version control in any run.
+OpenCode was the only agent that actually attempted to define the provenance
+of the raw data, but only in one instance.
+On the whole, however, OpenCode did the best, so if you're looking
+for the most transparent and reproducible agent,
+it might be your best bet.
+It's also the only one whose source code is openly available.
 
+One aspect of reproducibility that was not explicitly graded is the
+mapping of numerical results into the report document.
+In the non-Calkit case, the agent simply copied the results in,
+which was generally okay, except for one case where the agent
+averaged already-rounded numbers and quoted a result that was different
+from that printed by the analysis by one decimal place.
+
+<!-- TODO: cite recent blog where copy/paste errors were common -->
+
+AI agents make producing research outputs so much faster.
+This experiment itself was put together with Claude Code and I think
+it would have taken at least ten times longer if done by hand.
+However, the bottleneck
+has now shifted to verification and validation---checking that
+the outputs were generated as described, and that they actually back
+up the claims.
+For verification, following reproducibility best practices is key
 This experiment itself was done in a Calkit project, which you are free
 to attempt to reproduce, or maybe replicate since it's not really
 possible to remove randomness from LLM outputs.
