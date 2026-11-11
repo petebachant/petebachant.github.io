@@ -39,9 +39,11 @@ these computational reproducibility best practices:
 3. Use a pipeline or build system that tracks the content in
    (i.e., hashes) input and output files.
 4. Define the provenance (or source) for any data imported or created by hand.
-5. Automate the propagation of components into composite artifacts, e.g.,
-   figures and numerical results computed in a script and then used in a
-   document. The alternative is manual uploads or copy/paste.
+5. Automatically assemble composite artifacts like papers and reports
+   from their components (figures, tables, results),
+   rather than copying them in by hand. This is important because if a
+   component changes, that change needs to propagate into the composite,
+   which can be error prone if done manually.
 
 The implication is that if the agents follow these practices,
 it will be quick and easy to verify that the outputs were indeed produced
