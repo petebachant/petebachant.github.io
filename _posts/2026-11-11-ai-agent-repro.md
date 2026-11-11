@@ -7,6 +7,9 @@ categories:
   - Open science
   - Reproducibility
   - Software engineering
+  - AI
+  - Agentic AI
+  - Research software
 ---
 
 AI coding agents like Claude Code, Codex, and OpenCode are
@@ -46,6 +49,20 @@ We just want to be able to know if these results came from these files,
 i.e., that the agent described its work with no ambiguity,
 as you'd hope for in science.
 
-## Results
+Maybe this won't be surprising,
+but by default, if you ask an AI agent to analyze some data,
+they'll just give you the outputs.
+This was true in
 
-## Conclusion
+Of course I can't get through a blog on my own website without
+shilling some free software, so here we go.
+As part of the experiment I ran a second set of trials that simply added
+"Use Calkit." to the prompt. That's it---just two extra words.
+This bumped reproducibility rates up to
+<!-- TODO: numbers -->
+
+This experiment itself was done in a Calkit project, which you are free
+to attempt to reproduce, or maybe replicate since it's not really
+possible to remove randomness from LLM outputs.
+In any case, better reproducibility in your agentic analysis workflows
+is two words away.
