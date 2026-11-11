@@ -44,16 +44,17 @@ these computational reproducibility best practices:
    document. The alternative is manual uploads or copy/paste.
 
 The implication is that if the agents follow these practices,
-it will be quick to verify that the outputs were indeed produced by the
-inputs and process definitions (scripts).
+it will be quick and easy to verify that the outputs were indeed produced
+by the inputs and process definitions (scripts, notebooks, etc.)
 The goal is to have something runnable, but not need to actually
-run it to be able to understand how the outputs were created.
-Note that validation that the methods were correct was not a priority.
-We just want to be able to know if these results came from these files,
-i.e., that the agent fully documented its work with no ambiguity,
-as you'd hope for in science.
+run it to be able to understand how the outputs were created,
+which is especially important for expensive, long-running tasks like
+large scale simulations.
+With verification made easier, we can spend more time and effort validating
+that the approach properly answers the research questions.
 
-I'm not sure if I found the results surprising,
+Now let's talk about the results.
+I'm not sure if I found this surprising,
 but when not asked to work reproducibly, the agents basically never did.
 All saved their source code with the exception of one Codex run,
 which sent raw text directly into R.
