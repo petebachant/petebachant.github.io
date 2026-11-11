@@ -26,7 +26,7 @@ and fully describe how they did so?
 
 To find out, I set up a little computational experiment.
 Claude Code, Codex, and OpenCode were all given the same prompt to
-analyze and visualize a dataset.
+analyze and visualize a dataset, then create a short report.
 <!-- TODO: Get n reps in here? -->
 Each was repeated multiple times in a "sandbox" so it mimicked
 a fresh install with a new user on a new machine.
@@ -39,6 +39,9 @@ these computational reproducibility best practices:
 3. Use a pipeline or build system that tracks the content in
    (i.e., hashes) input and output files.
 4. Define the provenance (or source) for any data imported or created by hand.
+5. Automate the propagation of components into composite artifacts, e.g.,
+   figures and numerical results computed in a script and then used in a
+   document. The alternative is manual uploads or copy/paste.
 
 The implication is that if the agents follow these practices,
 it will be quick to verify that the outputs were indeed produced by the
