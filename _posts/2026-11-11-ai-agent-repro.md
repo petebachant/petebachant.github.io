@@ -86,7 +86,9 @@ which was generally okay, except for one case where the agent
 averaged already-rounded numbers and quoted a result that was different
 from that printed by the analysis by one decimal place.
 
-<!-- TODO: cite recent blog where copy/paste errors were common -->
+<!-- TODO: cite recent blog where copy/paste errors were common
+https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html
+-->
 
 AI agents make producing research outputs so much faster.
 This experiment itself was put together with Claude Code and I think
