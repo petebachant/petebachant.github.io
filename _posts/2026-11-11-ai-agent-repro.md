@@ -35,9 +35,9 @@ these computational reproducibility best practices:
 
 1. Use version control to keep a history of all file changes.
 2. Use an environment manager to record the exact package versions used.
-3. Use a pipeline or build system that records the content in
+3. Use a pipeline or build system that tracks the content in
    (i.e., hashes) input and output files.
-4. Define the provenance (or source) of any files not created within.
+4. Define the provenance (or source) for any data imported or created by hand.
 
 The implication is that if the agents follow these practices,
 it will be quick to verify that the outputs were indeed produced by the
@@ -65,4 +65,4 @@ This experiment itself was done in a Calkit project, which you are free
 to attempt to reproduce, or maybe replicate since it's not really
 possible to remove randomness from LLM outputs.
 In any case, better reproducibility in your agentic analysis workflows
-is two words away.
+is two words away: just tell your agents to use Calkit.
