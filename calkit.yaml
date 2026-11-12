@@ -29,3 +29,8 @@ misc:
     imported_from:
       project: petebachant/ai-agent-behavior
       path: results/reproducibility.json
+  - path: _data/ai-agent-behavior/agents/claude.yaml
+    imported_from:
+      project: petebachant/ai-agent-behavior
+      path: agents/claude.yaml
+      git_ref: 9584a0595f87

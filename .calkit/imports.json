@@ -1,4 +1,17 @@
 {
+  "_data/ai-agent-behavior/agents/claude.yaml": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "agents/claude.yaml",
+      "git_ref": "9584a0595f87"
+    },
+    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "hash": "sha256:415363a7929f6e66a62941943708e0f35ce8fa15c7c40ffe2e94756cdc5a65e4",
+    "fetched": "2026-11-12T14:34:54+00:00"
+  },
   "_data/ai-agent-behavior/reproducibility.json": {
     "source": {
       "kind": "calkit",

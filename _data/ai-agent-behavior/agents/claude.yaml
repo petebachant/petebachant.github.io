@@ -1,0 +1,6 @@
+# How the claude agent is invoked: its CLI, the CLI's version, and the
+# pinned model. The CLI is installed at that version from the npm lock file
+# in agents/clis/claude; see README.md for how agents are run.
+cli: claude
+version: "2.1.310"
+model: claude-opus-5-5
