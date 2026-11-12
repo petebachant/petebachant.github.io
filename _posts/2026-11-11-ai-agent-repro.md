@@ -22,14 +22,14 @@ They'll produce beautiful HTML artifacts filled with rich figures
 and tables,
 but do they work in a verifiable, transparent, and reproducible way,
 such that they could be trusted to produce scientific evidence
-and fully and honestly describe how they did so?
+and fully describe how they did it?
 
 To find out, I set up a little computational experiment.
 Claude Code, Codex, and OpenCode were all given the same prompt to
 analyze and visualize a dataset, then create a short report.
 <!-- TODO: Get n reps in here? -->
 Each was repeated multiple times in a "sandbox" so it mimicked
-a fresh install with a new sessions on a new machine.
+a fresh install with a new session on a new machine.
 Their work was evaluated based on whether or not they followed
 these computational reproducibility best practices:
 
