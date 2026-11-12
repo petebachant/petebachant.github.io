@@ -55,7 +55,9 @@ large-scale simulations.
 With verification made easier, we can spend more time and effort validating
 that the approach properly answers the research questions.
 
-Now, the results.
+Now, the results, shown in figures 1 and 2, each showing the results
+of 5 runs for each agent, with figure 2 showing what happens when
+Git is installed on the machine.
 I'm not sure if I find this surprising,
 but when they weren't asked to work reproducibly,
 the agents basically never did.
@@ -71,10 +73,10 @@ and it didn't do it for every run.
 <!-- TODO: mention averaging the rounded values -->
 
 ![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
-_The share of each agent's runs that followed each practice, and that saved an environment spec and the code that made the figure, when not asked to work reproducibly, on a machine without Git._
+_Figure 1. The fraction of runs where each agent used various practices on a machine without Git installed._
 
 ![Reproducibility practices followed unprompted, with Git installed](/images/ai-agent-repro/practices-unprompted-git.png)
-_The same, on a machine with Git installed._
+_Figure 2. The same conditions as figure 1 except with Git installed._
 
 Of course I can't get through a post on my own website without
 shilling some free software, so I repeated the same experiment
@@ -95,7 +97,7 @@ It's also the only one whose source code is openly available,
 and you can easily set it to use open-weight models.
 
 ![Reproducibility practices followed when told to use Calkit](/images/ai-agent-repro/practices-use-calkit.png)
-_The same, when the prompt ended with "Use Calkit." on a machine with the Calkit CLI but not its agent skills._
+_Figure 3. Agent reproducibility practice rates when told to use Calkit._
 
 Next I ran another set of tests with the "use Calkit" prompt,
 but with Calkit's agent skills installed.
@@ -108,7 +110,7 @@ though the prospect of automatically testing agent skills in CI checks
 feels exhausting already.
 
 ![Reproducibility practices followed when told to use Calkit, with its skills](/images/ai-agent-repro/practices-use-calkit-skills.png)
-_The same, with Calkit's agent skills installed as its docs say for each agent._
+_Figure 3. Agent reproducibility practice rates when told to use Calkit with its agent skills installed._
 
 <!-- TODO: cite recent blog where copy/paste errors were common
 https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html

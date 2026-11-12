@@ -53,3 +53,9 @@ giscus:
   repo_id: MDEwOlJlcG9zaXRvcnk0MTY4MDg4Ng==
   category: Announcements
   category_id: DIC_kwDOAnv_9s4DJWy7
+
+# Only for 'jekyll serve': have the browser check CSS and images again on
+# each reload, so changes show without a hard refresh
+webrick:
+  headers:
+    Cache-Control: no-cache
