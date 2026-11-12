@@ -43,7 +43,7 @@ these computational reproducibility best practices:
    from their components (figures, tables, results),
    rather than copying them in by hand.
 
-The implication is that if the agents follow these practices,
+The idea is that if the agents follow these practices,
 it will be quick and easy to verify that the outputs were indeed produced
 by the inputs and process definitions (scripts, notebooks, etc.).
 The goal is to create something runnable that you don't actually need to run
@@ -61,7 +61,7 @@ but when they weren't asked to work reproducibly,
 the agents basically never did.
 All saved their source code with the exception of one Codex run
 in each set,
-which sent raw text directly into R.
+which executed R code directly via the command line without saving it.
 Only one OpenCode run in each set
 saved an environment spec file (requirements.txt),
 but they didn't include exact versions, and therefore don't count
@@ -79,6 +79,17 @@ but the value it copied into the report differed in the last decimal place,
 since it ran a one-off command to average together rounded values
 instead of taking the value the script calculated.
 
+Michael Frank published a very interesting
+[blog post](https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html)
+recently describing the results of having Claude Code audit
+the reproducibility of his own papers over the past five years.
+Many of the numbers that didn't reproduce were apparently typos.
+This suggests it's worth it for both humans and agents
+to avoid manually typing in numerical results,
+not only because that invites typos,
+but because projects evolve and it's easy to forget to update
+a value everywhere it's been used.
+
 ![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
 _Figure 1. The fraction of runs where each agent used various practices on a machine without Git installed._
 
@@ -90,8 +101,8 @@ shilling some of my free software, so I repeated the same experiment
 with "Use Calkit." added to the prompt. That's it---just two extra words
 and everything else left as is.
 
-This (also maybe not surprisingly) bumped reproducibility rates up
-quite a bit.
+This (also maybe not surprisingly) bumped reproducibility practice
+rates up dramatically.
 All agents saved their source code and used an I/O hashing pipeline.
 Nearly all used good environment management practices.
 One interesting outlier was Codex,
@@ -118,12 +129,8 @@ feels exhausting already.
 ![Reproducibility practices followed when told to use Calkit, with its skills](/images/ai-agent-repro/practices-use-calkit-skills.png)
 _Figure 4. Agent reproducibility practice rates when told to use Calkit with its agent skills installed._
 
-<!-- TODO: cite recent blog where copy/paste errors were common
-https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html
--->
-
 AI agents make producing research outputs so much faster.
-This experiment itself (but not this writing)
+This experiment itself
 was put together with Claude Code, and I think
 it would have taken at least ten times longer if done by hand.
 However, the bottleneck
