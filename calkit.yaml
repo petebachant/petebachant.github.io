@@ -15,6 +15,15 @@ figures:
     imported_from:
       project: petebachant/ai-agent-behavior
       path: figures/practices-use-calkit-skills.png
+  - path: images/ai-agent-repro/practices-unprompted-git.png
+    title: Reproducibility practices followed unprompted, with Git installed
+    description: The share of each agent's runs following each of the five
+      reproducibility practices, and saving an environment spec and the source
+      code that made the figure, when asked for the same everyday analysis on a
+      machine with Git installed.
+    imported_from:
+      project: petebachant/ai-agent-behavior
+      path: figures/practices-unprompted-git.png
 misc:
   - path: _data/ai-agent-behavior/reproducibility.json
     imported_from:

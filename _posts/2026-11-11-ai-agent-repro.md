@@ -73,6 +73,9 @@ and it didn't do it for every run.
 ![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
 _The share of each agent's runs that followed each practice, and that saved an environment spec and the code that made the figure, when not asked to work reproducibly, on a machine without Git._
 
+![Reproducibility practices followed unprompted, with Git installed](/images/ai-agent-repro/practices-unprompted-git.png)
+_The same, on a machine with Git installed._
+
 Of course I can't get through a post on my own website without
 shilling some free software, so I repeated the same experiment
 with "Use Calkit." added to the prompt. That's it---just two extra words
