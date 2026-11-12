@@ -2,7 +2,7 @@
 comments: true
 date: 2026-11-11
 layout: post
-title: "AI agents won't work reproducibly if you don't tell them to"
+title: "AI agents don't work reproducibly if you don't tell them to"
 categories:
   - Open science
   - Reproducibility
@@ -14,7 +14,7 @@ categories:
 
 AI coding agents like Claude Code, Codex, and OpenCode are
 amazing little information machines, but their use comes with some risk.
-Everyone has heard of the hallucination problems,
+I'm sure you've heard of the hallucination problems,
 where the large language model (LLM) seems to simply make things up,
 but what about their use in research computations?
 These agents are very good at writing code and analyzing data.
@@ -22,7 +22,7 @@ They'll produce beautiful HTML artifacts filled with rich figures
 and tables,
 but do they work in a verifiable, transparent, and reproducible way,
 such that they could be trusted to produce scientific evidence
-and fully describe how they did so?
+and fully and honestly describe how they did so?
 
 To find out, I set up a little computational experiment.
 Claude Code, Codex, and OpenCode were all given the same prompt to
@@ -34,16 +34,14 @@ Their work was evaluated based on whether or not they followed
 these computational reproducibility best practices:
 
 1. Use version control to keep a history of all file changes.
-2. Use an environment manager to record the exact package versions used,
-   i.e., save a "lock file."
+2. Use an environment manager to record the exact software
+   package versions used, i.e., save a "lock file."
 3. Use a pipeline or build system that tracks the content in
    (i.e., hashes) input and output files.
 4. Define the provenance (or source) for any data imported or created by hand.
 5. Automatically assemble composite artifacts like papers and reports
    from their components (figures, tables, results),
-   rather than copying them in by hand. This is important because if a
-   component changes, that change needs to propagate into the composite,
-   which can be error prone if done manually.
+   rather than copying them in by hand.
 
 The implication is that if the agents follow these practices,
 it will be quick and easy to verify that the outputs were indeed produced
@@ -57,12 +55,20 @@ that the approach properly answers the research questions.
 
 Now let's talk about the results.
 I'm not sure if I found this surprising,
-but when not asked to work reproducibly, the agents basically never did.
+but when they weren't asked to work reproducibly,
+the agents basically never did.
 All saved their source code with the exception of one Codex run,
 which sent raw text directly into R.
 Only one OpenCode agent saved an environment spec file (requirements.txt),
 but it didn't include exact versions, so it doesn't count as passing
 rule 2.
+Codex was the only agent that ever automatically assembled the report
+with a script instead of manually inserting the values,
+and it didn't do it for every run.
+
+<!-- TODO: mention averaging the rounded values -->
+
+![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
 
 Of course I can't get through a blog on my own website without
 shilling some free software, so I repeated the same experiment
@@ -81,27 +87,37 @@ for the most transparent and reproducible agent,
 it might be your best bet.
 It's also the only one whose source code is openly available.
 
-One aspect of reproducibility that was not explicitly graded is the
-mapping of numerical results into the report document.
-In the non-Calkit case, the agent simply copied the results in,
-which was generally okay, except for one case where the agent
-averaged already-rounded numbers and quoted a result that was different
-from that printed by the analysis by one decimal place.
+![Reproducibility practices followed when told to use Calkit](/images/ai-agent-repro/practices-use-calkit.png)
+
+Next I ran another set of tests with the "use Calkit" prompt,
+but with Calkit's agent skills installed.
+This especially helped in the automated document assembly category,
+but using version control and
+attempting to define the provenance for the raw data was still
+lacking---good fodder for improvement and retesting,
+though the prospect of automatically testing agent skills in CI checks
+feels exhausting already.
+
+![Reproducibility practices followed when told to use Calkit, with its skills](/images/ai-agent-repro/practices-use-calkit-skills.png)
 
 <!-- TODO: cite recent blog where copy/paste errors were common
 https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html
 -->
 
 AI agents make producing research outputs so much faster.
-This experiment itself was put together with Claude Code and I think
+This experiment itself (but not this writing)
+was put together with Claude Code and I think
 it would have taken at least ten times longer if done by hand.
 However, the bottleneck
 has now shifted to verification and validation---checking that
 the outputs were generated as described, and that they actually back
 up the claims.
-For verification, following reproducibility best practices is key
-This experiment itself was done in a Calkit project, which you are free
-to attempt to reproduce, or maybe replicate since it's not really
-possible to remove randomness from LLM outputs.
+For verification, following reproducibility best practices is key,
+but I don't think there are really any shortcuts for validation.
+This experiment itself was done in a
+[Calkit project](https://github.com/petebachant/ai-agent-behavior),
+which you could try to reproduce (`calkit run`),
+though I suppose it would be more interesting
+to try replicating (`calkit run --force`).
 In any case, better reproducibility in your agentic analysis workflows
 is two words away: just tell your agents to use Calkit.
