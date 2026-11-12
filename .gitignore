@@ -4,3 +4,5 @@ _drafts
 *.xcf
 .jekyll-cache
 *.DS_Store
+.dvcignore
+.dvc
