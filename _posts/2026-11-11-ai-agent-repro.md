@@ -28,8 +28,7 @@ To find out, I set up a little computational experiment.
 Claude Code, Codex, and OpenCode were all given the same prompt to
 analyze and visualize a dataset, then create a short report.
 Each agent was run
-<!-- ckvalue _data/ai-agent-behavior/reproducibility.json summary.default.by_agent.claude.n_runs -->5
-<!-- /ckvalue -->
+<!-- ckvalue _data/ai-agent-behavior/reproducibility.json summary.default.by_agent.claude.n_runs -->5<!-- /ckvalue -->
 times in a "sandbox" so it mimicked
 a fresh install with a new session on a new machine.
 Their work was evaluated based on whether or not they followed
@@ -61,21 +60,23 @@ Git is installed on the machine.
 I'm not sure if I find this surprising,
 but when they weren't asked to work reproducibly,
 the agents basically never did.
-All saved their source code with the exception of one Codex run,
+All saved their source code with the exception of one Codex run
+in each set,
 which sent raw text directly into R.
-Only one OpenCode run saved an environment spec file (requirements.txt),
-but it didn't include exact versions, so it doesn't count as passing
+Only one OpenCode run in each set
+saved an environment spec file (requirements.txt),
+but they didn't include exact versions, and therefore don't pass
 rule 2.
 None used version control, regardless of whether or not Git was installed.
-Codex did the best by far automatically assembling the report
+Codex did the best by far at automatically assembling the report
 with a script instead of manually inserting the values,
 but didn't do it for every run.
-OpenCode tried once out of its ten runs and Claude Code never did.
+OpenCode succeeded once out of its ten runs and Claude Code never did.
 
 Claude Code made an interesting mistake that shows the importance of
 automating the propagation of results into documents.
 In one run, it printed an estimated value from the analysis script,
-but the value it copied into the report was off by 0.1,
+but the value it copied into the report differed in the last decimal place,
 since it ran a one-off command to average together rounded values
 instead of taking an average directly from the results.
 
@@ -96,13 +97,11 @@ All agents saved their source code and used an I/O hashing pipeline.
 Nearly all used good environment management practices.
 One interesting outlier was Codex,
 which never used version control in any run.
-OpenCode was the only agent that actually attempted to define the provenance
+OpenCode was the only agent that successfully defined the provenance
 of the raw data, but only in one instance.
 On the whole, however, OpenCode did the best, so if you're looking
 for the most transparent and reproducible agent,
 it might be your best bet.
-It's also the only one whose source code is openly available,
-and you can easily set it to use open-weight models.
 
 ![Reproducibility practices followed when told to use Calkit](/images/ai-agent-repro/practices-use-calkit.png)
 _Figure 3. Agent reproducibility practice rates when told to use Calkit._
@@ -112,13 +111,13 @@ but with Calkit's agent skills installed.
 This especially helped in the automated document assembly category,
 but using version control and
 attempting to define the provenance for the raw data were still
-sorely lacking.
+sorely lacking, and maybe even got a little worse.
 That's good fodder for improvement and retesting,
 though the prospect of automatically testing agent skills in CI checks
 feels exhausting already.
 
 ![Reproducibility practices followed when told to use Calkit, with its skills](/images/ai-agent-repro/practices-use-calkit-skills.png)
-_Figure 3. Agent reproducibility practice rates when told to use Calkit with its agent skills installed._
+_Figure 4. Agent reproducibility practice rates when told to use Calkit with its agent skills installed._
 
 <!-- TODO: cite recent blog where copy/paste errors were common
 https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html
