@@ -103,7 +103,8 @@ _Figure 1. The fraction of runs where each agent used various practices on a mac
 _Figure 2. The same conditions as figure 1 except with Git installed._
 
 Of course I can't get through a post on my own website without
-shilling some of my own open source software,
+shilling some of my own
+[open source software](https://github.com/calkit/calkit),
 so I repeated the same experiment
 with "Use Calkit." added to the prompt. That's it---just two extra words
 and everything else left as is.
