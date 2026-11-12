@@ -70,7 +70,7 @@ and it didn't do it for every run.
 
 ![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
 
-Of course I can't get through a blog on my own website without
+Of course I can't get through a post on my own website without
 shilling some free software, so I repeated the same experiment
 with "Use Calkit." added to the prompt. That's it---just two extra words
 and everything else left as is.
