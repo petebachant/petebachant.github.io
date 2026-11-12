@@ -1,0 +1,17 @@
+owner: petebachant
+name: petebachant.github.io
+title: petebachant.me
+description: Pete Bachant's website.
+figures:
+  - path: images/ai-agent-repro/practices-unprompted.png
+    imported_from:
+      project: petebachant/ai-agent-behavior
+      path: figures/practices-unprompted.png
+  - path: images/ai-agent-repro/practices-use-calkit.png
+    imported_from:
+      project: petebachant/ai-agent-behavior
+      path: figures/practices-use-calkit.png
+  - path: images/ai-agent-repro/practices-use-calkit-skills.png
+    imported_from:
+      project: petebachant/ai-agent-behavior
+      path: figures/practices-use-calkit-skills.png
