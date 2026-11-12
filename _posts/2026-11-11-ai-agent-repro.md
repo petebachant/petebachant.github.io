@@ -94,7 +94,8 @@ but with Calkit's agent skills installed.
 This especially helped in the automated document assembly category,
 but using version control and
 attempting to define the provenance for the raw data was still
-lacking---good fodder for improvement and retesting,
+lacking.
+That's good fodder for improvement and retesting,
 though the prospect of automatically testing agent skills in CI checks
 feels exhausting already.
 
