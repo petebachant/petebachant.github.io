@@ -24,9 +24,12 @@ but do they work in a verifiable, transparent, and reproducible way,
 such that they could be trusted to produce scientific evidence
 and fully describe how they did it?
 
-<!-- TODO: Import and cite models used with each -->
+<!-- TODO: Import and cite models used with each.
+We currently only have the slug names imported.
+-->
 To find out, I set up a little computational experiment.
-Claude Code, Codex, and OpenCode were all given the same prompt to
+Claude Code (Opus 5.5), Codex (GPT-6 Luna),
+and OpenCode (DeepSeek V4.1 Flash) were all given the same prompt to
 analyze and visualize a dataset, then create a short report.
 Each agent was run <!-- ckvalue _data/ai-agent-behavior/reproducibility.json summary.default.by_agent.claude.n_runs -->5<!-- /ckvalue -->
 times in a "sandbox" with identical conditions so it mimicked
