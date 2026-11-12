@@ -15,3 +15,8 @@ figures:
     imported_from:
       project: petebachant/ai-agent-behavior
       path: figures/practices-use-calkit-skills.png
+misc:
+  - path: _data/ai-agent-behavior/reproducibility.json
+    imported_from:
+      project: petebachant/ai-agent-behavior
+      path: results/reproducibility.json

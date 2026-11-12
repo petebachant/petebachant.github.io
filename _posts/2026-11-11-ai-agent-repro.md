@@ -27,8 +27,7 @@ and fully describe how they did it?
 To find out, I set up a little computational experiment.
 Claude Code, Codex, and OpenCode were all given the same prompt to
 analyze and visualize a dataset, then create a short report.
-<!-- TODO: Get n reps in here? -->
-Each was repeated multiple times in a "sandbox" so it mimicked
+Each agent was run <!-- ckvalue _data/ai-agent-behavior/reproducibility.json summary.default.by_agent.claude.n_runs -->5<!-- /ckvalue --> times in a "sandbox" so it mimicked
 a fresh install with a new session on a new machine.
 Their work was evaluated based on whether or not they followed
 these computational reproducibility best practices:

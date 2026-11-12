@@ -1,4 +1,16 @@
 {
+  "_data/ai-agent-behavior/reproducibility.json": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "results/reproducibility.json"
+    },
+    "git_rev": "ee55d910418114f846722adaac2b9a9908a10ece",
+    "hash": "sha256:4ef6c0f3961f4676aa42c1d2520ff9da22a36e485c4f16fe83ae0fad34a5cc5c",
+    "fetched": "2026-11-12T04:28:55+00:00"
+  },
   "images/ai-agent-repro/practices-unprompted.png": {
     "source": {
       "kind": "calkit",
