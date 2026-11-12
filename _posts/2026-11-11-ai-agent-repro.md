@@ -18,12 +18,13 @@ You've surely heard of the hallucination problems,
 where the large language model (LLM) seems to simply make things up,
 but what about their use in research computations?
 These agents are very good at writing code and analyzing data.
-They'll produce beautiful HTML artifacts filled with rich figures
+They'll produce beautiful documents filled with rich figures
 and tables,
 but do they work in a verifiable, transparent, and reproducible way,
 such that they could be trusted to produce scientific evidence
 and fully describe how they did it?
 
+<!-- TODO: Import and cite models used with each -->
 To find out, I set up a little computational experiment.
 Claude Code, Codex, and OpenCode were all given the same prompt to
 analyze and visualize a dataset, then create a short report.
@@ -71,6 +72,8 @@ Codex did the best by far at automatically assembling the report
 with a script instead of manually inserting the values,
 but didn't do it for every run.
 OpenCode succeeded once out of its ten runs and Claude Code never did.
+These behaviors were also surprisingly replicable, i.e.,
+figures 1 and 2 match quite well despite being completely unique sets of runs.
 
 Claude Code made an interesting mistake that shows the importance of
 automating the propagation of results into documents.
@@ -79,14 +82,14 @@ but the value it copied into the report differed in the last decimal place,
 since it ran a one-off command to average together rounded values
 instead of taking the value the script calculated.
 
-Michael Frank published a very interesting
+Michael Frank recently published a very interesting
 [blog post](https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html)
-recently describing the results of having Claude Code audit
+describing the results of having Claude Code audit
 the reproducibility of his own papers over the past five years.
 Many of the numbers that didn't reproduce were apparently typos.
 This suggests it's worth it for both humans and agents
 to avoid manually typing in numerical results,
-not only because that invites typos,
+not only because it invites typos,
 but because projects evolve and it's easy to forget to update
 a value everywhere it's been used.
 
@@ -97,7 +100,8 @@ _Figure 1. The fraction of runs where each agent used various practices on a mac
 _Figure 2. The same conditions as figure 1 except with Git installed._
 
 Of course I can't get through a post on my own website without
-shilling some of my free software, so I repeated the same experiment
+shilling some of my own open source software,
+so I repeated the same experiment
 with "Use Calkit." added to the prompt. That's it---just two extra words
 and everything else left as is.
 
@@ -108,9 +112,9 @@ Nearly all used good environment management practices.
 One interesting outlier was Codex,
 which never used version control in any run.
 OpenCode was the only agent that successfully defined the provenance
-of the raw data, but only in one instance.
+of the raw data, but only once.
 On the whole, however, OpenCode did the best, so if you're looking
-for the most transparent and reproducible agent,
+for the most transparent and reproducible agent harness,
 it might be your best bet.
 
 ![Reproducibility practices followed when told to use Calkit](/images/ai-agent-repro/practices-use-calkit.png)
