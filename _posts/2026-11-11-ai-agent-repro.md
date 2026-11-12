@@ -27,9 +27,8 @@ and fully describe how they did it?
 To find out, I set up a little computational experiment.
 Claude Code, Codex, and OpenCode were all given the same prompt to
 analyze and visualize a dataset, then create a short report.
-Each agent was run
-<!-- ckvalue _data/ai-agent-behavior/reproducibility.json summary.default.by_agent.claude.n_runs -->5<!-- /ckvalue -->
-times in a "sandbox" so it mimicked
+Each agent was run <!-- ckvalue _data/ai-agent-behavior/reproducibility.json summary.default.by_agent.claude.n_runs -->5<!-- /ckvalue -->
+times in a "sandbox" with identical conditions so it mimicked
 a fresh install with a new session on a new machine.
 Their work was evaluated based on whether or not they followed
 these computational reproducibility best practices:
@@ -37,7 +36,7 @@ these computational reproducibility best practices:
 1. Use version control to keep a history of all file changes.
 2. Use an environment manager to record the exact software
    package versions used, i.e., save a "lock file."
-3. Use a pipeline or build system that tracks (i.e., hashes) the content in
+3. Use a pipeline or build system that tracks (i.e., hashes) the content of
    input and output files.
 4. Define the provenance (or source) for any data imported or created by hand.
 5. Automatically assemble composite artifacts like papers and reports
@@ -65,8 +64,8 @@ in each set,
 which sent raw text directly into R.
 Only one OpenCode run in each set
 saved an environment spec file (requirements.txt),
-but they didn't include exact versions, and therefore don't pass
-rule 2.
+but they didn't include exact versions, and therefore don't count
+as following practice 2.
 None used version control, regardless of whether or not Git was installed.
 Codex did the best by far at automatically assembling the report
 with a script instead of manually inserting the values,
@@ -78,7 +77,7 @@ automating the propagation of results into documents.
 In one run, it printed an estimated value from the analysis script,
 but the value it copied into the report differed in the last decimal place,
 since it ran a one-off command to average together rounded values
-instead of taking an average directly from the results.
+instead of taking the value the script calculated.
 
 ![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
 _Figure 1. The fraction of runs where each agent used various practices on a machine without Git installed._
@@ -92,7 +91,7 @@ with "Use Calkit." added to the prompt. That's it---just two extra words
 and everything else left as is.
 
 This (also maybe not surprisingly) bumped reproducibility rates up
-significantly.
+quite a bit.
 All agents saved their source code and used an I/O hashing pipeline.
 Nearly all used good environment management practices.
 One interesting outlier was Codex,
@@ -106,7 +105,7 @@ it might be your best bet.
 ![Reproducibility practices followed when told to use Calkit](/images/ai-agent-repro/practices-use-calkit.png)
 _Figure 3. Agent reproducibility practice rates when told to use Calkit._
 
-Next I ran another set of tests with the "use Calkit" prompt,
+Next I ran another set of tests with the "Use Calkit." prompt,
 but with Calkit's agent skills installed.
 This especially helped in the automated document assembly category,
 but using version control and
@@ -125,7 +124,7 @@ https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-comp
 
 AI agents make producing research outputs so much faster.
 This experiment itself (but not this writing)
-was put together with Claude Code and I think
+was put together with Claude Code, and I think
 it would have taken at least ten times longer if done by hand.
 However, the bottleneck
 has now shifted to verification and validation---checking that
