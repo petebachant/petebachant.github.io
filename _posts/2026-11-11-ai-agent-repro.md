@@ -29,7 +29,7 @@ Claude Code, Codex, and OpenCode were all given the same prompt to
 analyze and visualize a dataset, then create a short report.
 <!-- TODO: Get n reps in here? -->
 Each was repeated multiple times in a "sandbox" so it mimicked
-a fresh install with a new user on a new machine.
+a fresh install with a new sessions on a new machine.
 Their work was evaluated based on whether or not they followed
 these computational reproducibility best practices:
 
@@ -53,8 +53,8 @@ large scale simulations.
 With verification made easier, we can spend more time and effort validating
 that the approach properly answers the research questions.
 
-Now let's talk about the results.
-I'm not sure if I found this surprising,
+Now, the results.
+I'm not sure if I find this surprising,
 but when they weren't asked to work reproducibly,
 the agents basically never did.
 All saved their source code with the exception of one Codex run,
