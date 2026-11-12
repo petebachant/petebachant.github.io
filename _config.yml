@@ -1,6 +1,17 @@
 # Site settings
 title: petebachant.me
 include: ["_pages"]
+# Jekyll's defaults, plus Calkit's project file
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CNAME
+  - calkit.yaml
 email: petebachant@gmail.com
 description: My personal website
 baseurl: "" # the subpath of your site, e.g. /blog/

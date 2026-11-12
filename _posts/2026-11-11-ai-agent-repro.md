@@ -14,7 +14,7 @@ categories:
 
 AI coding agents like Claude Code, Codex, and OpenCode are
 amazing little information machines, but their use comes with some risk.
-I'm sure you've heard of the hallucination problems,
+You've surely heard of the hallucination problems,
 where the large language model (LLM) seems to simply make things up,
 but what about their use in research computations?
 These agents are very good at writing code and analyzing data.
@@ -85,7 +85,8 @@ of the raw data, but only in one instance.
 On the whole, however, OpenCode did the best, so if you're looking
 for the most transparent and reproducible agent,
 it might be your best bet.
-It's also the only one whose source code is openly available.
+It's also the only one whose source code is openly available,
+and you can easily set it to use open-weight models.
 
 ![Reproducibility practices followed when told to use Calkit](/images/ai-agent-repro/practices-use-calkit.png)
 
