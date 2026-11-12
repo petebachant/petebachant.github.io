@@ -9,6 +9,6 @@ POSTS := $(wildcard _posts/*.md _posts/*.markdown _drafts/*.md)
 calkit: ## Update the values posts show from the results they come from
 	calkit update markdown $(POSTS)
 
-.PHONY: check
-check: ## Fail if a post shows an out-of-date value or an edited import
+.PHONY: check-calkit
+check-calkit: ## Fail if a post shows an out-of-date value or an edited import
 	calkit update markdown --check $(POSTS)
