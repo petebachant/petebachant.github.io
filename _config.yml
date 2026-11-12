@@ -19,6 +19,11 @@ url: "https://petebachant.me" # the base hostname & protocol for your site
 github_username:  petebachant
 permalink: /:title/
 
+# No theme: the site has its own layouts and stylesheet. The github-pages gem
+# otherwise defaults to Primer, whose assets/css/style.scss overwrites
+# assets/css/style.css whenever 'jekyll serve' rebuilds
+theme: null
+
 markdown: kramdown
 highlighter: rouge
 

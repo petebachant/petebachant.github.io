@@ -55,7 +55,7 @@ large-scale simulations.
 With verification made easier, we can spend more time and effort validating
 that the approach properly answers the research questions.
 
-Now, the results, shown in figures 1 and 2, each showing the results
+Figures 1 and 2 show the results
 of 5 runs for each agent, with figure 2 showing what happens when
 Git is installed on the machine.
 I'm not sure if I find this surprising,
@@ -66,9 +66,11 @@ which sent raw text directly into R.
 Only one OpenCode run saved an environment spec file (requirements.txt),
 but it didn't include exact versions, so it doesn't count as passing
 rule 2.
-Codex was the only agent that ever automatically assembled the report
+None used version control, regardless of whether or not Git was installed.
+Codex did the best by far automatically assembling the report
 with a script instead of manually inserting the values,
-and it didn't do it for every run.
+but didn't do it for every run.
+OpenCode tried once out of its ten runs and Claude Code never did.
 
 <!-- TODO: mention averaging the rounded values -->
 
