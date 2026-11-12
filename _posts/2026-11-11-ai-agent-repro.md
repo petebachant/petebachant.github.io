@@ -71,6 +71,7 @@ and it didn't do it for every run.
 <!-- TODO: mention averaging the rounded values -->
 
 ![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
+_The share of each agent's runs that followed each practice, and that saved an environment spec and the code that made the figure, when not asked to work reproducibly, on a machine without Git._
 
 Of course I can't get through a post on my own website without
 shilling some free software, so I repeated the same experiment
@@ -91,6 +92,7 @@ It's also the only one whose source code is openly available,
 and you can easily set it to use open-weight models.
 
 ![Reproducibility practices followed when told to use Calkit](/images/ai-agent-repro/practices-use-calkit.png)
+_The same, when the prompt ended with "Use Calkit." on a machine with the Calkit CLI but not its agent skills._
 
 Next I ran another set of tests with the "use Calkit" prompt,
 but with Calkit's agent skills installed.
@@ -103,6 +105,7 @@ though the prospect of automatically testing agent skills in CI checks
 feels exhausting already.
 
 ![Reproducibility practices followed when told to use Calkit, with its skills](/images/ai-agent-repro/practices-use-calkit-skills.png)
+_The same, with Calkit's agent skills installed as its docs say for each agent._
 
 <!-- TODO: cite recent blog where copy/paste errors were common
 https://babieslearninglanguage.blogspot.com/2026/11/an-ai-audit-of-my-works-computational.html
