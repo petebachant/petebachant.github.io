@@ -1,12 +1,28 @@
 # Site settings
 title: petebachant.me
 include: ["_pages"]
+# Jekyll's defaults, plus Calkit's project file
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CNAME
+  - calkit.yaml
 email: petebachant@gmail.com
 description: My personal website
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://petebachant.me" # the base hostname & protocol for your site
 github_username:  petebachant
 permalink: /:title/
+
+# No theme: the site has its own layouts and stylesheet. The github-pages gem
+# otherwise defaults to Primer, whose assets/css/style.scss overwrites
+# assets/css/style.css whenever 'jekyll serve' rebuilds
+theme: null
 
 markdown: kramdown
 highlighter: rouge
@@ -42,3 +58,9 @@ giscus:
   repo_id: MDEwOlJlcG9zaXRvcnk0MTY4MDg4Ng==
   category: Announcements
   category_id: DIC_kwDOAnv_9s4DJWy7
+
+# Only for 'jekyll serve': have the browser check CSS and images again on
+# each reload, so changes show without a hard refresh
+webrick:
+  headers:
+    Cache-Control: no-cache

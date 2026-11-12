@@ -1,0 +1,62 @@
+{
+  "_data/ai-agent-behavior/reproducibility.json": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "results/reproducibility.json"
+    },
+    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "hash": "sha256:4ef6c0f3961f4676aa42c1d2520ff9da22a36e485c4f16fe83ae0fad34a5cc5c",
+    "fetched": "2026-11-12T05:11:52+00:00"
+  },
+  "images/ai-agent-repro/practices-unprompted-git.png": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "figures/practices-unprompted-git.png"
+    },
+    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "hash": "sha256:47be37517140069b14accde36abbb11f2af68509682f660b581e1b9d8614f6fd",
+    "fetched": "2026-11-12T05:11:20+00:00"
+  },
+  "images/ai-agent-repro/practices-unprompted.png": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "figures/practices-unprompted.png"
+    },
+    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "hash": "sha256:24115cc4d3d5ca55b588dfb5bf1bb698fefe964783bcfa198a3863b318011869",
+    "fetched": "2026-11-12T05:11:52+00:00"
+  },
+  "images/ai-agent-repro/practices-use-calkit-skills.png": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "figures/practices-use-calkit-skills.png"
+    },
+    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "hash": "sha256:a839aaf8c0372d360cd2b91136160f66f68b03df8b04b5ebde282fefee78fc18",
+    "fetched": "2026-11-12T05:11:52+00:00"
+  },
+  "images/ai-agent-repro/practices-use-calkit.png": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "figures/practices-use-calkit.png"
+    },
+    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "hash": "sha256:347e2b518a6ece2885bbc4a1ce75c86edd6490d4689f7e326eb1378f18004b35",
+    "fetched": "2026-11-12T05:11:52+00:00"
+  }
+}

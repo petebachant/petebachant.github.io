@@ -1,0 +1,2616 @@
+{
+  "description": "Score whether agents followed reproducibility best practices unprompted.\n\nEach final workspace is checked for five practices:\n\n- version control, to keep a history of all file changes: a Git repo with\n  at least one commit and nothing left uncommitted,\n- environment management, recording the exact package versions used: a\n  lock file (e.g., uv.lock, a Calkit environment lock) or a requirements\n  file pinning every package,\n- pipeline with hashed I/O, tracking the content of input and output files:\n  a record of a command together with content hashes of the script it\n  runs, an input, and an output,\n- defined provenance: the source of any data imported or created by hand\n  is defined. Here that is the data the agent was given, whose source must\n  be recorded, or asked for, and any reference values the write-up quotes,\n  e.g., \"typical handbook values\", which need a citation (a URL, DOI, or\n  numbered or author-year reference) in the same paragraph, and\n- automated assembly, building composite artifacts, such as papers and\n  reports, from their components (figures, tables, results) automatically\n  rather than copying them in by hand: here, a script saved in the\n  workspace writes the write-up, and the agent didn't then edit it by hand.\n  Most people only read the report, so a number copied into it by hand is\n  one nothing checks against the analysis.\n\nThe data's source is recorded by metadata describing the data file with a\nsource field (e.g., Calkit's ``created_by`` or ``imported_from``, or\n``source``), or a sentence in a text file or commit message naming the data\nfile with where it came from (e.g., \"provided by\", \"collected by\",\n\"Source:\"). An agent asks when its messages ask or note who collected the\ndata, where it came from, or for its ``created_by`` or ``imported_from``.\nMatching text is saved with each run so the classification can be audited.\n\nTwo prerequisites are scored too, each shown beside its practice rather\nthan counted as one: whether an environment spec was saved, i.e., any file\ndeclaring the packages, pinned or not (``env_declared``), for environment\nmanagement, and whether the source code was saved, i.e., every figure is\nnamed by a script in the workspace, not made with code passed straight to\nan interpreter (``figures_scripted``), for the pipeline.\n\nHow the write-up was produced is classified from the workspace and the\nsession transcript (``writeup_method``):\n\n- ``pipeline script`` or ``saved script``: a script in the workspace writes\n  it, as a stage of the run's own pipeline or not, and the agent didn't\n  then edit it by hand,\n- ``saved script, then edited``: the same, but the agent then edited it,\n- ``one-off command``: code passed straight to an interpreter wrote it, so\n  nothing saved can write it again, or\n- ``typed``: the agent wrote it with its file tools or a shell redirect,\n  typing in the numbers it had seen.\n\n``writeup_automated``, the fifth practice, is the first case. Whether it\nuses Calkit's own\nvalue injection (a Markdown stage, or ``calkit value`` tags) and whether a\nCalkit question's answer is templated from a results file are recorded\ntoo.\n\nHashes are recorded by any of:\n\n- a DVC lock file (``dvc.lock``, which Calkit also writes), whose stages\n  record a command and the hashes of its dependencies and outputs; for\n  provenance the whole file is one record, since a figure's stage may read\n  what another stage wrote from the data,\n- any other text file holding hashes (MD5, SHA-1, SHA-256, or Git blob) of\n  files in the workspace, e.g., a manifest a script writes, which records a\n  command if it names the script, or\n- a Git commit, whose tree records its files' hashes, and which records a\n  command if its message has one running the script (e.g.,\n  ``python fit.py``).\n\nThe data is identified by content, as a file identical to one the project\nstarted with, so moving or renaming it doesn't matter. DVC's cache and\nGit's object store hold copies of files, not records, so they're skipped.\n\nLooser and stricter variants are recorded too, e.g., any commit at all\n(``has_commits``), any file declaring dependencies (``env_declared``), any\nautomation entry point (a Makefile or run-all script), the first four\npractices together (``all_four_practices``, as the hypotheses were\nregistered before the fifth was added), and traced figures: for every\nfigure, one record holds content hashes of the figure as it is now, the\ndata, the script that wrote it, and the environment's spec or lock file.\n\nIn the ``no-git`` condition the same request is made on a machine without\nGit. From each session's messages and shell commands, it is recorded\nwhether the agent tried to use Git, mentioned it, attempted to install it,\nor suggested installing it. Matching text is saved with each run so the\nclassification can be audited.",
+  "summary": {
+    "default": {
+      "overall": {
+        "n_runs": 15,
+        "frac_version_control": 0.0,
+        "frac_environment_management": 0.0,
+        "frac_pipeline_hashed_io": 0.0,
+        "frac_defined_provenance": 0.0,
+        "frac_writeup_automated": 0.26666666666666666,
+        "frac_all_practices": 0.0,
+        "frac_all_four_practices": 0.0,
+        "frac_pipeline_any": 0.0,
+        "frac_env_pinned": 0.0,
+        "frac_has_commits": 0.0,
+        "frac_env_declared": 0.06666666666666667,
+        "frac_venv_created": 0.26666666666666666,
+        "frac_figures_scripted": 0.9333333333333333,
+        "frac_traced_figures": 0.0,
+        "frac_data_source_defined": 0.0,
+        "frac_uncited_reference_values": 0.6666666666666666,
+        "frac_readme": 0.0,
+        "frac_writeup_typed": 0.6666666666666666,
+        "frac_writeup_calkit_injection": 0.0,
+        "frac_tried_git": 0.0,
+        "frac_mentioned_git": 0.0,
+        "frac_attempted_git_install": 0.0,
+        "frac_suggested_git_install": 0.0,
+        "frac_suggested_or_attempted_git_install": 0.0,
+        "mean_n_practices": 0.26666666666666666
+      },
+      "by_agent": {
+        "claude": {
+          "n_runs": 5,
+          "frac_version_control": 0.0,
+          "frac_environment_management": 0.0,
+          "frac_pipeline_hashed_io": 0.0,
+          "frac_defined_provenance": 0.0,
+          "frac_writeup_automated": 0.0,
+          "frac_all_practices": 0.0,
+          "frac_all_four_practices": 0.0,
+          "frac_pipeline_any": 0.0,
+          "frac_env_pinned": 0.0,
+          "frac_has_commits": 0.0,
+          "frac_env_declared": 0.0,
+          "frac_venv_created": 0.0,
+          "frac_figures_scripted": 1.0,
+          "frac_traced_figures": 0.0,
+          "frac_data_source_defined": 0.0,
+          "frac_uncited_reference_values": 1.0,
+          "frac_readme": 0.0,
+          "frac_writeup_typed": 1.0,
+          "frac_writeup_calkit_injection": 0.0,
+          "frac_tried_git": 0.0,
+          "frac_mentioned_git": 0.0,
+          "frac_attempted_git_install": 0.0,
+          "frac_suggested_git_install": 0.0,
+          "frac_suggested_or_attempted_git_install": 0.0,
+          "mean_n_practices": 0.0
+        },
+        "codex": {
+          "n_runs": 5,
+          "frac_version_control": 0.0,
+          "frac_environment_management": 0.0,
+          "frac_pipeline_hashed_io": 0.0,
+          "frac_defined_provenance": 0.0,
+          "frac_writeup_automated": 0.6,
+          "frac_all_practices": 0.0,
+          "frac_all_four_practices": 0.0,
+          "frac_pipeline_any": 0.0,
+          "frac_env_pinned": 0.0,
+          "frac_has_commits": 0.0,
+          "frac_env_declared": 0.0,
+          "frac_venv_created": 0.0,
+          "frac_figures_scripted": 0.8,
+          "frac_traced_figures": 0.0,
+          "frac_data_source_defined": 0.0,
+          "frac_uncited_reference_values": 0.0,
+          "frac_readme": 0.0,
+          "frac_writeup_typed": 0.2,
+          "frac_writeup_calkit_injection": 0.0,
+          "frac_tried_git": 0.0,
+          "frac_mentioned_git": 0.0,
+          "frac_attempted_git_install": 0.0,
+          "frac_suggested_git_install": 0.0,
+          "frac_suggested_or_attempted_git_install": 0.0,
+          "mean_n_practices": 0.6
+        },
+        "opencode": {
+          "n_runs": 5,
+          "frac_version_control": 0.0,
+          "frac_environment_management": 0.0,
+          "frac_pipeline_hashed_io": 0.0,
+          "frac_defined_provenance": 0.0,
+          "frac_writeup_automated": 0.2,
+          "frac_all_practices": 0.0,
+          "frac_all_four_practices": 0.0,
+          "frac_pipeline_any": 0.0,
+          "frac_env_pinned": 0.0,
+          "frac_has_commits": 0.0,
+          "frac_env_declared": 0.2,
+          "frac_venv_created": 0.8,
+          "frac_figures_scripted": 1.0,
+          "frac_traced_figures": 0.0,
+          "frac_data_source_defined": 0.0,
+          "frac_uncited_reference_values": 1.0,
+          "frac_readme": 0.0,
+          "frac_writeup_typed": 0.8,
+          "frac_writeup_calkit_injection": 0.0,
+          "frac_tried_git": 0.0,
+          "frac_mentioned_git": 0.0,
+          "frac_attempted_git_install": 0.0,
+          "frac_suggested_git_install": 0.0,
+          "frac_suggested_or_attempted_git_install": 0.0,
+          "mean_n_practices": 0.2
+        }
+      }
+    },
+    "no-git": {
+      "overall": {
+        "n_runs": 15,
+        "frac_version_control": 0.0,
+        "frac_environment_management": 0.0,
+        "frac_pipeline_hashed_io": 0.0,
+        "frac_defined_provenance": 0.0,
+        "frac_writeup_automated": 0.2,
+        "frac_all_practices": 0.0,
+        "frac_all_four_practices": 0.0,
+        "frac_pipeline_any": 0.0,
+        "frac_env_pinned": 0.0,
+        "frac_has_commits": 0.0,
+        "frac_env_declared": 0.06666666666666667,
+        "frac_venv_created": 0.13333333333333333,
+        "frac_figures_scripted": 0.9333333333333333,
+        "frac_traced_figures": 0.0,
+        "frac_data_source_defined": 0.0,
+        "frac_uncited_reference_values": 0.6666666666666666,
+        "frac_readme": 0.0,
+        "frac_writeup_typed": 0.7333333333333333,
+        "frac_writeup_calkit_injection": 0.0,
+        "frac_tried_git": 0.0,
+        "frac_mentioned_git": 0.0,
+        "frac_attempted_git_install": 0.0,
+        "frac_suggested_git_install": 0.0,
+        "frac_suggested_or_attempted_git_install": 0.0,
+        "mean_n_practices": 0.2
+      },
+      "by_agent": {
+        "claude": {
+          "n_runs": 5,
+          "frac_version_control": 0.0,
+          "frac_environment_management": 0.0,
+          "frac_pipeline_hashed_io": 0.0,
+          "frac_defined_provenance": 0.0,
+          "frac_writeup_automated": 0.0,
+          "frac_all_practices": 0.0,
+          "frac_all_four_practices": 0.0,
+          "frac_pipeline_any": 0.0,
+          "frac_env_pinned": 0.0,
+          "frac_has_commits": 0.0,
+          "frac_env_declared": 0.0,
+          "frac_venv_created": 0.0,
+          "frac_figures_scripted": 1.0,
+          "frac_traced_figures": 0.0,
+          "frac_data_source_defined": 0.0,
+          "frac_uncited_reference_values": 1.0,
+          "frac_readme": 0.0,
+          "frac_writeup_typed": 1.0,
+          "frac_writeup_calkit_injection": 0.0,
+          "frac_tried_git": 0.0,
+          "frac_mentioned_git": 0.0,
+          "frac_attempted_git_install": 0.0,
+          "frac_suggested_git_install": 0.0,
+          "frac_suggested_or_attempted_git_install": 0.0,
+          "mean_n_practices": 0.0
+        },
+        "codex": {
+          "n_runs": 5,
+          "frac_version_control": 0.0,
+          "frac_environment_management": 0.0,
+          "frac_pipeline_hashed_io": 0.0,
+          "frac_defined_provenance": 0.0,
+          "frac_writeup_automated": 0.6,
+          "frac_all_practices": 0.0,
+          "frac_all_four_practices": 0.0,
+          "frac_pipeline_any": 0.0,
+          "frac_env_pinned": 0.0,
+          "frac_has_commits": 0.0,
+          "frac_env_declared": 0.0,
+          "frac_venv_created": 0.0,
+          "frac_figures_scripted": 0.8,
+          "frac_traced_figures": 0.0,
+          "frac_data_source_defined": 0.0,
+          "frac_uncited_reference_values": 0.0,
+          "frac_readme": 0.0,
+          "frac_writeup_typed": 0.2,
+          "frac_writeup_calkit_injection": 0.0,
+          "frac_tried_git": 0.0,
+          "frac_mentioned_git": 0.0,
+          "frac_attempted_git_install": 0.0,
+          "frac_suggested_git_install": 0.0,
+          "frac_suggested_or_attempted_git_install": 0.0,
+          "mean_n_practices": 0.6
+        },
+        "opencode": {
+          "n_runs": 5,
+          "frac_version_control": 0.0,
+          "frac_environment_management": 0.0,
+          "frac_pipeline_hashed_io": 0.0,
+          "frac_defined_provenance": 0.0,
+          "frac_writeup_automated": 0.0,
+          "frac_all_practices": 0.0,
+          "frac_all_four_practices": 0.0,
+          "frac_pipeline_any": 0.0,
+          "frac_env_pinned": 0.0,
+          "frac_has_commits": 0.0,
+          "frac_env_declared": 0.2,
+          "frac_venv_created": 0.4,
+          "frac_figures_scripted": 1.0,
+          "frac_traced_figures": 0.0,
+          "frac_data_source_defined": 0.0,
+          "frac_uncited_reference_values": 1.0,
+          "frac_readme": 0.0,
+          "frac_writeup_typed": 1.0,
+          "frac_writeup_calkit_injection": 0.0,
+          "frac_tried_git": 0.0,
+          "frac_mentioned_git": 0.0,
+          "frac_attempted_git_install": 0.0,
+          "frac_suggested_git_install": 0.0,
+          "frac_suggested_or_attempted_git_install": 0.0,
+          "mean_n_practices": 0.0
+        }
+      }
+    }
+  },
+  "failed_runs": [],
+  "runs": [
+    {
+      "run_id": "rep-1/default/claude",
+      "condition": "default",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 1,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: - **Agreement with reference values.** All three moduli match typical handbook values: about 200 GPa for steels, about 110\u2013120 GPa for titanium alloys (Ti-6Al-4V is about 114 GPa), and about 69\u201371 GPa for aluminum alloys."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-1/no-git/claude",
+      "condition": "no-git",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 1,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: | Material | *E* (GPa) | SD between specimens (GPa) | 95 % CI of mean (GPa) | R\u00b2 (pooled) | Typical handbook value | |---|---|---|---|---|---|",
+          "results.md: - All three moduli are consistent with handbook values for each material class."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-2/default/claude",
+      "condition": "default",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 2,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "REPORT.md: - **The values match typical handbook moduli.** Steel is usually 190\u2013210 GPa, titanium alloys (e.g."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "REPORT.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: REPORT.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-2/no-git/claude",
+      "condition": "no-git",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 2,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "modulus_fits.png"
+        ],
+        "figure_sources": {
+          "modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "RESULTS.md: - **The values match typical handbook moduli:** ~69\u201371 GPa for aluminum alloys, ~190\u2013210 GPa for carbon and alloy steels, and ~105\u2013120 GPa for titanium (e.g."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "RESULTS.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: RESULTS.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-3/default/claude",
+      "condition": "default",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 3,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "REPORT.md: ## Comparison with typical values",
+          "REPORT.md: | Material | This study | Typical handbook range | |---|---|---|",
+          "REPORT.md: All three estimates fall inside the expected ranges."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "REPORT.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: REPORT.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-3/no-git/claude",
+      "condition": "no-git",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 3,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "modulus_fits.png"
+        ],
+        "figure_sources": {
+          "modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "REPORT.md: - The values agree with typical handbook moduli: about 69\u201371 GPa for aluminum alloys, 105\u2013120 GPa for titanium alloys (Ti-6Al-4V \u2248 114 GPa), and 190\u2013210 GPa for steels."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "REPORT.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: REPORT.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-4/default/claude",
+      "condition": "default",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 4,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "results/stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "results/stress_strain_fits.png": [
+            "analysis/fit_modulus.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "results/stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "REPORT.md: All three values match typical handbook moduli: about 200 GPa for steels, about 110\u2013120 GPa for titanium alloys such as Ti-6Al-4V, and about 69\u201370 GPa for aluminum alloys."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "REPORT.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: REPORT.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-4/no-git/claude",
+      "condition": "no-git",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 4,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "scripts/plot.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: - All three values match typical handbook values: about 190\u2013210 GPa for steels, about 105\u2013120 GPa for titanium and its alloys (Ti-6Al-4V is about 114 GPa), and about 68\u201371 GPa for aluminum alloys."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-5/default/claude",
+      "condition": "default",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 5,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "modulus_fits.png"
+        ],
+        "figure_sources": {
+          "modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "RESULTS.md: | Material | E (GPa), mean of specimens | Specimen SD (GPa) | 95% CI, specimen-level (GPa) | Typical handbook value | |---|---|---|---|---|",
+          "RESULTS.md: All three moduli match standard values for these material classes.",
+          "RESULTS.md: - No information about alloy, temper, or test standard was provided, so the handbook comparison is only indicative."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "RESULTS.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: RESULTS.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-5/no-git/claude",
+      "condition": "no-git",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "rep": 5,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "modulus_fit.png"
+        ],
+        "figure_sources": {
+          "modulus_fit.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "modulus_fit.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "REPORT.md: - **The values agree with handbook moduli.** Typical values are about 69 GPa for aluminum alloys, 105\u2013120 GPa for titanium and Ti-6Al-4V, and 190\u2013210 GPa for carbon and stainless steels."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "REPORT.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: REPORT.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-1/default/codex",
+      "condition": "default",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 1,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.R"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "modulus_results.md"
+        ],
+        "writeup_writers": [
+          "analyze.R"
+        ],
+        "writeup_typed_by": [],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "saved script",
+        "writeup_automated": true,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 1,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-1/no-git/codex",
+      "condition": "no-git",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 1,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.svg"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.svg": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.svg": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [
+          "analyze.py"
+        ],
+        "writeup_typed_by": [],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "saved script",
+        "writeup_automated": true,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 1,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-2/default/codex",
+      "condition": "default",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 2,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.R"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [
+          "analyze.R"
+        ],
+        "writeup_typed_by": [],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "saved script",
+        "writeup_automated": true,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 1,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-2/no-git/codex",
+      "condition": "no-git",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 2,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": []
+        },
+        "figures_scripted": false,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [],
+        "writeup_one_off": [
+          "/bin/zsh -lc \"Rscript -e 'd<-read.csv(\\\"measurements.csv\\\"); mats<-unique(d\"'$material); cols<-c(aluminum=\"#2878B5\",steel=\"#D1495B\",titanium=\"#2A9D70\"); png(\"stress_strain_fits.png\",width=1200,height=800,res=150); par(mar=c(5,5,3,1),las=1,cex=1.05); plot(d$strain,d$stress_mpa,type=\"n\",xlab=\"Strain ("
+        ],
+        "writeup_in_pipeline": false,
+        "writeup_method": "one-off command",
+        "writeup_automated": false,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-3/default/codex",
+      "condition": "default",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 3,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": []
+        },
+        "figures_scripted": false,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [],
+        "writeup_one_off": [
+          "/bin/zsh -lc \"Rscript -e 'd<-read.csv(\\\"measurements.csv\\\"); mats<-c(\\\"aluminum\\\",\\\"steel\\\",\\\"titanium\\\"); fits<-lapply(mats,function(mat)lm(stress_mpa~strain,data=d[d\"'$material==mat,])); names(fits)<-mats; png(\"stress_strain_fits.png\",width=1500,height=520,res=150); old<-par(mfrow=c(1,3),mar=c(4.5"
+        ],
+        "writeup_in_pipeline": false,
+        "writeup_method": "one-off command",
+        "writeup_automated": false,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-3/no-git/codex",
+      "condition": "no-git",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 3,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.R"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-4/default/codex",
+      "condition": "default",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 4,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.svg"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.svg": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.svg": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-4/no-git/codex",
+      "condition": "no-git",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 4,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.svg"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.svg": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.svg": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [
+          "analyze.py"
+        ],
+        "writeup_typed_by": [],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "saved script",
+        "writeup_automated": true,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 1,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-5/default/codex",
+      "condition": "default",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 5,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.svg"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.svg": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.svg": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [
+          "analyze.py"
+        ],
+        "writeup_typed_by": [],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "saved script",
+        "writeup_automated": true,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 1,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-5/no-git/codex",
+      "condition": "no-git",
+      "agent": "codex",
+      "model": "gpt-6-luna",
+      "rep": 5,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.svg"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.svg": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.svg": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [
+          "analyze.py"
+        ],
+        "writeup_typed_by": [],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "saved script",
+        "writeup_automated": true,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 1,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-1/default/opencode",
+      "condition": "default",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 1,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [
+          "requirements.txt"
+        ],
+        "env_declared": true,
+        "env_pinned": false,
+        "venv_created": true,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "elastic_modulus_fits.pdf",
+          "elastic_modulus_fits.png"
+        ],
+        "figure_sources": {
+          "elastic_modulus_fits.pdf": [
+            "analyze.py"
+          ],
+          "elastic_modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "elastic_modulus_fits.pdf": [],
+          "elastic_modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: The values agree well with typical handbook moduli for aluminum alloys (~69\u201372 GPa), steels (~200\u2013210 GPa), and titanium alloys (~105\u2013120 GPa)."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-1/no-git/opencode",
+      "condition": "no-git",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 1,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [
+          "requirements.txt"
+        ],
+        "env_declared": true,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "stress_strain_fits.png"
+        ],
+        "figure_sources": {
+          "stress_strain_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "stress_strain_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "REPORT.md: - The moduli are consistent with typical polycrystalline values: aluminum alloys around 69\u201371 GPa, steels around 200\u2013210 GPa, and titanium alloys around 110\u2013120 GPa."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "REPORT.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: REPORT.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-2/default/opencode",
+      "condition": "default",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 2,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": true,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "elastic_modulus_fits.png"
+        ],
+        "figure_sources": {
+          "elastic_modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "elastic_modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: These are consistent with typical handbook values for these material classes (aluminum \u2248 69\u201372 GPa, steel \u2248 200 GPa, titanium \u2248 105\u2013120 GPa)."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [
+          "analyze.py"
+        ],
+        "writeup_typed_by": [],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "saved script",
+        "writeup_automated": true,
+        "writeup_typed": false,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 1,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-2/no-git/opencode",
+      "condition": "no-git",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 2,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "modulus_fits.pdf",
+          "modulus_fits.png"
+        ],
+        "figure_sources": {
+          "modulus_fits.pdf": [
+            "modulus_analysis.py"
+          ],
+          "modulus_fits.png": [
+            "modulus_analysis.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "modulus_fits.pdf": [],
+          "modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: The values are consistent with typical handbook moduli for these classes of metals (aluminum alloys \u2248 70 GPa, steel \u2248 200 GPa, titanium alloys \u2248 110\u2013120 GPa)."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-3/default/opencode",
+      "condition": "default",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 3,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "elastic_modulus_fits.pdf",
+          "elastic_modulus_fits.png"
+        ],
+        "figure_sources": {
+          "elastic_modulus_fits.pdf": [
+            "analyze.py"
+          ],
+          "elastic_modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "elastic_modulus_fits.pdf": [],
+          "elastic_modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: - The three materials are clearly separated and the moduli agree with typical handbook values: aluminum \u2248 69\u201371 GPa, carbon/low-alloy steel \u2248 200 GPa, and titanium alloys \u2248 110\u2013120 GPa."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-3/no-git/opencode",
+      "condition": "no-git",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 3,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": true,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "modulus_fits.png"
+        ],
+        "figure_sources": {
+          "modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: The moduli are consistent with typical handbook values for these alloys (aluminum \u2248 69\u201370 GPa, steel \u2248 200 GPa, titanium \u2248 110\u2013120 GPa)."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-4/default/opencode",
+      "condition": "default",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 4,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": true,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "elastic_modulus_fits.png"
+        ],
+        "figure_sources": {
+          "elastic_modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "elastic_modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "RESULTS.md: These agree with typical handbook values for aluminum alloys (~70 GPa), structural steels (~200 GPa), and titanium alloys (~110\u2013120 GPa), which is a useful sanity check on the measurement scale."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "RESULTS.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: RESULTS.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-4/no-git/opencode",
+      "condition": "no-git",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 4,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": true,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "elastic_modulus_fits.png"
+        ],
+        "figure_sources": {
+          "elastic_modulus_fits.png": [
+            "analyze.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "elastic_modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: - These values agree well with typical handbook moduli (Al \u2248 70 GPa, steel \u2248 200 GPa, Ti \u2248 110\u2013120 GPa), which supports the measurement and fitting approach."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-5/default/opencode",
+      "condition": "default",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 5,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": true,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "elastic_modulus_fits.png"
+        ],
+        "figure_sources": {
+          "elastic_modulus_fits.png": [
+            "analysis.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "elastic_modulus_fits.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "results.md: - **Comparison with typical values.** The results agree with commonly cited handbook moduli: aluminum \u2248 69 GPa (measured 69.4), steel \u2248 200\u2013210 GPa (measured 199.1), and titanium \u2248 105\u2013120 GPa (measured 116.6, i.e.",
+          "results.md: near the upper end of the typical range for commercial titanium alloys)."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "results.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: results.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    },
+    {
+      "run_id": "rep-5/no-git/opencode",
+      "condition": "no-git",
+      "agent": "opencode",
+      "model": "opencode/deepseek-v4.1-flash",
+      "rep": 5,
+      "checks": {
+        "git_repo": false,
+        "n_commits": 0,
+        "has_commits": false,
+        "uncommitted_files": 0,
+        "env_spec_files": [],
+        "env_declared": false,
+        "env_pinned": false,
+        "venv_created": false,
+        "automation_files": [],
+        "pipeline_any": false,
+        "hash_records": [],
+        "pipeline_records": [],
+        "pipeline_hashed_io": false,
+        "pipeline_lock": false,
+        "figures": [
+          "elastic_modulus.pdf",
+          "elastic_modulus.png"
+        ],
+        "figure_sources": {
+          "elastic_modulus.pdf": [
+            "analysis.py"
+          ],
+          "elastic_modulus.png": [
+            "analysis.py"
+          ]
+        },
+        "figures_scripted": true,
+        "figure_scripts_committed": false,
+        "figure_lineage_records": {
+          "elastic_modulus.pdf": [],
+          "elastic_modulus.png": []
+        },
+        "traced_figures": false,
+        "data_files": [
+          "measurements.csv"
+        ],
+        "data_source_records": [],
+        "data_source_statements": [],
+        "data_source_asked": [],
+        "uncited_reference_values": [
+          "RESULTS.md: The three materials are clearly distinguishable and the values are consistent with typical handbook moduli for aluminum alloys (\u224870 GPa), steel (\u2248200 GPa), and titanium alloys (\u2248110\u2013120 GPa)."
+        ],
+        "data_source_defined": false,
+        "defined_provenance": false,
+        "readme": false,
+        "version_control": false,
+        "environment_management": false,
+        "writeup_files": [
+          "RESULTS.md"
+        ],
+        "writeup_writers": [],
+        "writeup_typed_by": [
+          "file tool: RESULTS.md"
+        ],
+        "writeup_one_off": [],
+        "writeup_in_pipeline": false,
+        "writeup_method": "typed",
+        "writeup_automated": false,
+        "writeup_typed": true,
+        "writeup_calkit_injection": false,
+        "question_templated": false,
+        "n_practices": 0,
+        "all_practices": false,
+        "all_four_practices": false
+      },
+      "git": {
+        "git_commands": [],
+        "install_commands": [],
+        "install_suggestions": [],
+        "mentions": [],
+        "tried_git": false,
+        "mentioned_git": false,
+        "attempted_git_install": false,
+        "suggested_git_install": false,
+        "suggested_or_attempted_git_install": false
+      }
+    }
+  ]
+}
