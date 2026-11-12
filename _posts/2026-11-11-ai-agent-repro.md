@@ -72,7 +72,12 @@ with a script instead of manually inserting the values,
 but didn't do it for every run.
 OpenCode tried once out of its ten runs and Claude Code never did.
 
-<!-- TODO: mention averaging the rounded values -->
+Claude Code made an interesting mistake that shows the importance of
+automating the propagation of results into documents.
+In one run, it printed an estimated value from the analysis script,
+but the value it copied into the report was off by 0.1,
+since it ran a one-off command to average together rounded values
+instead of taking an average directly from the results.
 
 ![Reproducibility practices followed unprompted](/images/ai-agent-repro/practices-unprompted.png)
 _Figure 1. The fraction of runs where each agent used various practices on a machine without Git installed._
@@ -81,9 +86,10 @@ _Figure 1. The fraction of runs where each agent used various practices on a mac
 _Figure 2. The same conditions as figure 1 except with Git installed._
 
 Of course I can't get through a post on my own website without
-shilling some free software, so I repeated the same experiment
+shilling some of my free software, so I repeated the same experiment
 with "Use Calkit." added to the prompt. That's it---just two extra words
 and everything else left as is.
+
 This (also maybe not surprisingly) bumped reproducibility rates up
 significantly.
 All agents saved their source code and used an I/O hashing pipeline.
@@ -126,8 +132,11 @@ However, the bottleneck
 has now shifted to verification and validation---checking that
 the outputs were generated as described, and that they actually back
 up the claims.
-For verification, following reproducibility best practices is key,
-but I don't think there are really any shortcuts for validation.
+For verification, following reproducibility best practices is crucial,
+because you can trace through the exact path taken to produce each
+output. You don't need to simply take the agent's word for it when
+it tells you how something was created.
+
 This study was done in a
 [Calkit project](https://github.com/petebachant/ai-agent-behavior),
 which you could try to reproduce (`calkit run`),
