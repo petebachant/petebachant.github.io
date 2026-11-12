@@ -25,6 +25,19 @@
     "hash": "sha256:c5b628d5d3c006f1bde8703b046661028318535b2225a189a9c9b43c917e3f7e",
     "fetched": "2026-11-12T14:34:55+00:00"
   },
+  "_data/ai-agent-behavior/agents/opencode.yaml": {
+    "source": {
+      "kind": "calkit",
+      "hub": "https://calkit.io",
+      "project": "petebachant/ai-agent-behavior",
+      "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
+      "path": "agents/opencode.yaml",
+      "git_ref": "9584a0595f87"
+    },
+    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "hash": "sha256:26cb11616bea3ec0b3f74938a47f778c1373790326995b48b0fa67a8ec6c413c",
+    "fetched": "2026-11-12T14:34:56+00:00"
+  },
   "_data/ai-agent-behavior/reproducibility.json": {
     "source": {
       "kind": "calkit",

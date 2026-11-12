@@ -1,0 +1,6 @@
+# How the opencode agent is invoked: its CLI, the CLI's version, and the
+# pinned model. The CLI is installed at that version from the npm lock file
+# in agents/clis/opencode; see README.md for how agents are run.
+cli: opencode
+version: "2.1.4"
+model: opencode/deepseek-v4.1-flash

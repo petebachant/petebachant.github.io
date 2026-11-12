@@ -39,3 +39,8 @@ misc:
       project: petebachant/ai-agent-behavior
       path: agents/codex.yaml
       git_ref: 9584a0595f87
+  - path: _data/ai-agent-behavior/agents/opencode.yaml
+    imported_from:
+      project: petebachant/ai-agent-behavior
+      path: agents/opencode.yaml
+      git_ref: 9584a0595f87
