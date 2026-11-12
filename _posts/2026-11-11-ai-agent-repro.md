@@ -38,8 +38,8 @@ these computational reproducibility best practices:
 1. Use version control to keep a history of all file changes.
 2. Use an environment manager to record the exact software
    package versions used, i.e., save a "lock file."
-3. Use a pipeline or build system that tracks the content in
-   (i.e., hashes) input and output files.
+3. Use a pipeline or build system that tracks (i.e., hashes) the content in
+   input and output files.
 4. Define the provenance (or source) for any data imported or created by hand.
 5. Automatically assemble composite artifacts like papers and reports
    from their components (figures, tables, results),
@@ -47,11 +47,11 @@ these computational reproducibility best practices:
 
 The implication is that if the agents follow these practices,
 it will be quick and easy to verify that the outputs were indeed produced
-by the inputs and process definitions (scripts, notebooks, etc.)
-The goal is to have something runnable, but not need to actually
-run it to be able to understand how the outputs were created,
+by the inputs and process definitions (scripts, notebooks, etc.).
+The goal is to create something runnable that you don't actually need to run
+to be able to understand how the outputs were created,
 which is especially important for expensive, long-running tasks like
-large scale simulations.
+large-scale simulations.
 With verification made easier, we can spend more time and effort validating
 that the approach properly answers the research questions.
 
@@ -61,7 +61,7 @@ but when they weren't asked to work reproducibly,
 the agents basically never did.
 All saved their source code with the exception of one Codex run,
 which sent raw text directly into R.
-Only one OpenCode agent saved an environment spec file (requirements.txt),
+Only one OpenCode run saved an environment spec file (requirements.txt),
 but it didn't include exact versions, so it doesn't count as passing
 rule 2.
 Codex was the only agent that ever automatically assembled the report
@@ -96,8 +96,8 @@ Next I ran another set of tests with the "use Calkit" prompt,
 but with Calkit's agent skills installed.
 This especially helped in the automated document assembly category,
 but using version control and
-attempting to define the provenance for the raw data was still
-lacking.
+attempting to define the provenance for the raw data were still
+sorely lacking.
 That's good fodder for improvement and retesting,
 though the prospect of automatically testing agent skills in CI checks
 feels exhausting already.
@@ -118,7 +118,7 @@ the outputs were generated as described, and that they actually back
 up the claims.
 For verification, following reproducibility best practices is key,
 but I don't think there are really any shortcuts for validation.
-This experiment itself was done in a
+This study was done in a
 [Calkit project](https://github.com/petebachant/ai-agent-behavior),
 which you could try to reproduce (`calkit run`),
 though I suppose it would be more interesting
