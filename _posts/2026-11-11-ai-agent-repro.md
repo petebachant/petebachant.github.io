@@ -155,5 +155,10 @@ This study was done in a
 which you could try to reproduce (`calkit run`),
 though I suppose it would be more interesting
 to try replicating (`calkit run --force`).
+In the spirit of following best practices,
+the figures and results are automatically populated here
+from their source rather than being copy/pasted.
+This may be a bit overkill, but the whole point behind Calkit
+is to make it so easy it's always worth it.
 In any case, better reproducibility in your agentic analysis workflows
 is two words away: just tell your agents to use Calkit.
