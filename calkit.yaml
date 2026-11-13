@@ -7,14 +7,17 @@ figures:
     imported_from:
       project: petebachant/ai-agent-behavior
       path: figures/practices-unprompted.png
+      git_ref: v1
   - path: images/ai-agent-repro/practices-use-calkit.png
     imported_from:
       project: petebachant/ai-agent-behavior
       path: figures/practices-use-calkit.png
+      git_ref: v1
   - path: images/ai-agent-repro/practices-use-calkit-skills.png
     imported_from:
       project: petebachant/ai-agent-behavior
       path: figures/practices-use-calkit-skills.png
+      git_ref: v1
   - path: images/ai-agent-repro/practices-unprompted-git.png
     title: Reproducibility practices followed unprompted, with Git installed
     description: The share of each agent's runs following each of the five
@@ -24,23 +27,25 @@ figures:
     imported_from:
       project: petebachant/ai-agent-behavior
       path: figures/practices-unprompted-git.png
+      git_ref: v1
 misc:
   - path: _data/ai-agent-behavior/reproducibility.json
     imported_from:
       project: petebachant/ai-agent-behavior
       path: results/reproducibility.json
+      git_ref: v1
   - path: _data/ai-agent-behavior/agents/claude.yaml
     imported_from:
       project: petebachant/ai-agent-behavior
       path: agents/claude.yaml
-      git_ref: 9584a0595f87
+      git_ref: v1
   - path: _data/ai-agent-behavior/agents/codex.yaml
     imported_from:
       project: petebachant/ai-agent-behavior
       path: agents/codex.yaml
-      git_ref: 9584a0595f87
+      git_ref: v1
   - path: _data/ai-agent-behavior/agents/opencode.yaml
     imported_from:
       project: petebachant/ai-agent-behavior
       path: agents/opencode.yaml
-      git_ref: 9584a0595f87
+      git_ref: v1

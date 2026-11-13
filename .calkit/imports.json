@@ -6,11 +6,11 @@
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
       "path": "agents/claude.yaml",
-      "git_ref": "9584a0595f87"
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:415363a7929f6e66a62941943708e0f35ce8fa15c7c40ffe2e94756cdc5a65e4",
-    "fetched": "2026-11-12T14:34:54+00:00"
+    "fetched": "2026-11-13T02:26:54+00:00"
   },
   "_data/ai-agent-behavior/agents/codex.yaml": {
     "source": {
@@ -19,11 +19,11 @@
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
       "path": "agents/codex.yaml",
-      "git_ref": "9584a0595f87"
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:c5b628d5d3c006f1bde8703b046661028318535b2225a189a9c9b43c917e3f7e",
-    "fetched": "2026-11-12T14:34:55+00:00"
+    "fetched": "2026-11-13T02:26:54+00:00"
   },
   "_data/ai-agent-behavior/agents/opencode.yaml": {
     "source": {
@@ -32,11 +32,11 @@
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
       "path": "agents/opencode.yaml",
-      "git_ref": "9584a0595f87"
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:26cb11616bea3ec0b3f74938a47f778c1373790326995b48b0fa67a8ec6c413c",
-    "fetched": "2026-11-12T14:34:56+00:00"
+    "fetched": "2026-11-13T02:26:54+00:00"
   },
   "_data/ai-agent-behavior/reproducibility.json": {
     "source": {
@@ -44,11 +44,12 @@
       "hub": "https://calkit.io",
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
-      "path": "results/reproducibility.json"
+      "path": "results/reproducibility.json",
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:4ef6c0f3961f4676aa42c1d2520ff9da22a36e485c4f16fe83ae0fad34a5cc5c",
-    "fetched": "2026-11-12T05:11:52+00:00"
+    "fetched": "2026-11-13T02:26:54+00:00"
   },
   "images/ai-agent-repro/practices-unprompted-git.png": {
     "source": {
@@ -56,11 +57,12 @@
       "hub": "https://calkit.io",
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
-      "path": "figures/practices-unprompted-git.png"
+      "path": "figures/practices-unprompted-git.png",
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:47be37517140069b14accde36abbb11f2af68509682f660b581e1b9d8614f6fd",
-    "fetched": "2026-11-12T05:11:20+00:00"
+    "fetched": "2026-11-13T02:26:54+00:00"
   },
   "images/ai-agent-repro/practices-unprompted.png": {
     "source": {
@@ -68,11 +70,12 @@
       "hub": "https://calkit.io",
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
-      "path": "figures/practices-unprompted.png"
+      "path": "figures/practices-unprompted.png",
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:24115cc4d3d5ca55b588dfb5bf1bb698fefe964783bcfa198a3863b318011869",
-    "fetched": "2026-11-12T05:11:52+00:00"
+    "fetched": "2026-11-13T02:26:53+00:00"
   },
   "images/ai-agent-repro/practices-use-calkit-skills.png": {
     "source": {
@@ -80,11 +83,12 @@
       "hub": "https://calkit.io",
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
-      "path": "figures/practices-use-calkit-skills.png"
+      "path": "figures/practices-use-calkit-skills.png",
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:a839aaf8c0372d360cd2b91136160f66f68b03df8b04b5ebde282fefee78fc18",
-    "fetched": "2026-11-12T05:11:52+00:00"
+    "fetched": "2026-11-13T02:26:54+00:00"
   },
   "images/ai-agent-repro/practices-use-calkit.png": {
     "source": {
@@ -92,10 +96,11 @@
       "hub": "https://calkit.io",
       "project": "petebachant/ai-agent-behavior",
       "git_repo_url": "https://github.com/petebachant/ai-agent-behavior",
-      "path": "figures/practices-use-calkit.png"
+      "path": "figures/practices-use-calkit.png",
+      "git_ref": "v1"
     },
-    "git_rev": "9584a0595f87be64dc8b29cd84349ee3fef972be",
+    "git_rev": "9aa5a4fd50edc5590d4ba9eaaf9be99935d68fa7",
     "hash": "sha256:347e2b518a6ece2885bbc4a1ce75c86edd6490d4689f7e326eb1378f18004b35",
-    "fetched": "2026-11-12T05:11:52+00:00"
+    "fetched": "2026-11-13T02:26:53+00:00"
   }
 }
